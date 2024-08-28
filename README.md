@@ -1,4 +1,5 @@
 # ECE-461-Project-Repo
 Repository housing all files pertaining to our project for ECE 461.
 
-Karthik Digavalli
+Team Members:
+Shriya Srinivas, Parv Kumar, Zach Barna, Karthik Digavalli
