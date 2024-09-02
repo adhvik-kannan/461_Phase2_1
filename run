@@ -7,6 +7,10 @@ install_dependencies() {
         echo "Error during installation"
         return 1
     fi
+    if ! npm install -g typescript; then
+        echo "Error during installation"
+        return 1
+    fi
     return 0
 }
 
@@ -26,6 +30,6 @@ elif [ "$command" = "build" ]; then
     node src/urlhandler.js
     exit $?
 else
-    echo "Unknown command: $command"
+    echo command: $command
     exit 1
 fi
