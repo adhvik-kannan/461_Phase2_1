@@ -1,4 +1,4 @@
-export class urlhandler{
+class urlhandler{
     private url: URL;
 
     constructor(url: string){
@@ -9,7 +9,4 @@ export class urlhandler{
         }
     }
 
-    identifyURL():{
-        
-    }
 }
