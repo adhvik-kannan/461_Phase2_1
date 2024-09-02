@@ -21,6 +21,10 @@ command=$1
 if [ "$command" = "install" ]; then
     install_dependencies
     exit $?
+elif [ "$command" = "build" ]; then
+    tsc.cmd src/urlhandler.ts
+    node src/urlhandler.js
+    exit $?
 else
     echo "Unknown command: $command"
     exit 1
