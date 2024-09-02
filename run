@@ -22,6 +22,6 @@ if [ "$command" = "install" ]; then
     install_dependencies
     exit $?
 else
-    echo "Unknown command: $command"
+    echo command: $command
     exit 1
 fi
