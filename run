@@ -4,13 +4,26 @@
 install_dependencies() {
     echo 'Installing dependencies...'
     if ! pip install --user -r requirements.txt; then
-        echo "Error during installation"
+        echo "Error installation requirements"
         return 1
     fi
     if ! npm install -g typescript; then
-        echo "Error during installation"
+        echo "Error installing typescript"
         return 1
     fi
+    if ! npm install -g yarn; then
+        echo "Error installing yarn"
+        return 1
+    fi
+    if ! npm install @octokit/rest; then
+        echo "Error installing octokit/rest"
+        return 1
+    fi
+    if ! yarn add @octokit/rest; then
+        echo "Error adding octokit/rest"
+        return 1
+    fi
+    
     return 0
 }
 
