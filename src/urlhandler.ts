@@ -1,41 +1,46 @@
-import { Octokit } from "octokit";
 
-class urlhandler{
-    private url: URL;
+export class urlhandler{
+    protected url: URL;
     private GITHUB_URL_PATTERN;
     private NPM_URL_PATTERN;
-    private octokit; 
+    
 
     constructor(url: string){
         try{
         this.url = new URL(url);
         this.GITHUB_URL_PATTERN = /^https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
         this.NPM_URL_PATTERN = /^https:\/\/www\.npmjs\.com\/package\/([^\/]+)/;
-        this.octokit = new Octokit({ 
-            auth: 'YOUR-TOKEN',
-          });
+        
 
         } catch(error){
             throw new Error('Invalid URL');
         }
     }
 
-    indentify(url_pattern: string){
+    public identify(url_pattern: URL): string{
         if(this.GITHUB_URL_PATTERN.test(url_pattern)){
-            this.handleGit(url_pattern);
+            return "GitHub";
         }
         else if(this.NPM_URL_PATTERN.test(url_pattern)){
-            this.handleNPM(url_pattern);
+            return "NPM";
         }
+        return "Not Found";
 
     }
 
-    handleGit(url_pattern: string){
-        
-    }
+    // handleGit(url_pattern: string){
+    //     const author = "x";
+    //     const repo = "x";
+    //     this.getCommitHistory = (owner, repo)
+
+    // }
 
     handleNPM(url_pattern: string){
 
     }
+
+
+
+    
 
 }
