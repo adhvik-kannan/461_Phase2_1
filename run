@@ -39,8 +39,10 @@ if [ "$command" = "install" ]; then
     install_dependencies
     exit $?
 elif [ "$command" = "build" ]; then
-    tsc.cmd src/urlhandler.ts
-    node src/urlhandler.js
+    # tsc.cmd src/urlhandler.ts
+    tsc.cmd
+    # node src/urlhandler.js
+    node src/main_program.js
     exit $?
 else
     echo command: $command
