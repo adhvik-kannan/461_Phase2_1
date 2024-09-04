@@ -34,6 +34,7 @@ class gitAPIHandler extends urlhandler{
             console.log("This is not a GitHub URL.");
         
         
+        }
     }
 
     public async getCommitHistory(){
