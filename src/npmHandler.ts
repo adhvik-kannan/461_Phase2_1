@@ -1,4 +1,6 @@
-
+//the npmHandler should provide name, version, maintainers, dependendencies,
+//and liscence informaiton so that the metric manager can use this
+//and create the score
 
 export class npmHandler {
     static async processPackage(packageName: string) {
@@ -8,6 +10,7 @@ export class npmHandler {
             //we have to add logic here
             console.log('Checking licenses...');
             console.log('Analyzing dependencies...');
+            console.log('LicenseInformation...')
         } catch (error) {
             console.error('Error processing NPM package:', error);
         }
@@ -20,7 +23,8 @@ export class npmHandler {
             //name: //packageName,
             //version: //'1.0.0',
             //maintainers: //['maintainer1', 'maintainer2'],
-            //dependencies: //{ 'dependency1': '^1.0.0' },
+            //dependencies: //{ 'dependency1': '^1.0.0' }
+            //licenseInformation: 
         };
     }
 }
