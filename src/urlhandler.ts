@@ -1,46 +1,50 @@
+//import { GitAPIHandler } from './gitAPIHandler';
+import { npmHandler } from './npmHandler';
 
-export class urlhandler{
-    protected url: URL;
-    private GITHUB_URL_PATTERN;
-    private NPM_URL_PATTERN;
-    
+export class URLHandler {
+    private url: string;
+    private GITHUB_URL_PATTERN: RegExp;
+    private NPM_URL_PATTERN: RegExp;
 
-    constructor(url: string){
-        try{
-        this.url = new URL(url);
+    constructor(url: string) {
+        this.url = url;
         this.GITHUB_URL_PATTERN = /^https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
         this.NPM_URL_PATTERN = /^https:\/\/www\.npmjs\.com\/package\/([^\/]+)/;
-        
 
-        } catch(error){
+        if (!this.isValidUrl()) {
             throw new Error('Invalid URL');
         }
     }
 
-    public identify(url_pattern: URL): string{
-        if(this.GITHUB_URL_PATTERN.test(url_pattern)){
-            return "GitHub";
-        }
-        else if(this.NPM_URL_PATTERN.test(url_pattern)){
-            return "NPM";
-        }
-        return "Not Found";
-
+    private isValidUrl(): boolean {
+        return this.GITHUB_URL_PATTERN.test(this.url) || this.NPM_URL_PATTERN.test(this.url);
     }
 
-    // handleGit(url_pattern: string){
-    //     const author = "x";
-    //     const repo = "x";
-    //     this.getCommitHistory = (owner, repo)
+    public async handle() {
+        if (this.GITHUB_URL_PATTERN.test(this.url)) {
+            // Delegate to GitAPIHandler
+            const match = this.GITHUB_URL_PATTERN.exec(this.url);
+            const owner = match ? match[1] : null;
+            const repo = match ? match[2] : null;
 
-    // }
+            if (owner && repo) {
+                //const gitHandler = new GitAPIHandler(owner, repo);
+                //await gitHandler.processRepo();
+            } else {
+                console.error('Invalid GitHub URL format.');
+            }
+        } else if (this.NPM_URL_PATTERN.test(this.url)) {
+            // Delegate to npmHandler
+            const match = this.NPM_URL_PATTERN.exec(this.url);
+            const packageName = match ? match[1] : null;
 
-    handleNPM(url_pattern: string){
-
+            if (packageName) {
+                await npmHandler.processPackage(packageName);
+            } else {
+                console.error('Invalid NPM URL format.');
+            }
+        } else {
+            console.error('Unsupported URL type.');
+        }
     }
-
-
-
-    
-
 }
