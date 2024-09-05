@@ -32,7 +32,6 @@ if [ "$#" -ne 1 ]; then
     echo "Usage: ./run install"
     exit 1
 fi
-
 command=$1
 
 if [ "$command" = "install" ]; then
@@ -48,10 +47,14 @@ elif [ "$command" = "test" ]; then
     # do testing things
     exit $?
 else
+    if [[ "$command" =~ ^[a-zA-Z]: ]]; then
+    command=$(cygpath -u "$command")
+    fi
+
     if [ -f "$command" ]; then
         # do file things
         if [[ "$command" == *.txt ]]; then
-            # echo "This is a valid text file filepath."
+            echo "This is a valid text file filepath."
             tsc.cmd
             node src/main_program.js
             exit $?;
