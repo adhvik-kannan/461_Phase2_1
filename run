@@ -23,7 +23,14 @@ install_dependencies() {
         echo "Error adding octokit/rest"
         return 1
     fi
-    
+    if ! npm install @types/node --save-dev; then
+        echo "Error installing types/node"
+        return 1
+    fi
+    if install ts-node typescript --save-dev; then
+        echo "Error installing types/node"
+        return 1
+    fi
     return 0
 }
 
@@ -42,7 +49,8 @@ elif [ "$command" = "build" ]; then
     # tsc.cmd src/urlhandler.ts
     tsc.cmd
     # node src/urlhandler.js
-    node src/main_program.js
+    #node src/main_program.js
+    npx ts-node src/main.ts
     exit $?
 else
     echo command: $command

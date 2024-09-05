@@ -31,11 +31,11 @@ export class npmHandler {
             
         //call each function so that it can do async processing
 
-        const version = await this.getVersion(data);
-        const maintainers = await this.getMaintainers(data);
-        const dependencies = await this.getDependencies(data);
-        const license = await this.getLicense(data);
-        const name = await this.getName(data);
+            const version = await this.getVersion(data);
+            const maintainers = await this.getMaintainers(data);
+            const dependencies = await this.getDependencies(data);
+            const license = await this.getLicense(data);
+            const name = await this.getName(data);
 
         // structured metadata, we can use this in our metric manager and for our metrics
         return {
@@ -53,7 +53,7 @@ export class npmHandler {
 
     
     }
-    
+
     private static async getName(data: any) {
         try {
             return data.name || 'Unknown';
