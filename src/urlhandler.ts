@@ -3,7 +3,7 @@ import { npmHandler } from '../src/npmHandler';
 import { promises as fs } from 'fs';  // To read files
 
 
-export class URLHandler {
+export class urlhandler {
     private url: string;
     private GITHUB_URL_PATTERN: RegExp;
     private NPM_URL_PATTERN: RegExp;
@@ -30,7 +30,7 @@ export class URLHandler {
             for (const url of urls) {
                 try {
                     console.log(`Processing URL: ${url}`);
-                    const handler = new URLHandler(url);
+                    const handler = new urlhandler(url);
                     await handler.handle();
                 } catch (error) {
                     console.error(`Error processing URL ${url}:`);

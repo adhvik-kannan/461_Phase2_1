@@ -1,6 +1,6 @@
 
 import { metric_manager } from './metric_manager';
-import { URLHandler } from './urlHandler';
+import { urlhandler } from './urlhandler';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -20,7 +20,7 @@ fs.readFile(filePath, 'utf8', async (err, data) => {
         try {
             // Call the urlHandler to process each URL
             console.log(`Processing URL: ${url}`);
-            const handler = new URLHandler(url); // Initialize handler with individual URL
+            const handler = new urlhandler(url); // Initialize handler with individual URL
             await handler.handle(); // Call handler to process the URL
 
             // Once the URL is processed, create and compute the metric
