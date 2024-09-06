@@ -18,8 +18,15 @@ export class URLHandler {
         }
     }
 
-    private isValidUrl(): boolean {
-        return this.GITHUB_URL_PATTERN.test(this.url) || this.NPM_URL_PATTERN.test(this.url);
+    public identify(url_pattern: URL): string{
+        if(this.GITHUB_URL_PATTERN.test(url_pattern)){
+            return "GitHub";
+        }
+        else if(this.NPM_URL_PATTERN.test(url_pattern)){
+            return "NPM";
+        }
+        return "Not Found";
+
     }
 
     static async processUrlsFromFile(filePath: string) {
@@ -68,5 +75,11 @@ export class URLHandler {
         } else {
             console.error('Unsupported URL type.');
         }
+
     }
+
+
+
+    
+
 }
