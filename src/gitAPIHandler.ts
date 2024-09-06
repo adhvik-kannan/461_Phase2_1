@@ -1,5 +1,5 @@
 import { Octokit } from "@octokit/rest";
-import { urlhandler } from "./urlhandler.js";
+import { urlhandler } from "./urlHandler";
 
 export class gitAPIHandler extends urlhandler{
     private octokit: any;

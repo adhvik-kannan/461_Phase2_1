@@ -23,7 +23,14 @@ install_dependencies() {
         echo "Error adding octokit/rest"
         return 1
     fi
-    
+    if ! npm install @types/node --save-dev; then
+        echo "Error installing types/node"
+        return 1
+    fi
+    if install ts-node typescript --save-dev; then
+        echo "Error installing types/node"
+        return 1
+    fi
     return 0
 }
 
