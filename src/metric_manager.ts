@@ -40,6 +40,18 @@ export class metric_manager {
     public ramp_up_calc(): number {
         const startTime = performance.now();
         // calculations for ramp up factor
+
+        const documentationScore = 0;
+        const complexityScore = 0;
+        const timeImplementation = 0;
+        const learningResources = 0;
+        
+        const rampUpScore = 0.4 * documentationScore + 0.3 * complexityScore + 0.2 * timeImplementation + 0.1 * learningResources;
+
+        
+
+
+
         const endTime = performance.now();
         this.ramp_up_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
         return 1;
