@@ -1,10 +1,16 @@
 
-import { metric_manager } from './metric_manager';
-import { urlhandler } from './urlhandler';
+import { metric_manager } from './metric_manager.js';
+import { urlhandler } from './urlhandler.js';
 import * as fs from 'fs';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
 
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const filePath = path.join(__dirname, 'URL_FILE.txt'); // Path to your URL file
+
+// const filePath = path.join(__dirname, 'URL_FILE.txt'); // Path to your URL file
 
 // Read URLs from the file
 fs.readFile(filePath, 'utf8', async (err, data) => {
