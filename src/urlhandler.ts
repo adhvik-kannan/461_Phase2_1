@@ -1,28 +1,30 @@
 //import { GitAPIHandler } from './gitAPIHandler';
-import { npmHandler } from '../src/npmHandler';
+import { npmHandler } from '../src/npmHandler.js';
 import { promises as fs } from 'fs';  // To read files
+import { gitAPIHandler } from './gitAPIHandler.js';
 
 
-export class URLHandler {
-    private url: string;
+export class urlhandler {
+    public url: URL;
     private GITHUB_URL_PATTERN: RegExp;
     private NPM_URL_PATTERN: RegExp;
 
     constructor(url: string) {
-        this.url = url;
-        this.GITHUB_URL_PATTERN = /^https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
-        this.NPM_URL_PATTERN = /^https:\/\/www\.npmjs\.com\/package\/([^\/]+)/;
-
-        if (!this.isValidUrl()) {
-            throw new Error('Invalid URL');
+        try{
+            this.url = new URL(url);
+            this.GITHUB_URL_PATTERN = /^https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
+            this.NPM_URL_PATTERN = /^https:\/\/www\.npmjs\.com\/package\/([^\/]+)/;
+        }catch(error){
+            console.log("Invalid URL")
         }
+
     }
 
     public identify(url_pattern: URL): string{
-        if(this.GITHUB_URL_PATTERN.test(url_pattern)){
+        if(this.GITHUB_URL_PATTERN.test(url_pattern.toString())){
             return "GitHub";
         }
-        else if(this.NPM_URL_PATTERN.test(url_pattern)){
+        else if(this.NPM_URL_PATTERN.test(url_pattern.toString())){
             return "NPM";
         }
         return "Not Found";
@@ -37,7 +39,7 @@ export class URLHandler {
             for (const url of urls) {
                 try {
                     console.log(`Processing URL: ${url}`);
-                    const handler = new URLHandler(url);
+                    const handler = new urlhandler(url);
                     await handler.handle();
                 } catch (error) {
                     console.error(`Error processing URL ${url}:`);
@@ -50,21 +52,16 @@ export class URLHandler {
 
 
     public async handle() {
-        if (this.GITHUB_URL_PATTERN.test(this.url)) {
+        // if (this.GITHUB_URL_PATTERN.test(this.url.toString())) {
             // Delegate to GitAPIHandler
-            const match = this.GITHUB_URL_PATTERN.exec(this.url);
-            const owner = match ? match[1] : null;
-            const repo = match ? match[2] : null;
-
-            if (owner && repo) {
-                //const gitHandler = new GitAPIHandler(owner, repo);
-                //await gitHandler.processRepo();
-            } else {
-                console.error('Invalid GitHub URL format.');
-            }
-        } else if (this.NPM_URL_PATTERN.test(this.url)) {
+        if (this.identify(this.url) == "GitHub"){
+                const gitHandler = new gitAPIHandler(this.url.toString());
+                await gitHandler.getRepoDetails()
+               
+        } 
+         else if (this.NPM_URL_PATTERN.test(this.url.toString())) {
             // Delegate to npmHandler
-            const match = this.NPM_URL_PATTERN.exec(this.url);
+            const match = this.NPM_URL_PATTERN.exec(this.url.toString());
             const packageName = match ? match[1] : null;
 
             if (packageName) {
