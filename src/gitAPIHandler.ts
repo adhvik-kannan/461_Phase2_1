@@ -1,29 +1,32 @@
 import { Octokit } from "@octokit/rest";
-import { urlhandler } from "./urlHandler";
+// import { urlhandler } from "./urlhandler.js";
 
-export class gitAPIHandler extends urlhandler{
-    private octokit: any;
-    // private repo: string;
-    // private author: s tring;
-    
+export class gitAPIHandler{
+    private octokit: any;  
+    private owner: string;
+    private repo: string;
+    private url: URL
 
     constructor(url: string){
-        super(url)
+        this.url = new URL(url)
+        const tempURL = this.url.toString();
+        [this.owner, this.repo] = tempURL.replace("https://github.com/", "").split("/");
         this.octokit = new Octokit({ 
             auth: process.env.GITHUB_TOKEN
           });
+        
     }
 
     public async getRepoDetails() {
-        if (this.identify(this.url) === "GitHub") {
-            const tempURL = this.url.toString();
-            const [owner, repo] = tempURL.replace("https://github.com/", "").split("/");
-            console.log(owner, repo)
+        
+            // const tempURL = this.url.toString();
+            // const [owner, repo] = tempURL.replace("https://github.com/", "").split("/");
+            // console.log(owner, repo)
 
             try {
                 const response = await this.octokit.repos.get({
-                    owner: owner,
-                    repo: repo,
+                    owner: this.owner,
+                    repo: this.repo,
                 });
 
                 console.log(response.data); // Log the repository details
@@ -31,23 +34,22 @@ export class gitAPIHandler extends urlhandler{
             } catch (error) {
                 console.error("Error fetching repository details:", error);
             }
-        } else {
-            console.log("This is not a GitHub URL.");
+         
         
         
-        }
     }
+    
 
     public async getCommitHistory() {
-        if (this.identify(this.url) === "GitHub") {
-            const tempURL = this.url.toString();
-            const [owner, repo] = tempURL.replace("https://github.com/", "").split("/");
+        // if (this.identify(this.url) === "GitHub") {
+        //     const tempURL = this.url.toString();
+        //     const [owner, repo] = tempURL.replace("https://github.com/", "").split("/");
             
 
             try {
-                const response = await this.octokit.rest.repos.listCommits({
-                    owner: owner,
-                    repo: repo,
+                    const response = await this.octokit.rest.repos.listCommits({
+                    owner: this.owner,
+                    repo: this.repo,
                 });
                 //to get commit details
                 // response.data.forEach(commit => {
@@ -64,22 +66,19 @@ export class gitAPIHandler extends urlhandler{
             } catch (error) {
                 console.error("Error fetching repository details:", error);
             }
-        } else {
-            console.log("This is not a GitHub URL.");
+    } 
         
-        
-        }
-    }
+    
 
     public async get_readme(){
-        if (this.identify(this.url) === "GitHub") {
-            const tempURL = this.url.toString();
-            const [owner, repo] = tempURL.replace("https://github.com/", "").split("/");
+        // if (this.identify(this.url) === "GitHub") {
+        //     const tempURL = this.url.toString();
+        //     const [owner, repo] = tempURL.replace("https://github.com/", "").split("/");
 
         try{
             const response = await this.octokit.rest.repos.getReadme ({
-                owner:owner,
-                repo:repo
+                owner:this.owner,
+                repo:this.repo
             });
             console.log(response.data);
             return response.data;
@@ -88,9 +87,7 @@ export class gitAPIHandler extends urlhandler{
             console.log("error fetching readme: ", error)
         }
         }
-        else{
-            console.log("Invalid GitHub")
-        }
+        
     }
 
-}
+

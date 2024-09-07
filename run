@@ -31,6 +31,10 @@ install_dependencies() {
         echo "Error installing types/node"
         return 1
     fi
+    if install npm install axios; then
+        echo "Error installing axios"
+        return 1
+    fi
     return 0
 }
 
