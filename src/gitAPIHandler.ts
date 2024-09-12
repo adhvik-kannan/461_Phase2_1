@@ -29,7 +29,7 @@ export class gitAPIHandler{
                     repo: this.repo,
                 });
 
-                console.log(response.data); // Log the repository details
+                //console.log(response.data); // Log the repository details
                 return response.data;
             } catch (error) {
                 console.error("Error fetching repository details:", error);

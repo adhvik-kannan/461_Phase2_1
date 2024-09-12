@@ -8,8 +8,8 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const filePath = path.join(__dirname, 'URL_FILE.txt'); // Path to your URL file
-
+const filePath = path.join(__dirname, 'URL_FILE_git.txt'); // Path to your URL file
+console.log(filePath)
 // const filePath = path.join(__dirname, 'URL_FILE.txt'); // Path to your URL file
 
 // Read URLs from the file
@@ -30,7 +30,7 @@ fs.readFile(filePath, 'utf8', async (err, data) => {
             await handler.handle(); // Call handler to process the URL
 
             // Once the URL is processed, create and compute the metric
-            const test_metric = new metric_manager();
+            const test_metric = new metric_manager(url);
             const metric_array = await test_metric.parallel_metric_and_net_score_calc();
 
             // Log the results for this URL
