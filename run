@@ -27,8 +27,20 @@ install_dependencies() {
         echo "Error installing types/node"
         return 1
     fi
-    if install ts-node typescript --save-dev; then
+    if ! install ts-node typescript --save-dev; then
         echo "Error installing types/node"
+        return 1
+    fi
+    if ! install npm install axios; then
+        echo "Error installing axios"
+        return 1
+    fi
+    if  ! npm install --save isomorphic-git; then
+        echo "Error installing isomorphic-git"
+        return 1
+    fi
+    if  !npm install isomorphic-git http; then
+        echo "Error installing isomorphic-git http"
         return 1
     fi
     return 0

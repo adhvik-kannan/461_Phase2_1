@@ -1,5 +1,5 @@
 // all 'return 1;' statements are placeholders for actual calculations
-
+import { temp_bus_factor_calc } from "./bus_factor_calc.js";
 function roundToNumDecimalPlaces(val: number, num_decimal_places: number) {
     return Math.round(val * Math.pow(10, num_decimal_places)) / Math.pow(10, num_decimal_places);
 }
@@ -12,20 +12,25 @@ export class metric_manager {
     public maintainer_latency: number;
     public license_latency: number;
     public net_score_latency: number;
+    public url:string
 
-    constructor(/*a lot of arguments*/) {
+    constructor(url:string/*a lot of arguments*/) {
         this.bus_factor_latency = 0;
         this.correctness_latency = 0;
         this.ramp_up_latency = 0;
         this.maintainer_latency = 0;
         this.license_latency = 0;
         this.net_score_latency = 0;
+        this.url = url;
+
     }
     
     // functions for calculating each metric
     public bus_factor_calc(): number {
         const startTime = performance.now();
         // calculations for bus factor
+        temp_bus_factor_calc(this.url)
+
         const endTime = performance.now();
         this.bus_factor_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
         return 1;
