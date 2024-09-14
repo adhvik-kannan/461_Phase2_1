@@ -12,9 +12,10 @@ export class metric_manager {
     public maintainer_latency: number;
     public license_latency: number;
     public net_score_latency: number;
-    public url:string
+    public url:string;
+    public data:any;
 
-    constructor(url:string/*a lot of arguments*/) {
+    constructor(url:string, data/*a lot of arguments*/) {
         this.bus_factor_latency = 0;
         this.correctness_latency = 0;
         this.ramp_up_latency = 0;
@@ -22,18 +23,35 @@ export class metric_manager {
         this.license_latency = 0;
         this.net_score_latency = 0;
         this.url = url;
+        this.data = data;
 
     }
     
     // functions for calculating each metric
-    public bus_factor_calc(): number {
+    public bus_factor_calc(): Promise<number> {
         const startTime = performance.now();
         // calculations for bus factor
-        temp_bus_factor_calc(this.url)
-
-        const endTime = performance.now();
-        this.bus_factor_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
-        return 1;
+        
+        if(this.url.includes("github.com")){
+            let busfactor = temp_bus_factor_calc(this.url)
+            const endTime = performance.now();
+            this.bus_factor_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
+            return busfactor
+        }
+        else{
+            try{
+                console.log(this.data.gitUrl)
+                let busfactor =  temp_bus_factor_calc(this.data.gitUrl);
+                const endTime = performance.now();
+                this.bus_factor_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
+                return busfactor
+            }
+            catch(error){
+                console.error("Git repo not found");
+                
+            }
+        }
+        
     }
     public correctness_calc(): number {
         const startTime = performance.now();

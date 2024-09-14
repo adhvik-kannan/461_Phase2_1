@@ -5,7 +5,7 @@ export class npmHandler {
         try {
             console.log('Processing NPM Package:', packageName);
             const metaData = await this.fetchNpmPackageMetadata(packageName);
-            console.log('Processed NPM Package:', metaData);
+            //console.log('Processed NPM Package:', metaData);
             return metaData;  // Return metadata so it can be used by other components
         } catch (error) {
             console.error('Error processing NPM package.');
@@ -28,7 +28,8 @@ export class npmHandler {
                 version: this.getVersion(data),
                 maintainers: this.getMaintainers(data),
                 dependencies: this.getDependencies(data),
-                license: this.getLicense(data)
+                license: this.getLicense(data),
+                gitUrl: this.getGitRepositoryUrl(data)
             };
 
             return metaData;
@@ -61,5 +62,13 @@ export class npmHandler {
     // Extract the license information of the package
     private static getLicense(data: any) {
         return data.license || 'Unknown';
+    }
+
+    //extract gitUrl if present
+    private static getGitRepositoryUrl(data: any) {
+        if (data.repository && data.repository.url) {
+            return data.repository.url.replace(/^git\+/, '').replace(/\.git$/, ''); //clean url
+        }
+        return 'No repository URL found';
     }
 }
