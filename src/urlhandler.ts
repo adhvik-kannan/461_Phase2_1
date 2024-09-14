@@ -56,8 +56,8 @@ export class urlhandler {
             // Delegate to GitAPIHandler
         if (this.identify(this.url) == "GitHub"){
                 const gitHandler = new gitAPIHandler(this.url.toString());
-                await gitHandler.getRepoDetails()
-               
+                const data  = await gitHandler.fetchAllFiles("")
+                return data
         } 
          else if (this.NPM_URL_PATTERN.test(this.url.toString())) {
             // Delegate to npmHandler
@@ -65,7 +65,8 @@ export class urlhandler {
             const packageName = match ? match[1] : null;
 
             if (packageName) {
-                await npmHandler.processPackage(packageName);
+                const data = await npmHandler.processPackage(packageName);
+                return data;
             } else {
                 console.error('Invalid NPM URL format.');
             }

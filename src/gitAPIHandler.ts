@@ -97,12 +97,13 @@ export class gitAPIHandler{
     }
 
     public async fetchAllFiles(path:string){
-
+        
             try {
               // Fetch content of the repository at the specified path
               const response = await this.octokit.repos.getContent({
                 owner: this.owner,
                 repo: this.repo,
+                
                 path: ''
               });
 
@@ -128,6 +129,23 @@ export class gitAPIHandler{
             // console.log(response);
             
 
+
+                path,
+              });
+          
+              let files: Array<any> = [];
+          
+              if (Array.isArray(response.data)) {
+                for (const item of response.data) {
+                  if (item.type === 'file' && item.name.toLowerCase() == "license") {
+                    const license = this.fetchFileContent(item.path);
+                    return license
+                }
+              }
+              return files
+        
+            }
+
             } catch (error) {
               console.error('Error fetching files:', error);
               throw error;
@@ -146,7 +164,7 @@ export class gitAPIHandler{
           // The file content is base64 encoded, so we need to decode it
           if (response.data.type === 'file' && response.data.encoding === 'base64') {
             const content = Buffer.from(response.data.content, 'base64').toString('utf-8');
-            // console.log(content);
+
             return content;
           } else {
             throw new Error('Unable to read file content');
@@ -162,5 +180,7 @@ export class gitAPIHandler{
     
           
     }
+        
+    
 
 
