@@ -88,7 +88,8 @@ export class urlhandler {
             const packageName = match ? match[1] : null;
 
             if (packageName) {
-                await npmHandler.processPackage(packageName);
+                const data = await npmHandler.processPackage(packageName);
+                return data;
             } else {
                 console.error('Invalid NPM URL format.');
             }
