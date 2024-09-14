@@ -128,24 +128,6 @@ export class gitAPIHandler{
               return files
             // console.log(response);
             
-
-
-                path,
-              });
-          
-              let files: Array<any> = [];
-          
-              if (Array.isArray(response.data)) {
-                for (const item of response.data) {
-                  if (item.type === 'file' && item.name.toLowerCase() == "license") {
-                    const license = this.fetchFileContent(item.path);
-                    return license
-                }
-              }
-              return files
-        
-            }
-
             } catch (error) {
               console.error('Error fetching files:', error);
               throw error;
