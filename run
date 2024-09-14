@@ -70,7 +70,7 @@ else
     if [[ "$command" =~ ^[a-zA-Z]: ]]; then
     command=$(cygpath -u "$command")
     fi
-
+    
     if [ -f "$command" ]; then
         # do file things
         if [[ "$command" == *.txt ]]; then
@@ -83,7 +83,7 @@ else
             exit 1;
         fi
     else 
-        echo "Not a valid argument. Command must be either 'install', 'test', or a valid file path."
+        echo "Not a valid argument. Command must be either 'install', 'test', or a valid file path to a text file."
         exit 1;
     fi
 fi
