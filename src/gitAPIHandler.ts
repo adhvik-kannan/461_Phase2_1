@@ -34,7 +34,7 @@ export class gitAPIHandler{
             } catch (error) {
                 console.error("Error fetching repository details:", error);
             }
-         
+        
         
         
     }
@@ -80,14 +80,87 @@ export class gitAPIHandler{
                 owner:this.owner,
                 repo:this.repo
             });
-            console.log(response.data);
-            return response.data;
+
+            // decoding the content since it is base64 encoded
+            const readme_content = response.data.content;
+            const decoded_readme_content = Buffer.from(readme_content, 'base64').toString('utf-8');
+
+            // console.log(decoded_readme_content);
+            return decoded_readme_content;
+
+            // console.log(response.data);
+            // return response.data;
         }
         catch(error){
             console.log("error fetching readme: ", error)
         }
+    }
+
+    public async fetchAllFiles(path:string){
+
+            try {
+              // Fetch content of the repository at the specified path
+              const response = await this.octokit.repos.getContent({
+                owner: this.owner,
+                repo: this.repo,
+                path: ''
+              });
+
+
+          
+              let files: string[] = [];
+          
+              if (Array.isArray(response.data)) {
+                for (const item of response.data) {
+                  if (item.type === 'file') {
+                    files.push(item.path);
+                  }
+                }
+              }
+              else {
+                files.push(response.data.path);
+              }
+            //         return license
+            //     }
+            //   }
+
+              return files
+            // console.log(response);
+            
+
+            } catch (error) {
+              console.error('Error fetching files:', error);
+              throw error;
+            }
+    }
+
+    public async fetchFileContent(path: string) {
+        try {
+          const response = await this.octokit.repos.getContent({
+            owner:this.owner,
+            repo: this.repo,
+            path: path,
+          });
+
+      
+          // The file content is base64 encoded, so we need to decode it
+          if (response.data.type === 'file' && response.data.encoding === 'base64') {
+            const content = Buffer.from(response.data.content, 'base64').toString('utf-8');
+            // console.log(content);
+            return content;
+          } else {
+            throw new Error('Unable to read file content');
+          }
+        } catch (error) {
+          console.error('Error fetching file content:', error);
+          throw error;
         }
+      }
+
         
+
+    
+          
     }
 
 
