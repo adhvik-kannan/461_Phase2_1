@@ -2,7 +2,7 @@
 import { npmHandler } from '../src/npmHandler.js';
 import { promises as fs } from 'fs';  // To read files
 import { gitAPIHandler } from './gitAPIHandler.js';
-
+import { license_verifier } from './license_verifier.js';
 
 export class urlhandler {
     public url: URL;
@@ -56,10 +56,33 @@ export class urlhandler {
             // Delegate to GitAPIHandler
         if (this.identify(this.url) == "GitHub"){
                 const gitHandler = new gitAPIHandler(this.url.toString());
-                await gitHandler.getRepoDetails()
-               
-        } 
-         else if (this.NPM_URL_PATTERN.test(this.url.toString())) {
+                await gitHandler.getRepoDetails();
+                const decoded_readme = await gitHandler.get_readme();
+                const return_val = await license_verifier(decoded_readme);
+                if (return_val) {
+                    // set license verifier metric value to 1
+                    console.log(return_val);
+                    return return_val;
+                }
+                else {
+                    // get all files of the repo and find a file with the name 'License' of some sort
+                    const repo_files = await gitHandler.fetchAllFiles(this.url.toString());
+                    // console.log(repo_files);
+                    const license_regex: RegExp = /license/i;
+                    let license_found: boolean = false;
+                    for (let i=0; i<repo_files.length; i++) {
+                        if (license_regex.test(repo_files[i])) {
+                            const license_content: string = await gitHandler.fetchFileContent(repo_files[i]);
+                            license_found = await license_verifier(license_content);
+                            console.log(license_found);
+                            return license_found;
+                        }
+                    }
+                    console.log(license_found);
+                    return license_found;
+                } 
+        }
+        else if (this.NPM_URL_PATTERN.test(this.url.toString())) {
             // Delegate to npmHandler
             const match = this.NPM_URL_PATTERN.exec(this.url.toString());
             const packageName = match ? match[1] : null;
