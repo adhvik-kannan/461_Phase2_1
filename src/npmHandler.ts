@@ -1,4 +1,7 @@
 import axios from 'axios';
+import logger from './logging.js'
+import gitUrlParse from 'git-url-parse'
+import getgithuburl from 'get-github-url'
 
 export class npmHandler {
     static async processPackage(packageName: string) {
@@ -66,9 +69,34 @@ export class npmHandler {
 
     //extract gitUrl if present
     private static getGitRepositoryUrl(data: any) {
+        try{
         if (data.repository && data.repository.url) {
-            return data.repository.url.replace(/^git\+/, '').replace(/\.git$/, ''); //clean url
+            // Remove 'git+' prefix and '.git' suffix
+            // console.log(data.repository)
+            //let url = data.repository.url.replace(/^git\+/, '').replace(/\.git$/, '');
+            let url_info = gitUrlParse(data.repository.url).pathname
+            let url = getgithuburl(url_info)
+            console.log(url)
+            
+            // Check if the URL includes '@' for SSH format
+            if (!url.includes('https')) {
+                // if(url.includes("git"))
+                //Convert SSH URL to HTTPS format
+                 //url = 'https://' + url.split('@')[1].replace(':', '/');
+                // return url
+                return 'No repository URL found'
+            }
+            
+            return url; // Return normalized URL
         }
-        return 'No repository URL found';
+        else{
+            return 'No repository URL found';
+        }}
+        catch(error){
+            console.error("Error getting GitHub URL: ", error)
+            return 'No repository URL found';
+        }
+        
+        
     }
 }
