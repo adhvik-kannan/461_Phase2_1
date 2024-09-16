@@ -43,8 +43,20 @@ install_dependencies() {
         echo "Error installing isomorphic-git"
         return 1
     fi
+    if ! npm install winston; then
+        echo "Error installing winston"
+        return 1
+    fi
     if  ! npm install isomorphic-git http; then
         echo "Error installing isomorphic-git http"
+        return 1
+    fi
+    if ! npm install --save git-url-parse; then
+        echo "Error installing git-url-parse"
+        return 1
+    fi
+    if ! npm install get-github-url --save; then
+        echo "Error installing get-github-url"
         return 1
     fi
     return 0
