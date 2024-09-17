@@ -58,6 +58,7 @@ export class metric_manager {
         this.ramp_up_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
         return 1;
     }
+    
     public maintainer_calc(): number {
         const startTime = performance.now();
         // calculations for maintainer factor

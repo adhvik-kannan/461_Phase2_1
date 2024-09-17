@@ -15,6 +15,7 @@ export function maintainer_net(contributors: any, issues: any, pullRequests: any
     return responsiveMaintainerScore;
 }
 
+
 function calculateAverageResponseTime(issues: any[], pullRequests: any[]): number {
     // Calculate average response time from issues and pull requests
     //use "created_at" and "closed_at" fields from issues and pull requests
