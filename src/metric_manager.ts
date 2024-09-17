@@ -1,4 +1,7 @@
 // all 'return 1;' statements are placeholders for actual calculations
+import { Octokit } from "@octokit/rest";
+import { gitAPIHandler } from "./gitAPIHandler.js";
+import { maintainer_net } from "./maintainer_calculator.js";
 
 function roundToNumDecimalPlaces(val: number, num_decimal_places: number) {
     return Math.round(val * Math.pow(10, num_decimal_places)) / Math.pow(10, num_decimal_places);
@@ -12,14 +15,24 @@ export class metric_manager {
     public maintainer_latency: number;
     public license_latency: number;
     public net_score_latency: number;
+    public metadata: any;
+    public contributors: any;
+    public issues: any;
+    public pullRequests: any;
+    public commits: any;
 
-    constructor(/*a lot of arguments*/) {
+    constructor(data, contributors, issues, pullRequests, commits /*a lot of arguments*/) {
         this.bus_factor_latency = 0;
         this.correctness_latency = 0;
         this.ramp_up_latency = 0;
         this.maintainer_latency = 0;
         this.license_latency = 0;
         this.net_score_latency = 0;
+        this.metadata = data;
+        this.contributors = contributors;
+        this.issues = issues;
+        this.pullRequests = pullRequests;
+        this.commits = commits;
     }
     
     // functions for calculating each metric
@@ -33,6 +46,7 @@ export class metric_manager {
     public correctness_calc(): number {
         const startTime = performance.now();
         // calculations for correctness factor
+
         const endTime = performance.now();
         this.correctness_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
         return 1;
@@ -47,6 +61,12 @@ export class metric_manager {
     public maintainer_calc(): number {
         const startTime = performance.now();
         // calculations for maintainer factor
+        // console.log(this.contributors);
+        // console.log(this.issues);
+        // console.log(this.pullRequests);
+        // console.log(this.commits);
+        
+        let maintainer_score = maintainer_net(this.contributors, this.issues, this.pullRequests, this.commits);
         const endTime = performance.now();
         this.maintainer_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
         return 1;
