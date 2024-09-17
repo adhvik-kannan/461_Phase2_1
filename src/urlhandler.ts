@@ -8,6 +8,10 @@ export class urlhandler {
     public url: URL;
     private GITHUB_URL_PATTERN: RegExp;
     private NPM_URL_PATTERN: RegExp;
+    public issues: any;
+    public pullRequests: any;
+    public commits: any;
+    public contributors: any;
 
     constructor(url: string) {
         try{
@@ -56,7 +60,13 @@ export class urlhandler {
             // Delegate to GitAPIHandler
         if (this.identify(this.url) == "GitHub"){
                 const gitHandler = new gitAPIHandler(this.url.toString());
-                await gitHandler.getRepoDetails();
+                let data;
+                data = await gitHandler.getRepoDetails();;
+                this.contributors = await gitHandler.getContributors();
+                this.commits = await gitHandler.getCommitHistory();
+                this.issues = await gitHandler.getIssues();
+                this.pullRequests = await gitHandler.getPullRequests();
+                return data;
                 const decoded_readme = await gitHandler.get_readme();
                 const return_val = await license_verifier(decoded_readme);
                 if (return_val) {
@@ -89,6 +99,9 @@ export class urlhandler {
 
             if (packageName) {
                 const data = await npmHandler.processPackage(packageName);
+                this.contributors = data.contributers;
+                this.issues = data.issues;
+                this.pullRequests = data.pullRequests;
                 return data;
             } else {
                 console.error('Invalid NPM URL format.');

@@ -1,6 +1,6 @@
 import { Octokit } from "@octokit/rest";
 // import { urlhandler } from "./urlhandler.js";
-
+import fs from 'fs';
 export class gitAPIHandler{
     private octokit: any;  
     private owner: string;
@@ -61,7 +61,7 @@ export class gitAPIHandler{
                 //     console.log(`Committer Date: ${commit.commit.committer?.date}`);
                 //     console.log('---');
                 //   }); // Log the repository details
-                console.log(response.data)
+                //console.log(response.data)
                 return response;
             } catch (error) {
                 console.error("Error fetching repository details:", error);
@@ -94,6 +94,61 @@ export class gitAPIHandler{
         catch(error){
             console.log("error fetching readme: ", error)
         }
+        }
+        
+    public async getIssues() {
+            const sixMonthsAgo = new Date();
+            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+        
+            const issues = await this.octokit.issues.listForRepo({
+                owner: this.owner,
+                repo: this.repo,
+                since: sixMonthsAgo.toISOString(),
+                state: 'all', // to get both open and closed issues
+            });
+            return issues.data;
+        }
+        
+        // Fetch pull requests from the last 6 months
+        public async getPullRequests() {
+            const sixMonthsAgo = new Date();
+            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+        
+            const pullRequests = await this.octokit.pulls.list({
+                owner: this.owner,
+                repo: this.repo,
+                state: 'all', 
+                per_page: 100,
+            });
+            //console.log("Pull Requests",pullRequests.data);
+            return pullRequests.data;
+        }
+        
+        // Fetch active maintainers from the last 6 months
+        public async getContributors() {
+
+            //get commits from the last 90 days
+            const ninetyDaysAgo = new Date();
+            ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
+            const commits = await this.octokit.repos.listCommits({
+                owner: this.owner,
+                repo: this.repo,
+                since: ninetyDaysAgo.toISOString(),
+            });
+
+            //console.log("Contributors: ", contributors.data);
+            //write contributers data to a file
+
+            fs.writeFileSync('contributors.json', JSON.stringify(commits.data));
+            return commits.data;
+        }
+
+}
+
+
+    
+
+   
     }
 
     public async fetchAllFiles(path:string){
