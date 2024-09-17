@@ -3,6 +3,7 @@ import { Octokit } from "@octokit/rest";
 import { gitAPIHandler } from "./gitAPIHandler.js";
 import { maintainer_net } from "./maintainer_calculator.js";
 
+import { temp_bus_factor_calc } from "./bus_factor_calc.js";
 function roundToNumDecimalPlaces(val: number, num_decimal_places: number) {
     return Math.round(val * Math.pow(10, num_decimal_places)) / Math.pow(10, num_decimal_places);
 }
@@ -20,8 +21,10 @@ export class metric_manager {
     public issues: any;
     public pullRequests: any;
     public commits: any;
+    public url:string;
+    public data:any;
 
-    constructor(data, contributors, issues, pullRequests, commits /*a lot of arguments*/) {
+    constructor(url:string, data, contributors, issues, pullRequests, commits /*a lot of arguments*/) {
         this.bus_factor_latency = 0;
         this.correctness_latency = 0;
         this.ramp_up_latency = 0;
@@ -33,15 +36,36 @@ export class metric_manager {
         this.issues = issues;
         this.pullRequests = pullRequests;
         this.commits = commits;
+        this.url = url;
+        this.data = data;
+
     }
     
     // functions for calculating each metric
-    public bus_factor_calc(): number {
+    public bus_factor_calc(): Promise<number> {
         const startTime = performance.now();
         // calculations for bus factor
-        const endTime = performance.now();
-        this.bus_factor_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
-        return 1;
+        
+        if(this.url.includes("github.com")){
+            let busfactor = temp_bus_factor_calc(this.url)
+            const endTime = performance.now();
+            this.bus_factor_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
+            return busfactor
+        }
+        else{
+            try{
+                console.log(this.data.gitUrl)
+                let busfactor =  temp_bus_factor_calc(this.data.gitUrl);
+                const endTime = performance.now();
+                this.bus_factor_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
+                return busfactor
+            }
+            catch(error){
+                console.error("Git repo not found");
+                
+            }
+        }
+        
     }
     public correctness_calc(): number {
         const startTime = performance.now();

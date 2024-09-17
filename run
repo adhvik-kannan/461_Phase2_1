@@ -3,6 +3,10 @@
 # Function to install dependencies
 install_dependencies() {
     echo 'Installing dependencies...'
+    if ! npm install date-fns; then
+        echo "error installing date-fns"
+        return 1
+    fi
     if ! pip install --user -r requirements.txt; then
         echo "Error installation requirements"
         return 1
@@ -27,12 +31,32 @@ install_dependencies() {
         echo "Error installing types/node"
         return 1
     fi
-    if install ts-node typescript --save-dev; then
+    if ! npm install ts-node typescript --save-dev; then
         echo "Error installing types/node"
         return 1
     fi
-    if install npm install axios; then
+    if ! npm install axios; then
         echo "Error installing axios"
+        return 1
+    fi
+    if  ! npm install --save isomorphic-git; then
+        echo "Error installing isomorphic-git"
+        return 1
+    fi
+    if ! npm install winston; then
+        echo "Error installing winston"
+        return 1
+    fi
+    if  ! npm install isomorphic-git http; then
+        echo "Error installing isomorphic-git http"
+        return 1
+    fi
+    if ! npm install --save git-url-parse; then
+        echo "Error installing git-url-parse"
+        return 1
+    fi
+    if ! npm install get-github-url --save; then
+        echo "Error installing get-github-url"
         return 1
     fi
     return 0
@@ -58,7 +82,7 @@ else
     if [[ "$command" =~ ^[a-zA-Z]: ]]; then
     command=$(cygpath -u "$command")
     fi
-
+    
     if [ -f "$command" ]; then
         # do file things
         if [[ "$command" == *.txt ]]; then
@@ -71,7 +95,7 @@ else
             exit 1;
         fi
     else 
-        echo "Not a valid argument. Command must be either 'install', 'test', or a valid file path."
+        echo "Not a valid argument. Command must be either 'install', 'test', or a valid file path to a text file."
         exit 1;
     fi
 fi
