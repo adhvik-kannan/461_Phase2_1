@@ -88,68 +88,43 @@ export class npmHandler {
     }
 
     //extract gitUrl if present
-    private static getGitRepositoryUrl(data: any) {
-        try{
-        if (data.repository && data.repository.url) {
-            let url_info = gitUrlParse(data.repository.url).pathname
-            let url = getgithuburl(url_info)
-            
-            logger.debug("npm url converted to: ", url)
-            
-            // Check if the URL includes 'https' 
-            if (!url.includes('https')) {
-              
-                console.error("Invalid github URL from npm")
+    private static getGitRepositoryUrl(data: any): string {
+        try {
+            if (data.repository && data.repository.url) {
+                // Clean the URL by removing "git+" and ".git"
+                let gitUrl = data.repository.url.replace(/^git\+/, '').replace(/\.git$/, ''); 
+                
+                // Convert SSH URL to HTTPS if necessary
+                if (gitUrl.startsWith('ssh://git@github.com')) {
+                    gitUrl = gitUrl.replace('ssh://git@github.com', 'https://github.com');
+                } else if (gitUrl.startsWith('git@github.com')) {
+                    gitUrl = gitUrl.replace('git@github.com:', 'https://github.com/');
+                }
+    
+                // Parse the URL using gitUrlParse and extract the pathname
+                let urlInfo = gitUrlParse(gitUrl).pathname;
+                let normalizedUrl = getgithuburl(urlInfo); // Function to get the final GitHub URL
+    
+                // Log the converted URL
+                console.debug("npm url converted to: ", normalizedUrl);
+    
+                // Check if the URL includes 'https' and is valid
+                if (!normalizedUrl.includes('https')) {
+                    console.error("Invalid GitHub URL from npm");
+                    return '';
+                }
+    
+                return normalizedUrl; // Return the valid HTTPS URL
+            } else {
+                console.error("No repository URL found in npm metadata.");
                 return '';
             }
-            
-            return url; // Return normalized URL
-        }
-        else{
-            return '';
-        }}
-        catch(error){
-            console.error("Error getting GitHub URL: ", error)
+        } catch (error) {
+            console.error("Error getting GitHub URL: ", error);
             return '';
         }
-        
-        
     }
-    //get the issues from the npm package from the github url for the past 6 months
-    // public async getIssues(url : string) {
-    //     const sixMonthsAgo = new Date();
-    //     sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-    //     const issues = await axios.get(url + '/issues', {
-    //         params: {
-    //             since: sixMonthsAgo.toISOString(),
-    //             state: 'all'
-    //         }
-    //     });
-    //     return issues.data;
-    // }
-    // //get the pull requests from the npm package from the github url for the past 6 months
-    // public async getPullRequests(url : string) {
-    //     const sixMonthsAgo = new Date();
-    //     sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-    //     const pullRequests = await axios.get(url + '/pulls', {
-    //         params: {
-    //             state: 'all',
-    //             per_page: 100
-    //         }
-    //     });
-    //     return pullRequests.data;
-    // }
-
-    // //get the commit history from the npm package from the github url from the last 90 days
-    // public async getCommitHistory(url : string) {
-    //     const ninetyDaysAgo = new Date();
-    //     ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
-    //     const commits = await axios.get(url + '/commits', {
-    //         params: {
-    //             since: ninetyDaysAgo.toISOString()
-    //         }
-    //     });
-    //     return commits.data;
-    // }
-
+        
+        
 }
+

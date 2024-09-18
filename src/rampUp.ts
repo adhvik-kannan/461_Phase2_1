@@ -56,7 +56,6 @@ async function checkDocumentationQuality(repoPath: string): Promise<number> {
     }
 }
 
-// Determine whether the URL is for GitHub or npm
 function isGithubUrl(url: string): boolean {
     return url.includes('github.com');
 }
@@ -66,21 +65,24 @@ function isNpmUrl(url: string): boolean {
 }
 
 // Main function to calculate the ramp-up score based on URL type
-export async function calculateRampUpScore(url: string): Promise<number> {
+export async function calculateRampUpScore(url: string | URL): Promise<number> {
     const repoPath = path.resolve(process.cwd(), 'repo'); // The repo will be cloned in the current directory
 
     try {
         // Clean up the repo directory first
         await deleteDirectory(repoPath);
 
-        console.log(`Validating URL: ${url}`);
+        // Convert the URL object to a string if necessary
+        const urlString = typeof url === 'string' ? url : url.toString();
+
+        console.log(`Validating URL: ${urlString}`);
 
         let rampUpScore = 0;
 
         // Handle GitHub URLs
-        if (isGithubUrl(url)) {
+        if (isGithubUrl(urlString)) {
             console.log('Processing GitHub repository...');
-            const gitHandler = new gitAPIHandler(url);
+            const gitHandler = new gitAPIHandler(urlString);
             await gitHandler.cloneRepository(repoPath);
             console.log("Repository cloned successfully.");
 
@@ -89,9 +91,9 @@ export async function calculateRampUpScore(url: string): Promise<number> {
             console.log(`Ramp-Up Score (GitHub): ${rampUpScore}`);
 
         // Handle npm URLs
-        } else if (isNpmUrl(url)) {
+        } else if (isNpmUrl(urlString)) {
             console.log('Processing NPM package...');
-            const packageName = url.split('/').pop(); // Get package name from URL
+            const packageName = urlString.split('/').pop(); // Get package name from URL
             const npmMetadata = await npmHandler.processPackage(packageName || '');
 
             console.log('NPM Metadata:', npmMetadata);

@@ -104,7 +104,7 @@ export class urlhandler {
                 // this.contributors = data.contributers;
                 // this.issues = data.issues;
                 // this.pullRequests = data.pullRequests;
-                this.url = data.gitUrl
+                this.url = new URL(data.gitUrl);
                 const gitHandler = new gitAPIHandler(this.url.toString());
                 this.contributors = await gitHandler.getContributors();
                 this.commits = await gitHandler.getCommitHistory();

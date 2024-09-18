@@ -49,7 +49,7 @@ export class metric_manager {
     
     // functions for calculating each metric
     //public bus_factor_calc(): Promise<number> {
-    public bus_factor_calc(){        /*
+    public bus_factor_calc(){        
         const startTime = performance.now();
         // calculations for bus factor
         logger.debug("Calculating bus factor for github repo: ", this.url)
