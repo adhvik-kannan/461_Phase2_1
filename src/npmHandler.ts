@@ -8,7 +8,7 @@ import getgithuburl from 'get-github-url'
 export class npmHandler {
     static async processPackage(packageName: string) {
         try {
-            console.log('Processing NPM Package:', packageName);
+            logger.debug('Processing NPM Package:', packageName);
             const metaData = await this.fetchNpmPackageMetadata(packageName);
             //console.log('Processed NPM Package:', metaData);
             //console.log('Processed NPM Package:', metaData);
@@ -21,7 +21,7 @@ export class npmHandler {
 
     // Fetches metadata for the package, including name, version, maintainers, dependencies, and license
     private static async fetchNpmPackageMetadata(packageName: string) {
-        console.log(`Fetching metadata for package: ${packageName}`);
+        logger.debug(`Fetching metadata for package: ${packageName}`);
         const url = `https://registry.npmjs.org/${packageName}`;
         try {
             const response = await axios.get(url);
@@ -37,10 +37,10 @@ export class npmHandler {
                 maintainers: this.getMaintainers(data),
                 dependencies: this.getDependencies(data),
                 license: this.getLicense(data),
-                gitUrl: this.getGitRepositoryUrl(data),
-                contributers: this.getCommitHistory(),
-                issues: this.getIssues(),
-                pullRequests: this.getPullRequests()
+                gitUrl: this.getGitRepositoryUrl(data)
+                // contributers: this.getCommitHistory(),
+                // issues: this.getIssues(),
+                // pullRequests: this.getPullRequests()
             };
 
             return metaData;
@@ -49,18 +49,18 @@ export class npmHandler {
             throw error;
         }
     }
-    static getCommitHistory() {
-        throw new Error('Method not implemented.');
-    }
-    static getPullRequests() {
-        throw new Error('Method not implemented.');
-    }
-    static getIssues() {
-        throw new Error('Method not implemented.');
-    }
-    static getContributors() {
-        throw new Error('Method not implemented.');
-    }
+    // static getCommitHistory() {
+    //     throw new Error('Method not implemented.');
+    // }
+    // static getPullRequests() {
+    //     throw new Error('Method not implemented.');
+    // }
+    // static getIssues() {
+    //     throw new Error('Method not implemented.');
+    // }
+    // static getContributors() {
+    //     throw new Error('Method not implemented.');
+    // }
 
     // Extract the package name
     private static getName(data: any) {
@@ -91,69 +91,65 @@ export class npmHandler {
     private static getGitRepositoryUrl(data: any) {
         try{
         if (data.repository && data.repository.url) {
-            // Remove 'git+' prefix and '.git' suffix
-            // console.log(data.repository)
-            //let url = data.repository.url.replace(/^git\+/, '').replace(/\.git$/, '');
             let url_info = gitUrlParse(data.repository.url).pathname
             let url = getgithuburl(url_info)
-            console.log(url)
             
-            // Check if the URL includes '@' for SSH format
+            logger.debug("npm url converted to: ", url)
+            
+            // Check if the URL includes 'https' 
             if (!url.includes('https')) {
-                // if(url.includes("git"))
-                //Convert SSH URL to HTTPS format
-                 //url = 'https://' + url.split('@')[1].replace(':', '/');
-                // return url
-                return 'No repository URL found'
+              
+                console.error("Invalid github URL from npm")
+                return '';
             }
             
             return url; // Return normalized URL
         }
         else{
-            return 'No repository URL found';
+            return '';
         }}
         catch(error){
             console.error("Error getting GitHub URL: ", error)
-            return 'No repository URL found';
+            return '';
         }
         
         
     }
     //get the issues from the npm package from the github url for the past 6 months
-    public async getIssues(url : string) {
-        const sixMonthsAgo = new Date();
-        sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-        const issues = await axios.get(url + '/issues', {
-            params: {
-                since: sixMonthsAgo.toISOString(),
-                state: 'all'
-            }
-        });
-        return issues.data;
-    }
-    //get the pull requests from the npm package from the github url for the past 6 months
-    public async getPullRequests(url : string) {
-        const sixMonthsAgo = new Date();
-        sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-        const pullRequests = await axios.get(url + '/pulls', {
-            params: {
-                state: 'all',
-                per_page: 100
-            }
-        });
-        return pullRequests.data;
-    }
+    // public async getIssues(url : string) {
+    //     const sixMonthsAgo = new Date();
+    //     sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+    //     const issues = await axios.get(url + '/issues', {
+    //         params: {
+    //             since: sixMonthsAgo.toISOString(),
+    //             state: 'all'
+    //         }
+    //     });
+    //     return issues.data;
+    // }
+    // //get the pull requests from the npm package from the github url for the past 6 months
+    // public async getPullRequests(url : string) {
+    //     const sixMonthsAgo = new Date();
+    //     sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+    //     const pullRequests = await axios.get(url + '/pulls', {
+    //         params: {
+    //             state: 'all',
+    //             per_page: 100
+    //         }
+    //     });
+    //     return pullRequests.data;
+    // }
 
-    //get the commit history from the npm package from the github url from the last 90 days
-    public async getCommitHistory(url : string) {
-        const ninetyDaysAgo = new Date();
-        ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
-        const commits = await axios.get(url + '/commits', {
-            params: {
-                since: ninetyDaysAgo.toISOString()
-            }
-        });
-        return commits.data;
-    }
+    // //get the commit history from the npm package from the github url from the last 90 days
+    // public async getCommitHistory(url : string) {
+    //     const ninetyDaysAgo = new Date();
+    //     ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
+    //     const commits = await axios.get(url + '/commits', {
+    //         params: {
+    //             since: ninetyDaysAgo.toISOString()
+    //         }
+    //     });
+    //     return commits.data;
+    // }
 
 }
