@@ -4,7 +4,7 @@ import winston from 'winston';
 const logFilePath = process.env.LOG_FILE || 'app.log';
 const logLevel = process.env.LOG_LEVEL || '0';
 
-
+// Create a custom log levels configuration
 const customLevels = {
   levels: {
     error: 0,
@@ -44,16 +44,6 @@ function getLogLevel(level: string): string {
     default:
       return 'error';
   }
-}
-
-// Add console transport if not in production and log level is not 0
-if (process.env.NODE_ENV !== 'production' && logLevel !== '0') {
-  logger.add(new winston.transports.Console({
-    format: winston.format.combine(
-      winston.format.colorize({ colors: customLevels.colors }),
-      winston.format.simple()
-    )
-  }));
 }
 
 export default logger;

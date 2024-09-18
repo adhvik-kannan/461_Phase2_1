@@ -3,6 +3,8 @@ import { npmHandler } from '../src/npmHandler.js';
 import { promises as fs } from 'fs';  // To read files
 import { gitAPIHandler } from './gitAPIHandler.js';
 import { license_verifier } from './license_verifier.js';
+import logger from './logging.js'
+
 
 export class urlhandler {
     public url: URL;
@@ -19,7 +21,7 @@ export class urlhandler {
             this.GITHUB_URL_PATTERN = /^https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
             this.NPM_URL_PATTERN = /^https:\/\/www\.npmjs\.com\/package\/([^\/]+)/;
         }catch(error){
-            console.log("Invalid URL")
+            console.error("Invalid URL")
         }
 
     }
@@ -42,7 +44,7 @@ export class urlhandler {
 
             for (const url of urls) {
                 try {
-                    console.log(`Processing URL: ${url}`);
+                    logger.info(`Processing URL: ${url}`);
                     const handler = new urlhandler(url);
                     await handler.handle();
                 } catch (error) {
@@ -60,37 +62,37 @@ export class urlhandler {
             // Delegate to GitAPIHandler
         if (this.identify(this.url) == "GitHub"){
                 const gitHandler = new gitAPIHandler(this.url.toString());
-                let data;
-                data = await gitHandler.getRepoDetails();;
+                const data = await gitHandler.getRepoDetails();;
                 this.contributors = await gitHandler.getContributors();
                 this.commits = await gitHandler.getCommitHistory();
                 this.issues = await gitHandler.getIssues();
                 this.pullRequests = await gitHandler.getPullRequests();
+                
                 return data;
-                const decoded_readme = await gitHandler.get_readme();
-                const return_val = await license_verifier(decoded_readme);
-                if (return_val) {
-                    // set license verifier metric value to 1
-                    console.log(return_val);
-                    return return_val;
-                }
-                else {
-                    // get all files of the repo and find a file with the name 'License' of some sort
-                    const repo_files = await gitHandler.fetchAllFiles(this.url.toString());
-                    // console.log(repo_files);
-                    const license_regex: RegExp = /license/i;
-                    let license_found: boolean = false;
-                    for (let i=0; i<repo_files.length; i++) {
-                        if (license_regex.test(repo_files[i])) {
-                            const license_content: string = await gitHandler.fetchFileContent(repo_files[i]);
-                            license_found = await license_verifier(license_content);
-                            console.log(license_found);
-                            return license_found;
-                        }
-                    }
-                    console.log(license_found);
-                    return license_found;
-                } 
+                // const decoded_readme = await gitHandler.get_readme();
+                // const return_val = await license_verifier(decoded_readme);
+                // if (return_val) {
+                //     // set license verifier metric value to 1
+                //     console.log(return_val);
+                //     return return_val;
+                // }
+                // else {
+                //     // get all files of the repo and find a file with the name 'License' of some sort
+                //     const repo_files = await gitHandler.fetchAllFiles(this.url.toString());
+                //     // console.log(repo_files);
+                //     const license_regex: RegExp = /license/i;
+                //     let license_found: boolean = false;
+                //     for (let i=0; i<repo_files.length; i++) {
+                //         if (license_regex.test(repo_files[i])) {
+                //             const license_content: string = await gitHandler.fetchFileContent(repo_files[i]);
+                //             license_found = await license_verifier(license_content);
+                //             console.log(license_found);
+                //             return license_found;
+                //         }
+                //     }
+                //     console.log(license_found);
+                //     return license_found;
+                //} 
         }
         else if (this.NPM_URL_PATTERN.test(this.url.toString())) {
             // Delegate to npmHandler
@@ -99,9 +101,16 @@ export class urlhandler {
 
             if (packageName) {
                 const data = await npmHandler.processPackage(packageName);
-                this.contributors = data.contributers;
-                this.issues = data.issues;
-                this.pullRequests = data.pullRequests;
+                // this.contributors = data.contributers;
+                // this.issues = data.issues;
+                // this.pullRequests = data.pullRequests;
+                this.url = data.gitUrl
+                const gitHandler = new gitAPIHandler(this.url.toString());
+                this.contributors = await gitHandler.getContributors();
+                this.commits = await gitHandler.getCommitHistory();
+                this.issues = await gitHandler.getIssues();    
+                this.pullRequests = await gitHandler.getPullRequests();
+        
                 return data;
             } else {
                 console.error('Invalid NPM URL format.');

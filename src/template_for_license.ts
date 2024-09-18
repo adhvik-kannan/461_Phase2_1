@@ -9,23 +9,31 @@ import { subDays } from 'date-fns';
 import { all } from 'axios';
 import { TREE, WORKDIR, STAGE } from 'isomorphic-git'
 
+const compatible_licenses: RegExp[] = [/MIT\s[Ll]icense/, /GNU Lesser General Public License v2.0/,
+    /GNU Lesser General Public License v2.1/, /GNU Lesser General Public License v3.0/];
+
+
 export async function temp_license(repoUrl:string) {
-    if(repoUrl === "No repository URL found"){
-      logger.info('Could not find github url from npm package')
-      return -1;
+    // console.log(repoUrl)
+    if(!(repoUrl.toString().includes("github.com"))){
+      console.error('Could not find github url from npm package:  ', repoUrl)
+      return false;
     }
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'repo-')); //make temp directory to clone repo
     await cloneRepository(tempDir, repoUrl); //clone repo
-    const files = await getRootFiles(tempDir)
+    const files = await getRootFiles(tempDir);
+
     for (const file of files){
         if(file.toLowerCase() === "readme.markdown" || file.toLowerCase() === "license" || file.toLowerCase() === "readme.md"){
           const content = await getFileContent(tempDir, file)
-         break
+          logger.info(`Content of ${repoUrl}:`, content);
+          const license = license_verifier(content)
+          return license
         }
       }
+    return false;
   
-    const license = check_content(content)
-    return license
+    
       
 }
 
@@ -40,7 +48,7 @@ async function cloneRepository(tempDir, repoUrl: string) {
         depth: 1
       })
    
-    console.log("cloned")
+    logger.info("Repository cloned successfully", repoUrl);
   }
 
   async function getRootFiles(tempDir){
@@ -73,10 +81,24 @@ async function cloneRepository(tempDir, repoUrl: string) {
   
       // Convert the Uint8Array to a string (assuming UTF-8 content)
       const content = new TextDecoder('utf-8').decode(blob);
-      console.log(`Content of ${filepath}:`, content);
+      logger.debug(`Content of ${filepath}:`, content);
       return content;
     } catch (error) {
       console.error(`Failed to read file content: ${error}`);
       return undefined;
     }
   }
+
+
+
+export async function license_verifier(file_contents: string) {
+ 
+        for (let i=0; i<compatible_licenses.length; i++) {
+            if (compatible_licenses[i].test(file_contents)) {
+                console.log(compatible_licenses[i]);
+                return true;
+            }
+        }
+        return false;
+
+}

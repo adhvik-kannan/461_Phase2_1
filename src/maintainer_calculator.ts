@@ -6,12 +6,12 @@ export function maintainer_net(contributors: any, issues: any, pullRequests: any
     let openClosedRatio = calculateOpenClosedRatio(issues);
     let activeMaintainers = calculateActiveMaintainers(contributors);
 
-    console.log(`Response Time: ${responseTime}`);
-    console.log(`Issue Closure Time: ${issueClosureTime}`);
-    console.log(`Open/Closed Ratio: ${openClosedRatio}`);
-    console.log(`Active Maintainers: ${activeMaintainers}`);
+    // console.log(`Response Time: ${responseTime}`);
+    // console.log(`Issue Closure Time: ${issueClosureTime}`);
+    // console.log(`Open/Closed Ratio: ${openClosedRatio}`);
+    // console.log(`Active Maintainers: ${activeMaintainers}`);
     const responsiveMaintainerScore = (0.4 * responseTime) + (0.3 * issueClosureTime) + (0.2 * openClosedRatio) + (0.1 * activeMaintainers);
-    console.log(`Responsive Maintainer Score: ${responsiveMaintainerScore}`);
+    // console.log(`Responsive Maintainer Score: ${responsiveMaintainerScore}`);
     return responsiveMaintainerScore;
 }
 

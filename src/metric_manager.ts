@@ -2,6 +2,10 @@
 import { Octokit } from "@octokit/rest";
 import { gitAPIHandler } from "./gitAPIHandler.js";
 import { maintainer_net } from "./maintainer_calculator.js";
+import { temp_license } from "./template_for_license.js";
+
+import { temp_bus_factor_calc } from "./new_bus_factor_calc.js";
+import logger from './logging.js'
 
 //import { temp_bus_factor_calc } from "./bus_factor_calc.js";
 import { calculateRampUpScore } from './rampUp.js'; // Assuming rampUp contains ESLint logic
@@ -26,7 +30,7 @@ export class metric_manager {
     public url:string;
     public data:any;
 
-    constructor(url:string, data, contributors, issues, pullRequests, commits /*a lot of arguments*/) {
+    constructor(data, contributors, issues, pullRequests, commits, url /*a lot of arguments*/) {
         this.bus_factor_latency = 0;
         this.correctness_latency = 0;
         this.ramp_up_latency = 0;
@@ -48,32 +52,18 @@ export class metric_manager {
     public bus_factor_calc(){        /*
         const startTime = performance.now();
         // calculations for bus factor
-        
-        if(this.url.includes("github.com")){
-            let busfactor = temp_bus_factor_calc(this.url)
-            const endTime = performance.now();
-            this.bus_factor_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
-            return busfactor
-        }
-        else{
-            try{
-                console.log(this.data.gitUrl)
-                let busfactor =  temp_bus_factor_calc(this.data.gitUrl);
-                const endTime = performance.now();
-                this.bus_factor_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
-                return busfactor
-            }
-            catch(error){
-                console.error("Git repo not found");
-                
-            }
-        }
-        */
-        return 1;
+        logger.debug("Calculating bus factor for github repo: ", this.url)
+        let busfactor = temp_bus_factor_calc(this.url, this.commits);
+        const endTime = performance.now();
+        this.bus_factor_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
+        return busfactor
+     
+    
         
     }
     public correctness_calc(): number {
         const startTime = performance.now();
+        logger.debug("Calculating correctness ")
         // calculations for correctness factor
 
         const endTime = performance.now();
@@ -95,18 +85,13 @@ export class metric_manager {
     
     public maintainer_calc(): number {
         const startTime = performance.now();
-        // calculations for maintainer factor
-        // console.log(this.contributors);
-        // console.log(this.issues);
-        // console.log(this.pullRequests);
-        // console.log(this.commits);
-        
+        logger.debug("Calculating maintainer factor")
         let maintainer_score = maintainer_net(this.contributors, this.issues, this.pullRequests, this.commits);
         const endTime = performance.now();
         this.maintainer_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
-        return 1;
+        return maintainer_score;
     }
-    public licence_verify(/* accept API call (most likely string of file paths)*/): number {
+    public async licence_verify(/* accept API call (most likely string of file paths)*/): Promise<number> {
         // if file name is some combination of lowercase and capital letters to make the word 'license'
         // regex statement to do so: r'^(?i)license(\.)?[a-zA-z]*$'
             // make API call to retrieve contents of 'license' file
@@ -120,9 +105,16 @@ export class metric_manager {
                 // else, return 0, as license will appear nowhere else in the package (function end)
         const startTime = performance.now();
         // calculations for license verification
+        logger.debug("Calculating license verification")
+        let license_score = await temp_license(this.url);
         const endTime = performance.now();
         this.license_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
-        return 1;
+        if (license_score === true) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
     }
 
     // run all the metrics in parallel and calculate the net score
