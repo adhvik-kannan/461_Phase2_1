@@ -1,4 +1,6 @@
-import logger from './logging.js'
+
+
+/*import logger from './logging.js'
 
 export async function temp_bus_factor_calc(repoUrl:string, commits): Promise<number>{
     const contributorCommits: { [key: string]: number } = {};
@@ -54,35 +56,26 @@ export async function temp_bus_factor_calc(repoUrl:string, commits): Promise<num
 
 
 
-// export async function temp_bus_factor_calc(repoUrl:string): Promise<number> {
-//     if(repoUrl === "No repository URL found"){
-//       logger.info('Could not find github url from npm package')
-//       return -1;
-//     }
-//     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'repo-')); //make temp directory to clone repo
-//     await cloneRepository(tempDir, repoUrl); //clone repo
-//     const files = await getRootFiles(tempDir)
-//     // console.log(files)
-
-//     // // const files = await getFiles(tempDir); //get files
-//     // const file_length = files.length; //number of files
-//     // console.log(files, files.length)
+export async function temp_bus_factor_calc(repoUrl:string): Promise<number> {
     
-//     // //const total_commits = (await getCommits(tempDir,"",false)).length;//get commit history
-//     // //if(total_commits > )
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'repo-')); //make temp directory to clone repo
+    await cloneRepository(tempDir, repoUrl); //clone repo
 
-//     // //console.log("files, commits: ",file_length,commits.length)
+    const files = await getFiles(tempDir); //get files
+    const file_length = files.length; //number of files
+    console.log(files)
+    //const commits = await getCommits(tempDir);//get commit history
 
-//     // var abandoned_files = 0;
-//     // //for each file go through all engineers on file and determine if file is risky or not based on DOA(Degree of Authorship) for each engineer
-//     // for (const file of files){
-//     //   if (await abandoned(file, tempDir) === true){
-//     //     abandoned_files += 1;
-//     //   }
-//     // }
-//     // console.log("ab: ",  abandoned_files)
-//     // console.log("length: ", file_length)
-//     // //console.log("commits: ", commits.length)
+    var abandoned_files = 0;
+    //for each file go through all engineers on file and determine if file is abandoned or not based on DOA(Degree of Authorship)
+    for (const file of files){
+      if (await abandoned(file, tempDir, repoUrl) === true){
+        abandoned_files += 1;
+      }
+    }
+    console.log("ab: ",  abandoned_files)
+    console.log("length: ",file_length)
+    //console.log("commits: ", commits.length)
     
 //     // return 1 - abandoned_files/file_length; //final bus score
 // }
@@ -108,26 +101,15 @@ export async function temp_bus_factor_calc(repoUrl:string, commits): Promise<num
 // //   return jsFiles;
 // // }
 
-// async function abandoned(file:string, tempDir): Promise<Boolean>{
-//   //let commits = await getCommits(tempDir, true);
-//   //console.log(commits, file)
-//   const commits =  await getCommits(tempDir, file, true);
+async function abandoned(file:string, tempDir, repoUrl): Promise<Boolean>{
+  let commits = await getCommits(tempDir, file,true);
+  console.log(commits, file)
   
-//   console.log(file, commits.length)
+  let engineers = await getContributors(tempDir, file);
   
-//   if(commits.length === 0){
-//     return false;
-//   }
-//   let engineers = await getContributors(tempDir, commits);
-
-//   //console.log(engineers, file)
-//   if(engineers.size === 0){
-//     return false
-//   }
-
-//   let engineers_dict : {[key:string]:number} = {}
-//   let max = 0;
-//   let total_doa = 0;
+  let engineers_dict : {[key:string]:number} = {}
+  let max = 0;
+  let total_doa = 0;
 
 //   for (var engineer of engineers){
 //     let doa = await getDOA(engineer, file, tempDir, commits);
@@ -299,3 +281,6 @@ export async function temp_bus_factor_calc(repoUrl:string, commits): Promise<num
 //     return undefined;
 //   }
 // }
+
+*/
+
