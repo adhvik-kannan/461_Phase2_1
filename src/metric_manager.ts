@@ -3,7 +3,9 @@ import { Octokit } from "@octokit/rest";
 import { gitAPIHandler } from "./gitAPIHandler.js";
 import { maintainer_net } from "./maintainer_calculator.js";
 
-import { temp_bus_factor_calc } from "./bus_factor_calc.js";
+//import { temp_bus_factor_calc } from "./bus_factor_calc.js";
+import { calculateRampUpScore } from './rampUp.js'; // Assuming rampUp contains ESLint logic
+
 function roundToNumDecimalPlaces(val: number, num_decimal_places: number) {
     return Math.round(val * Math.pow(10, num_decimal_places)) / Math.pow(10, num_decimal_places);
 }
@@ -42,7 +44,8 @@ export class metric_manager {
     }
     
     // functions for calculating each metric
-    public bus_factor_calc(): Promise<number> {
+    //public bus_factor_calc(): Promise<number> {
+    public bus_factor_calc(){        /*
         const startTime = performance.now();
         // calculations for bus factor
         
@@ -65,6 +68,8 @@ export class metric_manager {
                 
             }
         }
+        */
+        return 1;
         
     }
     public correctness_calc(): number {
@@ -75,25 +80,18 @@ export class metric_manager {
         this.correctness_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
         return 1;
     }
-    public ramp_up_calc(): number {
-        const startTime = performance.now();
-        // calculations for ramp up factor
 
-        const documentationScore = 0;
-        const complexityScore = 0;
-        const timeImplementation = 0;
-        const learningResources = 0;
-        
-        const rampUpScore = 0.4 * documentationScore + 0.3 * complexityScore + 0.2 * timeImplementation + 0.1 * learningResources;
+    public async calculateRampUpMetric(): Promise<number> {
+        const startTime = Date.now();
+        // Call the ramp-up score function, assuming repoData contains the necessary files
+        //const rampUpScore = await calculateRampUpScore(this.data.files || []);
+        const rampUpScore = await calculateRampUpScore(this.url);
+        const endTime = Date.now();
+        this.ramp_up_latency = endTime - startTime;
 
-        
-
-
-
-        const endTime = performance.now();
-        this.ramp_up_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
-        return 1;
+        return rampUpScore; 
     }
+
     
     public maintainer_calc(): number {
         const startTime = performance.now();
@@ -133,7 +131,7 @@ export class metric_manager {
         const metric_array = await Promise.all([
             Promise.resolve(this.bus_factor_calc()),
             Promise.resolve(this.correctness_calc()),
-            Promise.resolve(this.ramp_up_calc()),
+            Promise.resolve(this.calculateRampUpMetric()),
             Promise.resolve(this.maintainer_calc()),
             Promise.resolve(this.licence_verify())
         ]);

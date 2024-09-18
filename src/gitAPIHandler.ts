@@ -1,6 +1,11 @@
 import { Octokit } from "@octokit/rest";
 // import { urlhandler } from "./urlhandler.js";
 import fs from 'fs';
+import { exec } from 'child_process';
+import { promisify } from 'util';
+
+const execPromise = promisify(exec);
+
 export class gitAPIHandler{
     private octokit: any;  
     private owner: string;
@@ -143,13 +148,7 @@ export class gitAPIHandler{
             return commits.data;
         }
 
-}
-
-
     
-
-   
-    }
 
     public async fetchAllFiles(path:string){
         
@@ -212,11 +211,35 @@ export class gitAPIHandler{
         }
       }
 
-        
-
+      public async getRepositoryFiles(): Promise<string[]> {
+        try {
+          const allFiles = await this.fetchAllFiles('');
+          const fileContents: string[] = [];
     
-          
+          for (const file of allFiles) {
+            const content = await this.fetchFileContent(file);
+            fileContents.push(content);
+          }
+    
+          return fileContents;
+        } catch (error) {
+          console.error('Error fetching repository files for ramp-up analysis:', error);
+          return [];
+        }
+      }
+
+
+      public async cloneRepository(path: string): Promise<void> {
+        try {
+            const cloneCmd = `git clone https://github.com/${this.owner}/${this.repo}.git "${path}"`;
+            await execPromise(cloneCmd); // Clone the repository using git
+            console.log("Repository cloned to", path);
+        } catch (error) {
+            console.error("Error cloning repository:", error);
+            throw error;
+        }
     }
+}
         
     
 

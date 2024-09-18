@@ -27,7 +27,7 @@ export class npmHandler {
             const response = await axios.get(url);
             const data = response.data;
             
-            const giturl = npmHandler.getGithubUrl(data);
+            const giturl = npmHandler.getGitRepositoryUrl(data);
             //print the data into a file
             fs.writeFileSync('npmData.json', JSON.stringify(data, null, 2));
             // Extract metadata

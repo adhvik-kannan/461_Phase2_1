@@ -59,6 +59,22 @@ install_dependencies() {
         echo "Error installing get-github-url"
         return 1
     fi
+    if  ! npm install eslint eslint-plugin-complexity eslint-plugin-jsdoc --save-dev; then
+        echo "Error installing ESLint with TypeScript Support"
+        return 1
+    fi
+    if  ! npm install -g eslint; then
+        echo "Error installing eslint"
+        return 1
+    fi
+    if  ! npm install marked; then
+        echo "Error installing marked"
+        return 1
+    fi
+    if  ! npm install text-statistics; then
+        echo "Error installing text-statistics"
+        return 1
+    fi
     return 0
 }
 
