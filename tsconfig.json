@@ -111,6 +111,7 @@
 
 {
   "compilerOptions": {
+      "types": ["jest", "node"],
       "module": "ESNext",
       "target": "ES2015",
       "outDir": "./src",

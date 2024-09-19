@@ -75,6 +75,15 @@ install_dependencies() {
         echo "Error installing text-statistics"
         return 1
     fi
+    if !npm install --save-dev jest; then
+        echo "Error installing jest"
+        return 1
+    fi
+    if !npm install --save-dev ts-jest; then
+        echo "Error installing ts-jest"
+        return 1
+    fi
+
     return 0
 }
 
@@ -93,6 +102,10 @@ elif [ "$command" = "build" ]; then
     tsc.cmd
     # node src/urlhandler.js
     node src/main_program.js
+    exit $?
+elif [ "$command" = "test" ]; then
+    echo "Running tests..."
+    npm run test 
     exit $?
 else
     if [[ "$command" =~ ^[a-zA-Z]: ]]; then
