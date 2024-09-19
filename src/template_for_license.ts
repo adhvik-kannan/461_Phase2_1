@@ -19,7 +19,8 @@ export async function temp_license(repoUrl:string) {
       console.error('Could not find github url from npm package:  ', repoUrl)
       return false;
     }
-    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'repo-')); //make temp directory to clone repo
+    // const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'repo-')); //make temp directory to clone repo
+    const tempDir = fs.mkdtempSync(path.join(process.cwd(), 'temp-repo-'));
     await cloneRepository(tempDir, repoUrl); //clone repo
     const files = await getRootFiles(tempDir);
 
@@ -95,7 +96,6 @@ export async function license_verifier(file_contents: string) {
  
         for (let i=0; i<compatible_licenses.length; i++) {
             if (compatible_licenses[i].test(file_contents)) {
-                console.log(compatible_licenses[i]);
                 return true;
             }
         }
