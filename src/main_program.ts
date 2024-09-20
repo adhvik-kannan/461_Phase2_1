@@ -12,8 +12,15 @@ import {output_formatter} from './output_formatter.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const filePath = path.join(__dirname, 'URL_FILE.txt'); // Path to your URL file
-console.log(filePath)
+//get the file path from the command line in run file
+const filePath = process.argv[2];
+
+if (!filePath) {
+    console.error('Please provide a file path');
+    process.exit(1);
+}
+
+console.log(`The file path is: ${filePath}`);
 
 // const filePath = path.join(__dirname, 'URL_FILE.txt'); // Path to your URL file
 

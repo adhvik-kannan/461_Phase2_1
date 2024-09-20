@@ -117,7 +117,7 @@ else
         if [[ "$command" == *.txt ]]; then
             echo "This is a valid text file filepath."
             tsc.cmd
-            node src/main_program.js
+            node src/main_program.js "$command"
             exit $?;
         else 
             echo "This is not a valid text file filepath."
