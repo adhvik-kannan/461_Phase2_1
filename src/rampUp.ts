@@ -14,7 +14,7 @@ async function deleteDirectory(repoPath: string): Promise<void> {
     try {
         if (fs.existsSync(repoPath)) {
             fs.rmSync(repoPath, { recursive: true, force: true });
-            console.log(`Deleted existing directory: ${repoPath}`);
+            //console.log(`Deleted existing directory: ${repoPath}`);
         }
     } catch (error) {
         console.error(`Error deleting directory: ${repoPath}`, error);
@@ -43,8 +43,8 @@ async function checkDocumentationQuality(repoPath: string): Promise<number> {
         const plainTextContent = await marked.parse(readmeContent); // Convert Markdown to plain text for analysis
         const readabilityScores = calculateReadability(plainTextContent);
 
-        console.log(`Readability Scores - Ease: ${readabilityScores.ease}, Grade Level: ${readabilityScores.gradeLevel}`);
-        console.log('README.md content:', plainTextContent.substring(0, 200));
+        //console.log(`Readability Scores - Ease: ${readabilityScores.ease}, Grade Level: ${readabilityScores.gradeLevel}`);
+        //console.log('README.md content:', plainTextContent.substring(0, 200));
 
         const totalScore = readabilityScores.ease / 100;
         console.log(`Documentation quality checked successfully with readability assessment.`);
@@ -75,7 +75,7 @@ export async function calculateRampUpScore(url: string | URL): Promise<number> {
         // Convert the URL object to a string if necessary
         const urlString = typeof url === 'string' ? url : url.toString();
 
-        console.log(`Validating URL: ${urlString}`);
+        //console.log(`Validating URL: ${urlString}`);
 
         let rampUpScore = 0;
 
@@ -84,15 +84,15 @@ export async function calculateRampUpScore(url: string | URL): Promise<number> {
             console.log('Processing GitHub repository...');
             const gitHandler = new gitAPIHandler(urlString);
             await gitHandler.cloneRepository(repoPath);
-            console.log("Repository cloned successfully.");
+            //console.log("Repository cloned successfully.");
 
             // Check documentation quality
             rampUpScore = await checkDocumentationQuality(repoPath);
-            console.log(`Ramp-Up Score (GitHub): ${rampUpScore}`);
+            //console.log(`Ramp-Up Score (GitHub): ${rampUpScore}`);
 
         // Handle npm URLs
         } else if (isNpmUrl(urlString)) {
-            console.log('Processing NPM package...');
+            //console.log('Processing NPM package...');
             const packageName = urlString.split('/').pop(); // Get package name from URL
             const npmMetadata = await npmHandler.processPackage(packageName || '');
 
@@ -109,7 +109,7 @@ export async function calculateRampUpScore(url: string | URL): Promise<number> {
                 console.log('No GitHub repository found, scoring based on npm metadata...');
                 rampUpScore = npmMetadata.maintainers.length / 10; // Example score based on maintainers
             }
-            console.log(`Ramp-Up Score (NPM): ${rampUpScore}`);
+            //console.log(`Ramp-Up Score (NPM): ${rampUpScore}`);
         } else {
             console.error('Unsupported URL type. Please provide a GitHub or npm URL.');
             return 0;
@@ -117,7 +117,7 @@ export async function calculateRampUpScore(url: string | URL): Promise<number> {
 
         // Clean up after analysis
         await deleteDirectory(repoPath);
-        console.log(`Repository directory cleaned up: ${repoPath}`);
+        //console.log(`Repository directory cleaned up: ${repoPath}`);
 
         return rampUpScore;
     } catch (error) {
