@@ -1,0 +1,2372 @@
+[
+  {
+    "sha": "132d05fc0b319df7eb1b3010a91adc7d5ae58ef2",
+    "node_id": "C_kwDOAAiDnNoAKDEzMmQwNWZjMGIzMTlkZjdlYjFiMzAxMGE5MWFkYzdkNWFlNThlZjI",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-20T08:48:50Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-20T09:18:23Z"
+      },
+      "message": "fix(sio): expose type of default engine\n\nRelated: https://github.com/socketio/socket.io/issues/4693",
+      "tree": {
+        "sha": "221ba553cd06b65519b8b1f75b021cde1399aa1e",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/221ba553cd06b65519b8b1f75b021cde1399aa1e"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/132d05fc0b319df7eb1b3010a91adc7d5ae58ef2",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbtPeofHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988CJyCADYyt/nDW+1ibMs\nLWlyyhd3VZbt139fXm70XsIv60vaK+pf+AzvEFvb4kBPyTCOYXvs0YHjdapg4nKh\nCTbTmifDKQ01zNnn/GLFLEe8vo1VOPYiNk0Vo+s2VUy7b9pNrTniYmPxBXyBmxU3\nJiWB3+1v4ID7ivkY91v8VA+pS9UKubKS5s3R4xk2KCwrfXXmrBVOnzwuvFNRoPBX\nKrMjs4kb9E+sjfEYAPN+OJLKq7xpB+ZPDugsUnPMCiOdyQOWoThEGVMgTFKcMK7b\nsTNLvthZ+UTmlCuMLXG+YJXf/n9DCjPFxnEv86Zlr+pbDppdhJ4EyFG6JNH53HTT\nZBPcZepA\n=qLgS\n-----END PGP SIGNATURE-----",
+        "payload": "tree 221ba553cd06b65519b8b1f75b021cde1399aa1e\nparent d5095fe98c3976673c19f433c0114d06dbd8de1b\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726822130 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726823903 +0200\n\nfix(sio): expose type of default engine\n\nRelated: https://github.com/socketio/socket.io/issues/4693\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/132d05fc0b319df7eb1b3010a91adc7d5ae58ef2",
+    "html_url": "https://github.com/socketio/socket.io/commit/132d05fc0b319df7eb1b3010a91adc7d5ae58ef2",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/132d05fc0b319df7eb1b3010a91adc7d5ae58ef2/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d5095fe98c3976673c19f433c0114d06dbd8de1b",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/d5095fe98c3976673c19f433c0114d06dbd8de1b",
+        "html_url": "https://github.com/socketio/socket.io/commit/d5095fe98c3976673c19f433c0114d06dbd8de1b"
+      }
+    ]
+  },
+  {
+    "sha": "d5095fe98c3976673c19f433c0114d06dbd8de1b",
+    "node_id": "C_kwDOAAiDnNoAKGQ1MDk1ZmU5OGMzOTc2NjczYzE5ZjQzM2MwMTE0ZDA2ZGJkOGRlMWI",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-19T10:05:38Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-19T10:13:42Z"
+      },
+      "message": "fix(eio): prevent the client from upgrading twice (uws)\n\nRelated: https://github.com/socketio/socket.io/issues/5066",
+      "tree": {
+        "sha": "aa6491ae90448ed36acf9231e3f41c12e6b37160",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/aa6491ae90448ed36acf9231e3f41c12e6b37160"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/d5095fe98c3976673c19f433c0114d06dbd8de1b",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbr+WkfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988LpfB/9sbWnf0CMVouAv\nEgSWjz8mBKsGlHIjVTYEA8/QcpgLAKCE0EGs2IXyjbblhRK2WYMLkcv5/itlTwAv\nIKiMUFLCSKmEO1pT8e81VZw1IBCG3ZnEgm7B747hP1dRJlofk41cjzgxuldBT50K\n75JDt6P6spZdDoxyyR7p/qitCs6R7CI62bmyFVmVkGCWJpwwNtr7vvtHPgQGC2K9\nFQfwJ+zzq72FPyHDQPACdPpCEFbmg0bxG/cG5MPxrD3KRj4JK86CL7YDl39nrxB0\nkUgNqUmZX0G3c+MzY0ecWkQ1c3zkRPJjc1gB+EDA4URBuvMByaPAdTDhC+AgQvy1\ndUPxY+Aj\n=guLA\n-----END PGP SIGNATURE-----",
+        "payload": "tree aa6491ae90448ed36acf9231e3f41c12e6b37160\nparent da613810fd97137b0fa6764aa553ce588a57d692\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726740338 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726740822 +0200\n\nfix(eio): prevent the client from upgrading twice (uws)\n\nRelated: https://github.com/socketio/socket.io/issues/5066\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/d5095fe98c3976673c19f433c0114d06dbd8de1b",
+    "html_url": "https://github.com/socketio/socket.io/commit/d5095fe98c3976673c19f433c0114d06dbd8de1b",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/d5095fe98c3976673c19f433c0114d06dbd8de1b/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "da613810fd97137b0fa6764aa553ce588a57d692",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/da613810fd97137b0fa6764aa553ce588a57d692",
+        "html_url": "https://github.com/socketio/socket.io/commit/da613810fd97137b0fa6764aa553ce588a57d692"
+      }
+    ]
+  },
+  {
+    "sha": "da613810fd97137b0fa6764aa553ce588a57d692",
+    "node_id": "C_kwDOAAiDnNoAKGRhNjEzODEwZmQ5NzEzN2IwZmE2NzY0YWE1NTNjZTU4OGE1N2Q2OTI",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-19T09:36:32Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-19T10:12:58Z"
+      },
+      "message": "test(eio): bump uWebSockets.js to version 20.48.0",
+      "tree": {
+        "sha": "f5553d1d4e5472c719b2d1b525b2e4ffccd726f6",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/f5553d1d4e5472c719b2d1b525b2e4ffccd726f6"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/da613810fd97137b0fa6764aa553ce588a57d692",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbr+TQfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988H/KCACnIEn5bodEaOqe\nr4VwvDWBjE670ZRBVq7xv7m5n1lOTOxOLO0Az7S9wgC4SczJ8CV4y6Fa3SwYLKD4\nexNjt6jk03UTw+UuG+wYACrcwXSf8QPjIMC67rkDx8ZM/4mpqbyi5QWWjmDejJc7\nfTw5r3oV7IHR8XIml8TO3m72BP2vTeWVBfBokG7X/pb9oVIWVjNJi0/F4OhbLRJ0\n/FlHFQ4hrkVu9qQ2hwoG7YO0qkkzciwlJZXn8jOoFdyMaCsyKn8+m1dfxunpHgfR\n7JN1cwIegJpYadfZOpYKURdTFAmasvwQq9cVxPaclO0hd9riH7+fVnxJbObbXN8r\nWYrEgzhh\n=8BNg\n-----END PGP SIGNATURE-----",
+        "payload": "tree f5553d1d4e5472c719b2d1b525b2e4ffccd726f6\nparent 19c48a44e64b966225b5aa693e489490ce546c39\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726738592 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726740778 +0200\n\ntest(eio): bump uWebSockets.js to version 20.48.0\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/da613810fd97137b0fa6764aa553ce588a57d692",
+    "html_url": "https://github.com/socketio/socket.io/commit/da613810fd97137b0fa6764aa553ce588a57d692",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/da613810fd97137b0fa6764aa553ce588a57d692/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "19c48a44e64b966225b5aa693e489490ce546c39",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/19c48a44e64b966225b5aa693e489490ce546c39",
+        "html_url": "https://github.com/socketio/socket.io/commit/19c48a44e64b966225b5aa693e489490ce546c39"
+      }
+    ]
+  },
+  {
+    "sha": "19c48a44e64b966225b5aa693e489490ce546c39",
+    "node_id": "C_kwDOAAiDnNoAKDE5YzQ4YTQ0ZTY0Yjk2NjIyNWI1YWE2OTNlNDg5NDkwY2U1NDZjMzk",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-19T07:05:31Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-19T07:27:12Z"
+      },
+      "message": "refactor(sio): break circular dependency in source code\n\nRelated: https://github.com/socketio/socket.io/issues/4329",
+      "tree": {
+        "sha": "e373fe6c3d991cd86c9a0b0defb8548636644a5b",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/e373fe6c3d991cd86c9a0b0defb8548636644a5b"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/19c48a44e64b966225b5aa693e489490ce546c39",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbr0mIfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988H95CADU+3a8Zn3lxLAb\neMTtuY8f+UvC/BMT8OXbI8Q7HhjN1r3sZDZ040MIkcw8V2NWNA6fY4BpVNsaRRYp\nS/4SYMLlEGzCptQhe8PDpeSo9aKHAhIIIVJRsZHeZY7hmCBLzSpKowiybHLX3A97\nSkow1o4djh7Wqc1nW7mtg0b7S9kLEgAPgqpNsqttj7szQn5Lauc2QZ64oWnZ7Fnd\nWiJr1L+DpmW7+T4T8ZWWs1Ea6pyjgg16HoskI3wmCYqqnggsUixDxt5fe1xCZCfI\n7Nn6yXLJsjZRFZJLJo6ujlX+Tv/ClAz1djhjCPsdD2Pq48tuaChNFQmqTtRAL0d/\neN1DuOoG\n=NATH\n-----END PGP SIGNATURE-----",
+        "payload": "tree e373fe6c3d991cd86c9a0b0defb8548636644a5b\nparent 9b3c9abecab028822357beb6e2b502f548e312eb\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726729531 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726730832 +0200\n\nrefactor(sio): break circular dependency in source code\n\nRelated: https://github.com/socketio/socket.io/issues/4329\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/19c48a44e64b966225b5aa693e489490ce546c39",
+    "html_url": "https://github.com/socketio/socket.io/commit/19c48a44e64b966225b5aa693e489490ce546c39",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/19c48a44e64b966225b5aa693e489490ce546c39/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "9b3c9abecab028822357beb6e2b502f548e312eb",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/9b3c9abecab028822357beb6e2b502f548e312eb",
+        "html_url": "https://github.com/socketio/socket.io/commit/9b3c9abecab028822357beb6e2b502f548e312eb"
+      }
+    ]
+  },
+  {
+    "sha": "9b3c9abecab028822357beb6e2b502f548e312eb",
+    "node_id": "C_kwDOAAiDnNoAKDliM2M5YWJlY2FiMDI4ODIyMzU3YmViNmUyYjUwMmY1NDhlMzEyZWI",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T16:31:10Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-19T07:26:26Z"
+      },
+      "message": "fix(eio-client): only remove the event listener if it exists\n\nRelated: https://github.com/socketio/socket.io/issues/5088#issuecomment-2217202350",
+      "tree": {
+        "sha": "6350c2e23ef07071ea9021a61ddd2a6fb8b544de",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/6350c2e23ef07071ea9021a61ddd2a6fb8b544de"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/9b3c9abecab028822357beb6e2b502f548e312eb",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbr0j8fHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988I2QCAC6nJE7QRZfymKY\nBkFyJwP2qd71axpDq5o3QqC+cahNa1euU4/erUa7zlZ9VYalRucj7Ri0yhWfK6Qb\n9QaZBHO/9Qx4ICSy/1Gt4BDq6aQgAPw9YyuLaiSsAlNt9KQoGzStiLaP3bCGRuHv\n8zTGjWZ1HoY0MCh8pAe/2JofVO+iqLb57/G9Zmqvabj+PraRXduMJH0ssTW/qyyg\nQcG9IzSjHJhvAW/5r6L2Z/BiwcAgRcGK7NUI/vlys2JKV0Zh7ibnbeXuwkfdSC6V\nJmwGEtwVyKDqU42TCFXJuc3I+6nW84Cby7UcAdMbfUhK+WRk4M5rG6GZ87GtzTeH\nEReNokqd\n=PTYb\n-----END PGP SIGNATURE-----",
+        "payload": "tree 6350c2e23ef07071ea9021a61ddd2a6fb8b544de\nparent 043b55c41869b8c3c16364c8a593a9c15c42d210\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726677070 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726730786 +0200\n\nfix(eio-client): only remove the event listener if it exists\n\nRelated: https://github.com/socketio/socket.io/issues/5088#issuecomment-2217202350\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/9b3c9abecab028822357beb6e2b502f548e312eb",
+    "html_url": "https://github.com/socketio/socket.io/commit/9b3c9abecab028822357beb6e2b502f548e312eb",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/9b3c9abecab028822357beb6e2b502f548e312eb/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "043b55c41869b8c3c16364c8a593a9c15c42d210",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/043b55c41869b8c3c16364c8a593a9c15c42d210",
+        "html_url": "https://github.com/socketio/socket.io/commit/043b55c41869b8c3c16364c8a593a9c15c42d210"
+      }
+    ]
+  },
+  {
+    "sha": "043b55c41869b8c3c16364c8a593a9c15c42d210",
+    "node_id": "C_kwDOAAiDnNoAKDA0M2I1NWM0MTg2OWI4YzNjMTYzNjRjOGE1OTNhOWMxNWM0MmQyMTA",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T20:15:32Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T20:15:32Z"
+      },
+      "message": "refactor(sio): simplify middleware execution (bis)",
+      "tree": {
+        "sha": "43d93cc3bd79539a77635b51324f627d9629ba4f",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/43d93cc3bd79539a77635b51324f627d9629ba4f"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/043b55c41869b8c3c16364c8a593a9c15c42d210",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbrNOcfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988DrHB/43O3OXTUNiGjSl\nFYD6hgFQUbbLHYNns9HIIVHF2oAk5q1s0cxuliSo2gUl+koIvUi1cH00T9waPGXz\nft54o8UcfAiEfHGUL4g+hfCo3PWLVF3sffNfPrPWxEV/mt3tNifD1aCf9UdmStWq\nLX1ZDT1yv28+WZjQil4lhEcXgZ3PNvq5HyGKv9EqL1BhSkib815A8CnkGxoZKY7l\nK9ubIqRpyP92Jcva/2ldum7lDTpwgKS5d11r7+jLRRq4XbxN3GFg3K/Ur8ahmmcO\nxN+DKluc0dx1OKQr/uksC/eJjfnpEI7IPj6ET4BzYE8iBRZloQhsYtrJPBNgVy/e\n+ax6rYqo\n=9Sq8\n-----END PGP SIGNATURE-----",
+        "payload": "tree 43d93cc3bd79539a77635b51324f627d9629ba4f\nparent 32c761f02fb67625297ed6644f744b7647662e65\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726690532 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726690532 +0200\n\nrefactor(sio): simplify middleware execution (bis)\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/043b55c41869b8c3c16364c8a593a9c15c42d210",
+    "html_url": "https://github.com/socketio/socket.io/commit/043b55c41869b8c3c16364c8a593a9c15c42d210",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/043b55c41869b8c3c16364c8a593a9c15c42d210/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "32c761f02fb67625297ed6644f744b7647662e65",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/32c761f02fb67625297ed6644f744b7647662e65",
+        "html_url": "https://github.com/socketio/socket.io/commit/32c761f02fb67625297ed6644f744b7647662e65"
+      }
+    ]
+  },
+  {
+    "sha": "32c761f02fb67625297ed6644f744b7647662e65",
+    "node_id": "C_kwDOAAiDnNoAKDMyYzc2MWYwMmZiNjc2MjUyOTdlZDY2NDRmNzQ0Yjc2NDc2NjJlNjU",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T10:26:44Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T16:22:06Z"
+      },
+      "message": "refactor(sio): export the ExtendedError type\n\nRelated: https://github.com/socketio/socket.io/issues/4798",
+      "tree": {
+        "sha": "c8a7f8ac2d3827364bdff27d479373f6d8b2beb1",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/c8a7f8ac2d3827364bdff27d479373f6d8b2beb1"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/32c761f02fb67625297ed6644f744b7647662e65",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbq/k0fHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988NJXCACToZyxXbR1jR2S\n+0FCw6zo4gECKg006vxecdR9W6UXNG4lV8HuX82skBmP7HY9dNpQvyKBkqgWh+oU\n9f4BgvMGxJtusUxI+po/eygcUZts8RkaHXfL5u8MjLMt8f6QhIZTMBHkkFujN134\nAa8zpLmhSaeKODv3RCsjGPlg3sd3FFIL6DmU6VxOgg0N048zgYjs7+g0jq0N4UNe\nUDI3TwKNGUI5+CMq1nVrYL4rb7gmwYMRMKkfQbu4sghzzZYZRSuS8qhrlBB25YNS\neUZHr0lhDW7xiJthEoQ0c7eenaeGlCYrvRiapcG3JnMLSPxVnp/9m0Bo6OWjlFV+\ntUP5569/\n=IOvW\n-----END PGP SIGNATURE-----",
+        "payload": "tree c8a7f8ac2d3827364bdff27d479373f6d8b2beb1\nparent 1f54ee08c67151303f17b5adcd1d3708df2d0fe1\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726655204 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726676526 +0200\n\nrefactor(sio): export the ExtendedError type\n\nRelated: https://github.com/socketio/socket.io/issues/4798\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/32c761f02fb67625297ed6644f744b7647662e65",
+    "html_url": "https://github.com/socketio/socket.io/commit/32c761f02fb67625297ed6644f744b7647662e65",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/32c761f02fb67625297ed6644f744b7647662e65/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1f54ee08c67151303f17b5adcd1d3708df2d0fe1",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/1f54ee08c67151303f17b5adcd1d3708df2d0fe1",
+        "html_url": "https://github.com/socketio/socket.io/commit/1f54ee08c67151303f17b5adcd1d3708df2d0fe1"
+      }
+    ]
+  },
+  {
+    "sha": "1f54ee08c67151303f17b5adcd1d3708df2d0fe1",
+    "node_id": "C_kwDOAAiDnNoAKDFmNTRlZTA4YzY3MTUxMzAzZjE3YjVhZGNkMWQzNzA4ZGYyZDBmZTE",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T10:26:22Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T16:21:58Z"
+      },
+      "message": "refactor(sio): simplify middleware execution",
+      "tree": {
+        "sha": "42e7c5bfbb6cc6d0761246e6b2390ec260a5537f",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/42e7c5bfbb6cc6d0761246e6b2390ec260a5537f"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/1f54ee08c67151303f17b5adcd1d3708df2d0fe1",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbq/iYfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988JUwCAC+EpbKaGaSnrRH\nafoZYn3yZ5HffEjFwc/8IEYq4ShvSKHMs2bbRxj14MmAlUCBH+BmEN68UyHODtct\nJujfo8G71zJmSBY8Hr+O5y7YsR4EgsPrnFpWlwxEjpUObF7s4JdZpdvwsfr51z7q\n5Qr6zUF7trTL56ZT1smw8EzvZu8ZXRjUfGusrIHzSILjXn+Jj9kNkWn0W/+TFb4r\nWxvqkIAnPRD9+SEnzkU9T0c49dMrvv2Emkt5/DVrWGDSfU+ork6I9wouFNg1KrHc\nZ5ziuPYX6NK3lcWHaya53avM7lLfob5ty3lcEn22QC7o4ijL4Fh3VErnx7ysawWh\n2kL8VZYd\n=QQgM\n-----END PGP SIGNATURE-----",
+        "payload": "tree 42e7c5bfbb6cc6d0761246e6b2390ec260a5537f\nparent 923a12e2de83ecaa75746a575e71a4739815d5c5\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726655182 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726676518 +0200\n\nrefactor(sio): simplify middleware execution\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/1f54ee08c67151303f17b5adcd1d3708df2d0fe1",
+    "html_url": "https://github.com/socketio/socket.io/commit/1f54ee08c67151303f17b5adcd1d3708df2d0fe1",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/1f54ee08c67151303f17b5adcd1d3708df2d0fe1/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "923a12e2de83ecaa75746a575e71a4739815d5c5",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/923a12e2de83ecaa75746a575e71a4739815d5c5",
+        "html_url": "https://github.com/socketio/socket.io/commit/923a12e2de83ecaa75746a575e71a4739815d5c5"
+      }
+    ]
+  },
+  {
+    "sha": "923a12e2de83ecaa75746a575e71a4739815d5c5",
+    "node_id": "C_kwDOAAiDnNoAKDkyM2ExMmUyZGU4M2VjYWE3NTc0NmE1NzVlNzFhNDczOTgxNWQ1YzU",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T13:56:20Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T16:17:14Z"
+      },
+      "message": "fix(eio): discard all pending packets when the server is closed\n\nIn some specific cases, the transport was not closed right away,\nleaving the Node.js process alive even after closing the server.\nThe HTTP long-polling transport would be closed after the heartbeat\nfailure and the `closeTimeout` delay (20 + 25 + 30 seconds).\n\nExample:\n\n```js\nio.on(\"connection\", (socket) => {\n  // the writeBuffer is not empty, so the transport is not closed right away\n  io.close();\n});\n```\n\nRelated: https://github.com/socketio/socket.io/issues/5088",
+      "tree": {
+        "sha": "63676128497fa1f513d3ad3c4782e860387244e2",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/63676128497fa1f513d3ad3c4782e860387244e2"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/923a12e2de83ecaa75746a575e71a4739815d5c5",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbq/hIfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988D5qCACZxK1qaCREf94G\nTGAC2dNEfX1N9yExEiCBrXtbCj7zTGysQIzwtvgaPYYiTYytk5AHoIE0r0xfWTob\nU5W3f+JVMq3R9j4RD+9ndYX6g2Q/4tuzqMdedQZY/jMxBDzZj50rpXYbr3jWuh2O\nQ2tWz1/YutJ4Ppy4SoRMfFTbFTlVnxO+TQCwE7JN11hWg74ocxfvs6wXu904hZXT\na1+mSLr8lHJs5nuxeTv1HSFPiw3JAJGGUONDBP9SqxLg17ZLrd6b53f45PHxTw9o\n9e7xFjgnax53d5nY1aZfikraJ3uMmS55+bH4nPwDeOCsmnOjml7jzEkYp/e2L+zf\nQ3Rdm5LQ\n=A0rP\n-----END PGP SIGNATURE-----",
+        "payload": "tree 63676128497fa1f513d3ad3c4782e860387244e2\nparent 13c6d2e89deb1e6c6c8c7245118f9b37d66537cb\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726667780 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726676234 +0200\n\nfix(eio): discard all pending packets when the server is closed\n\nIn some specific cases, the transport was not closed right away,\nleaving the Node.js process alive even after closing the server.\nThe HTTP long-polling transport would be closed after the heartbeat\nfailure and the `closeTimeout` delay (20 + 25 + 30 seconds).\n\nExample:\n\n```js\nio.on(\"connection\", (socket) => {\n  // the writeBuffer is not empty, so the transport is not closed right away\n  io.close();\n});\n```\n\nRelated: https://github.com/socketio/socket.io/issues/5088\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/923a12e2de83ecaa75746a575e71a4739815d5c5",
+    "html_url": "https://github.com/socketio/socket.io/commit/923a12e2de83ecaa75746a575e71a4739815d5c5",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/923a12e2de83ecaa75746a575e71a4739815d5c5/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "13c6d2e89deb1e6c6c8c7245118f9b37d66537cb",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/13c6d2e89deb1e6c6c8c7245118f9b37d66537cb",
+        "html_url": "https://github.com/socketio/socket.io/commit/13c6d2e89deb1e6c6c8c7245118f9b37d66537cb"
+      }
+    ]
+  },
+  {
+    "sha": "13c6d2e89deb1e6c6c8c7245118f9b37d66537cb",
+    "node_id": "C_kwDOAAiDnNoAKDEzYzZkMmU4OWRlYjFlNmM2YzhjNzI0NTExOGY5YjM3ZDY2NTM3Y2I",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T08:50:56Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T09:19:28Z"
+      },
+      "message": "fix(sio-client): allow to manually stop the reconnection loop\n\n```js\nsocket.io.on(\"reconnect_attempt\", () => {\n  socket.io.reconnection(false); // will now work properly\n});\n```\n\nRelated: https://github.com/socketio/socket.io/issues/5126",
+      "tree": {
+        "sha": "8bad6e3f243958dbf2fafaf5823b4c87b9a02622",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/8bad6e3f243958dbf2fafaf5823b4c87b9a02622"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/13c6d2e89deb1e6c6c8c7245118f9b37d66537cb",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbqm1gfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988HfjCADabaHOMXaXxrw3\nFqblqBmIMnmGPOVbczwqCTB3SHCkWtsOgFO2V4UhC3w1tAlqRgBqHO3ol2Kt06my\n2lUDVML685CDDcAve8yPmtDsLjPkrQWFvNzHjFqbrkKKqmtVMXUpipBG9Id1L6zc\nZk00qOxiqfIAuu+f98qjwrbVqHqBn3j/qWcUwH3RPHNgp8BEWrhNoB/2/HWalh5v\n1yRCDxx0WD/c+jJJk5ErhhgUmIQijnUoPDvwz6W5GZfwIBfg9FNiUkHTvvZh08Ic\na2/xuE68N2ADW/kleVJib5QOnxq6ERAJ3tFjS91yuebP7G3tVaamio48UXiV6x1X\n97UVdSUN\n=w5Cj\n-----END PGP SIGNATURE-----",
+        "payload": "tree 8bad6e3f243958dbf2fafaf5823b4c87b9a02622\nparent 8adcfbfde50679095ec2abe376650cf2b6814325\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726649456 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726651168 +0200\n\nfix(sio-client): allow to manually stop the reconnection loop\n\n```js\nsocket.io.on(\"reconnect_attempt\", () => {\n  socket.io.reconnection(false); // will now work properly\n});\n```\n\nRelated: https://github.com/socketio/socket.io/issues/5126\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/13c6d2e89deb1e6c6c8c7245118f9b37d66537cb",
+    "html_url": "https://github.com/socketio/socket.io/commit/13c6d2e89deb1e6c6c8c7245118f9b37d66537cb",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/13c6d2e89deb1e6c6c8c7245118f9b37d66537cb/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8adcfbfde50679095ec2abe376650cf2b6814325",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/8adcfbfde50679095ec2abe376650cf2b6814325",
+        "html_url": "https://github.com/socketio/socket.io/commit/8adcfbfde50679095ec2abe376650cf2b6814325"
+      }
+    ]
+  },
+  {
+    "sha": "8adcfbfde50679095ec2abe376650cf2b6814325",
+    "node_id": "C_kwDOAAiDnNoAKDhhZGNmYmZkZTUwNjc5MDk1ZWMyYWJlMzc2NjUwY2YyYjY4MTQzMjU",
+    "commit": {
+      "author": {
+        "name": "Tom Jenkinson",
+        "email": "tom@humaans.io",
+        "date": "2024-09-18T09:11:22Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T09:11:22Z"
+      },
+      "message": "fix(sio-client): do not send a packet on an expired connection (#5134)\n\nWhen a laptop is suspended or a phone is locked, the timer that is used\nto check the liveness of the connection is paused and is not able to\ndetect that the heartbeat has failed.\n\nPreviously, emitting a message after resuming the page would lose the\nmessage. The status of the timer will now be checked before sending the\nmessage, so that it gets buffered and sent upon reconnection.\n\nNote: we could also have used the Page Visibility API or a custom\nsetTimeout() method based on setInterval(), but this would not be as\nreliable as the current solution.\n\nReference: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API\n\nRelated: https://github.com/socketio/socket.io/issues/5135",
+      "tree": {
+        "sha": "6d554058cf224b37d2a0ac455f93d18845dace74",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/6d554058cf224b37d2a0ac455f93d18845dace74"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/8adcfbfde50679095ec2abe376650cf2b6814325",
+      "comment_count": 3,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbqmv8fHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988MpaCACH2s1qqoeUayp8\nZrurWix593kUJxTBJPOgd11KJaXXh3qVompFmCaZCZzImr3kJyMVD6JKb8Ck58Of\nv2r5zSGSjZu4LXmLQCsLn+UbvgWL5vBXztxFrny5xpBLIgW2XWJC1xsIqNUnXFtS\nP4G09v8k0X1syUtxN9jzgoK5C0x96y1aOZEGl34zTPsSDHlH7RNxYX8ZJxB18PDI\n0YhBqhFpCE1Y6P/t9mK4ryikSWDxG/fz7+EKCJ8YFd5k3z5fet5MjC279wGd3wjP\nFO/JDrKlj3D3qG1DCpqwntxrj8KpPFTLtAZv0UB0DLcEpXes3w2N7I/OyYv21zPt\nET/RfT3U\n=iEsW\n-----END PGP SIGNATURE-----",
+        "payload": "tree 6d554058cf224b37d2a0ac455f93d18845dace74\nparent 7a23dde6efff3079edeeda951fe0ee25516da833\nauthor Tom Jenkinson <tom@humaans.io> 1726650682 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726650682 +0200\n\nfix(sio-client): do not send a packet on an expired connection (#5134)\n\nWhen a laptop is suspended or a phone is locked, the timer that is used\nto check the liveness of the connection is paused and is not able to\ndetect that the heartbeat has failed.\n\nPreviously, emitting a message after resuming the page would lose the\nmessage. The status of the timer will now be checked before sending the\nmessage, so that it gets buffered and sent upon reconnection.\n\nNote: we could also have used the Page Visibility API or a custom\nsetTimeout() method based on setInterval(), but this would not be as\nreliable as the current solution.\n\nReference: https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API\n\nRelated: https://github.com/socketio/socket.io/issues/5135\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/8adcfbfde50679095ec2abe376650cf2b6814325",
+    "html_url": "https://github.com/socketio/socket.io/commit/8adcfbfde50679095ec2abe376650cf2b6814325",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/8adcfbfde50679095ec2abe376650cf2b6814325/comments",
+    "author": {
+      "login": "tjenkinson",
+      "id": 3259993,
+      "node_id": "MDQ6VXNlcjMyNTk5OTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3259993?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tjenkinson",
+      "html_url": "https://github.com/tjenkinson",
+      "followers_url": "https://api.github.com/users/tjenkinson/followers",
+      "following_url": "https://api.github.com/users/tjenkinson/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tjenkinson/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tjenkinson/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tjenkinson/subscriptions",
+      "organizations_url": "https://api.github.com/users/tjenkinson/orgs",
+      "repos_url": "https://api.github.com/users/tjenkinson/repos",
+      "events_url": "https://api.github.com/users/tjenkinson/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tjenkinson/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7a23dde6efff3079edeeda951fe0ee25516da833",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/7a23dde6efff3079edeeda951fe0ee25516da833",
+        "html_url": "https://github.com/socketio/socket.io/commit/7a23dde6efff3079edeeda951fe0ee25516da833"
+      }
+    ]
+  },
+  {
+    "sha": "7a23dde6efff3079edeeda951fe0ee25516da833",
+    "node_id": "C_kwDOAAiDnNoAKDdhMjNkZGU2ZWZmZjMwNzllZGVlZGE5NTFmZTBlZTI1NTE2ZGE4MzM",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T09:06:39Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T09:06:39Z"
+      },
+      "message": "perf: do not reset the hearbeat timer on each packet\n\nThis reverts https://github.com/socketio/socket.io/commit/ed34a45a0780b944a387c3a685d4f3af758cc2fa\n\nSee also: https://github.com/socketio/engine.io/commit/5359bae683e2a25742bd4989d0355a8fc10d294e",
+      "tree": {
+        "sha": "ca9a78ed61c648f1806497e1daf7b106ec64f210",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/ca9a78ed61c648f1806497e1daf7b106ec64f210"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/7a23dde6efff3079edeeda951fe0ee25516da833",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbqmP4fHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988H1lB/47xKI5S9/KZ8bw\n0O+cUQgP2DROJ4+BveG7Pr7rKR8RZ3VZa6OZmUHIlMzQ3uSi6gt6zdPAwd7Wv8Y2\nc2Gia4mqlr0hEaK73xGF4NvjL8i+yQgzjYKjAro/68s+PlIHH2OUFPZgcW9RPJw9\nn8Qn3OhTlZXgZX5yWG/jO3ZKrYwlBdIW8Z/q6H5eD1QkXEuTBlRzH1CfssRW5kbE\n03egFGgxgu+eoXP1JMRvrZc4cmbh4G0Khk77v3EEOJVeLmYUgcOFewMIWiKI8ckC\nTkCrEy+SsFnI1bxvYSnkUtRFIPyUrncST9KU+kiSZvXjfYi+7UnvB8su6uZ0lu4+\nZltzO9ry\n=18Se\n-----END PGP SIGNATURE-----",
+        "payload": "tree ca9a78ed61c648f1806497e1daf7b106ec64f210\nparent 60c757f718d400e052c3160ee377bbe4973277c9\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726650399 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726650399 +0200\n\nperf: do not reset the hearbeat timer on each packet\n\nThis reverts https://github.com/socketio/socket.io/commit/ed34a45a0780b944a387c3a685d4f3af758cc2fa\n\nSee also: https://github.com/socketio/engine.io/commit/5359bae683e2a25742bd4989d0355a8fc10d294e\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/7a23dde6efff3079edeeda951fe0ee25516da833",
+    "html_url": "https://github.com/socketio/socket.io/commit/7a23dde6efff3079edeeda951fe0ee25516da833",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/7a23dde6efff3079edeeda951fe0ee25516da833/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "60c757f718d400e052c3160ee377bbe4973277c9",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/60c757f718d400e052c3160ee377bbe4973277c9",
+        "html_url": "https://github.com/socketio/socket.io/commit/60c757f718d400e052c3160ee377bbe4973277c9"
+      }
+    ]
+  },
+  {
+    "sha": "60c757f718d400e052c3160ee377bbe4973277c9",
+    "node_id": "C_kwDOAAiDnNoAKDYwYzc1N2Y3MThkNDAwZTA1MmMzMTYwZWUzNzdiYmU0OTczMjc3Yzk",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T06:07:56Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T06:09:47Z"
+      },
+      "message": "fix(sio-client): accept string | undefined as init argument (bis)\n\nFollowing: https://github.com/socketio/socket.io-client/commit/5a3eafed1c4118ac3a06ec81a24491eec7d0655f\n\nRelated: https://github.com/socketio/socket.io/issues/4873",
+      "tree": {
+        "sha": "6f947ed616ff440bc91e76f8f3a6fd93e3cc1632",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/6f947ed616ff440bc91e76f8f3a6fd93e3cc1632"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/60c757f718d400e052c3160ee377bbe4973277c9",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbqbq0fHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988LGzB/9G4J9sDtVxsZyg\nGODDFCs5bNkGb8JZjAVpYMA2xttJBUMwcPIVStfbTB+n/+jCxqMkKB5Lod2I19f7\n0XX7E4NLvqUysxvp4Xh5RvqRpIDikjVcOb7n7MFzojEa/oQJ/vQwBuFXnYlxsK78\n1+T2yFQ16aNGNX35Q0KijjOWK7Lo5NeF7VPFRE6DPY9pgRjOmZRY4QcncIx+2hDQ\nkR6Ln8ATLNH8ssgcvvOq64PtPE+VVJYcmrvAhdRufeiPIdwgiH4wFzlxl14O5cpI\nTq4MADkF1hRbQs3HXgt4/1S/ZxfUe63MLy/Wnejy8Exnxrz96kci7tteUkEfHYu5\nPWlp8303\n=NHGA\n-----END PGP SIGNATURE-----",
+        "payload": "tree 6f947ed616ff440bc91e76f8f3a6fd93e3cc1632\nparent 04c8dd979ce40acaceec1f4507c1ae69325d6158\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726639676 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726639787 +0200\n\nfix(sio-client): accept string | undefined as init argument (bis)\n\nFollowing: https://github.com/socketio/socket.io-client/commit/5a3eafed1c4118ac3a06ec81a24491eec7d0655f\n\nRelated: https://github.com/socketio/socket.io/issues/4873\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/60c757f718d400e052c3160ee377bbe4973277c9",
+    "html_url": "https://github.com/socketio/socket.io/commit/60c757f718d400e052c3160ee377bbe4973277c9",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/60c757f718d400e052c3160ee377bbe4973277c9/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "04c8dd979ce40acaceec1f4507c1ae69325d6158",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/04c8dd979ce40acaceec1f4507c1ae69325d6158",
+        "html_url": "https://github.com/socketio/socket.io/commit/04c8dd979ce40acaceec1f4507c1ae69325d6158"
+      }
+    ]
+  },
+  {
+    "sha": "04c8dd979ce40acaceec1f4507c1ae69325d6158",
+    "node_id": "C_kwDOAAiDnNoAKDA0YzhkZDk3OWNlNDBhY2FjZWVjMWY0NTA3YzFhZTY5MzI1ZDYxNTg",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-17T13:52:14Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T05:52:37Z"
+      },
+      "message": "fix(sio-client): close the engine upon decoding exception\n\nRelated: https://github.com/socketio/socket.io/issues/5128",
+      "tree": {
+        "sha": "25ab1fe7d490968f5cd4bb79bdd129687586b061",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/25ab1fe7d490968f5cd4bb79bdd129687586b061"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/04c8dd979ce40acaceec1f4507c1ae69325d6158",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbqaqkfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988IklCADegCcBPdF467u8\n6W7SIfr4EAQr0MKUKlVhpeJXRUDzcFEjEcQXeNSRm8CcGa2XMZomdOXsh5FZ0xwj\nwraDM/Qr4fO5MLbvcYwpc7Rq/vnZli/DjQF3Qwuks3MATI7jRIuAd0MpsAN0HPe5\no/+idRVavweapgfXcq6OMM16Ykj3WkvjBrFdFNmVCwgBlRh/KirweD4PkSLj9ZBh\n9SMTaqHLIqAejsMiTUKP7WWNyORDWne3F7NSDzev/kjYktb8WU32kwbdDwrrFuhd\nSDVEOwNK9H70dcvUpr+OdpRCFYBHZXpM73ctm6WFRxWd+Fk+iUkpZ/8bZuMi5m36\nH7P0OY8h\n=QgXo\n-----END PGP SIGNATURE-----",
+        "payload": "tree 25ab1fe7d490968f5cd4bb79bdd129687586b061\nparent 21942648202c6d93fa128503bc5ba1796ac8b1d5\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726581134 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726638757 +0200\n\nfix(sio-client): close the engine upon decoding exception\n\nRelated: https://github.com/socketio/socket.io/issues/5128\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/04c8dd979ce40acaceec1f4507c1ae69325d6158",
+    "html_url": "https://github.com/socketio/socket.io/commit/04c8dd979ce40acaceec1f4507c1ae69325d6158",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/04c8dd979ce40acaceec1f4507c1ae69325d6158/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "21942648202c6d93fa128503bc5ba1796ac8b1d5",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/21942648202c6d93fa128503bc5ba1796ac8b1d5",
+        "html_url": "https://github.com/socketio/socket.io/commit/21942648202c6d93fa128503bc5ba1796ac8b1d5"
+      }
+    ]
+  },
+  {
+    "sha": "21942648202c6d93fa128503bc5ba1796ac8b1d5",
+    "node_id": "C_kwDOAAiDnNoAKDIxOTQyNjQ4MjAyYzZkOTNmYTEyODUwM2JjNWJhMTc5NmFjOGIxZDU",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T05:48:00Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T05:52:12Z"
+      },
+      "message": "test(eio-client): reduce test suite duration",
+      "tree": {
+        "sha": "62d2087ecd9cdb8968e55286d3924cfc6444f5ff",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/62d2087ecd9cdb8968e55286d3924cfc6444f5ff"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/21942648202c6d93fa128503bc5ba1796ac8b1d5",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbqaowfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988GsdB/wN0xlTadFGSgxv\nbBVZUjsDtNmonTk3xvXrwqtQTb001bh8dhpRX9izsiJ43v4I5yBAK9s7g3ejNDyE\npsXLQccWDB9uQ3NfBJPy0nm90jgkAOQ+u2G9OPwOz7Tw/gohTgnOuZw15ROygXA9\nL0P9BhEsCyxkbDYUfdSvbrzl+jLfMCsk5lNjAL0k9Guh3mkuWJmp0FfJfl8qZzmt\nHJp+Wf2E31iyckI+s3Kl4W8uLtyvxSS6LYwazt5gkgLexxWwsFhD9IGtk2Tw1Ik9\nxkbfquie8DiWHCPSox4T35DIcg3J6fE3HXorCRcmIk7NFUdqPfqBPdXdSkR7zX91\nxSGYePD8\n=Vs0G\n-----END PGP SIGNATURE-----",
+        "payload": "tree 62d2087ecd9cdb8968e55286d3924cfc6444f5ff\nparent 09f573cad83c2da33ade0afd0ee3c6d41e1d60c3\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726638480 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726638732 +0200\n\ntest(eio-client): reduce test suite duration\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/21942648202c6d93fa128503bc5ba1796ac8b1d5",
+    "html_url": "https://github.com/socketio/socket.io/commit/21942648202c6d93fa128503bc5ba1796ac8b1d5",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/21942648202c6d93fa128503bc5ba1796ac8b1d5/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "09f573cad83c2da33ade0afd0ee3c6d41e1d60c3",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/09f573cad83c2da33ade0afd0ee3c6d41e1d60c3",
+        "html_url": "https://github.com/socketio/socket.io/commit/09f573cad83c2da33ade0afd0ee3c6d41e1d60c3"
+      }
+    ]
+  },
+  {
+    "sha": "09f573cad83c2da33ade0afd0ee3c6d41e1d60c3",
+    "node_id": "C_kwDOAAiDnNoAKDA5ZjU3M2NhZDgzYzJkYTMzYWRlMGFmZDBlZTNjNmQ0MWUxZDYwYzM",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T05:30:43Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-18T05:52:12Z"
+      },
+      "message": "test(sio-client): reduce test suite duration",
+      "tree": {
+        "sha": "e42d6ee515e9347dd271f60e6e9b62fb9ff281f0",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/e42d6ee515e9347dd271f60e6e9b62fb9ff281f0"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/09f573cad83c2da33ade0afd0ee3c6d41e1d60c3",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbqaowfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988HdXB/4nafubORmCskJY\n3MAfW2O6sqjWejpotvxxzJntDVfhCu7DC5FD6ilZ+dc/+q2si+ZBHnpBpQl+6Kow\n/QpFFkn19wB4BbzxEs6h207HruAWQdcGhlUxIgyYC501hALHzDsgMqWUm6PHrz6S\n009cwtsQTUIQFbGV19Q6UavW+SJbf3/ZzuXvzQAFnKUe94dkcColkfb3pUs+onvO\nW2jQbdakmDKQducpJbGETdJrMmdEduXL2TIirIfwOoRI7rS+vWlBh6lgCsweIoAc\nt6H/188tqbOkZZO+vMiE8/+Xr3Ke32KuTP0mFCaCDQA7ASW/VsyfCnYrjnP4EB9R\nytR44ycd\n=kDnF\n-----END PGP SIGNATURE-----",
+        "payload": "tree e42d6ee515e9347dd271f60e6e9b62fb9ff281f0\nparent fcbecd4f4642300045868eb5bab2cfb73768dfc0\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726637443 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726638732 +0200\n\ntest(sio-client): reduce test suite duration\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/09f573cad83c2da33ade0afd0ee3c6d41e1d60c3",
+    "html_url": "https://github.com/socketio/socket.io/commit/09f573cad83c2da33ade0afd0ee3c6d41e1d60c3",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/09f573cad83c2da33ade0afd0ee3c6d41e1d60c3/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "fcbecd4f4642300045868eb5bab2cfb73768dfc0",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/fcbecd4f4642300045868eb5bab2cfb73768dfc0",
+        "html_url": "https://github.com/socketio/socket.io/commit/fcbecd4f4642300045868eb5bab2cfb73768dfc0"
+      }
+    ]
+  },
+  {
+    "sha": "fcbecd4f4642300045868eb5bab2cfb73768dfc0",
+    "node_id": "C_kwDOAAiDnNoAKGZjYmVjZDRmNDY0MjMwMDA0NTg2OGViNWJhYjJjZmI3Mzc2OGRmYzA",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-17T13:07:23Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-17T13:07:23Z"
+      },
+      "message": "ci: restore package-specific tests",
+      "tree": {
+        "sha": "0fe11ee22cd88151ec93edc5c7193c264fa129a4",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/0fe11ee22cd88151ec93edc5c7193c264fa129a4"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/fcbecd4f4642300045868eb5bab2cfb73768dfc0",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbpfyAfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988ATKB/9VUj7bs8cw51EC\nwhvDJgY/fQ1gx0uOuSakRBt+CXI5l9CnBuOGu8O+E88f/rdGyzukRLQQCwqgwrxy\ntJ/0YA3cmRx3yJ4JyNlM5Iev6vlzou1RQwsjruXDu+OfTpIFj0d5b+TN+f0029Vs\n+kvCtqINhcOkWuqAXnzNbyYRmz2uvuGiV8AgOFxnI+2ElV8NX14VQbryCCCWuuFI\nODT0BFrqh0EbWP3cWlfDPA5evI09CQJdy2zhyAnxpI2H/u6zSanD5yds9irVo/PF\nFjyA1OQssuJAmpEPqM5JXOqddYJp9ixwlV3jXjX0X34wSP+P44fYyfJwFtM8GBpn\nz7U9P6sh\n=CiYz\n-----END PGP SIGNATURE-----",
+        "payload": "tree 0fe11ee22cd88151ec93edc5c7193c264fa129a4\nparent fd99f2e15fef0e17ae9e3849c92ef0ca616a5919\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726578443 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726578443 +0200\n\nci: restore package-specific tests\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/fcbecd4f4642300045868eb5bab2cfb73768dfc0",
+    "html_url": "https://github.com/socketio/socket.io/commit/fcbecd4f4642300045868eb5bab2cfb73768dfc0",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/fcbecd4f4642300045868eb5bab2cfb73768dfc0/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "fd99f2e15fef0e17ae9e3849c92ef0ca616a5919",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/fd99f2e15fef0e17ae9e3849c92ef0ca616a5919",
+        "html_url": "https://github.com/socketio/socket.io/commit/fd99f2e15fef0e17ae9e3849c92ef0ca616a5919"
+      }
+    ]
+  },
+  {
+    "sha": "fd99f2e15fef0e17ae9e3849c92ef0ca616a5919",
+    "node_id": "C_kwDOAAiDnNoAKGZkOTlmMmUxNWZlZjBlMTdhZTllMzg0OWM5MmVmMGNhNjE2YTU5MTk",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-16T13:37:28Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-16T13:49:15Z"
+      },
+      "message": "refactor(sio): export the DefaultEventsMap type\n\nRelated: https://github.com/socketio/socket.io/issues/4747",
+      "tree": {
+        "sha": "fc34531cfd850c553e8d6c2cbc916e823f843e8e",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/fc34531cfd850c553e8d6c2cbc916e823f843e8e"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/fd99f2e15fef0e17ae9e3849c92ef0ca616a5919",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmboN2gfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988KGCB/9F2cvhUb4qbz4P\n65TbJ+Y78Y0Siwjw6E/tGT0JXlrJE2IDKDcpef+vXmB0uBFEK7vv0fH9WTIIY3tJ\nSWXNcvfyVjyeTdCtmCd94mL6CccdkAHkceuY+5ZbDk1kj/LWY/xTRy5Y8GUY/LzZ\nSNTcFWjHc76gRoebt3+o9tlxOE7INZJiUusPovff2IVkBQXExZUbEWChj3Kl12Yo\nGGh90v4NW6gefO6+Eq0u+X866i+KWd+oEjTcM8b5PRGyf46dKiQm1l9fi5GBJTBG\nalihU3qe4HhFFw7K3ZZvtHy9qb7OpVasBynV05GL63uZKToLeOpsCMWthTLpvHxZ\nsQiYw5Vc\n=kEJp\n-----END PGP SIGNATURE-----",
+        "payload": "tree fc34531cfd850c553e8d6c2cbc916e823f843e8e\nparent 02d59a0e992ea74fd59914e99e2cdbcf7e4f5f6d\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726493848 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726494555 +0200\n\nrefactor(sio): export the DefaultEventsMap type\n\nRelated: https://github.com/socketio/socket.io/issues/4747\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/fd99f2e15fef0e17ae9e3849c92ef0ca616a5919",
+    "html_url": "https://github.com/socketio/socket.io/commit/fd99f2e15fef0e17ae9e3849c92ef0ca616a5919",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/fd99f2e15fef0e17ae9e3849c92ef0ca616a5919/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "02d59a0e992ea74fd59914e99e2cdbcf7e4f5f6d",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/02d59a0e992ea74fd59914e99e2cdbcf7e4f5f6d",
+        "html_url": "https://github.com/socketio/socket.io/commit/02d59a0e992ea74fd59914e99e2cdbcf7e4f5f6d"
+      }
+    ]
+  },
+  {
+    "sha": "02d59a0e992ea74fd59914e99e2cdbcf7e4f5f6d",
+    "node_id": "C_kwDOAAiDnNoAKDAyZDU5YTBlOTkyZWE3NGZkNTk5MTRlOTllMmNkYmNmN2U0ZjVmNmQ",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-16T07:11:35Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-16T07:11:35Z"
+      },
+      "message": "chore: re-enable publish workflow\n\nThis reverts commit 7160eb7eb05fe8e6913660bedae8d03e76404d8e.\n\n[skip ci]",
+      "tree": {
+        "sha": "efb5700dc7a45cd74ac519fb0e4b973a091aa4ca",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/efb5700dc7a45cd74ac519fb0e4b973a091aa4ca"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/02d59a0e992ea74fd59914e99e2cdbcf7e4f5f6d",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbn2jwfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988LxTB/sGDj08ZMeRACQn\necO240WmrfRvac4FMm9h3VtDY17GB3/bxLJOrU+xvollof+Fwqu/U5lQ+wUmoXBU\nVEa+1h11tcwkhGZfYQlJlP3EgyErjHz3v4Kvs+aZ1HoWnbSn+PkcV2ZoOi1ByZwb\n/9PS8J48kD+YMBgLWu4n1vyfq6gtQPkCG0/+3OUDqIQDvL0sr8gp2wq77ev/RO1K\nby3se7PCSWlSudavtTons/XAUkYf701xphA5msqG5f5r+HurLclc2CqYsdbVhv/d\nfsrYFYLvvHkkcYPNhwKwQDUjkIrhfTMYGkPm3sb8+6HLwuBxeaejMRpeYKxj7IS7\nmUpsJIco\n=av3p\n-----END PGP SIGNATURE-----",
+        "payload": "tree efb5700dc7a45cd74ac519fb0e4b973a091aa4ca\nparent 7160eb7eb05fe8e6913660bedae8d03e76404d8e\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726470695 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726470695 +0200\n\nchore: re-enable publish workflow\n\nThis reverts commit 7160eb7eb05fe8e6913660bedae8d03e76404d8e.\n\n[skip ci]\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/02d59a0e992ea74fd59914e99e2cdbcf7e4f5f6d",
+    "html_url": "https://github.com/socketio/socket.io/commit/02d59a0e992ea74fd59914e99e2cdbcf7e4f5f6d",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/02d59a0e992ea74fd59914e99e2cdbcf7e4f5f6d/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7160eb7eb05fe8e6913660bedae8d03e76404d8e",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/7160eb7eb05fe8e6913660bedae8d03e76404d8e",
+        "html_url": "https://github.com/socketio/socket.io/commit/7160eb7eb05fe8e6913660bedae8d03e76404d8e"
+      }
+    ]
+  },
+  {
+    "sha": "7160eb7eb05fe8e6913660bedae8d03e76404d8e",
+    "node_id": "C_kwDOAAiDnNoAKDcxNjBlYjdlYjA1ZmU4ZTY5MTM2NjBiZWRhZThkMDNlNzY0MDRkOGU",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-16T06:56:07Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-09-16T06:56:07Z"
+      },
+      "message": "chore: temporarily disable publish workflow\n\nIn order to import tags from other repositories.\n\n[skip ci]",
+      "tree": {
+        "sha": "97c2b4644585366b7fb85beaeded8dddef4978a0",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/97c2b4644585366b7fb85beaeded8dddef4978a0"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/7160eb7eb05fe8e6913660bedae8d03e76404d8e",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbn1rAfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988G+cCADCTkAGoYVVcVrc\nUfi9zcRMFV2AZNJs7VaqOYho+9Xhq3i7Kylxkg9SI1mwKhJxJeK2r/KSmtafgDiz\n5pxzFhLU2s21YucXJ8kc1KENvNwroBCXwDPFcUQfgMBWhYUum4AXvMGppu0FpvB9\nMDHIYbWTtJrVScUmOeFJ7SPXiTj8Ij8wQP8wFpmCltE5p+mQmQV9gWiZibj8PG4x\n/LgE3QPMn2SIHQSq1JJXq8UYMH0xxuDMhFSKWMbx8kTa1awmYiS9cCGOtRHqIzHm\n5XES5U42rkTxvPupYQMkw9sLmCZ9OeGc9wDeuaH4WiCRESRwJHeYg+0kr66LVNUV\nmAlsjWMu\n=u17o\n-----END PGP SIGNATURE-----",
+        "payload": "tree 97c2b4644585366b7fb85beaeded8dddef4978a0\nparent a1ccba3a770607966e0a78d802c03fbada92fab2\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726469767 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1726469767 +0200\n\nchore: temporarily disable publish workflow\n\nIn order to import tags from other repositories.\n\n[skip ci]\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/7160eb7eb05fe8e6913660bedae8d03e76404d8e",
+    "html_url": "https://github.com/socketio/socket.io/commit/7160eb7eb05fe8e6913660bedae8d03e76404d8e",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/7160eb7eb05fe8e6913660bedae8d03e76404d8e/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a1ccba3a770607966e0a78d802c03fbada92fab2",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/a1ccba3a770607966e0a78d802c03fbada92fab2",
+        "html_url": "https://github.com/socketio/socket.io/commit/a1ccba3a770607966e0a78d802c03fbada92fab2"
+      }
+    ]
+  },
+  {
+    "sha": "a1ccba3a770607966e0a78d802c03fbada92fab2",
+    "node_id": "C_kwDOAAiDnNoAKGExY2NiYTNhNzcwNjA3OTY2ZTBhNzhkODAyYzAzZmJhZGE5MmZhYjI",
+    "commit": {
+      "author": {
+        "name": "Wang Guan",
+        "email": "momocraft@gmail.com",
+        "date": "2024-09-16T06:43:08Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T06:43:08Z"
+      },
+      "message": "chore: use prettier v3 everywhere (#5169)",
+      "tree": {
+        "sha": "efb5700dc7a45cd74ac519fb0e4b973a091aa4ca",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/efb5700dc7a45cd74ac519fb0e4b973a091aa4ca"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/a1ccba3a770607966e0a78d802c03fbada92fab2",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm59N8CRC1aQ7uu5UhlAAA0AEQAGG8+4F1FBo/nE0qUQdZxguh\nTPwGMMeYyNzVNmnUnTynWf7yahZ/ek+flRBY9kxk2tQt4cqii7dq5Kpv83ldigKF\n9w48s9jnpHluhhSgbDN0jbD+ncIdslQq+vCK8GQAmlFpCBSD0X+Ag4R0/AC+JQUT\nI50DZYhunKJof37iIIs19Ao4mn4kgqiVqdscsXIXTrXmMkMWqO/CC0pTQTRjvi0Q\n/B8WrE7h4HSmq+Rt1z6X4h476ChW31Ckd8+RTaaUKpwOPvG8/WohA9/paqqUF+fV\n/P113Oc+FOcbjAEfEC/1WmfKay2ZulWhw2Lat9UjUNC8PA8Y2gnJKf8Vy8yQl0Kt\nEPF9wmneCne/oQ/OtbrzOv9NpzV9meGaSkLZlkiyzqStksMSkU/xIukgwzMOvABA\n7p8bk4KBvz68rPdW7gdCVRDms40gUKy1p90o9pd0gSfnXByo9kM/+9a/rKbEewtN\nnbk1WgINm0AliYhO7Rkbzna7Q4tUwiOOxAoYyy5jE92wTcntrDhGjoCiyr0XwOKA\n1xjB9ouQpCt3Ze3psQOYiXltJXYV/AkgBFXvXndxDdhylbaAUrg8cH1zQhkBFifl\nGR6QO0i9PYWfdCLq/SWmCVz2+5BSg2A3H7fMSWImBpop+lRLXa8WF+LxctqUgbai\nqda9WE2EXOkkLiGHC3Jy\n=NHxu\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree efb5700dc7a45cd74ac519fb0e4b973a091aa4ca\nparent e347a3c24e773cf59f589110989fd56703a9057c\nauthor Wang Guan <momocraft@gmail.com> 1726468988 +0900\ncommitter GitHub <noreply@github.com> 1726468988 +0200\n\nchore: use prettier v3 everywhere (#5169)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/a1ccba3a770607966e0a78d802c03fbada92fab2",
+    "html_url": "https://github.com/socketio/socket.io/commit/a1ccba3a770607966e0a78d802c03fbada92fab2",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/a1ccba3a770607966e0a78d802c03fbada92fab2/comments",
+    "author": {
+      "login": "jokester",
+      "id": 802130,
+      "node_id": "MDQ6VXNlcjgwMjEzMA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/802130?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jokester",
+      "html_url": "https://github.com/jokester",
+      "followers_url": "https://api.github.com/users/jokester/followers",
+      "following_url": "https://api.github.com/users/jokester/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jokester/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jokester/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jokester/subscriptions",
+      "organizations_url": "https://api.github.com/users/jokester/orgs",
+      "repos_url": "https://api.github.com/users/jokester/repos",
+      "events_url": "https://api.github.com/users/jokester/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jokester/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e347a3c24e773cf59f589110989fd56703a9057c",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/e347a3c24e773cf59f589110989fd56703a9057c",
+        "html_url": "https://github.com/socketio/socket.io/commit/e347a3c24e773cf59f589110989fd56703a9057c"
+      }
+    ]
+  },
+  {
+    "sha": "e347a3c24e773cf59f589110989fd56703a9057c",
+    "node_id": "C_kwDOAAiDnNoAKGUzNDdhM2MyNGU3NzNjZjU5ZjU4OTExMDk4OWZkNTY3MDNhOTA1N2M",
+    "commit": {
+      "author": {
+        "name": "Mark Nelissen",
+        "email": "mark.nelissen@gmail.com",
+        "date": "2024-09-14T06:51:08Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-14T06:51:08Z"
+      },
+      "message": "fix(sio): correctly await async close on adapters (#4971)\n\nFollowing: https://github.com/socketio/socket.io/commit/bf64870957e626a73e0544716a1a41a4ba5093bb",
+      "tree": {
+        "sha": "d84468fd66dd6526a4e8a6f1bce9d8622286b542",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/d84468fd66dd6526a4e8a6f1bce9d8622286b542"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/e347a3c24e773cf59f589110989fd56703a9057c",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm5TJcCRC1aQ7uu5UhlAAAwWIQAGDlhZ1rrT3vZaKYICFFk3C3\nq6n5uBPJ3MdcUJ4ZxzGogeDyjGLsfTs41DAb50be/Y3RkXYwMr1TYDS5nuUupR+K\n2lmW8PU6p6zYw8Ta8ObXO3/JqpIK8U6FSpsIud14o3brYXKOEfRVPtnfLlVqwIAL\nFOZ1veMpgvRE/Fn18EN8kHxOAQvT1sgjm+9cSyK6gsCEIPfAoLLAxurq7daYMhJX\n1Cf+K6RmvPPRXVz59bdW1xeIuMGA90cmoexqLD5tusrFzRsXeyIVLgUkXz+fI52N\nNWDPpxIKCC4oC0teYPginonyCAiopg43t3DfNUKzlKbCeWq7p5edQG1MFN11HkuT\nRabQUDeVtIFkSzoGzNoNMce8UOxCSt9dA8u0fLCTvH6YCeNU0OO9ydpbTMMA6gH3\nVRP+KYM79H8FS0P83taiCZcq436VsRFI4rl3VREjaiXmCexP5mQypGPwe3ffpjUd\nDblzsy7afv6/mjjV89mRt9/e3jmuJMYCoBX5qzqcM0oPCy4wvi6EWzXBDkiq9uvK\nyfQWPZCbatvnCNWkA+yKbhJzAZJkcAC3SamwBGY7VupHpq28GHd5VGdcnAz6ohB3\ngauDnaJezgtxi1a8yj72/niHbTehCUOK83nWaNbdAZqheZu0lQH7euHgfrCyMKTv\n595yY+uBDI9m904UJMHe\n=+bW7\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d84468fd66dd6526a4e8a6f1bce9d8622286b542\nparent b5ccfd4838b901c7c4efd1e5e07a0bd083620619\nauthor Mark Nelissen <mark.nelissen@gmail.com> 1726296668 +0200\ncommitter GitHub <noreply@github.com> 1726296668 +0200\n\nfix(sio): correctly await async close on adapters (#4971)\n\nFollowing: https://github.com/socketio/socket.io/commit/bf64870957e626a73e0544716a1a41a4ba5093bb"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/e347a3c24e773cf59f589110989fd56703a9057c",
+    "html_url": "https://github.com/socketio/socket.io/commit/e347a3c24e773cf59f589110989fd56703a9057c",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/e347a3c24e773cf59f589110989fd56703a9057c/comments",
+    "author": {
+      "login": "marknelissen",
+      "id": 10599177,
+      "node_id": "MDQ6VXNlcjEwNTk5MTc3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10599177?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/marknelissen",
+      "html_url": "https://github.com/marknelissen",
+      "followers_url": "https://api.github.com/users/marknelissen/followers",
+      "following_url": "https://api.github.com/users/marknelissen/following{/other_user}",
+      "gists_url": "https://api.github.com/users/marknelissen/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/marknelissen/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/marknelissen/subscriptions",
+      "organizations_url": "https://api.github.com/users/marknelissen/orgs",
+      "repos_url": "https://api.github.com/users/marknelissen/repos",
+      "events_url": "https://api.github.com/users/marknelissen/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/marknelissen/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b5ccfd4838b901c7c4efd1e5e07a0bd083620619",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/b5ccfd4838b901c7c4efd1e5e07a0bd083620619",
+        "html_url": "https://github.com/socketio/socket.io/commit/b5ccfd4838b901c7c4efd1e5e07a0bd083620619"
+      }
+    ]
+  },
+  {
+    "sha": "b5ccfd4838b901c7c4efd1e5e07a0bd083620619",
+    "node_id": "C_kwDOAAiDnNoAKGI1Y2NmZDQ4MzhiOTAxYzdjNGVmZDFlNWUwN2EwYmQwODM2MjA2MTk",
+    "commit": {
+      "author": {
+        "name": "nayounsang",
+        "email": "77400131+nayounsang@users.noreply.github.com",
+        "date": "2024-09-14T06:17:36Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-14T06:17:36Z"
+      },
+      "message": "refactor(eio-client): improve transports type (#5188)\n\nRelated: https://github.com/socketio/socket.io/issues/5187",
+      "tree": {
+        "sha": "7cd5a49b9eb510e9bbba14cc5f417c06cf3ad7ad",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/7cd5a49b9eb510e9bbba14cc5f417c06cf3ad7ad"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/b5ccfd4838b901c7c4efd1e5e07a0bd083620619",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm5SqACRC1aQ7uu5UhlAAA3hYQAGWBvmhUzdRNgjtzcXAzrv0G\nWJ9/cmYT9CCwMJc1bFShbWTBn0x0ZRX/MVWCP48bUtSNk2FMXeA403XXxaVfYdKX\nJrxEGqvrt8B/7Yk/eKy/UfBeCWGqa6J5xGNRKtLg/6f5/0SYAZwGa0oAUcP25GLo\nAjcVLvRcQXdaXvmey61nwzTm31NI4ksustuVRYXUI83GSWK1L+Jd4zLYKrOYv9YA\nTiAOXl1MBXbu4aLn357qFeBwyv3fuEZj/DWRxrLqR7XDClG1nSRO3Y0GAniomPji\nLr2uPzFv7QvNifOA7mlmM60uiafbGmI3srnNNktaY3mi9tandcobmGqtvkNct7bj\n2qKQ20tomDuVrWa9cMiTvGVhlNgDSV8PCpZtrua0my9XTtn4vjxdISyn2pVDRZpo\npyQbiCt0eiHAh3OE0LtbsWwz9bdo6/3HoRi0hNe1k6gJxlLFJPu2xCv+BwJL4WlL\n2YFgbgKU5ppaQr27QE8gX5FCn9ujMSMET5GEZUvYS8iM8/60vAKU+kQtRRCmpf9I\nJ5Fp62XBP96nuTk+KSySqRAepciED7HUa5lCOn/IKsOZO02TZKWGgTf6Tvp1TrA9\nymp79KXJMeTvUNphazmf2iI2dd9In4rU7Qb2JHFbRi9LQ6D7PBdN+kibuFWblEZE\n/rnnfwkSq4PKIx9212Dk\n=RhQY\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 7cd5a49b9eb510e9bbba14cc5f417c06cf3ad7ad\nparent 5d9a2d554440f69a0b729e276cc2578a10a173e5\nauthor nayounsang <77400131+nayounsang@users.noreply.github.com> 1726294656 +0900\ncommitter GitHub <noreply@github.com> 1726294656 +0200\n\nrefactor(eio-client): improve transports type (#5188)\n\nRelated: https://github.com/socketio/socket.io/issues/5187"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/b5ccfd4838b901c7c4efd1e5e07a0bd083620619",
+    "html_url": "https://github.com/socketio/socket.io/commit/b5ccfd4838b901c7c4efd1e5e07a0bd083620619",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/b5ccfd4838b901c7c4efd1e5e07a0bd083620619/comments",
+    "author": {
+      "login": "nayounsang",
+      "id": 77400131,
+      "node_id": "MDQ6VXNlcjc3NDAwMTMx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/77400131?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nayounsang",
+      "html_url": "https://github.com/nayounsang",
+      "followers_url": "https://api.github.com/users/nayounsang/followers",
+      "following_url": "https://api.github.com/users/nayounsang/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nayounsang/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nayounsang/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nayounsang/subscriptions",
+      "organizations_url": "https://api.github.com/users/nayounsang/orgs",
+      "repos_url": "https://api.github.com/users/nayounsang/repos",
+      "events_url": "https://api.github.com/users/nayounsang/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nayounsang/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5d9a2d554440f69a0b729e276cc2578a10a173e5",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/5d9a2d554440f69a0b729e276cc2578a10a173e5",
+        "html_url": "https://github.com/socketio/socket.io/commit/5d9a2d554440f69a0b729e276cc2578a10a173e5"
+      }
+    ]
+  },
+  {
+    "sha": "5d9a2d554440f69a0b729e276cc2578a10a173e5",
+    "node_id": "C_kwDOAAiDnNoAKDVkOWEyZDU1NDQ0MGY2OWEwYjcyOWUyNzZjYzI1NzhhMTBhMTczZTU",
+    "commit": {
+      "author": {
+        "name": "Wang Guan",
+        "email": "momocraft@gmail.com",
+        "date": "2024-08-23T21:03:09Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-08-23T21:19:45Z"
+      },
+      "message": "chore(socket.io-client): bump engine.io-client to version 6.6.0",
+      "tree": {
+        "sha": "e9c9728b194c8bf39313c4ff6d07643c94dd99a9",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/e9c9728b194c8bf39313c4ff6d07643c94dd99a9"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/5d9a2d554440f69a0b729e276cc2578a10a173e5",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbI/PEfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988LnQB/9QF0/ImRFIoHB0\nTYfncpbPsJZAmr7gsG7BnLa/Nwp+FhVI0Nedi2R27rOlq0k5Sxuo5UMt4evA2hVD\nN/JMratJPff1yhJ4ZV1tH49piUvBcvEMCDGrEyy2+by8XRxN6/7R+RIRJIfBKSd0\n13u3xOM42GhGmouUssloIX85QW/LXK2G3EcKGpbXBnIvFuCkbSfDAPvcEzIBpBqT\n5ArWZpTZClDIgVlSyDGZDh/fm9WSPU5XW/gKfgq8dLKDllOOwVyRcSFsart0517v\nZIFOFGQrPKzEc57WRLlyUQB6yDoV8N+s7OGQ+8N5yZ8hQPLPGZkokeVEmxizLHdB\ne0NIQeBa\n=AIEC\n-----END PGP SIGNATURE-----",
+        "payload": "tree e9c9728b194c8bf39313c4ff6d07643c94dd99a9\nparent d5b22f5a76b8318ca8ae8277a08a64bfb31b20be\nauthor Wang Guan <momocraft@gmail.com> 1724446989 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1724447985 +0200\n\nchore(socket.io-client): bump engine.io-client to version 6.6.0\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/5d9a2d554440f69a0b729e276cc2578a10a173e5",
+    "html_url": "https://github.com/socketio/socket.io/commit/5d9a2d554440f69a0b729e276cc2578a10a173e5",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/5d9a2d554440f69a0b729e276cc2578a10a173e5/comments",
+    "author": {
+      "login": "jokester",
+      "id": 802130,
+      "node_id": "MDQ6VXNlcjgwMjEzMA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/802130?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jokester",
+      "html_url": "https://github.com/jokester",
+      "followers_url": "https://api.github.com/users/jokester/followers",
+      "following_url": "https://api.github.com/users/jokester/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jokester/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jokester/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jokester/subscriptions",
+      "organizations_url": "https://api.github.com/users/jokester/orgs",
+      "repos_url": "https://api.github.com/users/jokester/repos",
+      "events_url": "https://api.github.com/users/jokester/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jokester/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d5b22f5a76b8318ca8ae8277a08a64bfb31b20be",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/d5b22f5a76b8318ca8ae8277a08a64bfb31b20be",
+        "html_url": "https://github.com/socketio/socket.io/commit/d5b22f5a76b8318ca8ae8277a08a64bfb31b20be"
+      }
+    ]
+  },
+  {
+    "sha": "d5b22f5a76b8318ca8ae8277a08a64bfb31b20be",
+    "node_id": "C_kwDOAAiDnNoAKGQ1YjIyZjVhNzZiODMxOGNhOGFlODI3N2EwOGE2NGJmYjMxYjIwYmU",
+    "commit": {
+      "author": {
+        "name": "Wang Guan",
+        "email": "momocraft@gmail.com",
+        "date": "2024-08-23T21:02:14Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-08-23T21:19:31Z"
+      },
+      "message": "chore(socket.io): bump engine.io to version 6.6.0",
+      "tree": {
+        "sha": "abe0efe2afd55b7101e5b0c103b84e36e540a55f",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/abe0efe2afd55b7101e5b0c103b84e36e540a55f"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/d5b22f5a76b8318ca8ae8277a08a64bfb31b20be",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmbI/OMfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988GpwB/9mXStpCXFX0KkQ\nd6zQBao4U7Yjopjshms4iRTmRTkjaSu5pFZ18S06zGM9TEPHRdNF2OEDNzFdt7Q4\n8LgkuNRSXTwzy4kyGE24O7kKsGODGj5c+TJPmV16/fg4ORM8Doqco4RD5ZchHlc3\nglIi16XYK/aFKLmfwv0S4eMDG45V0jwkiTrgdVn81Y0yWP9Z/W7Q4mObXwUpbHz0\nARv9XSbHqa5j89oKDireQm7K8voco3pLrhO35b5bvLjp9UGEfXg6slEvNFo1vBS8\nCLkD5+atDSrKpxb11ygdVn55IoQ8w4rQ/Ij6i+cZ8XrYpAyT7W4DwCpIl/kyWLVY\nIfVlVCau\n=qGlg\n-----END PGP SIGNATURE-----",
+        "payload": "tree abe0efe2afd55b7101e5b0c103b84e36e540a55f\nparent 582655f679ccc43f0a9cbef1f13ea3cde07dc2e1\nauthor Wang Guan <momocraft@gmail.com> 1724446934 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1724447971 +0200\n\nchore(socket.io): bump engine.io to version 6.6.0\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/d5b22f5a76b8318ca8ae8277a08a64bfb31b20be",
+    "html_url": "https://github.com/socketio/socket.io/commit/d5b22f5a76b8318ca8ae8277a08a64bfb31b20be",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/d5b22f5a76b8318ca8ae8277a08a64bfb31b20be/comments",
+    "author": {
+      "login": "jokester",
+      "id": 802130,
+      "node_id": "MDQ6VXNlcjgwMjEzMA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/802130?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jokester",
+      "html_url": "https://github.com/jokester",
+      "followers_url": "https://api.github.com/users/jokester/followers",
+      "following_url": "https://api.github.com/users/jokester/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jokester/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jokester/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jokester/subscriptions",
+      "organizations_url": "https://api.github.com/users/jokester/orgs",
+      "repos_url": "https://api.github.com/users/jokester/repos",
+      "events_url": "https://api.github.com/users/jokester/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jokester/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "582655f679ccc43f0a9cbef1f13ea3cde07dc2e1",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/582655f679ccc43f0a9cbef1f13ea3cde07dc2e1",
+        "html_url": "https://github.com/socketio/socket.io/commit/582655f679ccc43f0a9cbef1f13ea3cde07dc2e1"
+      }
+    ]
+  },
+  {
+    "sha": "582655f679ccc43f0a9cbef1f13ea3cde07dc2e1",
+    "node_id": "C_kwDOAAiDnNoAKDU4MjY1NWY2NzljY2M0M2YwYTljYmVmMWYxM2VhM2NkZTA3ZGMyZTE",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-07-26T07:26:47Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-07-26T07:26:47Z"
+      },
+      "message": "test(cluster-engine): fix flaky test cleanup",
+      "tree": {
+        "sha": "7b4fe923f154c5ac88b595dc9fc0f5998a9793d4",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/7b4fe923f154c5ac88b595dc9fc0f5998a9793d4"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/582655f679ccc43f0a9cbef1f13ea3cde07dc2e1",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmajT8gfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988E78CADP3b+hSrjnse7e\n5QNhD+WO2m6sq0dg+D49qIkwo5JVhz71TInNRGHfzqiseeTcODEj+Ir7Cv/SFN8M\nr+rhe0a1UhmN0pHV+I9TU4nOFIk6CmgoZzfBBihMYmOKeFIJluozgyLAINJeeSEU\ng4c9963tdblfcX/u39D1AGlh/7PlGX9l0sQjw/X6CuHbFchHDFQmOhLj8pD3jyAy\n1e2O3LKRqxd4dHZijSttlMx6K/H3oVdgTl1kQbpYI/Baix0xm9At2pRuKpuzc6BW\nn3TCsmcpMkN//PsUwaMECEHDKXCXw5yJeKjgmaPoHwGxfMqCOSeMAUGYjPvOiA1M\ndlsDSOdC\n=WIaR\n-----END PGP SIGNATURE-----",
+        "payload": "tree 7b4fe923f154c5ac88b595dc9fc0f5998a9793d4\nparent b79d80aa5989b21c22f4901a2d1b53cf51351020\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1721978807 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1721978807 +0200\n\ntest(cluster-engine): fix flaky test cleanup\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/582655f679ccc43f0a9cbef1f13ea3cde07dc2e1",
+    "html_url": "https://github.com/socketio/socket.io/commit/582655f679ccc43f0a9cbef1f13ea3cde07dc2e1",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/582655f679ccc43f0a9cbef1f13ea3cde07dc2e1/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b79d80aa5989b21c22f4901a2d1b53cf51351020",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/b79d80aa5989b21c22f4901a2d1b53cf51351020",
+        "html_url": "https://github.com/socketio/socket.io/commit/b79d80aa5989b21c22f4901a2d1b53cf51351020"
+      }
+    ]
+  },
+  {
+    "sha": "b79d80aa5989b21c22f4901a2d1b53cf51351020",
+    "node_id": "C_kwDOAAiDnNoAKGI3OWQ4MGFhNTk4OWIyMWMyMmY0OTAxYTJkMWI1M2NmNTEzNTEwMjA",
+    "commit": {
+      "author": {
+        "name": "KartikeSingh",
+        "email": "gwk24yt@gmail.com",
+        "date": "2024-06-24T05:31:14Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-07-22T09:32:58Z"
+      },
+      "message": "docs: fix conjunction with fastify example (#5057)\n\n[skip ci]",
+      "tree": {
+        "sha": "91b35888f6f5a2377fea529cbfe2ee4ade6c701f",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/91b35888f6f5a2377fea529cbfe2ee4ade6c701f"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/b79d80aa5989b21c22f4901a2d1b53cf51351020",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmaeJ04fHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988F18B/9fFBqyzOqAuu0E\nSGK280hyr6bZ0NDImXMAzJeRuxpE9HZ2IMKkSs+Qb9A5v4E7L02WjAcCq4WhPtuk\nBmLrl+vCa6A+fb3xO8dQS/inw8MSdM7fqL4dO6g6DnCQOn6X1CFsrH4T0Vg5zMnL\nVIhOXbmbLoT9kswtRtwWgh1N1r0+fE621k+dQwHEzDxMlrGMpp7A1B/okj9Bzz/a\nDEUHQpgjL5vB2Gi+NCSxC7ZkgjXZs0Xv9p5Gd7v2HNeFMiKZCNv+awFiXiMX3pJB\ngnUL6X5z5BsBAFYHqrH5F73vFWcHYLM1xV/Wey3Is4Lh7JXK2ZSSOpF05hRkPThY\nabDh6R2i\n=wg7k\n-----END PGP SIGNATURE-----",
+        "payload": "tree 91b35888f6f5a2377fea529cbfe2ee4ade6c701f\nparent 7fd75e6aac02e6c8345063902d6927a5bae168e1\nauthor KartikeSingh <gwk24yt@gmail.com> 1719207074 +0530\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1721640778 +0200\n\ndocs: fix conjunction with fastify example (#5057)\n\n[skip ci]\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/b79d80aa5989b21c22f4901a2d1b53cf51351020",
+    "html_url": "https://github.com/socketio/socket.io/commit/b79d80aa5989b21c22f4901a2d1b53cf51351020",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/b79d80aa5989b21c22f4901a2d1b53cf51351020/comments",
+    "author": {
+      "login": "KartikeSingh",
+      "id": 67275060,
+      "node_id": "MDQ6VXNlcjY3Mjc1MDYw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/67275060?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/KartikeSingh",
+      "html_url": "https://github.com/KartikeSingh",
+      "followers_url": "https://api.github.com/users/KartikeSingh/followers",
+      "following_url": "https://api.github.com/users/KartikeSingh/following{/other_user}",
+      "gists_url": "https://api.github.com/users/KartikeSingh/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/KartikeSingh/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/KartikeSingh/subscriptions",
+      "organizations_url": "https://api.github.com/users/KartikeSingh/orgs",
+      "repos_url": "https://api.github.com/users/KartikeSingh/repos",
+      "events_url": "https://api.github.com/users/KartikeSingh/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/KartikeSingh/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7fd75e6aac02e6c8345063902d6927a5bae168e1",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/7fd75e6aac02e6c8345063902d6927a5bae168e1",
+        "html_url": "https://github.com/socketio/socket.io/commit/7fd75e6aac02e6c8345063902d6927a5bae168e1"
+      }
+    ]
+  },
+  {
+    "sha": "7fd75e6aac02e6c8345063902d6927a5bae168e1",
+    "node_id": "C_kwDOAAiDnNoAKDdmZDc1ZTZhYWMwMmU2YzgzNDUwNjM5MDJkNjkyN2E1YmFlMTY4ZTE",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-07-22T09:28:11Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-07-22T09:28:47Z"
+      },
+      "message": "docs(changelog): add changelog for socket.io-parser@3.3.4\n\nDiff: https://github.com/Automattic/socket.io-parser/compare/3.3.3...3.3.4\n\n[skip ci]",
+      "tree": {
+        "sha": "e741fb3d4d4b57e0046a9027142102637ebd695a",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/e741fb3d4d4b57e0046a9027142102637ebd695a"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/7fd75e6aac02e6c8345063902d6927a5bae168e1",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmaeJlcfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988OXFB/9CSE86N8NMwFX4\nss1FBi3JHzSTrzzPxoMVBnB+hdy2jJY/xjg9AlHM43AWhTxnS1Ud0IwYZSVRK5tH\n1ZNaCHTHNEdhfDl8jylfUDhrO5V+G9KvtcIAyLI6NngrIUVC03J/oq+3xUAQxwiX\n/XBNedaLAsrHnFsk4Z7uIHSaqcqsiHD1iH/K/RlThpjquNMTDRiPOILAmfd4FM+0\nVPSq/AnH/wgnT2oS3t8d0Uz9fnlvDBf0dpX4S4I0sHchleTFwse5fPYD+K/Spx2V\nAD6cyvswjRulRHFTVw0INlem37CiD3aWk5VSWX9K8Cjchu7Jl9t1Wb7hE66iRC9J\niM/ygi8z\n=MRD6\n-----END PGP SIGNATURE-----",
+        "payload": "tree e741fb3d4d4b57e0046a9027142102637ebd695a\nparent b7577556e377c52277df118164995acaed874fc0\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1721640491 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1721640527 +0200\n\ndocs(changelog): add changelog for socket.io-parser@3.3.4\n\nDiff: https://github.com/Automattic/socket.io-parser/compare/3.3.3...3.3.4\n\n[skip ci]\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/7fd75e6aac02e6c8345063902d6927a5bae168e1",
+    "html_url": "https://github.com/socketio/socket.io/commit/7fd75e6aac02e6c8345063902d6927a5bae168e1",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/7fd75e6aac02e6c8345063902d6927a5bae168e1/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b7577556e377c52277df118164995acaed874fc0",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/b7577556e377c52277df118164995acaed874fc0",
+        "html_url": "https://github.com/socketio/socket.io/commit/b7577556e377c52277df118164995acaed874fc0"
+      }
+    ]
+  },
+  {
+    "sha": "b7577556e377c52277df118164995acaed874fc0",
+    "node_id": "C_kwDOAAiDnNoAKGI3NTc3NTU2ZTM3N2M1MjI3N2RmMTE4MTY0OTk1YWNhZWQ4NzRmYzA",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-07-22T08:07:21Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-07-22T08:07:45Z"
+      },
+      "message": "docs: add example with NestJS\n\nReference: https://docs.nestjs.com/websockets/gateways\n\n[skip ci]",
+      "tree": {
+        "sha": "148832368f1b0bfa0802197c4e222da852cc688b",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/148832368f1b0bfa0802197c4e222da852cc688b"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/b7577556e377c52277df118164995acaed874fc0",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmaeE1cfHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988HbwCACgxvJEV4skikxm\ntZ/wICjoDWKuZdiTiLUdgwunHkiFj1fc1O+NOJiDhEmx4SzgzECPIn/imboRf/54\n9IFNwPzMNZEGrq/3MsaPC+D7LOQiZn+ijy7CB7u0LfS/1Lgcfuzg6lBYwF5P18PK\nHl1+jQ7X3BLDPiK2zCgGjESXXYRN4nJEKPv1kVvY3tLkxQrPv2OzcLuRSxmGaU5D\niTryFBDjVvUQ2mFUiQBIVuVgvXZ51hO2I8VMFR7M5EzEqf8t5SYXtyOrhUgmyKR/\nbpqtbnX7CnTTcxrE1Ny0EDtE63uxi/FbhGtaZy7r3mysWaL/qiNDy/5HSRoBAFUv\nmxH2B6tZ\n=7uYg\n-----END PGP SIGNATURE-----",
+        "payload": "tree 148832368f1b0bfa0802197c4e222da852cc688b\nparent 6e9bff4fcf2a76ae71274af320f008aec1eadfce\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1721635641 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1721635665 +0200\n\ndocs: add example with NestJS\n\nReference: https://docs.nestjs.com/websockets/gateways\n\n[skip ci]\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/b7577556e377c52277df118164995acaed874fc0",
+    "html_url": "https://github.com/socketio/socket.io/commit/b7577556e377c52277df118164995acaed874fc0",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/b7577556e377c52277df118164995acaed874fc0/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6e9bff4fcf2a76ae71274af320f008aec1eadfce",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/6e9bff4fcf2a76ae71274af320f008aec1eadfce",
+        "html_url": "https://github.com/socketio/socket.io/commit/6e9bff4fcf2a76ae71274af320f008aec1eadfce"
+      }
+    ]
+  },
+  {
+    "sha": "6e9bff4fcf2a76ae71274af320f008aec1eadfce",
+    "node_id": "C_kwDOAAiDnNoAKDZlOWJmZjRmY2YyYTc2YWU3MTI3NGFmMzIwZjAwOGFlYzFlYWRmY2U",
+    "commit": {
+      "author": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-07-19T13:20:12Z"
+      },
+      "committer": {
+        "name": "Damien Arrachequesne",
+        "email": "damien.arrachequesne@gmail.com",
+        "date": "2024-07-19T13:20:12Z"
+      },
+      "message": "docs: add example with @socket.io/postgres-adapter\n\n[skip ci]",
+      "tree": {
+        "sha": "6c6351e7e76c4b01310c6525ac6cff2f36d696b3",
+        "url": "https://api.github.com/repos/socketio/socket.io/git/trees/6c6351e7e76c4b01310c6525ac6cff2f36d696b3"
+      },
+      "url": "https://api.github.com/repos/socketio/socket.io/git/commits/6e9bff4fcf2a76ae71274af320f008aec1eadfce",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niQFTBAABCgA9FiEEKFBGZnZUy4UJoMWrVE0UZj5/fPAFAmaaaBofHGRhbWllbi5h\ncnJhY2hlcXVlc25lQGdtYWlsLmNvbQAKCRBUTRRmPn988D/UCACAEn6SCxf2snM9\ngeRqBFNTXrkCLAJWGp0Q/2kV92olqfoiiwsHX3EV2/j/gknVSapIykAPbhBX90J9\nh1JKR03rOlWamni9guK5AjoSsTWbBfsNxhzKpAVb++YunwVJ5fnqjDz0LZJteOOP\nhbNZI11gulecsPnuEF2nyX5nCFBOdhIyCEeMMROakwYgo1TmexbctBkvMdl0f46f\nJekXiPIJmREUwK4Gs4pWi7kBfqKbvVEgJldsi4QFyIQHjDrxGemWlNRospREYbx1\nXehkL07wP/xrVDwpcr9NpMj7QQClNCoZWd0i81aMfzU4MTXBHCRk1j/h5aU2Zq03\nsNsUHaQM\n=CgZr\n-----END PGP SIGNATURE-----",
+        "payload": "tree 6c6351e7e76c4b01310c6525ac6cff2f36d696b3\nparent 8b0a40fd4a13be2d22c855501bf226695d3b2b37\nauthor Damien Arrachequesne <damien.arrachequesne@gmail.com> 1721395212 +0200\ncommitter Damien Arrachequesne <damien.arrachequesne@gmail.com> 1721395212 +0200\n\ndocs: add example with @socket.io/postgres-adapter\n\n[skip ci]\n"
+      }
+    },
+    "url": "https://api.github.com/repos/socketio/socket.io/commits/6e9bff4fcf2a76ae71274af320f008aec1eadfce",
+    "html_url": "https://github.com/socketio/socket.io/commit/6e9bff4fcf2a76ae71274af320f008aec1eadfce",
+    "comments_url": "https://api.github.com/repos/socketio/socket.io/commits/6e9bff4fcf2a76ae71274af320f008aec1eadfce/comments",
+    "author": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "darrachequesne",
+      "id": 13031701,
+      "node_id": "MDQ6VXNlcjEzMDMxNzAx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13031701?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/darrachequesne",
+      "html_url": "https://github.com/darrachequesne",
+      "followers_url": "https://api.github.com/users/darrachequesne/followers",
+      "following_url": "https://api.github.com/users/darrachequesne/following{/other_user}",
+      "gists_url": "https://api.github.com/users/darrachequesne/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/darrachequesne/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/darrachequesne/subscriptions",
+      "organizations_url": "https://api.github.com/users/darrachequesne/orgs",
+      "repos_url": "https://api.github.com/users/darrachequesne/repos",
+      "events_url": "https://api.github.com/users/darrachequesne/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/darrachequesne/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8b0a40fd4a13be2d22c855501bf226695d3b2b37",
+        "url": "https://api.github.com/repos/socketio/socket.io/commits/8b0a40fd4a13be2d22c855501bf226695d3b2b37",
+        "html_url": "https://github.com/socketio/socket.io/commit/8b0a40fd4a13be2d22c855501bf226695d3b2b37"
+      }
+    ]
+  }
+]
