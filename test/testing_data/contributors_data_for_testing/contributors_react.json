@@ -1,0 +1,2372 @@
+[
+  {
+    "sha": "e4953922a99b5477c3bcf98cdaa2b13ac0a81f0d",
+    "node_id": "C_kwDOAJy2KtoAKGU0OTUzOTIyYTk5YjU0NzdjM2JjZjk4Y2RhYTJiMTNhYzBhODFmMGQ",
+    "commit": {
+      "author": {
+        "name": "Jack Pope",
+        "email": "jackpope1@gmail.com",
+        "date": "2024-09-19T22:04:06Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T22:04:06Z"
+      },
+      "message": "Update react-native/react-dom build directory (#31006)\n\nCommit artifact actions are breaking after\r\nhttps://github.com/facebook/react/pull/30711\r\n\r\nSee:\r\nhttps://github.com/facebook/react/actions/runs/10930658977/job/30344033974\r\n\r\n> mv: cannot stat 'build/facebook-react-native/react/dom/': No such file\r\nor directory\r\n\r\nAfter build, the new artifacts are in `/react-dom/cjs`, not\r\n`/react/dom/`\r\n```\r\n$> yarn build\r\n$> ls build/facebook-react-native/react/\r\n# ... no dom\r\n$> ls build/facebook-react-native/react-dom/cjs\r\n```",
+      "tree": {
+        "sha": "774f704c2fdcbdb177ee5ad216f2f67a626581e1",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/774f704c2fdcbdb177ee5ad216f2f67a626581e1"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/e4953922a99b5477c3bcf98cdaa2b13ac0a81f0d",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7J/WCRC1aQ7uu5UhlAAAgjsQAK5pm8Ft/6Hv20JWeE38cYil\nQ7zsU6j40lSm6t49ibwF9NLmvB4d5709Js3MeeO0syUDQI9TxYaClHioOlVOZSiT\na+ARUXDIWM61CIeWhIaqPeH0M+JPYq5E2LQK2AfuPQdDDyAZeWqiBVg8b8zkJUG1\nvqpSjg+xkA/cqTCipoKU5v/spPrwFufD43gbF2hL4+7h5Fxk568Tg+HuKt03I4MG\n1GPLAYX1WgcMKGSYLBCQNTEPbgfhMB1nNGEzIYahFIszP7Ti/cbgG2O5jcCfEYMw\n6ecBuLNollf5f3lF10TLRgr1rlhiqpDyY9UeZXXQGiv7w3bklrC7IKv5MgcG6+bS\ntslgQg7ZKSoKRwp4Yrk9KhTm2PchSh22eUmO0SeJWkcbVNIW30edMlTxzJt/6nB1\n+itIZ1UHeREk+Al0JrJFxrkgrhbXB35fXoqy9lqs3oV6RrVhULvRwVzqpXpgSbP8\nCo2bZF8nPLIRNUfKhKGuyUAmhvmJ1ok3yNCaUt7QWXL1lmfLUhHBYhp5XqdSACzU\nK7nSwPm8mz9csNG0nNh2lcrEm1Oq/l6F8bKhrGDL7tsJ1bqaRWMxIYv2I8kYuhCP\nFEJ1xXahGHMA5uV0mKA7VyU1JKsQ51gmsVbWvdO8eGsuxmV/Bnjhte29HE+ImvGK\nxWcwgQkTUZNUM2DwheWY\n=hKN1\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 774f704c2fdcbdb177ee5ad216f2f67a626581e1\nparent babde5d1826365bfb794abdb7de4bd21f7b02356\nauthor Jack Pope <jackpope1@gmail.com> 1726783446 -0400\ncommitter GitHub <noreply@github.com> 1726783446 -0400\n\nUpdate react-native/react-dom build directory (#31006)\n\nCommit artifact actions are breaking after\r\nhttps://github.com/facebook/react/pull/30711\r\n\r\nSee:\r\nhttps://github.com/facebook/react/actions/runs/10930658977/job/30344033974\r\n\r\n> mv: cannot stat 'build/facebook-react-native/react/dom/': No such file\r\nor directory\r\n\r\nAfter build, the new artifacts are in `/react-dom/cjs`, not\r\n`/react/dom/`\r\n```\r\n$> yarn build\r\n$> ls build/facebook-react-native/react/\r\n# ... no dom\r\n$> ls build/facebook-react-native/react-dom/cjs\r\n```"
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/e4953922a99b5477c3bcf98cdaa2b13ac0a81f0d",
+    "html_url": "https://github.com/facebook/react/commit/e4953922a99b5477c3bcf98cdaa2b13ac0a81f0d",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/e4953922a99b5477c3bcf98cdaa2b13ac0a81f0d/comments",
+    "author": {
+      "login": "jackpope",
+      "id": 8965173,
+      "node_id": "MDQ6VXNlcjg5NjUxNzM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8965173?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jackpope",
+      "html_url": "https://github.com/jackpope",
+      "followers_url": "https://api.github.com/users/jackpope/followers",
+      "following_url": "https://api.github.com/users/jackpope/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jackpope/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jackpope/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jackpope/subscriptions",
+      "organizations_url": "https://api.github.com/users/jackpope/orgs",
+      "repos_url": "https://api.github.com/users/jackpope/repos",
+      "events_url": "https://api.github.com/users/jackpope/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jackpope/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "babde5d1826365bfb794abdb7de4bd21f7b02356",
+        "url": "https://api.github.com/repos/facebook/react/commits/babde5d1826365bfb794abdb7de4bd21f7b02356",
+        "html_url": "https://github.com/facebook/react/commit/babde5d1826365bfb794abdb7de4bd21f7b02356"
+      }
+    ]
+  },
+  {
+    "sha": "babde5d1826365bfb794abdb7de4bd21f7b02356",
+    "node_id": "C_kwDOAJy2KtoAKGJhYmRlNWQxODI2MzY1YmZiNzk0YWJkYjdkZTRiZDIxZjdiMDIzNTY",
+    "commit": {
+      "author": {
+        "name": "Ricky",
+        "email": "rickhanlonii@gmail.com",
+        "date": "2024-09-19T17:42:49Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T17:42:49Z"
+      },
+      "message": "[lint] Add no-optional-chaining (#31003)\n\n## Overview\r\n\r\nAdds a lint rule to prevent optional chaining to catch issues like\r\nhttps://github.com/facebook/react/pull/30982 until we support optional\r\nchaining without a bundle impact.",
+      "tree": {
+        "sha": "bebb39ce20ae2542cacd7fe73afb3b6cadb83772",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/bebb39ce20ae2542cacd7fe73afb3b6cadb83772"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/babde5d1826365bfb794abdb7de4bd21f7b02356",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7GKZCRC1aQ7uu5UhlAAAk8AQAIm9j3bL5DZgpJ0F9rHfb3J6\npXiescJbLkA+zHsU5E/afR+bRELWv3fZoWWGGtzZP3VnaH+KVcQdDuaJdgG29cSo\nGKyrymbj6sjrXuyfcCpLzeHOY4UWkJU5gcojjTKznUY6HxmwsLytJXdcGlbBP+uP\nGEnL9oML+hQ8JL+iHiiI/McaqIqNz2BpbYmB1WFB1K/iCZzCcevU/CA+fcK2nMm0\n3FAIa5GdYLxiWsOlj234j2kZOi7329jfsv5wo9TJwxlXFDmflfiuO838jxDTCiJt\npL0gLJVvQX/l8zRqp1JE7/wyZ8TKAbDryd6xdYX80nWpm4abWXlNnQ+P/AcbVuyD\nsrwLvn5iufu+1uMd4P5dFNvibSWwAALyAA26KaWU9dwZV2k8LPl7MCLFJxqy3wxp\nvrJT6Z4Z9GXxjYFp6DNKn+gRBCNtKTUmm3Ci0ycXwao6ouxl61anXhdB5VMD4I6/\ndRuRFK7L5URc6CS3SiSLSbLZFgIrOQRgYoFdf/F2nhgZdDWuDkprlJSWbbxYxuMx\nVbxFCv0QrVywrIlW1AB+36V4RyjjkxS5KW9OUH4tiag24WN2bexVktPxplPOAliM\ncczEsDb0nVd+9VuItLsjsiicD9MnccMp5akmBD4WBW5kJCgt8Rzvo8td+WcpDlMY\nOucFyrOwwSHzDWhRuGPu\n=phtk\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree bebb39ce20ae2542cacd7fe73afb3b6cadb83772\nparent e740d4b14b27b4c7a21f67d20a4526a57d6729a7\nauthor Ricky <rickhanlonii@gmail.com> 1726767769 -0400\ncommitter GitHub <noreply@github.com> 1726767769 -0400\n\n[lint] Add no-optional-chaining (#31003)\n\n## Overview\r\n\r\nAdds a lint rule to prevent optional chaining to catch issues like\r\nhttps://github.com/facebook/react/pull/30982 until we support optional\r\nchaining without a bundle impact."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/babde5d1826365bfb794abdb7de4bd21f7b02356",
+    "html_url": "https://github.com/facebook/react/commit/babde5d1826365bfb794abdb7de4bd21f7b02356",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/babde5d1826365bfb794abdb7de4bd21f7b02356/comments",
+    "author": {
+      "login": "rickhanlonii",
+      "id": 2440089,
+      "node_id": "MDQ6VXNlcjI0NDAwODk=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2440089?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rickhanlonii",
+      "html_url": "https://github.com/rickhanlonii",
+      "followers_url": "https://api.github.com/users/rickhanlonii/followers",
+      "following_url": "https://api.github.com/users/rickhanlonii/following{/other_user}",
+      "gists_url": "https://api.github.com/users/rickhanlonii/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/rickhanlonii/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/rickhanlonii/subscriptions",
+      "organizations_url": "https://api.github.com/users/rickhanlonii/orgs",
+      "repos_url": "https://api.github.com/users/rickhanlonii/repos",
+      "events_url": "https://api.github.com/users/rickhanlonii/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/rickhanlonii/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e740d4b14b27b4c7a21f67d20a4526a57d6729a7",
+        "url": "https://api.github.com/repos/facebook/react/commits/e740d4b14b27b4c7a21f67d20a4526a57d6729a7",
+        "html_url": "https://github.com/facebook/react/commit/e740d4b14b27b4c7a21f67d20a4526a57d6729a7"
+      }
+    ]
+  },
+  {
+    "sha": "e740d4b14b27b4c7a21f67d20a4526a57d6729a7",
+    "node_id": "C_kwDOAJy2KtoAKGU3NDBkNGIxNGIyN2I0YzdhMjFmNjdkMjBhNDUyNmE1N2Q2NzI5YTc",
+    "commit": {
+      "author": {
+        "name": "Ruslan Lesiutin",
+        "email": "rdlesyutin@gmail.com",
+        "date": "2024-09-19T14:47:25Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T14:47:25Z"
+      },
+      "message": "chore: remove using local storage for persisting console settings on the frontend (#31002)\n\nAfter https://github.com/facebook/react/pull/30636 and\r\nhttps://github.com/facebook/react/pull/30986 we no longer store settings\r\non the Frontend side via `localStorage`.\r\n\r\nThis PR removes all occurrences of it from\r\n`react-devtools-core/standalone` and `react-devtools-inline`.",
+      "tree": {
+        "sha": "1dc55bf2446071cd1a4add0f32533d1d5b162a0d",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/1dc55bf2446071cd1a4add0f32533d1d5b162a0d"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/e740d4b14b27b4c7a21f67d20a4526a57d6729a7",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7Dl9CRC1aQ7uu5UhlAAA9BkQAIPyrQVHXl7vFhBEMerk/oVI\nUlh0965E9SXfvc9pePdLUVICV/QP8OcM2HvPpuJU2zbhnjz3Ku+WxlThjIbcYkt8\nbgj9DDJbyqhU2TUSVZcRZGSVmYjP4dGcDRF342Iz35/C7Fq8gNzUJhM90GahUuZg\nqNME4Up3z5TKdkIuNZT2HwcFHjzaA9PVZO3+VN9EHZEMuQwl9dAQyIALf43Tt32t\nQC0vPaG5LgylwxAGDThrBprrL3FBXvCx/5TMgemQ76tNEL1zRd7Ffw0D5rUjty4j\nRMpXWpLuqFIoi9CpCw1k+ben6ITKr4jNPEhgHn5yXMBf1Pf9SWvvALnrppq+ZK6K\naPTKkiI/zSv/lAnf9LvDjy/mMEEU0AZSk3Hcb1g2r+5ftf7zVI2fy2E9TB/6IyYC\n0NWgMS7s+8gvX2rFGS8BiF2hGlCAQqV/kFn1R9n0wc3iEpytuCd1aQwyPk74qadb\nixvjwTazRcYYapks3EKN437jOC5IIi0QOciHejTYwOd3L22/zZvN+RvQs9VzYarM\ndJXP4wbAd8ys/jDNviKUGadirm4lCVHbbRcc9Df4Uvtfrz6I2yDBQ+osMlujAc3J\nQgrjOS25pe1chxs97B6PNuWgxFfIN9CimAwcmVAmVd+80f63WXZQFJD0SNS33/7p\nf2dk0ml3Z+o4sN+tkSvm\n=ADPi\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 1dc55bf2446071cd1a4add0f32533d1d5b162a0d\nparent c21ce4a39667c4094208bc35dc86fc9f49fceec6\nauthor Ruslan Lesiutin <rdlesyutin@gmail.com> 1726757245 +0100\ncommitter GitHub <noreply@github.com> 1726757245 +0100\n\nchore: remove using local storage for persisting console settings on the frontend (#31002)\n\nAfter https://github.com/facebook/react/pull/30636 and\r\nhttps://github.com/facebook/react/pull/30986 we no longer store settings\r\non the Frontend side via `localStorage`.\r\n\r\nThis PR removes all occurrences of it from\r\n`react-devtools-core/standalone` and `react-devtools-inline`."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/e740d4b14b27b4c7a21f67d20a4526a57d6729a7",
+    "html_url": "https://github.com/facebook/react/commit/e740d4b14b27b4c7a21f67d20a4526a57d6729a7",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/e740d4b14b27b4c7a21f67d20a4526a57d6729a7/comments",
+    "author": {
+      "login": "hoxyq",
+      "id": 28902667,
+      "node_id": "MDQ6VXNlcjI4OTAyNjY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28902667?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoxyq",
+      "html_url": "https://github.com/hoxyq",
+      "followers_url": "https://api.github.com/users/hoxyq/followers",
+      "following_url": "https://api.github.com/users/hoxyq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoxyq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoxyq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoxyq/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoxyq/orgs",
+      "repos_url": "https://api.github.com/users/hoxyq/repos",
+      "events_url": "https://api.github.com/users/hoxyq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoxyq/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "c21ce4a39667c4094208bc35dc86fc9f49fceec6",
+        "url": "https://api.github.com/repos/facebook/react/commits/c21ce4a39667c4094208bc35dc86fc9f49fceec6",
+        "html_url": "https://github.com/facebook/react/commit/c21ce4a39667c4094208bc35dc86fc9f49fceec6"
+      }
+    ]
+  },
+  {
+    "sha": "c21ce4a39667c4094208bc35dc86fc9f49fceec6",
+    "node_id": "C_kwDOAJy2KtoAKGMyMWNlNGEzOTY2N2M0MDk0MjA4YmMzNWRjODZmYzlmNDlmY2VlYzY",
+    "commit": {
+      "author": {
+        "name": "Ruslan Lesiutin",
+        "email": "rdlesyutin@gmail.com",
+        "date": "2024-09-19T14:44:34Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T14:44:34Z"
+      },
+      "message": "feat: display message if user ended up opening hook script (#31000)\n\nIn https://github.com/facebook/react/pull/30596 we've moved console\r\npatching to the global hook. Generally speaking, the patching happens\r\neven before React is loaded on the page.\r\n\r\nIf browser DevTools were opened after when `console.error` or\r\n`console.warn` were called, the source script will be `hook.js`, because\r\nof the patching.\r\n\r\n![devtools-opened-after-the-message](https://github.com/user-attachments/assets/3d3dbc16-96b8-4234-b061-57b21b60cf2e)\r\n\r\nThis is because ignore listing is not applied retroactively by Chrome\r\nDevTools.\r\nIf you had it open before console calls, Hook script would be correctly\r\nfiltered out from the stack:\r\n\r\n![devtools-opened-before-the-message](https://github.com/user-attachments/assets/3e99cb22-97b0-4b49-9a76-f7bc948e6452)\r\n\r\nI had hopes that the fix for\r\nhttps://issues.chromium.org/issues/345248263 will also apply ignore\r\nlisting retroactively, but looks like we need to open a separate feature\r\nrequest for the Chrome DevTools team.\r\n\r\nWith these changes, if user attempts to open `hook.js` script, they are\r\ngoing to see this message:\r\n![Screenshot 2024-09-19 at 11 30\r\n59](https://github.com/user-attachments/assets/5850b74c-329f-4fbe-a3dd-33f9ac717ee9)",
+      "tree": {
+        "sha": "e41ed800f28f753d62ad01680054d50d0bd031c8",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/e41ed800f28f753d62ad01680054d50d0bd031c8"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/c21ce4a39667c4094208bc35dc86fc9f49fceec6",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7DjSCRC1aQ7uu5UhlAAAkGoQAHPkRQhmiI4JD1WqFA1/00eD\naD89bf7hDI4b827RHvptbtgrXlCR+hQQO5A8USSNLOdD9MiOr0Xwm5dAExY+3XcR\nxcHSRkdcjW6IdH1d6KKeSFbdfqpY/Lr1xSbfXCzKUQcRkMG+OTO7UWLe+ZmYnxIM\nkNWtQF88CopaPY+mhusv81Iswz5srCOigIoPSU+utg0O6I8JDRnvHje4S+frQH/5\nsq/4L1r0f/FeNowRc4620/mNcMqlQwcLWRIb+L2wV2306us8E/4WiTKxlb+t2e/I\nI/QzoDHhL7GBJP0UTIeFrqB2g7us26JborHXsvPJeWLSBOZ6wR3pKo8/Dooxt5Dd\nQIOITIoHWWMwr+wQGpPmkiGqjj2YDLOTiUNzz2Mu0Tf28oNSJtdIgUaI2SkXTNeu\nOMWV1UBfNLGnNGq7+NlFd+uNh/PAvsTuP1aNgH9vZvPKpluJoGAybJ61yoPZ65R0\nybQeK3wm2Ea44KiyNKqSUz+mM/0ZDoVz+dWXxeTKDc9T4yD7LulCNbqSLrDJhx/X\noZYig2A88ZB7KOeg1Br4SFk/XiaT96bk6bSd8HSivtauV0EHQZJhLLnTb+2BrxjS\nkSQ6BFpz2Xkx11cGTCMPqTXVqO5aDl3WYpF+jDIqzltBTiiZbbzRL9Q2wFoPUnK6\nEpnIZuiMuV4Iu6mGZR2S\n=nNra\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree e41ed800f28f753d62ad01680054d50d0bd031c8\nparent 632f88df11329c9ad66781ddd75b27df6f8effb9\nauthor Ruslan Lesiutin <rdlesyutin@gmail.com> 1726757074 +0100\ncommitter GitHub <noreply@github.com> 1726757074 +0100\n\nfeat: display message if user ended up opening hook script (#31000)\n\nIn https://github.com/facebook/react/pull/30596 we've moved console\r\npatching to the global hook. Generally speaking, the patching happens\r\neven before React is loaded on the page.\r\n\r\nIf browser DevTools were opened after when `console.error` or\r\n`console.warn` were called, the source script will be `hook.js`, because\r\nof the patching.\r\n\r\n![devtools-opened-after-the-message](https://github.com/user-attachments/assets/3d3dbc16-96b8-4234-b061-57b21b60cf2e)\r\n\r\nThis is because ignore listing is not applied retroactively by Chrome\r\nDevTools.\r\nIf you had it open before console calls, Hook script would be correctly\r\nfiltered out from the stack:\r\n\r\n![devtools-opened-before-the-message](https://github.com/user-attachments/assets/3e99cb22-97b0-4b49-9a76-f7bc948e6452)\r\n\r\nI had hopes that the fix for\r\nhttps://issues.chromium.org/issues/345248263 will also apply ignore\r\nlisting retroactively, but looks like we need to open a separate feature\r\nrequest for the Chrome DevTools team.\r\n\r\nWith these changes, if user attempts to open `hook.js` script, they are\r\ngoing to see this message:\r\n![Screenshot 2024-09-19 at 11 30\r\n59](https://github.com/user-attachments/assets/5850b74c-329f-4fbe-a3dd-33f9ac717ee9)"
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/c21ce4a39667c4094208bc35dc86fc9f49fceec6",
+    "html_url": "https://github.com/facebook/react/commit/c21ce4a39667c4094208bc35dc86fc9f49fceec6",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/c21ce4a39667c4094208bc35dc86fc9f49fceec6/comments",
+    "author": {
+      "login": "hoxyq",
+      "id": 28902667,
+      "node_id": "MDQ6VXNlcjI4OTAyNjY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28902667?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoxyq",
+      "html_url": "https://github.com/hoxyq",
+      "followers_url": "https://api.github.com/users/hoxyq/followers",
+      "following_url": "https://api.github.com/users/hoxyq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoxyq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoxyq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoxyq/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoxyq/orgs",
+      "repos_url": "https://api.github.com/users/hoxyq/repos",
+      "events_url": "https://api.github.com/users/hoxyq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoxyq/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "632f88df11329c9ad66781ddd75b27df6f8effb9",
+        "url": "https://api.github.com/repos/facebook/react/commits/632f88df11329c9ad66781ddd75b27df6f8effb9",
+        "html_url": "https://github.com/facebook/react/commit/632f88df11329c9ad66781ddd75b27df6f8effb9"
+      }
+    ]
+  },
+  {
+    "sha": "632f88df11329c9ad66781ddd75b27df6f8effb9",
+    "node_id": "C_kwDOAJy2KtoAKDYzMmY4OGRmMTEzMjljOWFkNjY3ODFkZGQ3NWIyN2RmNmY4ZWZmYjk",
+    "commit": {
+      "author": {
+        "name": "Jack Pope",
+        "email": "jackpope1@gmail.com",
+        "date": "2024-09-19T14:34:24Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T14:34:24Z"
+      },
+      "message": "[compiler] Allow ReactElement symbol to be configured when inlining jsx (#30996)\n\nBased on https://github.com/facebook/react/pull/30995 ([rendered\r\ndiff](https://github.com/jackpope/react/compare/inline-jsx-2...jackpope:react:inline-jsx-3?expand=1))\r\n\r\n____\r\n\r\nSome apps still use `react.element` symbols. Not only do we want to test\r\nthere but we also want to be able to upgrade those sites to\r\n`react.transitional.element` without blocking on the compiler (we can\r\nchange the symbol feature flag and compiler config at the same time).\r\n\r\nThe compiler runtime uses `react.transitional.element`, so the snap\r\nfixture will fail if we change the default here. However I confirmed\r\nthat commenting out the fixture entrypoint and running snap with\r\n`react.element` will update the fixture symbols as expected.",
+      "tree": {
+        "sha": "ee3506ed3c5572e636d308624b2b1975eefe3046",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/ee3506ed3c5572e636d308624b2b1975eefe3046"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/632f88df11329c9ad66781ddd75b27df6f8effb9",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7DZwCRC1aQ7uu5UhlAAANiEQAIBTs3rYdctvrOPFG+7ai5hR\nHGq6mup5r8Q5DKulUUj/V9ZeDKhzdkA2udLnP92bfksrYrKiGT3Ws0yQ5OpURa0a\nk/ohGl2LYLa73yQDFWT/Qz+2EkCcxKDMWWI7iAb8RaedjoyQSAhtnzypsx3HT3AL\n5ZUUP16E9ho9/oj6zhCe+6ecCJ4xi/Xr4/6DdYbnmY+j/kRdItr9N+WvGaba2yC4\nDQ8CLXg/sOj6cqMqlWr9lYTXVYIaq+KA/wiuXynSumHhJ6hlU6J6jVRsC8PDGXYI\ndVxZvpc0eVBJ6vPsBSTZ8budAJIUq/jStnmpwY57YQiMfxiCBsLmk/pI5pa28+IE\ndqt0RaMofBxJVWNGvD0SslPo5MeTtXRvPIZ7WN2jZ8DK8pzDfMHXaOVbUgmAo+4U\nPbNz19p/5JLDMI+OskL9SFX/FtGVXQ4MEGyQtA8H+ILojqf14bLTe4VDXXx6Eru7\n+Ls0gKsWi1jF8dPUQh/QUo8myqtn+qJ/8C2EvQ3WC5OliL+Pxu6uu0gpk4P4HJHc\nYUw9AX6UavRRn38+s0BwRD2U5JUTCCK4wAr5uZEsxegd2P5OyPv2k6y/NyHsekUs\nda36jqzDIwCFIf6dOfOYVAaM0k+DhlltL+CR4zAVbdCxvEaMwa4AumF9YjXGa0jl\nt6P95/ESL+4Ni2gr8PVO\n=TJnz\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ee3506ed3c5572e636d308624b2b1975eefe3046\nparent d5e955d3c0c1fa2494de0ab33be9cd90c65aff1e\nauthor Jack Pope <jackpope1@gmail.com> 1726756464 -0400\ncommitter GitHub <noreply@github.com> 1726756464 -0400\n\n[compiler] Allow ReactElement symbol to be configured when inlining jsx (#30996)\n\nBased on https://github.com/facebook/react/pull/30995 ([rendered\r\ndiff](https://github.com/jackpope/react/compare/inline-jsx-2...jackpope:react:inline-jsx-3?expand=1))\r\n\r\n____\r\n\r\nSome apps still use `react.element` symbols. Not only do we want to test\r\nthere but we also want to be able to upgrade those sites to\r\n`react.transitional.element` without blocking on the compiler (we can\r\nchange the symbol feature flag and compiler config at the same time).\r\n\r\nThe compiler runtime uses `react.transitional.element`, so the snap\r\nfixture will fail if we change the default here. However I confirmed\r\nthat commenting out the fixture entrypoint and running snap with\r\n`react.element` will update the fixture symbols as expected."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/632f88df11329c9ad66781ddd75b27df6f8effb9",
+    "html_url": "https://github.com/facebook/react/commit/632f88df11329c9ad66781ddd75b27df6f8effb9",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/632f88df11329c9ad66781ddd75b27df6f8effb9/comments",
+    "author": {
+      "login": "jackpope",
+      "id": 8965173,
+      "node_id": "MDQ6VXNlcjg5NjUxNzM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8965173?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jackpope",
+      "html_url": "https://github.com/jackpope",
+      "followers_url": "https://api.github.com/users/jackpope/followers",
+      "following_url": "https://api.github.com/users/jackpope/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jackpope/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jackpope/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jackpope/subscriptions",
+      "organizations_url": "https://api.github.com/users/jackpope/orgs",
+      "repos_url": "https://api.github.com/users/jackpope/repos",
+      "events_url": "https://api.github.com/users/jackpope/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jackpope/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d5e955d3c0c1fa2494de0ab33be9cd90c65aff1e",
+        "url": "https://api.github.com/repos/facebook/react/commits/d5e955d3c0c1fa2494de0ab33be9cd90c65aff1e",
+        "html_url": "https://github.com/facebook/react/commit/d5e955d3c0c1fa2494de0ab33be9cd90c65aff1e"
+      }
+    ]
+  },
+  {
+    "sha": "d5e955d3c0c1fa2494de0ab33be9cd90c65aff1e",
+    "node_id": "C_kwDOAJy2KtoAKGQ1ZTk1NWQzYzBjMWZhMjQ5NGRlMGFiMzNiZTljZDkwYzY1YWZmMWU",
+    "commit": {
+      "author": {
+        "name": "Jack Pope",
+        "email": "jackpope1@gmail.com",
+        "date": "2024-09-19T14:07:29Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T14:07:29Z"
+      },
+      "message": "[compiler] Pass through unmodified props spread when inlining jsx (#30995)\n\nIf JSX receives a props spread without additional attributes (besides\r\n`ref` and `key`), we can pass the spread object as a property directly\r\nto avoid the extra object copy.\r\n\r\n```\r\n<Test {...propsToSpread} />\r\n// {props: propsToSpread}\r\n<Test {...propsToSpread} a=\"z\" />\r\n// {props: {...propsToSpread, a: \"z\"}}\r\n```",
+      "tree": {
+        "sha": "034ea8f7ccbc0587f4e0a0ac7c31ce7b7c46e07e",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/034ea8f7ccbc0587f4e0a0ac7c31ce7b7c46e07e"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/d5e955d3c0c1fa2494de0ab33be9cd90c65aff1e",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7DAhCRC1aQ7uu5UhlAAAQZsQAB5NoOcsLBDC2CGwIHHgdO93\n+SII228UHKIrinCtVeTzJcTqmX3NQB+qZI0jsGiIOvwW2EzpKbdNOa39cjYvR4yc\nb6xHmBZa5yDXeXCM1nNfylWoyleTmiIMQPykYP4u+bjOQSsMB/8/6IhW6+Ss2COp\n+f1/5Aa0Zh/wG0rde8vqR/mPwn4g6aZXUrgs3UcOhZAV8FeCaSI6B4rPRj2KgFJJ\nhPV7sQ0P583jdcij8L8GpE9UBXdUd7ZW8M+3I87JCA4MvRatUnFHaXeqCHZWhMxK\nnUcgEcgJ8NWC9BOs6WR5flwmBmbSaKB1GIgzmM8PXNmcGGDD56MhF3PR7wJAGMyu\nSD7NzoAwbGpii7Asdi8iZaUTTWHhTbFIBLqIMXoQh0viOUWATVgli4t29mcx4PRr\n0byaIi8ByyCApOhaSJJW/inWYRLP3MVyBB0rN/Z0/97mniz8bcmFhE3Pv209KZ9s\nDAkqPcNAppNLwEf9VWU8/DHlrZ/30SXEXZq+r0d6Si7/7x/nwZgp03lBjrR7/3cd\nJNlXHCIXOUXF6yuGiFGUn9ux0sVJxl8l4cxKbvktaXvvry0MwGJaOReuMmzKALLk\nO5pQhf6SJ5ez32f/Rg3iExiTlzLdwtmXrIGOqYGWErZhLRZpauTNfov/FBqJJeXS\nXiHgX6hmPf7o1Bmrm42U\n=p/ue\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 034ea8f7ccbc0587f4e0a0ac7c31ce7b7c46e07e\nparent a86afe8e560f452a9df5ceb4893d9423e5840800\nauthor Jack Pope <jackpope1@gmail.com> 1726754849 -0400\ncommitter GitHub <noreply@github.com> 1726754849 -0400\n\n[compiler] Pass through unmodified props spread when inlining jsx (#30995)\n\nIf JSX receives a props spread without additional attributes (besides\r\n`ref` and `key`), we can pass the spread object as a property directly\r\nto avoid the extra object copy.\r\n\r\n```\r\n<Test {...propsToSpread} />\r\n// {props: propsToSpread}\r\n<Test {...propsToSpread} a=\"z\" />\r\n// {props: {...propsToSpread, a: \"z\"}}\r\n```"
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/d5e955d3c0c1fa2494de0ab33be9cd90c65aff1e",
+    "html_url": "https://github.com/facebook/react/commit/d5e955d3c0c1fa2494de0ab33be9cd90c65aff1e",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/d5e955d3c0c1fa2494de0ab33be9cd90c65aff1e/comments",
+    "author": {
+      "login": "jackpope",
+      "id": 8965173,
+      "node_id": "MDQ6VXNlcjg5NjUxNzM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8965173?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jackpope",
+      "html_url": "https://github.com/jackpope",
+      "followers_url": "https://api.github.com/users/jackpope/followers",
+      "following_url": "https://api.github.com/users/jackpope/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jackpope/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jackpope/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jackpope/subscriptions",
+      "organizations_url": "https://api.github.com/users/jackpope/orgs",
+      "repos_url": "https://api.github.com/users/jackpope/repos",
+      "events_url": "https://api.github.com/users/jackpope/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jackpope/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a86afe8e560f452a9df5ceb4893d9423e5840800",
+        "url": "https://api.github.com/repos/facebook/react/commits/a86afe8e560f452a9df5ceb4893d9423e5840800",
+        "html_url": "https://github.com/facebook/react/commit/a86afe8e560f452a9df5ceb4893d9423e5840800"
+      }
+    ]
+  },
+  {
+    "sha": "a86afe8e560f452a9df5ceb4893d9423e5840800",
+    "node_id": "C_kwDOAJy2KtoAKGE4NmFmZThlNTYwZjQ1MmE5ZGY1Y2ViNDg5M2Q5NDIzZTU4NDA4MDA",
+    "commit": {
+      "author": {
+        "name": "Ruslan Lesiutin",
+        "email": "rdlesyutin@gmail.com",
+        "date": "2024-09-19T12:55:08Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T12:55:08Z"
+      },
+      "message": "feat: expose installHook with settings argument from react-devtools-core/backend (#30987)\n\nStacked on https://github.com/facebook/react/pull/30986. \r\n\r\nPreviously, we would call `installHook` at a top level of the JavaScript\r\nmodule. Because of this, having `require` statement for\r\n`react-devtools-core` package was enough to initialize the React\r\nDevTools global hook on the `window`.\r\n\r\nNow, the Hook can actually receive an argument - initial user settings\r\nfor console patching. We expose this as a function `initialize`, which\r\ncan be used by third parties (including React Native) to provide the\r\npersisted settings.\r\n\r\nThe README was also updated to reflect the changes.",
+      "tree": {
+        "sha": "4ad1d7a95889cc210cb7e74c42c8f4b64d718b7e",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/4ad1d7a95889cc210cb7e74c42c8f4b64d718b7e"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/a86afe8e560f452a9df5ceb4893d9423e5840800",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7B8sCRC1aQ7uu5UhlAAAKkYQADU9tkADhxlSvN1fkIHt+BBZ\nweAE+LtNnDnP/naMsiXVe9ArebasHA/cCubBEc/i+fOju6jBhoKCt60kdINQljF6\n160iSLme41Lx/WP3nzrhCXs9TQA0lRh49F7kpHMyE+o9/OtJb1slG1shZQAuDIz8\n+RYEdhtajjIgsLYoxuOma0yw7XfHsvsoEQUGouchUgkmpaC4pD/edaZmifsoVhft\nqddLz4HcDqTsFn8mveLXvJhKk6u4xuDSEg91I1Rb99B0MCOmiZAXGOafYryqr2pq\nBJIybLWli679RF9oMOdaMOAedcd6fgyJ2OBY9gXykcE9lvHM6Ek5jd5hoyOlhxMq\nosQ2wPFfhFZbZCw91IAGd0+VAiR8WRCLeZBCIKI9A6Dc/SGNQWzTLKDwTXrgRi3r\nE7TrPFo1O3XkF+QGAkY9YmO9qCaSxjWhyNwxp+iBRoDA35PWxQovzo/oJZ8m2GEX\nEnIitYlPKbNQL3LHReVFJZuPTqnwq1ffxKrceoK0I3h2c8Ty9D0c47qMx4YQ0vaq\nfuw4qBSrHGCUFoWtkn21e6a09d5LrgYj0NOwhwyFfM/kyK6DNtXMpUTrpUAUjxOR\nY1qp/i1qDG7e4U2bAE+d9rYhWvGw/oA4mAsn07W37EKcdJw0DX6/aSvguWBJInXT\nxyv6pkWe7UffMFh3yvnl\n=0hEy\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 4ad1d7a95889cc210cb7e74c42c8f4b64d718b7e\nparent e72127a4ec6f91288e9008711215068823100599\nauthor Ruslan Lesiutin <rdlesyutin@gmail.com> 1726750508 +0100\ncommitter GitHub <noreply@github.com> 1726750508 +0100\n\nfeat: expose installHook with settings argument from react-devtools-core/backend (#30987)\n\nStacked on https://github.com/facebook/react/pull/30986. \r\n\r\nPreviously, we would call `installHook` at a top level of the JavaScript\r\nmodule. Because of this, having `require` statement for\r\n`react-devtools-core` package was enough to initialize the React\r\nDevTools global hook on the `window`.\r\n\r\nNow, the Hook can actually receive an argument - initial user settings\r\nfor console patching. We expose this as a function `initialize`, which\r\ncan be used by third parties (including React Native) to provide the\r\npersisted settings.\r\n\r\nThe README was also updated to reflect the changes."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/a86afe8e560f452a9df5ceb4893d9423e5840800",
+    "html_url": "https://github.com/facebook/react/commit/a86afe8e560f452a9df5ceb4893d9423e5840800",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/a86afe8e560f452a9df5ceb4893d9423e5840800/comments",
+    "author": {
+      "login": "hoxyq",
+      "id": 28902667,
+      "node_id": "MDQ6VXNlcjI4OTAyNjY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28902667?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoxyq",
+      "html_url": "https://github.com/hoxyq",
+      "followers_url": "https://api.github.com/users/hoxyq/followers",
+      "following_url": "https://api.github.com/users/hoxyq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoxyq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoxyq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoxyq/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoxyq/orgs",
+      "repos_url": "https://api.github.com/users/hoxyq/repos",
+      "events_url": "https://api.github.com/users/hoxyq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoxyq/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e72127a4ec6f91288e9008711215068823100599",
+        "url": "https://api.github.com/repos/facebook/react/commits/e72127a4ec6f91288e9008711215068823100599",
+        "html_url": "https://github.com/facebook/react/commit/e72127a4ec6f91288e9008711215068823100599"
+      }
+    ]
+  },
+  {
+    "sha": "e72127a4ec6f91288e9008711215068823100599",
+    "node_id": "C_kwDOAJy2KtoAKGU3MjEyN2E0ZWM2ZjkxMjg4ZTkwMDg3MTEyMTUwNjg4MjMxMDA1OTk",
+    "commit": {
+      "author": {
+        "name": "Timothy Yung",
+        "email": "yungsters@meta.com",
+        "date": "2024-09-18T21:44:55Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T21:44:55Z"
+      },
+      "message": "Build `react-dom` in `builds/facebook-fbsource` (#30711)\n\n## Summary\r\n\r\nBuilds `react-dom` for React Native so that it also populates the\r\n`builds/facebook-fbsource` branch.\r\n\r\n**NOTE:** For Meta employees, D61354219 is the internal integration.\r\n\r\n## How did you test this change?\r\n\r\n```\r\n$ yarn build\r\n…\r\n$ ls build/facebook-react-native/react-dom/cjs\r\nReactDOM-dev.js       ReactDOM-prod.js      ReactDOM-profiling.js\r\n```",
+      "tree": {
+        "sha": "17c972eebcda5c0039599de312d02c75383ebd3c",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/17c972eebcda5c0039599de312d02c75383ebd3c"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/e72127a4ec6f91288e9008711215068823100599",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm60nXCRC1aQ7uu5UhlAAAWf0QAI9bTM8v+/hLbgP9p07SKzW1\nMN9Cuq/mqEBvGe+oj4vfbv4SjjbsBqKtMPIRAfQJ93+hv/aJqkZMRRUePwV67mq9\nvSP3fOwDGzpBSL0T5DVW8aSyUdpKqetKgZ+OlGRKSUg5HCkD1/xxoEYTCO6KomA5\nrU0qyfVw79G1GZ9MhIhbFz3b3NWDGwLSi1t07x6vO6whimAXECJeF9ditGZdxXtk\nwAwND2mtma1O73+1sNJySfYArjd1tuXd7WQt3kA3q6DJeKrJfQ5YCRUvSmidDwFj\nRHFj/fo978Qxib7H5QS5rNTRJH83IJcqTconIZWV3yiHjhLwoFyT5b99uA21qSaY\n6QixP6yES7Spr3ljY8oFeQ2BfYo1Lfyf6xC57AK/hz4wfC+gj/OcAvS2xa+h4n9b\nu5x7kaJlpwnlDvBMg56ObIl2pvouiP4UvYUN19wH/Yg+ogg9h4WaXiVwliLeZUxn\nm+sO+qPIfgvR3iAxjUVGbjG1T/Q7bR5vz62hYhC4b2Dwkcg56DkDcJGwU5orcNAS\nN1Wstla6UmkvuvxqbPJN3NwzfCdiVXP63v7YvJJFftZqrN1bvV1A/if5D5vH6aob\nlcrihxThiVwA8W9yXlh4zRtl5i3KJAMemNRiiVtSP7e/bbCI1uCB2fx2he41ECwt\nqNVNQzzDiZXNH5PYGLvj\n=/kZ0\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 17c972eebcda5c0039599de312d02c75383ebd3c\nparent 09d82835993b16cd5dc8350c03627f9573354a25\nauthor Timothy Yung <yungsters@meta.com> 1726695895 -0700\ncommitter GitHub <noreply@github.com> 1726695895 -0700\n\nBuild `react-dom` in `builds/facebook-fbsource` (#30711)\n\n## Summary\r\n\r\nBuilds `react-dom` for React Native so that it also populates the\r\n`builds/facebook-fbsource` branch.\r\n\r\n**NOTE:** For Meta employees, D61354219 is the internal integration.\r\n\r\n## How did you test this change?\r\n\r\n```\r\n$ yarn build\r\n…\r\n$ ls build/facebook-react-native/react-dom/cjs\r\nReactDOM-dev.js       ReactDOM-prod.js      ReactDOM-profiling.js\r\n```"
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/e72127a4ec6f91288e9008711215068823100599",
+    "html_url": "https://github.com/facebook/react/commit/e72127a4ec6f91288e9008711215068823100599",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/e72127a4ec6f91288e9008711215068823100599/comments",
+    "author": {
+      "login": "yungsters",
+      "id": 55161,
+      "node_id": "MDQ6VXNlcjU1MTYx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55161?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/yungsters",
+      "html_url": "https://github.com/yungsters",
+      "followers_url": "https://api.github.com/users/yungsters/followers",
+      "following_url": "https://api.github.com/users/yungsters/following{/other_user}",
+      "gists_url": "https://api.github.com/users/yungsters/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/yungsters/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/yungsters/subscriptions",
+      "organizations_url": "https://api.github.com/users/yungsters/orgs",
+      "repos_url": "https://api.github.com/users/yungsters/repos",
+      "events_url": "https://api.github.com/users/yungsters/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/yungsters/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "09d82835993b16cd5dc8350c03627f9573354a25",
+        "url": "https://api.github.com/repos/facebook/react/commits/09d82835993b16cd5dc8350c03627f9573354a25",
+        "html_url": "https://github.com/facebook/react/commit/09d82835993b16cd5dc8350c03627f9573354a25"
+      }
+    ]
+  },
+  {
+    "sha": "09d82835993b16cd5dc8350c03627f9573354a25",
+    "node_id": "C_kwDOAJy2KtoAKDA5ZDgyODM1OTkzYjE2Y2Q1ZGM4MzUwYzAzNjI3Zjk1NzMzNTRhMjU",
+    "commit": {
+      "author": {
+        "name": "mofeiZ",
+        "email": "34200447+mofeiZ@users.noreply.github.com",
+        "date": "2024-09-18T18:39:04Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T18:39:04Z"
+      },
+      "message": "[ez] Rewrite optional chaining and nullish coalescing syntax (#30982)\n\nRewrite `containerInfo?.ownerDocument?.defaultView ?? window` to instead\r\nuse a ternary.\r\n\r\nThis changes the compilation output (see [bundle changes from\r\n#30951](https://github.com/facebook/react/commit/d65fb06955e9f32e6a40d1c7177d77893dff95b9)).\r\n```js\r\n// compilation of containerInfo?.ownerDocument?.defaultView ?? window\r\nvar $jscomp$optchain$tmpm1756096108$1, $jscomp$nullish$tmp0;\r\ncontainerInfo =\r\n  null !=\r\n  ($jscomp$nullish$tmp0 =\r\n    null == containerInfo\r\n      ? void 0\r\n      : null ==\r\n          ($jscomp$optchain$tmpm1756096108$1 = containerInfo.ownerDocument)\r\n        ? void 0\r\n        : $jscomp$optchain$tmpm1756096108$1.defaultView)\r\n    ? $jscomp$nullish$tmp0\r\n    : window;\r\n\r\n// compilation of ternary expression\r\ncontainerInfo =\r\n  null != containerInfo &&\r\n  null != containerInfo.ownerDocument &&\r\n  null != containerInfo.ownerDocument.defaultView\r\n    ? containerInfo.ownerDocument.defaultView\r\n    : window;\r\n```\r\n\r\nThis also reduces the number of no-op bundle syncs for Meta. Note that\r\nClosure compiler's `jscomp$optchain$tmp<HASH>` identifiers change when\r\nwe rebuild (likely due to version number changes). See\r\n[workflow](https://github.com/facebook/react/actions/runs/10891164281/job/30221518374)\r\nfor a PR that was synced despite making no changes to the runtime.",
+      "tree": {
+        "sha": "ec0dfd8721307e6dee56fed5769c3fe09256783d",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/ec0dfd8721307e6dee56fed5769c3fe09256783d"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/09d82835993b16cd5dc8350c03627f9573354a25",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6x5ICRC1aQ7uu5UhlAAAUakQACSkO7GRug40btjpOnLSDu1z\nGVXMvPiLPB4GBO84x6yGN+/jvCtP1UKbb68eNWgcLO6S/M2ZFwfUgtIU2DQ8Lajb\nOpCtOqk5mhhfV1MqagGl3LTu7ozA/HzL9Ji2aY0atYCblK3hYUEMiBxWmj1Txd1d\nV+y1FU8xeMoZ4+Vj5MW90xDVAAPH/3N/cD2ICE+ucGfdQvXWXnPdJ7VC1Jr+1gNk\nOCIjaKF9b/fWaUn99y4pvXjKvG87fthGcLTCJ9hgTQnv7jKLi49QMNVgyae54nln\nqUcr4+Y2GSFLfo2AWNDeMeAdEAtAbbh6kpafh1KME5tOg2qDIivJw4quFc0emKR5\nhEscijHNgvkzK4XPIIxvRd1NIFH7yBnPbyTo6WOQPOHAiBFRRuZi0MhBI50Ov/B7\nNpw+unjiIYVI1/CogcdAdVHous4pulMgrg9wivilHeB/WhAXr3f72RpJ8pX0r/y8\nnUGLAZ251R//uM+fveTSxJknaow0t2Qv3E+2I6Cyh7xNlQLkiemz3j6+Ng2lKKuT\njFcxODMav65cSnb4M41Nq9SsCbtFaySs8boUG0gx7LUZNsK1laeP/DQTplkJIWL0\ny1pm/PvvyVUKjL518R4D3aRyK70nU+/ad9wEPzxjqmGctNS0a44TyNebvvv0GI6Y\nljHzR1zzgqx+rFobYH9/\n=KfBL\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ec0dfd8721307e6dee56fed5769c3fe09256783d\nparent f2c57a31e9953b3889c56f68e129e67afca15d0e\nauthor mofeiZ <34200447+mofeiZ@users.noreply.github.com> 1726684744 -0400\ncommitter GitHub <noreply@github.com> 1726684744 -0400\n\n[ez] Rewrite optional chaining and nullish coalescing syntax (#30982)\n\nRewrite `containerInfo?.ownerDocument?.defaultView ?? window` to instead\r\nuse a ternary.\r\n\r\nThis changes the compilation output (see [bundle changes from\r\n#30951](https://github.com/facebook/react/commit/d65fb06955e9f32e6a40d1c7177d77893dff95b9)).\r\n```js\r\n// compilation of containerInfo?.ownerDocument?.defaultView ?? window\r\nvar $jscomp$optchain$tmpm1756096108$1, $jscomp$nullish$tmp0;\r\ncontainerInfo =\r\n  null !=\r\n  ($jscomp$nullish$tmp0 =\r\n    null == containerInfo\r\n      ? void 0\r\n      : null ==\r\n          ($jscomp$optchain$tmpm1756096108$1 = containerInfo.ownerDocument)\r\n        ? void 0\r\n        : $jscomp$optchain$tmpm1756096108$1.defaultView)\r\n    ? $jscomp$nullish$tmp0\r\n    : window;\r\n\r\n// compilation of ternary expression\r\ncontainerInfo =\r\n  null != containerInfo &&\r\n  null != containerInfo.ownerDocument &&\r\n  null != containerInfo.ownerDocument.defaultView\r\n    ? containerInfo.ownerDocument.defaultView\r\n    : window;\r\n```\r\n\r\nThis also reduces the number of no-op bundle syncs for Meta. Note that\r\nClosure compiler's `jscomp$optchain$tmp<HASH>` identifiers change when\r\nwe rebuild (likely due to version number changes). See\r\n[workflow](https://github.com/facebook/react/actions/runs/10891164281/job/30221518374)\r\nfor a PR that was synced despite making no changes to the runtime."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/09d82835993b16cd5dc8350c03627f9573354a25",
+    "html_url": "https://github.com/facebook/react/commit/09d82835993b16cd5dc8350c03627f9573354a25",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/09d82835993b16cd5dc8350c03627f9573354a25/comments",
+    "author": {
+      "login": "mofeiZ",
+      "id": 34200447,
+      "node_id": "MDQ6VXNlcjM0MjAwNDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/34200447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mofeiZ",
+      "html_url": "https://github.com/mofeiZ",
+      "followers_url": "https://api.github.com/users/mofeiZ/followers",
+      "following_url": "https://api.github.com/users/mofeiZ/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mofeiZ/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mofeiZ/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mofeiZ/subscriptions",
+      "organizations_url": "https://api.github.com/users/mofeiZ/orgs",
+      "repos_url": "https://api.github.com/users/mofeiZ/repos",
+      "events_url": "https://api.github.com/users/mofeiZ/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mofeiZ/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f2c57a31e9953b3889c56f68e129e67afca15d0e",
+        "url": "https://api.github.com/repos/facebook/react/commits/f2c57a31e9953b3889c56f68e129e67afca15d0e",
+        "html_url": "https://github.com/facebook/react/commit/f2c57a31e9953b3889c56f68e129e67afca15d0e"
+      }
+    ]
+  },
+  {
+    "sha": "f2c57a31e9953b3889c56f68e129e67afca15d0e",
+    "node_id": "C_kwDOAJy2KtoAKGYyYzU3YTMxZTk5NTNiMzg4OWM1NmY2OGUxMjllNjdhZmNhMTVkMGU",
+    "commit": {
+      "author": {
+        "name": "Ruslan Lesiutin",
+        "email": "rdlesyutin@gmail.com",
+        "date": "2024-09-18T17:30:32Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T17:30:32Z"
+      },
+      "message": "chore: remove settings manager from react-devtools-core (#30986)\n\nStacked on https://github.com/facebook/react/pull/30636. See [this\r\ncommit](https://github.com/facebook/react/pull/30986/commits/20cec76c44f77e74b3a85225fecab5a431cd986f).\r\n\r\nThis has been only used for React Native and will be replaced by another\r\napproach (initialization via `installHook` call) in the next PR.",
+      "tree": {
+        "sha": "459c6b4447a77eeda8f4721a4d55aa4c3ae3923d",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/459c6b4447a77eeda8f4721a4d55aa4c3ae3923d"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/f2c57a31e9953b3889c56f68e129e67afca15d0e",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6w44CRC1aQ7uu5UhlAAAyH4QAGovWxPERaKZE82szf6SNfWn\nhQY/2L7dTPmFXqoTCLVTcaJ+Y4HKuDxmKMNbyza1ZiwOTxGLwAwGEXeK62Yu09y+\nGjfMDo4JabvXk+MLhxIz1gHeRRWJhqTGIqQ3Vh1H4K4QsphlK8KBYmDl0t4bsW4j\np2F4T3VFaqY/7wav2ZIlwLKsdtPjJqcoOKJX7RtGZD6aVdlzmVNHQzPMqR0W1hLa\ngRvx/r02g7BQdQi3CrxFUtkNk5JgHGOWGuR7pKNxi/slpvBV07zvEe2lIwYxQOaZ\necxUwXYplJoeEjBw+cvfLtxEAms0UZAi/sWykPsuib2mcJGf738wtKVVhisw+1d8\nyyCNNaQUW69YvX21sq/2EOhvGHtw+DJoQnPIEkPvswwRQKq/rz+HrmGS/Ioqcx5g\nPeTE7QNwK8Yc2AANaMUZWVNvx9zB3VFTHwkMMOAbLcg/tcACiAUAwgKszujF2lu/\nLXWZKE7EsoZf/+KX/CyF/759jPafaTyj1ucxcHTfPGsu2JVzHPtgYfqIysvVIEBT\nCS8ZIHZpLQfEorrgz8IUQaFCsEoQ7JNpJcFLy4tcDvvlNriifQB1PiNPxBhO9BWu\nFhOQ7+fIsYjBc7BUfSrcmjxS7cqOYJtLmw33E+Rt/kSa6V3/XunndVmH+t/O0khk\n9OGlY1l13DJETLkC8TOu\n=Ujf9\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 459c6b4447a77eeda8f4721a4d55aa4c3ae3923d\nparent f37c7bc6539b4da38f7080b5486eb00bdb2c3237\nauthor Ruslan Lesiutin <rdlesyutin@gmail.com> 1726680632 +0100\ncommitter GitHub <noreply@github.com> 1726680632 +0100\n\nchore: remove settings manager from react-devtools-core (#30986)\n\nStacked on https://github.com/facebook/react/pull/30636. See [this\r\ncommit](https://github.com/facebook/react/pull/30986/commits/20cec76c44f77e74b3a85225fecab5a431cd986f).\r\n\r\nThis has been only used for React Native and will be replaced by another\r\napproach (initialization via `installHook` call) in the next PR."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/f2c57a31e9953b3889c56f68e129e67afca15d0e",
+    "html_url": "https://github.com/facebook/react/commit/f2c57a31e9953b3889c56f68e129e67afca15d0e",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/f2c57a31e9953b3889c56f68e129e67afca15d0e/comments",
+    "author": {
+      "login": "hoxyq",
+      "id": 28902667,
+      "node_id": "MDQ6VXNlcjI4OTAyNjY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28902667?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoxyq",
+      "html_url": "https://github.com/hoxyq",
+      "followers_url": "https://api.github.com/users/hoxyq/followers",
+      "following_url": "https://api.github.com/users/hoxyq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoxyq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoxyq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoxyq/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoxyq/orgs",
+      "repos_url": "https://api.github.com/users/hoxyq/repos",
+      "events_url": "https://api.github.com/users/hoxyq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoxyq/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f37c7bc6539b4da38f7080b5486eb00bdb2c3237",
+        "url": "https://api.github.com/repos/facebook/react/commits/f37c7bc6539b4da38f7080b5486eb00bdb2c3237",
+        "html_url": "https://github.com/facebook/react/commit/f37c7bc6539b4da38f7080b5486eb00bdb2c3237"
+      }
+    ]
+  },
+  {
+    "sha": "f37c7bc6539b4da38f7080b5486eb00bdb2c3237",
+    "node_id": "C_kwDOAJy2KtoAKGYzN2M3YmM2NTM5YjRkYTM4ZjcwODBiNTQ4NmViMDBiZGIyYzMyMzc",
+    "commit": {
+      "author": {
+        "name": "Ruslan Lesiutin",
+        "email": "rdlesyutin@gmail.com",
+        "date": "2024-09-18T17:26:39Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T17:26:39Z"
+      },
+      "message": "feat[react-devtools/extension]: use chrome.storage to persist settings across sessions (#30636)\n\nStacked on https://github.com/facebook/react/pull/30610 and whats under\r\nit. See [last\r\ncommit](https://github.com/facebook/react/pull/30636/commits/248ddba18608e1bb5ef14c823085a7ff9d7a54a3).\r\n\r\nNow, we are using\r\n[`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage)\r\nto persist settings for the browser extension across different sessions.\r\nOnce settings are updated from the UI, the `Store` will emit\r\n`settingsUpdated` event, and we are going to persist them via\r\n`chrome.storage.local.set` in `main/index.js`.\r\n\r\nWhen hook is being injected, we are going to pass a `Promise`, which is\r\ngoing to be resolved after the settings are read from the storage via\r\n`chrome.storage.local.get` in `hookSettingsInjector.js`.",
+      "tree": {
+        "sha": "db9b2f9cae16822ef1b46b6d804db258faf8c913",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/db9b2f9cae16822ef1b46b6d804db258faf8c913"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/f37c7bc6539b4da38f7080b5486eb00bdb2c3237",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6w1PCRC1aQ7uu5UhlAAAQ6sQAIglOQ/qzhQlPjf1HQknTkQU\n0hjRthsw42rVWwhv3WbmJsumE7OOYAKsdIocs+Em6xZpakgfRH2x8OUJawFHe15q\nEExLYezq/7M3BY4scE88YZt2cZxsIYOhgPhKrJwoBgonacI2Vd/nMz37l6Fxw5cj\nkkQbvoalNgYQ0OvPrMBWSWy0ecMOtIw9oksvvyo6lzjUuBx2XSfCJRVFw0OOLOvv\nDBwEsuSD08CdGAwbmmRbqEpUC0DSQuPhb1yczJamrRNb8Ayr80TKzvpruzVCGzaN\ncdwajErMDjke6Oiu0ZvQhMOrwPSlC9qL1MR9owK0wVUqWFZQaieWsX5iAdoC9HuI\nEgFWg8Cl6LVkd9u22N5RzE/spd2LcwPttFC2IeW3g+abipp++JqTKyjmj3Xbb7a3\nWTCBi7dVNF0sLmemA+V4nhqq0lndMUcDrCEBEC/bz8QIODvxRDAZZhepdHYgZDZP\n0csBdIENV9GpsbvsryeK3RZG0gXzFtsm1yyZpM7P0HsFlluYZyQ4IVU0PKdOfuc0\naXBm1s8DeCDnB8sjxSmleLP2PnXT76pB8YNjJvlZied4FM08ywkdm2CzRYv7IRhV\nSpVwnBaPngUe7qu/sMmFhL+/Q5ChCMxBpjgpA9cxhmlQgNBjT2J4A2ue8IqrKFx0\nruQXrittTODYVyO3tXTj\n=3Ipv\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree db9b2f9cae16822ef1b46b6d804db258faf8c913\nparent e33acfd67f0003272a9aec7a0725d19a429f2460\nauthor Ruslan Lesiutin <rdlesyutin@gmail.com> 1726680399 +0100\ncommitter GitHub <noreply@github.com> 1726680399 +0100\n\nfeat[react-devtools/extension]: use chrome.storage to persist settings across sessions (#30636)\n\nStacked on https://github.com/facebook/react/pull/30610 and whats under\r\nit. See [last\r\ncommit](https://github.com/facebook/react/pull/30636/commits/248ddba18608e1bb5ef14c823085a7ff9d7a54a3).\r\n\r\nNow, we are using\r\n[`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage)\r\nto persist settings for the browser extension across different sessions.\r\nOnce settings are updated from the UI, the `Store` will emit\r\n`settingsUpdated` event, and we are going to persist them via\r\n`chrome.storage.local.set` in `main/index.js`.\r\n\r\nWhen hook is being injected, we are going to pass a `Promise`, which is\r\ngoing to be resolved after the settings are read from the storage via\r\n`chrome.storage.local.get` in `hookSettingsInjector.js`."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/f37c7bc6539b4da38f7080b5486eb00bdb2c3237",
+    "html_url": "https://github.com/facebook/react/commit/f37c7bc6539b4da38f7080b5486eb00bdb2c3237",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/f37c7bc6539b4da38f7080b5486eb00bdb2c3237/comments",
+    "author": {
+      "login": "hoxyq",
+      "id": 28902667,
+      "node_id": "MDQ6VXNlcjI4OTAyNjY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28902667?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoxyq",
+      "html_url": "https://github.com/hoxyq",
+      "followers_url": "https://api.github.com/users/hoxyq/followers",
+      "following_url": "https://api.github.com/users/hoxyq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoxyq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoxyq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoxyq/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoxyq/orgs",
+      "repos_url": "https://api.github.com/users/hoxyq/repos",
+      "events_url": "https://api.github.com/users/hoxyq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoxyq/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e33acfd67f0003272a9aec7a0725d19a429f2460",
+        "url": "https://api.github.com/repos/facebook/react/commits/e33acfd67f0003272a9aec7a0725d19a429f2460",
+        "html_url": "https://github.com/facebook/react/commit/e33acfd67f0003272a9aec7a0725d19a429f2460"
+      }
+    ]
+  },
+  {
+    "sha": "e33acfd67f0003272a9aec7a0725d19a429f2460",
+    "node_id": "C_kwDOAJy2KtoAKGUzM2FjZmQ2N2YwMDAzMjcyYTlhZWM3YTA3MjVkMTlhNDI5ZjI0NjA",
+    "commit": {
+      "author": {
+        "name": "Ruslan Lesiutin",
+        "email": "rdlesyutin@gmail.com",
+        "date": "2024-09-18T17:19:01Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T17:19:01Z"
+      },
+      "message": "refactor[react-devtools]: propagate settings from global hook object to frontend (#30610)\n\nStacked on https://github.com/facebook/react/pull/30597 and whats under\r\nit. See [this\r\ncommit](https://github.com/facebook/react/pull/30610/commits/59b4efa72377bf62f5ec8c0e32e56902cf73fbd7).\r\n\r\nWith this change, the initial values for console patching settings are\r\npropagated from hook (which is the source of truth now, because of\r\nhttps://github.com/facebook/react/pull/30596) to the UI. Instead of\r\nreading from `localStorage` the frontend is now requesting it from the\r\nhook. This happens when settings modal is rendered, and wrapped in a\r\ntransition. Also, this is happening even if settings modal is not opened\r\nyet, so we have enough time to fetch this data without displaying loader\r\nor similar UI.",
+      "tree": {
+        "sha": "80eb4e6bb8d8da677ec57cfdeb6779847d6a55ef",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/80eb4e6bb8d8da677ec57cfdeb6779847d6a55ef"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/e33acfd67f0003272a9aec7a0725d19a429f2460",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6wuFCRC1aQ7uu5UhlAAA0RsQAHlf+mDfK3YlQXCINC6y/w0D\nUgv819fd4flGD1QVFSqh31P/nsEaflCq3SrOsAhUfbDcZyulS2cXuhqT0dj4/b9w\nSN7Cd02mi/DT2AoJ2Xv6nJhWAJcX5e6N5Kf0l0FU/xHUh+gRmiQNkbfmXFfXDHCj\n/lH52s/3EhfKj3YK4Na7mjFb/7YS+tTxjRDysE6UB40rJ1m/vGHbkCicw0IPuPTS\npAXeKSHMm5kXr8BYG+DgVPefV46BkO4t0jifcaBCz56HtqBkXqS1W6JrcjT5HbL9\n0SZuDbEW3B3nzp4G1ur7CyoAgPLN6sapOSAmX5HrHi/FkyYUJ2UAn1AR59wv0GIN\notIF2/AZNmTsBOonM0djMLzURbrpwaz6kQ1ODVp6yNk2vbgQ7mHIegr9lUofsyj6\n4aGT28wFnRD8XTiWI1q8k58mNZsVnhmSkK+Nqu9CDzZeXu39CN7CeM2Z8zs7+uXk\nYX5nX8BzifV8/uS68+95chCNM5W0qefaEE45h2dUuop2lTJAI3bdRWytqlekqbmd\nS4cy80jjSLIHUSTi+1PHAyOTijwlsFZEcwW1EJKD6oV1axzNe/UQGKX2JccevaFF\nbwg58ouFr/0466BKCu6o5ZkR2qq5wM2REv+C2B7/3vqbkeFqGuXkk2LBlbhKLpaj\nnzYVKVsJKCEbA8HCBm+K\n=l0SI\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 80eb4e6bb8d8da677ec57cfdeb6779847d6a55ef\nparent fce46066571e7bf3ab6ce5bfe5fd3a615e098421\nauthor Ruslan Lesiutin <rdlesyutin@gmail.com> 1726679941 +0100\ncommitter GitHub <noreply@github.com> 1726679941 +0100\n\nrefactor[react-devtools]: propagate settings from global hook object to frontend (#30610)\n\nStacked on https://github.com/facebook/react/pull/30597 and whats under\r\nit. See [this\r\ncommit](https://github.com/facebook/react/pull/30610/commits/59b4efa72377bf62f5ec8c0e32e56902cf73fbd7).\r\n\r\nWith this change, the initial values for console patching settings are\r\npropagated from hook (which is the source of truth now, because of\r\nhttps://github.com/facebook/react/pull/30596) to the UI. Instead of\r\nreading from `localStorage` the frontend is now requesting it from the\r\nhook. This happens when settings modal is rendered, and wrapped in a\r\ntransition. Also, this is happening even if settings modal is not opened\r\nyet, so we have enough time to fetch this data without displaying loader\r\nor similar UI."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/e33acfd67f0003272a9aec7a0725d19a429f2460",
+    "html_url": "https://github.com/facebook/react/commit/e33acfd67f0003272a9aec7a0725d19a429f2460",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/e33acfd67f0003272a9aec7a0725d19a429f2460/comments",
+    "author": {
+      "login": "hoxyq",
+      "id": 28902667,
+      "node_id": "MDQ6VXNlcjI4OTAyNjY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28902667?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoxyq",
+      "html_url": "https://github.com/hoxyq",
+      "followers_url": "https://api.github.com/users/hoxyq/followers",
+      "following_url": "https://api.github.com/users/hoxyq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoxyq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoxyq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoxyq/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoxyq/orgs",
+      "repos_url": "https://api.github.com/users/hoxyq/repos",
+      "events_url": "https://api.github.com/users/hoxyq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoxyq/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "fce46066571e7bf3ab6ce5bfe5fd3a615e098421",
+        "url": "https://api.github.com/repos/facebook/react/commits/fce46066571e7bf3ab6ce5bfe5fd3a615e098421",
+        "html_url": "https://github.com/facebook/react/commit/fce46066571e7bf3ab6ce5bfe5fd3a615e098421"
+      }
+    ]
+  },
+  {
+    "sha": "fce46066571e7bf3ab6ce5bfe5fd3a615e098421",
+    "node_id": "C_kwDOAJy2KtoAKGZjZTQ2MDY2NTcxZTdiZjNhYjZjZTViZmU1ZmQzYTYxNWUwOTg0MjE",
+    "commit": {
+      "author": {
+        "name": "Ruslan Lesiutin",
+        "email": "rdlesyutin@gmail.com",
+        "date": "2024-09-18T17:16:20Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T17:16:20Z"
+      },
+      "message": "chore[react-devtools]: extract some utils into separate modules to unify implementations (#30597)\n\nStacked on https://github.com/facebook/react/pull/30596. See [this\r\ncommit](https://github.com/facebook/react/pull/30597/commits/4ba5e784bbfdcd69021e2d84c75ffe26fcb698f4).\r\n\r\nMoving `formatWithStyles` and `formatConsoleArguments` to its own\r\nmodules, so that we can finally have a single implementation for these\r\nand stop inlining them in RDT global hook object.",
+      "tree": {
+        "sha": "d39bec845dc8f23a3a1aa670479f2729090b32e8",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/d39bec845dc8f23a3a1aa670479f2729090b32e8"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/fce46066571e7bf3ab6ce5bfe5fd3a615e098421",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6wrkCRC1aQ7uu5UhlAAANuUQAHiGrX7AI0YkM+xJJp8Gy/9f\nNcJHq4Ych8YLMYVXNRA9GEAXbTu1kmCpXtG2w5Vn4+MlT6M/7SV7QHrED/kOoCvx\n29LkBO7IgkGD0fVx9M3fjH43GWZVSppCze3ZlMJFiMQ52H34MFSGT4Ttn3wWcaQ2\nNwLALqYzwduZYIpN16Sw/Eg6s620HchrAf+3IUsfeck8Jyw/9rJUAn0PDCjTizxH\n0XQ+NXTgfXOZx4MVoGHF0/tcHKl1otEl9TeN28V3vCwoF7a6E50IXyktev2CaYqJ\nlV4npyQVmVhgES6RIqV47tzwxDOhGF3c4RgFSRUOBe/w8N+Zfi4pfy7g6fQD7/O+\n4r7H6miMeh8fkhwbFovP/XHvtgzLy5f3rP1+esXJ79DJU8ks3OajGd+0W07IR3SR\ngr1OC6g5fsaO0wY2dQX1zxvDPGgoOzmJS/Dj7Qs/F4GY7ll3DqdS9OGgP1A+dTqB\n8O3NmRT7t7ITO+olgDbp9zpAWGqkflC2SgHPAkNSxypnPae7qoxfy2T6tCoiZOzB\n45iElC8VjNU/WlXba0YASCJA1vuGuR+S3qGG2DN+sLOruHf6nGDKqpLOdeEXjZbv\nZggBV8TFCa/FuI8X0WemoUub4l9q5m73ZLOnyQF4QZaCl0iFVret38xB5zlG0tTU\nsdDu57Mrb0T/uR6kTyi3\n=Bs4M\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d39bec845dc8f23a3a1aa670479f2729090b32e8\nparent 3cac0875dcd60b8db099d8fa671c5ad1f8f0ef23\nauthor Ruslan Lesiutin <rdlesyutin@gmail.com> 1726679780 +0100\ncommitter GitHub <noreply@github.com> 1726679780 +0100\n\nchore[react-devtools]: extract some utils into separate modules to unify implementations (#30597)\n\nStacked on https://github.com/facebook/react/pull/30596. See [this\r\ncommit](https://github.com/facebook/react/pull/30597/commits/4ba5e784bbfdcd69021e2d84c75ffe26fcb698f4).\r\n\r\nMoving `formatWithStyles` and `formatConsoleArguments` to its own\r\nmodules, so that we can finally have a single implementation for these\r\nand stop inlining them in RDT global hook object."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/fce46066571e7bf3ab6ce5bfe5fd3a615e098421",
+    "html_url": "https://github.com/facebook/react/commit/fce46066571e7bf3ab6ce5bfe5fd3a615e098421",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/fce46066571e7bf3ab6ce5bfe5fd3a615e098421/comments",
+    "author": {
+      "login": "hoxyq",
+      "id": 28902667,
+      "node_id": "MDQ6VXNlcjI4OTAyNjY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28902667?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoxyq",
+      "html_url": "https://github.com/hoxyq",
+      "followers_url": "https://api.github.com/users/hoxyq/followers",
+      "following_url": "https://api.github.com/users/hoxyq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoxyq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoxyq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoxyq/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoxyq/orgs",
+      "repos_url": "https://api.github.com/users/hoxyq/repos",
+      "events_url": "https://api.github.com/users/hoxyq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoxyq/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3cac0875dcd60b8db099d8fa671c5ad1f8f0ef23",
+        "url": "https://api.github.com/repos/facebook/react/commits/3cac0875dcd60b8db099d8fa671c5ad1f8f0ef23",
+        "html_url": "https://github.com/facebook/react/commit/3cac0875dcd60b8db099d8fa671c5ad1f8f0ef23"
+      }
+    ]
+  },
+  {
+    "sha": "3cac0875dcd60b8db099d8fa671c5ad1f8f0ef23",
+    "node_id": "C_kwDOAJy2KtoAKDNjYWMwODc1ZGNkNjBiOGRiMDk5ZDhmYTY3MWM1YWQxZjhmMGVmMjM",
+    "commit": {
+      "author": {
+        "name": "Ruslan Lesiutin",
+        "email": "rdlesyutin@gmail.com",
+        "date": "2024-09-18T17:12:18Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T17:12:18Z"
+      },
+      "message": "refactor[react-devtools]: move console patching to global hook (#30596)\n\nStacked on https://github.com/facebook/react/pull/30566 and whats under\r\nit. See [this\r\ncommit](https://github.com/facebook/react/pull/30596/commits/374fd737e4b0b7028afb765838db7c0e22def865).\r\n\r\nIt is mostly copying code from one place to another and updating tests.\r\nWith these changes, for every console method that we patch, there is\r\ngoing to be a single applied patch:\r\n- For `error`, `warn`, and `trace` we are patching when hook is\r\ninstalled. This guarantees that component stacks are going to be\r\nappended even if browser DevTools are not opened. We pay some price for\r\nit, though: if user has browser DevTools closed and if at this point\r\nsome warning or error is emitted (logged), the next time user opens\r\nbrowser DevTools, they are going to see `hook.js` as the source frame.\r\nUnfortunately, ignore listing from source maps is not applied\r\nretroactively, and I don't know if its a bug or just a design\r\nlimitations. Once browser DevTools are opened, source maps will be\r\nloaded and ignore listing will be applied for all emitted logs in the\r\nfuture.\r\n- For `log`, `info`, `group`, `groupCollapsed` we are only patching when\r\nReact notifies React DevTools about running in StrictMode. We unpatch\r\nthe methods right after it.",
+      "tree": {
+        "sha": "439f952b133a980d9aad170c2ea75adaa9fd04e2",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/439f952b133a980d9aad170c2ea75adaa9fd04e2"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/3cac0875dcd60b8db099d8fa671c5ad1f8f0ef23",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6wnyCRC1aQ7uu5UhlAAAFGQQAKr/9ueCzgE7RCIqNxpu1S8J\nGXiMa8O9yNNi00BbOYO9zzFF93EKzX7ZumzwTUkTAX1DVJDSYjgMM992sD5vxr/Z\nWHEUP5fYfF1bHMQqkgJReKvoe116xlazfIvLoB3Q9ws4fIldqtR+3EcsXkE/hOWM\nFE4jOWtIhIzdK5SW/WhTBEgHxUxgeRVNl/ljLIeA1MeI25jEUlGtgsCbON5q2xyT\nNX4vNP1H/IhdOdwVw3O0sX5K4kyBYv0LJzYS7YfyU7ox0HIAKqaO901Ll8HRYH2a\nvUsm6iHiUcoFxJYwkN3jsdg1kT3Lg83VtXyDEaWpPbNzJ9hBKJ4KBDccp5CynJsq\nUZFujJX8JsCpi7Cf0WcVRjqN8JQRFz5zNIJ5vC8ldFF7D09Os8N0qlQSfzghn09s\nfRY6jKWy8qVx8FrH+kPKuOGnzm5xJ0SZJWAOShNaq8GODo9ZsUW+8eB+/f9K4NcQ\nXJ9U+Aq3WEjnxkqfElydpD34Lwp5FhMMst+0Oq0ydfZn6/e4qVwoexhVZ7+8Fqtc\nCHpoNCPnHY/qraGmBWodFi6DE09bxhFaRIlZJmFIDeGR5p/pZ/rVsa4u3Gp51eRV\nJB8q0Ai1/cAxC8abZUcWjucQomZaMq9zSuSu09dgDe3YWJZGQ+IW5CxJsweZC7YI\n/mtTBvrnBrCU4qFpS4Kk\n=0wqS\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 439f952b133a980d9aad170c2ea75adaa9fd04e2\nparent b521ef8a2aaff61154e59f6d0d3791ee4dbe6395\nauthor Ruslan Lesiutin <rdlesyutin@gmail.com> 1726679538 +0100\ncommitter GitHub <noreply@github.com> 1726679538 +0100\n\nrefactor[react-devtools]: move console patching to global hook (#30596)\n\nStacked on https://github.com/facebook/react/pull/30566 and whats under\r\nit. See [this\r\ncommit](https://github.com/facebook/react/pull/30596/commits/374fd737e4b0b7028afb765838db7c0e22def865).\r\n\r\nIt is mostly copying code from one place to another and updating tests.\r\nWith these changes, for every console method that we patch, there is\r\ngoing to be a single applied patch:\r\n- For `error`, `warn`, and `trace` we are patching when hook is\r\ninstalled. This guarantees that component stacks are going to be\r\nappended even if browser DevTools are not opened. We pay some price for\r\nit, though: if user has browser DevTools closed and if at this point\r\nsome warning or error is emitted (logged), the next time user opens\r\nbrowser DevTools, they are going to see `hook.js` as the source frame.\r\nUnfortunately, ignore listing from source maps is not applied\r\nretroactively, and I don't know if its a bug or just a design\r\nlimitations. Once browser DevTools are opened, source maps will be\r\nloaded and ignore listing will be applied for all emitted logs in the\r\nfuture.\r\n- For `log`, `info`, `group`, `groupCollapsed` we are only patching when\r\nReact notifies React DevTools about running in StrictMode. We unpatch\r\nthe methods right after it."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/3cac0875dcd60b8db099d8fa671c5ad1f8f0ef23",
+    "html_url": "https://github.com/facebook/react/commit/3cac0875dcd60b8db099d8fa671c5ad1f8f0ef23",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/3cac0875dcd60b8db099d8fa671c5ad1f8f0ef23/comments",
+    "author": {
+      "login": "hoxyq",
+      "id": 28902667,
+      "node_id": "MDQ6VXNlcjI4OTAyNjY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28902667?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoxyq",
+      "html_url": "https://github.com/hoxyq",
+      "followers_url": "https://api.github.com/users/hoxyq/followers",
+      "following_url": "https://api.github.com/users/hoxyq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoxyq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoxyq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoxyq/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoxyq/orgs",
+      "repos_url": "https://api.github.com/users/hoxyq/repos",
+      "events_url": "https://api.github.com/users/hoxyq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoxyq/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b521ef8a2aaff61154e59f6d0d3791ee4dbe6395",
+        "url": "https://api.github.com/repos/facebook/react/commits/b521ef8a2aaff61154e59f6d0d3791ee4dbe6395",
+        "html_url": "https://github.com/facebook/react/commit/b521ef8a2aaff61154e59f6d0d3791ee4dbe6395"
+      }
+    ]
+  },
+  {
+    "sha": "b521ef8a2aaff61154e59f6d0d3791ee4dbe6395",
+    "node_id": "C_kwDOAJy2KtoAKGI1MjFlZjhhMmFhZmY2MTE1NGU1OWY2ZDBkMzc5MWVlNGRiZTYzOTU",
+    "commit": {
+      "author": {
+        "name": "Ruslan Lesiutin",
+        "email": "rdlesyutin@gmail.com",
+        "date": "2024-09-18T17:02:13Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T17:02:13Z"
+      },
+      "message": "refactor[react-devtools]: remove browserTheme from ConsolePatchSettings (#30566)\n\nStacked on https://github.com/facebook/react/pull/30564.\r\n\r\nWe are no longer using browser theme in our console patching, this was\r\nremoved in unification of console patching for strict mode, we started\r\nusing ansi escape symbols and forking based on browser theme is no\r\nlonger required - https://github.com/facebook/react/pull/29869\r\n\r\nThe real browser theme initialization for frontend is happening at the\r\nother place and is not affected:\r\n\r\nhttps://github.com/facebook/react/blob/40be968257a7a10a267210670103f20dd0429ef3/packages/react-devtools-shared/src/devtools/views/Settings/SettingsContext.js#L117-L120",
+      "tree": {
+        "sha": "5de09c508123455245a781d301e133487daf1480",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/5de09c508123455245a781d301e133487daf1480"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/b521ef8a2aaff61154e59f6d0d3791ee4dbe6395",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6weVCRC1aQ7uu5UhlAAAekAQABf47EMYG1fp14kVWzmRFWiN\nWWRNY+6qu+hJVQYNpj7YYnuOqrZMSHGPvL0URRi4Y1W3i0NcMCB/miuTWzVSYSgn\nmiGlWqipLVl+57zfoEwoE18YIDoMjIpZebtkZLh4xFRGdoWiZXHjnTOnX9/x7SXp\n7+j7CHf2GoNIQ8iz/F9OBzui5KWjV3JhHnxX32frzdPdYo3BjPgy/xZt7RAARM+D\n6bq+duuCbZLR1EtM9U+FPcZCVKiAQlrg7xO1LnNSeW2ckfPou+ueIsYE9l/Ag+MB\nGopXcdacjujRAFTgE1rkDNzaBHGDNvkoQk50HQAlI3hF5MIRLbFpA3ses/kx1IYG\nuTtsH7sZCZNBOsYkgIMtrbvZtNZ6xfLxxEeSUpPJR1MlcpUn01+kJ/53CakYQGO8\n3otoklh1XmD8gRWzvR/fd21LEgSeuRBSzkD4KAGCvszzOD/3gcOBoHJx686KYLC1\nJGmxS+ATRnNXCwzPnNdoGWFPz3PUvOJPTeZFqpXcVfM7HsUw5f+vvxtt5X6OFc6v\n6utzwtNwGQkNnWhgBgTeYcK7oTbhcdn+hgOUc17STXfvkr88Pp/IjCC88rU0vSVw\nbCN1RQZPqunYXLqMXkWDPw2RginrYH3TtWqOIfQFGoKm0CbviIZT0ICRBMSz4XOo\n8oQmQcWOVayp1h8+kvxq\n=28Yi\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 5de09c508123455245a781d301e133487daf1480\nparent 5e83d9ab3b3f88853591dff43cd70ee4e5c90c5d\nauthor Ruslan Lesiutin <rdlesyutin@gmail.com> 1726678933 +0100\ncommitter GitHub <noreply@github.com> 1726678933 +0100\n\nrefactor[react-devtools]: remove browserTheme from ConsolePatchSettings (#30566)\n\nStacked on https://github.com/facebook/react/pull/30564.\r\n\r\nWe are no longer using browser theme in our console patching, this was\r\nremoved in unification of console patching for strict mode, we started\r\nusing ansi escape symbols and forking based on browser theme is no\r\nlonger required - https://github.com/facebook/react/pull/29869\r\n\r\nThe real browser theme initialization for frontend is happening at the\r\nother place and is not affected:\r\n\r\nhttps://github.com/facebook/react/blob/40be968257a7a10a267210670103f20dd0429ef3/packages/react-devtools-shared/src/devtools/views/Settings/SettingsContext.js#L117-L120"
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/b521ef8a2aaff61154e59f6d0d3791ee4dbe6395",
+    "html_url": "https://github.com/facebook/react/commit/b521ef8a2aaff61154e59f6d0d3791ee4dbe6395",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/b521ef8a2aaff61154e59f6d0d3791ee4dbe6395/comments",
+    "author": {
+      "login": "hoxyq",
+      "id": 28902667,
+      "node_id": "MDQ6VXNlcjI4OTAyNjY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28902667?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoxyq",
+      "html_url": "https://github.com/hoxyq",
+      "followers_url": "https://api.github.com/users/hoxyq/followers",
+      "following_url": "https://api.github.com/users/hoxyq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoxyq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoxyq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoxyq/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoxyq/orgs",
+      "repos_url": "https://api.github.com/users/hoxyq/repos",
+      "events_url": "https://api.github.com/users/hoxyq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoxyq/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5e83d9ab3b3f88853591dff43cd70ee4e5c90c5d",
+        "url": "https://api.github.com/repos/facebook/react/commits/5e83d9ab3b3f88853591dff43cd70ee4e5c90c5d",
+        "html_url": "https://github.com/facebook/react/commit/5e83d9ab3b3f88853591dff43cd70ee4e5c90c5d"
+      }
+    ]
+  },
+  {
+    "sha": "5e83d9ab3b3f88853591dff43cd70ee4e5c90c5d",
+    "node_id": "C_kwDOAJy2KtoAKDVlODNkOWFiM2IzZjg4ODUzNTkxZGZmNDNjZDcwZWU0ZTVjOTBjNWQ",
+    "commit": {
+      "author": {
+        "name": "Ruslan Lesiutin",
+        "email": "rdlesyutin@gmail.com",
+        "date": "2024-09-18T16:37:00Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T16:37:00Z"
+      },
+      "message": "feat[react-devtools]: add settings to global hook object (#30564)\n\nRight now we are patching console 2 times: when hook is installed\r\n(before page is loaded) and when backend is connected. Because of this,\r\neven if user had `appendComponentStack` setting enabled, all emitted\r\nerror and warning logs are not going to have component stacks appended.\r\nThey also won't have component stacks appended retroactively when user\r\nopens browser DevTools (this is when frontend is initialized and\r\nconnects to backend).\r\n\r\nThis behavior adds potential race conditions with LogBox in React\r\nNative, and also unpredictable to the user, because in order to get\r\ncomponent stacks logged you have to open browser DevTools, but by the\r\ntime you do it, error or warning log was already emitted.\r\n\r\nTo solve this, we are going to only patch console in the hook object,\r\nbecause it is guaranteed to load even before React. Settings are going\r\nto be synchronized with the hook via Bridge, and React DevTools Backend\r\nHost (React Native or browser extension shell) will be responsible for\r\npersisting these settings across the session, this is going to be\r\nimplemented in a separate PR.",
+      "tree": {
+        "sha": "dc30c535bb20b6b01859e511ecc2fdc8bf9eea92",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/dc30c535bb20b6b01859e511ecc2fdc8bf9eea92"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/5e83d9ab3b3f88853591dff43cd70ee4e5c90c5d",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6wGsCRC1aQ7uu5UhlAAACnkQAA5bgObDqHmwb5ZqghOAIwjV\nKVi4OJfJJ9bbuUL7/eL70AEP/UXtkpuNR2zcaMm68XkaB6MENOaTyoSCnvvqlCyb\nAd32CiC5oyBzoCbfHShcJ+Yq2QmP0MNAhbqsHktYj42KVkB+kTxma8BQjcDRL7Sk\nqG4HnP9UeS8dbsPXjFqEgbm+/HHSaXHaDqaAa9Wr85Hj14YmLAwjMTwPUz9DCb+V\nPRBfPNoIa15NkZDgy0nygmBzxLq4ZZH9Px+P6/mX9CXlynSw7Fw6ya2m8GeysyVl\nraq471RTU0XaTU2wORTsvFenFt99NBDF7NBK8XVOdMdusgjPUdIHB1s1YoBnIUCu\n4G56xPciDnDTTU20YxtSQRhGMphA7XZF9uJWHH/KS6y6AizriCeR4Ygl1nIpx0Ie\nf4611g2Df4p57aOVF98VNyB6icJnNaHzcVVAy4g2bYNQB3IeZowjvywHqOu2wKeJ\ni2EEZDJS0/eDTjo4XPPbOPcIqCD70g6RP69RumqNatEgvOazdiJuEfP+d7aeOg9J\nv6dwkTOM7ZtONq35WOAn4IilTUSgWpCjHyKmyUyeQ6n1FP+by5CWg9XKAbM2B672\nWZUh0ImAxZX78gm+ZoR0NpAo5grvb/0gxEmLZd9nb9gnQcGzMaVPj5h9sDsFKKxD\nzojb7RXdjMyY4Rnx+COP\n=3u2M\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree dc30c535bb20b6b01859e511ecc2fdc8bf9eea92\nparent 5dcb009760160c085496e943f76090d98528f971\nauthor Ruslan Lesiutin <rdlesyutin@gmail.com> 1726677420 +0100\ncommitter GitHub <noreply@github.com> 1726677420 +0100\n\nfeat[react-devtools]: add settings to global hook object (#30564)\n\nRight now we are patching console 2 times: when hook is installed\r\n(before page is loaded) and when backend is connected. Because of this,\r\neven if user had `appendComponentStack` setting enabled, all emitted\r\nerror and warning logs are not going to have component stacks appended.\r\nThey also won't have component stacks appended retroactively when user\r\nopens browser DevTools (this is when frontend is initialized and\r\nconnects to backend).\r\n\r\nThis behavior adds potential race conditions with LogBox in React\r\nNative, and also unpredictable to the user, because in order to get\r\ncomponent stacks logged you have to open browser DevTools, but by the\r\ntime you do it, error or warning log was already emitted.\r\n\r\nTo solve this, we are going to only patch console in the hook object,\r\nbecause it is guaranteed to load even before React. Settings are going\r\nto be synchronized with the hook via Bridge, and React DevTools Backend\r\nHost (React Native or browser extension shell) will be responsible for\r\npersisting these settings across the session, this is going to be\r\nimplemented in a separate PR."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/5e83d9ab3b3f88853591dff43cd70ee4e5c90c5d",
+    "html_url": "https://github.com/facebook/react/commit/5e83d9ab3b3f88853591dff43cd70ee4e5c90c5d",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/5e83d9ab3b3f88853591dff43cd70ee4e5c90c5d/comments",
+    "author": {
+      "login": "hoxyq",
+      "id": 28902667,
+      "node_id": "MDQ6VXNlcjI4OTAyNjY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28902667?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoxyq",
+      "html_url": "https://github.com/hoxyq",
+      "followers_url": "https://api.github.com/users/hoxyq/followers",
+      "following_url": "https://api.github.com/users/hoxyq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoxyq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoxyq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoxyq/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoxyq/orgs",
+      "repos_url": "https://api.github.com/users/hoxyq/repos",
+      "events_url": "https://api.github.com/users/hoxyq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoxyq/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5dcb009760160c085496e943f76090d98528f971",
+        "url": "https://api.github.com/repos/facebook/react/commits/5dcb009760160c085496e943f76090d98528f971",
+        "html_url": "https://github.com/facebook/react/commit/5dcb009760160c085496e943f76090d98528f971"
+      }
+    ]
+  },
+  {
+    "sha": "5dcb009760160c085496e943f76090d98528f971",
+    "node_id": "C_kwDOAJy2KtoAKDVkY2IwMDk3NjAxNjBjMDg1NDk2ZTk0M2Y3NjA5MGQ5ODUyOGY5NzE",
+    "commit": {
+      "author": {
+        "name": "Jack Pope",
+        "email": "jackpope1@gmail.com",
+        "date": "2024-09-18T15:51:36Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T15:51:36Z"
+      },
+      "message": "[compiler] Add JSX inlining optimization (#30867)\n\nThis adds an `InlineJsxTransform` optimization pass, toggled by the\r\n`enableInlineJsxTransform` flag. When enabled, JSX will be transformed\r\ninto React Element object literals, preventing runtime overhead during\r\nelement creation.\r\n\r\nTODO:\r\n- [ ] Add conditionals to make transform PROD-only\r\n- [ ] Make the React element symbol configurable so this works with\r\nruntimes that support `react.element` or `react.transitional.element`\r\n- [ ] Look into additional optimization to pass props spread through\r\ndirectly if none of the properties are mutated",
+      "tree": {
+        "sha": "642ff058e2a837120981087d732100d713b27644",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/642ff058e2a837120981087d732100d713b27644"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/5dcb009760160c085496e943f76090d98528f971",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6vcICRC1aQ7uu5UhlAAASdkQAJzxqqRFmUeEQdk78tgxcJCa\ndxTfF0552xzlt4IDbFV7OcEwOf+n3CJr6kwiD2UReTp/MaNL+kmTmeQRoVDZXvnr\nYytcfWWQgfja+K9KjtUWhQC02o8g6Mcw/SiprqxF5qrRcqjYvZYv5o89Gy2EmXPB\nTAhmez/isBC4YWbi9EYSrQjF+PnDw37laMJupNgjS32hhjf4+hH0xB3gH/O/RG1T\nLj8dnTlD8sAuT3kKutP+8ESpiVh9OP+t4tadKMluI9dA+4k+lVxCoubRP7su02wM\nyFfsjVZlnhPNNrz2v0pP3mjouyB92DAmZJIIXwR0s8FHmlZDZKpNSuQ7IstzyBMS\n+kBiDcuiynv+C2ucEMMSK1UfOOIO7hY9yfeR0/W2mDYdeUN/nbVqyO6Kujaiv1MI\neVfaF8QtzzSSFuYebekrenRpJmR6UVwhmG/Z+ARm0pKtf9tMeKZliCCfJclXuSFs\nViO+DAdaWby/xcAQw0fcXegRqC8KwUoslMxmCVp+NXhs8QuOmv6eRVKeulzsqLHo\nY+lTkHh/Sg/BIMQlz7CSPzaNua0wBt2gopS3kymZIWMkL8mRcb23XaEPJEHzzdgr\n0w+2UPHJx95/T1EvLQ57KH/Gtyvxr0PAztWzmP8dnK0KkpUzISv9jiRnnatPzQAz\n7cMnSDScESb/AMcTf4q3\n=J97s\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 642ff058e2a837120981087d732100d713b27644\nparent 8dfbd16fce9077ab4e5fe85a7b86fa7c97a5ae04\nauthor Jack Pope <jackpope1@gmail.com> 1726674696 -0400\ncommitter GitHub <noreply@github.com> 1726674696 -0400\n\n[compiler] Add JSX inlining optimization (#30867)\n\nThis adds an `InlineJsxTransform` optimization pass, toggled by the\r\n`enableInlineJsxTransform` flag. When enabled, JSX will be transformed\r\ninto React Element object literals, preventing runtime overhead during\r\nelement creation.\r\n\r\nTODO:\r\n- [ ] Add conditionals to make transform PROD-only\r\n- [ ] Make the React element symbol configurable so this works with\r\nruntimes that support `react.element` or `react.transitional.element`\r\n- [ ] Look into additional optimization to pass props spread through\r\ndirectly if none of the properties are mutated\r\n"
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/5dcb009760160c085496e943f76090d98528f971",
+    "html_url": "https://github.com/facebook/react/commit/5dcb009760160c085496e943f76090d98528f971",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/5dcb009760160c085496e943f76090d98528f971/comments",
+    "author": {
+      "login": "jackpope",
+      "id": 8965173,
+      "node_id": "MDQ6VXNlcjg5NjUxNzM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8965173?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jackpope",
+      "html_url": "https://github.com/jackpope",
+      "followers_url": "https://api.github.com/users/jackpope/followers",
+      "following_url": "https://api.github.com/users/jackpope/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jackpope/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jackpope/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jackpope/subscriptions",
+      "organizations_url": "https://api.github.com/users/jackpope/orgs",
+      "repos_url": "https://api.github.com/users/jackpope/repos",
+      "events_url": "https://api.github.com/users/jackpope/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jackpope/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8dfbd16fce9077ab4e5fe85a7b86fa7c97a5ae04",
+        "url": "https://api.github.com/repos/facebook/react/commits/8dfbd16fce9077ab4e5fe85a7b86fa7c97a5ae04",
+        "html_url": "https://github.com/facebook/react/commit/8dfbd16fce9077ab4e5fe85a7b86fa7c97a5ae04"
+      }
+    ]
+  },
+  {
+    "sha": "8dfbd16fce9077ab4e5fe85a7b86fa7c97a5ae04",
+    "node_id": "C_kwDOAJy2KtoAKDhkZmJkMTZmY2U5MDc3YWI0ZTVmZTg1YTdiODZmYTdjOTdhNWFlMDQ",
+    "commit": {
+      "author": {
+        "name": "Sebastian Markbåge",
+        "email": "sebastian@calyptus.eu",
+        "date": "2024-09-17T20:36:10Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T20:36:10Z"
+      },
+      "message": "[Fiber] Color Performance Track Entries by Self Time (#30984)\n\nStacked on #30983.\r\n\r\nThis colors each component entry by its self time from light to dark\r\ndepending on how long it took. If it took longer than a cut off we color\r\nit red (the error color).\r\n\r\n<img width=\"435\" alt=\"Screenshot 2024-09-16 at 11 48 15 PM\"\r\nsrc=\"https://github.com/user-attachments/assets/5d0bda83-6205-40e9-bec1-b81db2d48b2d\">",
+      "tree": {
+        "sha": "780ba19b46f5905eba644ab7a08617fac1a870d3",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/780ba19b46f5905eba644ab7a08617fac1a870d3"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/8dfbd16fce9077ab4e5fe85a7b86fa7c97a5ae04",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6eg6CRC1aQ7uu5UhlAAAxqcQAEHs4UA7IP518ExezpQZM/0I\nogSMbH6vfoHm5xqtaPvJG2VuHNRBnYLgFau8pQjd56GL+2PWBCzm+y9hS//A1M6i\nhZIrw3TxLPZ4Dh8XwPymW74bvRx84VWHzoM/c5/FKMynRlFyjwoFmnQu3JUFwEsF\ncKHrgbYVvOKwfrX81yYhj6i+HDMpnD2LQPv3OaS6+Anh8z1qlR9GGJYALojbDVth\nDRod6lcLUxohwVo9nEXD3I2X1cR76dycHYHs8ZFrN5HdKcHjdBbvyZC/6Tiqj6JW\nsyWDVHKbC6xr70qYqz/+2IdOkchTMKx+DAsu2vG1yuNBBg+XGqELjfyJCuktyzoI\nWtoYaqyp0xVMav0UkHhyaIppbqSdyhn4CJjm/cdY3KE6i049ttOwTqACwphiT0hy\nZs0L/mHTJdwx9XS/oMTGtgVmlP6zHbGyoWa9nWuxL6Px9z59m9X5SLFsahQbkNO9\n9On84uWGcEJGy/t2ezHWA5pfYSpe1/LolLnXPGcvIX1Ox3PXq/BkIBfinbMwj/Lc\nsm29/1EMJuKIP/rlVbpYcQHiQSZisiJ09vP3coTtI5AH158620ngYLfLOAi6mTvC\nLGtJlFXbxD5Jp0bx59Neh972eYfkizagqtXQIWwI9aqVWOMUM12D5MHjzSwxC9PT\nBd2ye1289Y19RGDVbs8h\n=B67d\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 780ba19b46f5905eba644ab7a08617fac1a870d3\nparent e1c20902c39d1dfe2649185622f2f21b526e2be2\nauthor Sebastian Markbåge <sebastian@calyptus.eu> 1726605370 -0400\ncommitter GitHub <noreply@github.com> 1726605370 -0400\n\n[Fiber] Color Performance Track Entries by Self Time (#30984)\n\nStacked on #30983.\r\n\r\nThis colors each component entry by its self time from light to dark\r\ndepending on how long it took. If it took longer than a cut off we color\r\nit red (the error color).\r\n\r\n<img width=\"435\" alt=\"Screenshot 2024-09-16 at 11 48 15 PM\"\r\nsrc=\"https://github.com/user-attachments/assets/5d0bda83-6205-40e9-bec1-b81db2d48b2d\">"
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/8dfbd16fce9077ab4e5fe85a7b86fa7c97a5ae04",
+    "html_url": "https://github.com/facebook/react/commit/8dfbd16fce9077ab4e5fe85a7b86fa7c97a5ae04",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/8dfbd16fce9077ab4e5fe85a7b86fa7c97a5ae04/comments",
+    "author": {
+      "login": "sebmarkbage",
+      "id": 63648,
+      "node_id": "MDQ6VXNlcjYzNjQ4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63648?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sebmarkbage",
+      "html_url": "https://github.com/sebmarkbage",
+      "followers_url": "https://api.github.com/users/sebmarkbage/followers",
+      "following_url": "https://api.github.com/users/sebmarkbage/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sebmarkbage/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sebmarkbage/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sebmarkbage/subscriptions",
+      "organizations_url": "https://api.github.com/users/sebmarkbage/orgs",
+      "repos_url": "https://api.github.com/users/sebmarkbage/repos",
+      "events_url": "https://api.github.com/users/sebmarkbage/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sebmarkbage/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e1c20902c39d1dfe2649185622f2f21b526e2be2",
+        "url": "https://api.github.com/repos/facebook/react/commits/e1c20902c39d1dfe2649185622f2f21b526e2be2",
+        "html_url": "https://github.com/facebook/react/commit/e1c20902c39d1dfe2649185622f2f21b526e2be2"
+      }
+    ]
+  },
+  {
+    "sha": "e1c20902c39d1dfe2649185622f2f21b526e2be2",
+    "node_id": "C_kwDOAJy2KtoAKGUxYzIwOTAyYzM5ZDFkZmUyNjQ5MTg1NjIyZjJmMjFiNTI2ZTJiZTI",
+    "commit": {
+      "author": {
+        "name": "Sebastian Markbåge",
+        "email": "sebastian@calyptus.eu",
+        "date": "2024-09-17T20:14:57Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T20:14:57Z"
+      },
+      "message": "[Fiber] Log Component Effects to Performance Track (#30983)\n\nStacked on #30981. Same as #30967 but for effects.\r\n\r\nThis logs a tree of components using `performance.measure()`.\r\n\r\nIn addition to the previous render phase this logs one tree for each\r\ncommit phase:\r\n\r\n- Mutation Phase\r\n- Layout Effect\r\n- Passive Unmounts\r\n- Passive Mounts\r\n\r\nI currently skip the Before Mutation phase since the snapshots are so\r\nunusual it's not worth creating trees for those.\r\n\r\nThe mechanism is that I reuse the timings we track for\r\n`enableProfilerCommitHooks`. I track first and last effect timestamp\r\nwithin each component subtree. Then on the way up do we log the entry.\r\nThis means that we don't include overhead to find our way down to a\r\ncomponent and that we don't need to add any additional overhead by\r\nreading timestamps.\r\n\r\nTo ensure that the entries get ordered correctly we need to ensure that\r\nthe start time of each parent is slightly before the inner one.",
+      "tree": {
+        "sha": "8939946fcc3a7aebb23d2990efa92bc5ea7a0e2b",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/8939946fcc3a7aebb23d2990efa92bc5ea7a0e2b"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/e1c20902c39d1dfe2649185622f2f21b526e2be2",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6eNBCRC1aQ7uu5UhlAAAfjwQAKgdiFdlJ4cMzCUIOaKzz09D\nXPs2UlLhhE3Q0Wi0fafQFgiFqMN8Yyi03JMDhqpqCLI+vUW3LYKl2MJMt4YhI38x\n7y5zAYCWFHYyStrLhJA5gx27HlZVvhqfF8V2bymEAx2EOhyGFuGTMZaTLZoY/0C9\nM5BJi08i8eVcdW8NxjuTmOaiwn9NRaKwZjyltoFU/8MwbLu1sL8HaIed0SWMSazu\n4ZuLqWmgJCtwZU6ivp1Jpp9nXhVN9PZw+lGCeQqSGAWLsMKSL65GKI+VvY+AvODe\nDwiRb6HTKuT65PAXj6Zrzj/wWPwyj/iZfD4RzDt+Nqu7EfTQUukWZwLfKBXX/q/2\n4O8Ej+KToEj0IXIsVtdxVNpttU++3izRlHWddMTtepQZ+ZEzsUjFfVMaoeu2j8+8\n3wvvtiFV5g7Zw9bZ2Ki5lL9KYEk9utSVzsxAjaoSidem1//wNW/Eil7DZlALf6P7\nIQlIzByeh+BdNEMS31VEdIRjjrFL85UjZhfz9+fO6WT9ErK6GkOf5LvOuBqwB63L\nIcwRofvnruTUN9TtJ+urd6n5OU/Nk4IGwDnJnEv39iP/cFF+JlnaNLJ0bxxSliY7\npPq4HguKaDldlc4kdx4SVXoObhT7b8teRFBJj3wXBrSn9Xq+3+UaaGcJDVwPDo2W\nVlkSr6VF5MYXLhIvEIws\n=r48M\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 8939946fcc3a7aebb23d2990efa92bc5ea7a0e2b\nparent 15da9174518f18f82869767ebe2a21be2fc8bd90\nauthor Sebastian Markbåge <sebastian@calyptus.eu> 1726604097 -0400\ncommitter GitHub <noreply@github.com> 1726604097 -0400\n\n[Fiber] Log Component Effects to Performance Track (#30983)\n\nStacked on #30981. Same as #30967 but for effects.\r\n\r\nThis logs a tree of components using `performance.measure()`.\r\n\r\nIn addition to the previous render phase this logs one tree for each\r\ncommit phase:\r\n\r\n- Mutation Phase\r\n- Layout Effect\r\n- Passive Unmounts\r\n- Passive Mounts\r\n\r\nI currently skip the Before Mutation phase since the snapshots are so\r\nunusual it's not worth creating trees for those.\r\n\r\nThe mechanism is that I reuse the timings we track for\r\n`enableProfilerCommitHooks`. I track first and last effect timestamp\r\nwithin each component subtree. Then on the way up do we log the entry.\r\nThis means that we don't include overhead to find our way down to a\r\ncomponent and that we don't need to add any additional overhead by\r\nreading timestamps.\r\n\r\nTo ensure that the entries get ordered correctly we need to ensure that\r\nthe start time of each parent is slightly before the inner one."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/e1c20902c39d1dfe2649185622f2f21b526e2be2",
+    "html_url": "https://github.com/facebook/react/commit/e1c20902c39d1dfe2649185622f2f21b526e2be2",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/e1c20902c39d1dfe2649185622f2f21b526e2be2/comments",
+    "author": {
+      "login": "sebmarkbage",
+      "id": 63648,
+      "node_id": "MDQ6VXNlcjYzNjQ4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63648?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sebmarkbage",
+      "html_url": "https://github.com/sebmarkbage",
+      "followers_url": "https://api.github.com/users/sebmarkbage/followers",
+      "following_url": "https://api.github.com/users/sebmarkbage/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sebmarkbage/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sebmarkbage/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sebmarkbage/subscriptions",
+      "organizations_url": "https://api.github.com/users/sebmarkbage/orgs",
+      "repos_url": "https://api.github.com/users/sebmarkbage/repos",
+      "events_url": "https://api.github.com/users/sebmarkbage/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sebmarkbage/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "15da9174518f18f82869767ebe2a21be2fc8bd90",
+        "url": "https://api.github.com/repos/facebook/react/commits/15da9174518f18f82869767ebe2a21be2fc8bd90",
+        "html_url": "https://github.com/facebook/react/commit/15da9174518f18f82869767ebe2a21be2fc8bd90"
+      }
+    ]
+  },
+  {
+    "sha": "15da9174518f18f82869767ebe2a21be2fc8bd90",
+    "node_id": "C_kwDOAJy2KtoAKDE1ZGE5MTc0NTE4ZjE4ZjgyODY5NzY3ZWJlMmEyMWJlMmZjOGJkOTA",
+    "commit": {
+      "author": {
+        "name": "Sebastian Markbåge",
+        "email": "sebastian@calyptus.eu",
+        "date": "2024-09-17T19:25:00Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T19:25:00Z"
+      },
+      "message": "Don't read currentTransition back from internals (#30991)\n\nThis code is weird. It reads back the transition that it just set from\r\nthe shared internals. It's almost like it expects it to be a getter or\r\nsomething.\r\n\r\nThis avoids that and makes it consistent with what ReactFiberHooks\r\nalready does.",
+      "tree": {
+        "sha": "c2a8a9c23ebfa63d0cadb1bffd890db4769d3279",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/c2a8a9c23ebfa63d0cadb1bffd890db4769d3279"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/15da9174518f18f82869767ebe2a21be2fc8bd90",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6deMCRC1aQ7uu5UhlAAAgAEQAHgD36bApoFXx94uRA0+hdMV\nVDq9mr+BT6akpWiopFVj8IPJhqzEMtN7f8tTJTlRxbyrItRnUYU8l8N501U/YkKn\nVUEPq8jmhX9CkWRjSnN0HfDUCBLmAPFx9RQgoQ/2LWCNrH9lJ0Ir1CTgfgePyAcM\nv6xEztK3UIGiJnV9wlPLfNUBXxmuC3Q8hncsN5KAg/hxWWlEBqy8mQ36iUlgQcsN\n5FSsRdjpPMXAdAyMq/HQIYGxzrDno57xw1L3qAsv4si5YKEHaCB0esK2B/chIIVc\nguYu7VK2ZL7Pi4sMBbW9NpwHQ2Hb+VPP8ngE5FA5SqFNKoPkkP2JcOUY/v0I3XFQ\nMQQn27XcWC+jlU7WpIwcQF2vaGnCKSX5NH3GZMO9ZyGJf8FIE12M+XsVZR5d0c+e\nBmlY3vDduYAr4DQ4Y3zW3V2G0LnASQBEdIWgTvuS9pwthAKR7ghUX3jibfWzonnf\nGYpyM/G0HZWo+8/NLApDjqE9y5u8ZnB9zuN2WwDNan1Ps1OJZLfjBAvUFIbrCMKZ\nUvfOva9MGfAOebdZLCTlNJEj5lwCjVb77/C9lhTiv1rTyKRHKAXJS9WYpxt0Q75k\nGYbx2Jmq+G4ke5xnmoSrBRrRs6xRiB4MDqlM0KHbCBTqoHOaOO/gUXytCR8V8EI4\n/dl9jmv4O3/JMhlSe8Kf\n=uXGH\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c2a8a9c23ebfa63d0cadb1bffd890db4769d3279\nparent 4549be0f846e7df5a4eaabf06369d93bd120271e\nauthor Sebastian Markbåge <sebastian@calyptus.eu> 1726601100 -0400\ncommitter GitHub <noreply@github.com> 1726601100 -0400\n\nDon't read currentTransition back from internals (#30991)\n\nThis code is weird. It reads back the transition that it just set from\r\nthe shared internals. It's almost like it expects it to be a getter or\r\nsomething.\r\n\r\nThis avoids that and makes it consistent with what ReactFiberHooks\r\nalready does."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/15da9174518f18f82869767ebe2a21be2fc8bd90",
+    "html_url": "https://github.com/facebook/react/commit/15da9174518f18f82869767ebe2a21be2fc8bd90",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/15da9174518f18f82869767ebe2a21be2fc8bd90/comments",
+    "author": {
+      "login": "sebmarkbage",
+      "id": 63648,
+      "node_id": "MDQ6VXNlcjYzNjQ4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63648?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sebmarkbage",
+      "html_url": "https://github.com/sebmarkbage",
+      "followers_url": "https://api.github.com/users/sebmarkbage/followers",
+      "following_url": "https://api.github.com/users/sebmarkbage/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sebmarkbage/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sebmarkbage/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sebmarkbage/subscriptions",
+      "organizations_url": "https://api.github.com/users/sebmarkbage/orgs",
+      "repos_url": "https://api.github.com/users/sebmarkbage/repos",
+      "events_url": "https://api.github.com/users/sebmarkbage/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sebmarkbage/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4549be0f846e7df5a4eaabf06369d93bd120271e",
+        "url": "https://api.github.com/repos/facebook/react/commits/4549be0f846e7df5a4eaabf06369d93bd120271e",
+        "html_url": "https://github.com/facebook/react/commit/4549be0f846e7df5a4eaabf06369d93bd120271e"
+      }
+    ]
+  },
+  {
+    "sha": "4549be0f846e7df5a4eaabf06369d93bd120271e",
+    "node_id": "C_kwDOAJy2KtoAKDQ1NDliZTBmODQ2ZTdkZjVhNGVhYWJmMDYzNjlkOTNiZDEyMDI3MWU",
+    "commit": {
+      "author": {
+        "name": "Sebastian Markbåge",
+        "email": "sebastian@calyptus.eu",
+        "date": "2024-09-17T19:12:16Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T19:12:16Z"
+      },
+      "message": "[Fiber] Optimize enableProfilerCommitHooks by Collecting Elapsed Effect Duration in Module Scope (#30981)\n\nStacked on #30979.\r\n\r\nThe problem with the previous approach is that it recursively walked the\r\ntree up to propagate the resulting time from recording a layout effect.\r\n\r\nInstead, we keep a running count of the effect duration on the module\r\nscope. Then we reset it when entering a nested Profiler and then we add\r\nits elapsed count when we exit the Profiler.\r\n\r\nThis also fixes a bug where we weren't previously including unmount\r\ntimes for some detached trees since they couldn't bubble up to find the\r\nprofiler.",
+      "tree": {
+        "sha": "f72611d24e899c83d38b2cfde11cd8ba3001a3e2",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/f72611d24e899c83d38b2cfde11cd8ba3001a3e2"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/4549be0f846e7df5a4eaabf06369d93bd120271e",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6dSQCRC1aQ7uu5UhlAAAmAAQABerVfb1cavZmuMa+40EMhf5\nk6aMo/6jXy3cMNWyXmYxMSjryBCqIztB4mRSTfgdSCJiP4ZudjrwGYuxc5PGcrIQ\n/LxZB+IOieORsbH3leMa5M1TUAed+SL7MnSMSdxbdeJ/3wBVMkhdJyNg7ybEfct4\nzfouafEy/DMetTqn4VEsIQFMJPtOfGj4+u8LUVik3nXfPEbTiMAxP+RDfMQl982S\nOpiXfNwYRh5lAikYWNQ5+cqznUAPCagf7uOqf5RZgjZKc1vn+eMwuoQ62RISgOJX\nOVQnWKJlx56FHZ5X1M4VtwBTFEc8lbhixRlVK4YU7n/YpuKoAksESFa9AqAmuuvc\nOaMYXPojxtN68sT/JXWBgukuXuTN4tkbJW4i8mrLzszbYOocHHkvlJMdOVIK8WlB\njasV4IFGQ5LotWNqNZQhIsp0HI+MoYQMzW1NwwXQnjKR9m1emoWId8g08LztC5ye\nvIC9r3LgwQPqp0G/KjXuIupNT3TWEgCu7RhlfcArPttbpan1JpNH0Qtl/2ni9DkR\nGTBF1y0XSp4O7p3Zynlgx9RoFBTCOIPJSBn8+DYpAUB/7O6bnT4NBsvYTXxDMibX\nUh7Y0b4OumVMhs6IBXs6c7Th5HdD6whZplfd0tEMqFAQpD5dS6mgr6sMGw7l5FlE\nk0h8t1T0PJhzzQKcgRkW\n=cXoi\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree f72611d24e899c83d38b2cfde11cd8ba3001a3e2\nparent 7b56a542987890f618eeda4e4906fbf1f1df2213\nauthor Sebastian Markbåge <sebastian@calyptus.eu> 1726600336 -0400\ncommitter GitHub <noreply@github.com> 1726600336 -0400\n\n[Fiber] Optimize enableProfilerCommitHooks by Collecting Elapsed Effect Duration in Module Scope (#30981)\n\nStacked on #30979.\r\n\r\nThe problem with the previous approach is that it recursively walked the\r\ntree up to propagate the resulting time from recording a layout effect.\r\n\r\nInstead, we keep a running count of the effect duration on the module\r\nscope. Then we reset it when entering a nested Profiler and then we add\r\nits elapsed count when we exit the Profiler.\r\n\r\nThis also fixes a bug where we weren't previously including unmount\r\ntimes for some detached trees since they couldn't bubble up to find the\r\nprofiler."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/4549be0f846e7df5a4eaabf06369d93bd120271e",
+    "html_url": "https://github.com/facebook/react/commit/4549be0f846e7df5a4eaabf06369d93bd120271e",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/4549be0f846e7df5a4eaabf06369d93bd120271e/comments",
+    "author": {
+      "login": "sebmarkbage",
+      "id": 63648,
+      "node_id": "MDQ6VXNlcjYzNjQ4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63648?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sebmarkbage",
+      "html_url": "https://github.com/sebmarkbage",
+      "followers_url": "https://api.github.com/users/sebmarkbage/followers",
+      "following_url": "https://api.github.com/users/sebmarkbage/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sebmarkbage/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sebmarkbage/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sebmarkbage/subscriptions",
+      "organizations_url": "https://api.github.com/users/sebmarkbage/orgs",
+      "repos_url": "https://api.github.com/users/sebmarkbage/repos",
+      "events_url": "https://api.github.com/users/sebmarkbage/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sebmarkbage/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7b56a542987890f618eeda4e4906fbf1f1df2213",
+        "url": "https://api.github.com/repos/facebook/react/commits/7b56a542987890f618eeda4e4906fbf1f1df2213",
+        "html_url": "https://github.com/facebook/react/commit/7b56a542987890f618eeda4e4906fbf1f1df2213"
+      }
+    ]
+  },
+  {
+    "sha": "7b56a542987890f618eeda4e4906fbf1f1df2213",
+    "node_id": "C_kwDOAJy2KtoAKDdiNTZhNTQyOTg3ODkwZjYxOGVlZGE0ZTQ5MDZmYmYxZjFkZjIyMTM",
+    "commit": {
+      "author": {
+        "name": "Mike Vitousek",
+        "email": "mmvitousek@gmail.com",
+        "date": "2024-09-17T18:05:59Z"
+      },
+      "committer": {
+        "name": "Mike Vitousek",
+        "email": "mmvitousek@gmail.com",
+        "date": "2024-09-17T18:05:59Z"
+      },
+      "message": "[compiler][playground] create playground API in pipeline, and allow spaces in pass names\n\nSummary:\n1. Minor refactor to provide a stable API for calling the compiler from the playground\n2. Allows spaces in pass names without breaking the appearance of the playground by replacing spaces with &nbsp; in pass tabs\n\nghstack-source-id: 12a43ad86c16c0e21f3e6b4086d531cdefd893eb\nPull Request resolved: https://github.com/facebook/react/pull/30988",
+      "tree": {
+        "sha": "3cb61b1e6ee341aced220ab837b7fb9c902d21e3",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/3cb61b1e6ee341aced220ab837b7fb9c902d21e3"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/7b56a542987890f618eeda4e4906fbf1f1df2213",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/7b56a542987890f618eeda4e4906fbf1f1df2213",
+    "html_url": "https://github.com/facebook/react/commit/7b56a542987890f618eeda4e4906fbf1f1df2213",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/7b56a542987890f618eeda4e4906fbf1f1df2213/comments",
+    "author": {
+      "login": "mvitousek",
+      "id": 1629813,
+      "node_id": "MDQ6VXNlcjE2Mjk4MTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1629813?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mvitousek",
+      "html_url": "https://github.com/mvitousek",
+      "followers_url": "https://api.github.com/users/mvitousek/followers",
+      "following_url": "https://api.github.com/users/mvitousek/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mvitousek/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mvitousek/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mvitousek/subscriptions",
+      "organizations_url": "https://api.github.com/users/mvitousek/orgs",
+      "repos_url": "https://api.github.com/users/mvitousek/repos",
+      "events_url": "https://api.github.com/users/mvitousek/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mvitousek/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "mvitousek",
+      "id": 1629813,
+      "node_id": "MDQ6VXNlcjE2Mjk4MTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1629813?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mvitousek",
+      "html_url": "https://github.com/mvitousek",
+      "followers_url": "https://api.github.com/users/mvitousek/followers",
+      "following_url": "https://api.github.com/users/mvitousek/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mvitousek/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mvitousek/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mvitousek/subscriptions",
+      "organizations_url": "https://api.github.com/users/mvitousek/orgs",
+      "repos_url": "https://api.github.com/users/mvitousek/repos",
+      "events_url": "https://api.github.com/users/mvitousek/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mvitousek/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a99d8e8d97055127a8ad7b01835d2660154689ed",
+        "url": "https://api.github.com/repos/facebook/react/commits/a99d8e8d97055127a8ad7b01835d2660154689ed",
+        "html_url": "https://github.com/facebook/react/commit/a99d8e8d97055127a8ad7b01835d2660154689ed"
+      }
+    ]
+  },
+  {
+    "sha": "a99d8e8d97055127a8ad7b01835d2660154689ed",
+    "node_id": "C_kwDOAJy2KtoAKGE5OWQ4ZThkOTcwNTUxMjdhOGFkN2IwMTgzNWQyNjYwMTU0Njg5ZWQ",
+    "commit": {
+      "author": {
+        "name": "mofeiZ",
+        "email": "34200447+mofeiZ@users.noreply.github.com",
+        "date": "2024-09-16T19:56:24Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T19:56:24Z"
+      },
+      "message": "[compiler][eslint] Report bailout diagnostics with correct column # (#30977)\n\nCompiler bailout diagnostics should now highlight only the first line of\r\nthe source location span.\r\n\r\n(Resubmission of #30423 which was reverted due to invalid column\r\nnumber.)",
+      "tree": {
+        "sha": "393928a15f5510f45af8a152e65246b595f54e7b",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/393928a15f5510f45af8a152e65246b595f54e7b"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/a99d8e8d97055127a8ad7b01835d2660154689ed",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6I1oCRC1aQ7uu5UhlAAAY2MQAK27AkHW849JSBGZeNfzk90S\nz+9RI7XrbEOLuEhfCEX7ZqAd5JD0M7jA7uw2LNaw92NGE+IldfftiCpW/qmfhvbB\nSt23Lb56pNGxA4rbBY6KP6QjQJqzdd9oB+Y6jzLTrlPwcl6mlJnBji40IEwq2Eeu\nhxML130/wOHXEg7TwrckdGbcViwqXVnqTb/UOVCCg9i3kHyP7Fp8EVPKhgaQaySn\nfx/zB7/CJVlIMaDkDbJeUQFpCt7wIIs/mryDRbupjwdGbBw47riWELvPtZoTty7+\ns2oNgk3cQw1WWAjoyWY03Yp10LqIoDmaqs1Mw2lgMQm594FdjpdnvRdhEk0EOpDB\n8s1kX6if+F1skFikb0FV79F6TVw2U23NQ4jho3srAlTIeYBaAcyZSEQOZM1XhbLL\n4KRTr/XPQkMHdh+Jub1DSzelwxjgrlgxlAxgXINw2LpaANfpOSO4wgWPJn81i7ce\nLDBGPs9a9J56XEftA1bYIg26G+EDW23w9VhdyKWYgKxgnUxugtn2LC+4n3lUtLYu\nRUxeLQGl3uenv/MLrBXSSVqGMUJVkglFV2i9AJoSFfB4s9pZUrFOvqmAoeQcn7o1\nSzLC2+9gkdxx6mUp+U8IBfR2PSBL6ejw4n5RZJrX/heUPop32OtLfkwUR/y4M2mq\n0YdCxjwBsaOpULGmOMJe\n=k346\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 393928a15f5510f45af8a152e65246b595f54e7b\nparent 8152e5cd27721e792f395c0b62c8a7769a54777a\nauthor mofeiZ <34200447+mofeiZ@users.noreply.github.com> 1726516584 -0400\ncommitter GitHub <noreply@github.com> 1726516584 -0400\n\n[compiler][eslint] Report bailout diagnostics with correct column # (#30977)\n\nCompiler bailout diagnostics should now highlight only the first line of\r\nthe source location span.\r\n\r\n(Resubmission of #30423 which was reverted due to invalid column\r\nnumber.)"
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/a99d8e8d97055127a8ad7b01835d2660154689ed",
+    "html_url": "https://github.com/facebook/react/commit/a99d8e8d97055127a8ad7b01835d2660154689ed",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/a99d8e8d97055127a8ad7b01835d2660154689ed/comments",
+    "author": {
+      "login": "mofeiZ",
+      "id": 34200447,
+      "node_id": "MDQ6VXNlcjM0MjAwNDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/34200447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mofeiZ",
+      "html_url": "https://github.com/mofeiZ",
+      "followers_url": "https://api.github.com/users/mofeiZ/followers",
+      "following_url": "https://api.github.com/users/mofeiZ/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mofeiZ/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mofeiZ/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mofeiZ/subscriptions",
+      "organizations_url": "https://api.github.com/users/mofeiZ/orgs",
+      "repos_url": "https://api.github.com/users/mofeiZ/repos",
+      "events_url": "https://api.github.com/users/mofeiZ/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mofeiZ/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8152e5cd27721e792f395c0b62c8a7769a54777a",
+        "url": "https://api.github.com/repos/facebook/react/commits/8152e5cd27721e792f395c0b62c8a7769a54777a",
+        "html_url": "https://github.com/facebook/react/commit/8152e5cd27721e792f395c0b62c8a7769a54777a"
+      }
+    ]
+  },
+  {
+    "sha": "8152e5cd27721e792f395c0b62c8a7769a54777a",
+    "node_id": "C_kwDOAJy2KtoAKDgxNTJlNWNkMjc3MjFlNzkyZjM5NWMwYjYyYzhhNzc2OWE1NDc3N2E",
+    "commit": {
+      "author": {
+        "name": "Sebastian Markbåge",
+        "email": "sebastian@calyptus.eu",
+        "date": "2024-09-16T19:00:17Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T19:00:17Z"
+      },
+      "message": "Remove execution context check from shouldProfile (#30971)\n\nI don't know why this is here since all these callsites are within the\r\nCommitWork/CommitEffects helpers.\r\n\r\nThis should help with inlining.",
+      "tree": {
+        "sha": "f3aa6d54a9d3708758ce9eea27f67b19bdc00c92",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/f3aa6d54a9d3708758ce9eea27f67b19bdc00c92"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/8152e5cd27721e792f395c0b62c8a7769a54777a",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6IBBCRC1aQ7uu5UhlAAAiO0QAHxzyGA+PtEuAZ8oGSX5P3i4\nk1GPYGl7hc/D4Y11z7Ri6gtqSkJPLtjvjRNkqeDhwGBDbcU3jOqnKRKY9bdFR5nF\ng4ftSqbUqk2Nqz4lWyVlxI3g5D2Y7bGwx9Rm+2EMAVxFT6uUbvn4jzF6VTIFCAnX\npqdXbhFYdJnroKPgXa+gdxiEtpGaYtoAown0Z+tGcuSso0VmFELh0C1Qc8NDw7CC\nlMGLfxawRuuMkmqKEQTUFavFA3MntG+2TKQwf1lULRStRKvs1m3b030ksAPV3wX/\nOarzxwyClvKMQjr6SICReno0XP1IlsLOPLQT5b2pKaqR/CmkJEbkV5RQWtvcNgcG\neeUJgcQ1/VGOu9ZMs+EM4+eGOapWEqq8H5I4rB4Wa3RFWk0LNh/o4R6sa4scLn+8\nC3NaWPJSLRC73KYFpa8PcZt7OqMGCDzyBGE6GHAwoAvs+XrkRAuY9fvJyCNLFZiY\nw9QinqUZ0CPW1Fj98wpmnyl89Amd97WyKRDMUhS6Y+YCZ2hi8su8Zmls/7kBcbch\ndFmlABqFyO/W6HHdQ+hepMPVys3Jmfgvmg62b9SAlnZfstwHPGDRTueMR0jbDapN\ngV87h4w4SgZ/dBWV9WmDM4RiJjKJEZ85V+qe13e8DXkoCj3IcP63qJot5nsAjR9c\nVHXWnRdX5ZRf/WdO8hit\n=uJt5\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree f3aa6d54a9d3708758ce9eea27f67b19bdc00c92\nparent d7167c35059bc6a0ad84eb34e65b3b66328d5dd8\nauthor Sebastian Markbåge <sebastian@calyptus.eu> 1726513217 -0400\ncommitter GitHub <noreply@github.com> 1726513217 -0400\n\nRemove execution context check from shouldProfile (#30971)\n\nI don't know why this is here since all these callsites are within the\r\nCommitWork/CommitEffects helpers.\r\n\r\nThis should help with inlining."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/8152e5cd27721e792f395c0b62c8a7769a54777a",
+    "html_url": "https://github.com/facebook/react/commit/8152e5cd27721e792f395c0b62c8a7769a54777a",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/8152e5cd27721e792f395c0b62c8a7769a54777a/comments",
+    "author": {
+      "login": "sebmarkbage",
+      "id": 63648,
+      "node_id": "MDQ6VXNlcjYzNjQ4",
+      "avatar_url": "https://avatars.githubusercontent.com/u/63648?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sebmarkbage",
+      "html_url": "https://github.com/sebmarkbage",
+      "followers_url": "https://api.github.com/users/sebmarkbage/followers",
+      "following_url": "https://api.github.com/users/sebmarkbage/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sebmarkbage/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sebmarkbage/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sebmarkbage/subscriptions",
+      "organizations_url": "https://api.github.com/users/sebmarkbage/orgs",
+      "repos_url": "https://api.github.com/users/sebmarkbage/repos",
+      "events_url": "https://api.github.com/users/sebmarkbage/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sebmarkbage/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d7167c35059bc6a0ad84eb34e65b3b66328d5dd8",
+        "url": "https://api.github.com/repos/facebook/react/commits/d7167c35059bc6a0ad84eb34e65b3b66328d5dd8",
+        "html_url": "https://github.com/facebook/react/commit/d7167c35059bc6a0ad84eb34e65b3b66328d5dd8"
+      }
+    ]
+  },
+  {
+    "sha": "d7167c35059bc6a0ad84eb34e65b3b66328d5dd8",
+    "node_id": "C_kwDOAJy2KtoAKGQ3MTY3YzM1MDU5YmM2YTBhZDg0ZWIzNGU2NWIzYjY2MzI4ZDVkZDg",
+    "commit": {
+      "author": {
+        "name": "Mike Vitousek",
+        "email": "mmvitousek@gmail.com",
+        "date": "2024-09-16T18:12:58Z"
+      },
+      "committer": {
+        "name": "Mike Vitousek",
+        "email": "mmvitousek@gmail.com",
+        "date": "2024-09-16T18:12:58Z"
+      },
+      "message": "[compiler] Implement support for hoisted and recursive functions\n\nSummary:\nIntroduces a new binding kind for functions that allows them to be hoisted. Also has the result of causing all nested function declarations to be outputted as function declarations, not as let bindings.\n\nghstack-source-id: fa40d4909fb3d30c23691e36510ebb3c3cc41053\nPull Request resolved: https://github.com/facebook/react/pull/30922",
+      "tree": {
+        "sha": "350436969e886e2759d459b5bde9c79a31e7ea77",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/350436969e886e2759d459b5bde9c79a31e7ea77"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/d7167c35059bc6a0ad84eb34e65b3b66328d5dd8",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/d7167c35059bc6a0ad84eb34e65b3b66328d5dd8",
+    "html_url": "https://github.com/facebook/react/commit/d7167c35059bc6a0ad84eb34e65b3b66328d5dd8",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/d7167c35059bc6a0ad84eb34e65b3b66328d5dd8/comments",
+    "author": {
+      "login": "mvitousek",
+      "id": 1629813,
+      "node_id": "MDQ6VXNlcjE2Mjk4MTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1629813?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mvitousek",
+      "html_url": "https://github.com/mvitousek",
+      "followers_url": "https://api.github.com/users/mvitousek/followers",
+      "following_url": "https://api.github.com/users/mvitousek/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mvitousek/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mvitousek/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mvitousek/subscriptions",
+      "organizations_url": "https://api.github.com/users/mvitousek/orgs",
+      "repos_url": "https://api.github.com/users/mvitousek/repos",
+      "events_url": "https://api.github.com/users/mvitousek/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mvitousek/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "mvitousek",
+      "id": 1629813,
+      "node_id": "MDQ6VXNlcjE2Mjk4MTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1629813?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mvitousek",
+      "html_url": "https://github.com/mvitousek",
+      "followers_url": "https://api.github.com/users/mvitousek/followers",
+      "following_url": "https://api.github.com/users/mvitousek/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mvitousek/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mvitousek/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mvitousek/subscriptions",
+      "organizations_url": "https://api.github.com/users/mvitousek/orgs",
+      "repos_url": "https://api.github.com/users/mvitousek/repos",
+      "events_url": "https://api.github.com/users/mvitousek/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mvitousek/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e78c9362c014dccaed5ff193106e44d7d072dc32",
+        "url": "https://api.github.com/repos/facebook/react/commits/e78c9362c014dccaed5ff193106e44d7d072dc32",
+        "html_url": "https://github.com/facebook/react/commit/e78c9362c014dccaed5ff193106e44d7d072dc32"
+      }
+    ]
+  },
+  {
+    "sha": "e78c9362c014dccaed5ff193106e44d7d072dc32",
+    "node_id": "C_kwDOAJy2KtoAKGU3OGM5MzYyYzAxNGRjY2FlZDVmZjE5MzEwNmU0NGQ3ZDA3MmRjMzI",
+    "commit": {
+      "author": {
+        "name": "Mike Vitousek",
+        "email": "mmvitousek@gmail.com",
+        "date": "2024-09-16T17:53:34Z"
+      },
+      "committer": {
+        "name": "Mike Vitousek",
+        "email": "mmvitousek@gmail.com",
+        "date": "2024-09-16T17:53:34Z"
+      },
+      "message": "[compiler] Allow all hooks to take callbacks which access refs, but ban hooks from taking direct ref value arguments\n\nSummary:\nThis brings the behavior of ref mutation within hook callbacks into alignment with the behavior of global mutations--that is, we allow all hooks to take callbacks that may mutate a ref. This is potentially unsafe if the hook eagerly calls its callback, but the alternative is excessively limiting (and inconsistent with other enforcement).\n\nThis also bans *directly* passing a ref.current value to a hook, which was previously allowed.\n\nghstack-source-id: e66ce7123ecf4a905adab957970d0ee5d41245e0\nPull Request resolved: https://github.com/facebook/react/pull/30917",
+      "tree": {
+        "sha": "e66ce7123ecf4a905adab957970d0ee5d41245e0",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/e66ce7123ecf4a905adab957970d0ee5d41245e0"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/e78c9362c014dccaed5ff193106e44d7d072dc32",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/e78c9362c014dccaed5ff193106e44d7d072dc32",
+    "html_url": "https://github.com/facebook/react/commit/e78c9362c014dccaed5ff193106e44d7d072dc32",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/e78c9362c014dccaed5ff193106e44d7d072dc32/comments",
+    "author": {
+      "login": "mvitousek",
+      "id": 1629813,
+      "node_id": "MDQ6VXNlcjE2Mjk4MTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1629813?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mvitousek",
+      "html_url": "https://github.com/mvitousek",
+      "followers_url": "https://api.github.com/users/mvitousek/followers",
+      "following_url": "https://api.github.com/users/mvitousek/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mvitousek/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mvitousek/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mvitousek/subscriptions",
+      "organizations_url": "https://api.github.com/users/mvitousek/orgs",
+      "repos_url": "https://api.github.com/users/mvitousek/repos",
+      "events_url": "https://api.github.com/users/mvitousek/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mvitousek/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "mvitousek",
+      "id": 1629813,
+      "node_id": "MDQ6VXNlcjE2Mjk4MTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1629813?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mvitousek",
+      "html_url": "https://github.com/mvitousek",
+      "followers_url": "https://api.github.com/users/mvitousek/followers",
+      "following_url": "https://api.github.com/users/mvitousek/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mvitousek/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mvitousek/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mvitousek/subscriptions",
+      "organizations_url": "https://api.github.com/users/mvitousek/orgs",
+      "repos_url": "https://api.github.com/users/mvitousek/repos",
+      "events_url": "https://api.github.com/users/mvitousek/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mvitousek/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1e68a0a3aed9975d2e302ccf1dff0861bf2be706",
+        "url": "https://api.github.com/repos/facebook/react/commits/1e68a0a3aed9975d2e302ccf1dff0861bf2be706",
+        "html_url": "https://github.com/facebook/react/commit/1e68a0a3aed9975d2e302ccf1dff0861bf2be706"
+      }
+    ]
+  },
+  {
+    "sha": "1e68a0a3aed9975d2e302ccf1dff0861bf2be706",
+    "node_id": "C_kwDOAJy2KtoAKDFlNjhhMGEzYWVkOTk3NWQyZTMwMmNjZjFkZmYwODYxYmYyYmU3MDY",
+    "commit": {
+      "author": {
+        "name": "Mike Vitousek",
+        "email": "mmvitousek@gmail.com",
+        "date": "2024-09-16T17:53:32Z"
+      },
+      "committer": {
+        "name": "Mike Vitousek",
+        "email": "mmvitousek@gmail.com",
+        "date": "2024-09-16T17:53:32Z"
+      },
+      "message": "[compiler] Improve handling of refs\n\nSummary:\nThis change expands our handling of refs to build an understanding of nested refs within objects and functions that may return refs. It builds a special-purpose type system within the ref analysis that gives a very lightweight structural type to objects and array expressions (merging the types of all their members), and then propagating those types throughout the analysis (e.g., if `ref` has type `Ref`, then `{ x: ref }` and `[ref]` have type `Structural(value=Ref)` and `{x: ref}.anything` and `[ref][anything]` have type `Ref`).\n\nThis allows us to support structures that contain refs, and functions that operate over them, being created and passed around during rendering without at runtime accessing a ref value.\n\nThe analysis here uses a fixpoint to allow types to be fully propagated through the system, and we defend against diverging by widening the type of a variable if it could grow infinitely: so, in something like\n```\nlet x = ref;\nwhile (condition) {\n  x = [x]\n}\n```\nwe end up giving `x` the type `Structural(value=Ref)`.\n\nghstack-source-id: afb0b0cb014ffcf21ef4d0ede6511330fd975ec3\nPull Request resolved: https://github.com/facebook/react/pull/30902",
+      "tree": {
+        "sha": "afb0b0cb014ffcf21ef4d0ede6511330fd975ec3",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/afb0b0cb014ffcf21ef4d0ede6511330fd975ec3"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/1e68a0a3aed9975d2e302ccf1dff0861bf2be706",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/1e68a0a3aed9975d2e302ccf1dff0861bf2be706",
+    "html_url": "https://github.com/facebook/react/commit/1e68a0a3aed9975d2e302ccf1dff0861bf2be706",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/1e68a0a3aed9975d2e302ccf1dff0861bf2be706/comments",
+    "author": {
+      "login": "mvitousek",
+      "id": 1629813,
+      "node_id": "MDQ6VXNlcjE2Mjk4MTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1629813?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mvitousek",
+      "html_url": "https://github.com/mvitousek",
+      "followers_url": "https://api.github.com/users/mvitousek/followers",
+      "following_url": "https://api.github.com/users/mvitousek/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mvitousek/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mvitousek/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mvitousek/subscriptions",
+      "organizations_url": "https://api.github.com/users/mvitousek/orgs",
+      "repos_url": "https://api.github.com/users/mvitousek/repos",
+      "events_url": "https://api.github.com/users/mvitousek/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mvitousek/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "mvitousek",
+      "id": 1629813,
+      "node_id": "MDQ6VXNlcjE2Mjk4MTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1629813?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mvitousek",
+      "html_url": "https://github.com/mvitousek",
+      "followers_url": "https://api.github.com/users/mvitousek/followers",
+      "following_url": "https://api.github.com/users/mvitousek/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mvitousek/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mvitousek/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mvitousek/subscriptions",
+      "organizations_url": "https://api.github.com/users/mvitousek/orgs",
+      "repos_url": "https://api.github.com/users/mvitousek/repos",
+      "events_url": "https://api.github.com/users/mvitousek/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mvitousek/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "c8a7cab13f9d496d4b178ba5e95b030ca854aa20",
+        "url": "https://api.github.com/repos/facebook/react/commits/c8a7cab13f9d496d4b178ba5e95b030ca854aa20",
+        "html_url": "https://github.com/facebook/react/commit/c8a7cab13f9d496d4b178ba5e95b030ca854aa20"
+      }
+    ]
+  },
+  {
+    "sha": "c8a7cab13f9d496d4b178ba5e95b030ca854aa20",
+    "node_id": "C_kwDOAJy2KtoAKGM4YTdjYWIxM2Y5ZDQ5NmQ0YjE3OGJhNWU5NWIwMzBjYTg1NGFhMjA",
+    "commit": {
+      "author": {
+        "name": "Mike Vitousek",
+        "email": "mmvitousek@gmail.com",
+        "date": "2024-09-16T17:53:29Z"
+      },
+      "committer": {
+        "name": "Mike Vitousek",
+        "email": "mmvitousek@gmail.com",
+        "date": "2024-09-16T17:53:29Z"
+      },
+      "message": "[compiler] Fix issue where second argument of all functions was considered to be a ref\n\nghstack-source-id: 1817f3b816ab5ec013a3b1a6c8a8373a30e0b3a0\nPull Request resolved: https://github.com/facebook/react/pull/30912",
+      "tree": {
+        "sha": "1817f3b816ab5ec013a3b1a6c8a8373a30e0b3a0",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/1817f3b816ab5ec013a3b1a6c8a8373a30e0b3a0"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/c8a7cab13f9d496d4b178ba5e95b030ca854aa20",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/c8a7cab13f9d496d4b178ba5e95b030ca854aa20",
+    "html_url": "https://github.com/facebook/react/commit/c8a7cab13f9d496d4b178ba5e95b030ca854aa20",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/c8a7cab13f9d496d4b178ba5e95b030ca854aa20/comments",
+    "author": {
+      "login": "mvitousek",
+      "id": 1629813,
+      "node_id": "MDQ6VXNlcjE2Mjk4MTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1629813?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mvitousek",
+      "html_url": "https://github.com/mvitousek",
+      "followers_url": "https://api.github.com/users/mvitousek/followers",
+      "following_url": "https://api.github.com/users/mvitousek/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mvitousek/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mvitousek/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mvitousek/subscriptions",
+      "organizations_url": "https://api.github.com/users/mvitousek/orgs",
+      "repos_url": "https://api.github.com/users/mvitousek/repos",
+      "events_url": "https://api.github.com/users/mvitousek/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mvitousek/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "mvitousek",
+      "id": 1629813,
+      "node_id": "MDQ6VXNlcjE2Mjk4MTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1629813?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mvitousek",
+      "html_url": "https://github.com/mvitousek",
+      "followers_url": "https://api.github.com/users/mvitousek/followers",
+      "following_url": "https://api.github.com/users/mvitousek/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mvitousek/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mvitousek/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mvitousek/subscriptions",
+      "organizations_url": "https://api.github.com/users/mvitousek/orgs",
+      "repos_url": "https://api.github.com/users/mvitousek/repos",
+      "events_url": "https://api.github.com/users/mvitousek/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mvitousek/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "26855e4680dedb21f2c73a069ed691822a242db1",
+        "url": "https://api.github.com/repos/facebook/react/commits/26855e4680dedb21f2c73a069ed691822a242db1",
+        "html_url": "https://github.com/facebook/react/commit/26855e4680dedb21f2c73a069ed691822a242db1"
+      }
+    ]
+  },
+  {
+    "sha": "26855e4680dedb21f2c73a069ed691822a242db1",
+    "node_id": "C_kwDOAJy2KtoAKDI2ODU1ZTQ2ODBkZWRiMjFmMmM3M2EwNjllZDY5MTgyMmEyNDJkYjE",
+    "commit": {
+      "author": {
+        "name": "Pieter De Baets",
+        "email": "pieterdb@meta.com",
+        "date": "2024-09-16T16:51:00Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T16:51:00Z"
+      },
+      "message": "[react-native] Fix misleading crash when view config is not found (#30970)\n\n## Summary\r\n\r\nWhen a view config can not be found, it currently errors with\r\n`TypeError: Cannot read property 'bubblingEventTypes' of null`. Instead\r\ninvariant at the correct location and prevent further processing of the\r\nnull viewConfig to improve the error logged.\r\n\r\n## How did you test this change?\r\n\r\nBuild and run RN playground app referencing an invalid native view\r\nthrough `requireNativeComponent`.",
+      "tree": {
+        "sha": "432ed5c5057d27a6689cb186a02d1a7e34af16f1",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/432ed5c5057d27a6689cb186a02d1a7e34af16f1"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/26855e4680dedb21f2c73a069ed691822a242db1",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6GH0CRC1aQ7uu5UhlAAAzeAQAAHWu/xyh3Q4qtpqLZzrrSgq\ns0Ag/Jbl9+MklEefSpZTJafr8C686kyuKWdzQYqCMRPDtaiQZvJ2RKWgxvJWfLbT\nFmfDOntuAzh8jAuwNNY1I1plWdLPdLKDvMo/HW//sm7yDO2kKMP/JfW+Tdy5mroM\nMYhx8VBF+6wxAqYEnTvOWnxPSLYDMbgjod9mLeVWMEl9VbM+Tn0hfeOYzUthPVEq\nKUOOMqDtDPF//LQdEaJHNW3JB7/Iwh3Eh1KTOiB8lDLlTAWPoER43L9WeRH50Q3J\nc3MKcNJOWR+wZFmsni9SAGQo+sZK3liHD1kN5hJoq7M9iaWowX3Vw/Rr2dM/hG1G\nbEKfUs0j2+WO9DvPGOOOiKYqnXuMc1v1gPM0ay+IBSEObjQ0kTdDMCCxG03e1ZNO\ngxQ2Y9R9y9zAAOvirzR1gg8lYt+ojRynqQopqzqkO/7M6DS9N5dvbh+ec1pmd0MX\nmEWQOk8e+FLq0TD2jIc1i4nvAbSTmXGulvqX2OiUAlBSWjgeoFKBl7ATwjqW2FcX\n2D/1kscNGARUYYVyOTaE0pkaUzTZ7RlMPK5KxQ643bOJR2w9UAnHS10PWEMht/hr\nj0yy1kB5QSeNUxUDMZ2yQEj8C/REjIdBwxEA/dhirELLamNt27nkWVNJYQjuDAib\n1xQVs6trPjbUV2EK88lS\n=W40M\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 432ed5c5057d27a6689cb186a02d1a7e34af16f1\nparent 9f4e4611ead28d34f7f598c9bd12424cf68f5781\nauthor Pieter De Baets <pieterdb@meta.com> 1726505460 +0100\ncommitter GitHub <noreply@github.com> 1726505460 +0100\n\n[react-native] Fix misleading crash when view config is not found (#30970)\n\n## Summary\r\n\r\nWhen a view config can not be found, it currently errors with\r\n`TypeError: Cannot read property 'bubblingEventTypes' of null`. Instead\r\ninvariant at the correct location and prevent further processing of the\r\nnull viewConfig to improve the error logged.\r\n\r\n## How did you test this change?\r\n\r\nBuild and run RN playground app referencing an invalid native view\r\nthrough `requireNativeComponent`."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/26855e4680dedb21f2c73a069ed691822a242db1",
+    "html_url": "https://github.com/facebook/react/commit/26855e4680dedb21f2c73a069ed691822a242db1",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/26855e4680dedb21f2c73a069ed691822a242db1/comments",
+    "author": {
+      "login": "javache",
+      "id": 5676,
+      "node_id": "MDQ6VXNlcjU2NzY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5676?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/javache",
+      "html_url": "https://github.com/javache",
+      "followers_url": "https://api.github.com/users/javache/followers",
+      "following_url": "https://api.github.com/users/javache/following{/other_user}",
+      "gists_url": "https://api.github.com/users/javache/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/javache/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/javache/subscriptions",
+      "organizations_url": "https://api.github.com/users/javache/orgs",
+      "repos_url": "https://api.github.com/users/javache/repos",
+      "events_url": "https://api.github.com/users/javache/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/javache/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "9f4e4611ead28d34f7f598c9bd12424cf68f5781",
+        "url": "https://api.github.com/repos/facebook/react/commits/9f4e4611ead28d34f7f598c9bd12424cf68f5781",
+        "html_url": "https://github.com/facebook/react/commit/9f4e4611ead28d34f7f598c9bd12424cf68f5781"
+      }
+    ]
+  },
+  {
+    "sha": "9f4e4611ead28d34f7f598c9bd12424cf68f5781",
+    "node_id": "C_kwDOAJy2KtoAKDlmNGU0NjExZWFkMjhkMzRmN2Y1OThjOWJkMTI0MjRjZjY4ZjU3ODE",
+    "commit": {
+      "author": {
+        "name": "Ruslan Lesiutin",
+        "email": "rdlesyutin@gmail.com",
+        "date": "2024-09-16T16:43:40Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T16:43:40Z"
+      },
+      "message": "fix: add Error prefix to Error objects names (#30969)\n\nThis fixes printing Error objects in Chrome DevTools.\r\n\r\nI've observed that Chrome DevTools is not source mapping and linkifying\r\nURLs, when was running this on larger apps. Chrome DevTools talks to V8\r\nvia Chrome DevTools protocol, every object has a corresponding\r\n[`RemoteObject`](https://chromedevtools.github.io/devtools-protocol/tot/Runtime/#type-RemoteObject).\r\n\r\nWhen Chrome DevTools sees that Error object is printed in the console,\r\nit will try to prettify it. `description` field of the corresponding\r\n`RemoteObject` for the `Error` JavaScript object is a combination of\r\n`Error` `name`, `message`, `stack` fields. This is not just a raw\r\n`stack` field, so our prefix for this field just doesn't work. [V8 is\r\nactually filtering out first line of the `stack` field, it only keeps\r\nthe stack frames as a string, and then this gets prefixed by `name` and\r\n`message` fields, if they are\r\navailable](https://source.chromium.org/chromium/chromium/src/+/main:v8/src/inspector/value-mirror.cc;l=252-311;drc=bdc48d1b1312cc40c00282efb1c9c5f41dcdca9a?fbclid=IwZXh0bgNhZW0CMTEAAR1tMm5YC4jqowObad1qXFT98X4RO76CMkCGNSxZ8rVsg6k2RrdvkVFL0i4_aem_e2fRrqotKdkYIeWlJnk0RA).\r\nAs an illustration, this:\r\n```\r\nconst fakeError = new Error('');\r\nfakeError.name = 'Stack';\r\nfakeError.stack = 'Error Stack:' + stack;\r\n```\r\n\r\nwill be formatted by `V8` as this `RemoteObject`:\r\n```\r\n{\r\n  ...\r\n  description: 'Stack: ...',\r\n  ...\r\n}\r\n```\r\n\r\nNotice that there is no `Error` prefix, that was previously added.\r\nBecause of this, [Chrome DevTools won't even try to symbolicate the\r\nstack](https://github.com/ChromeDevTools/devtools-frontend/blob/ee4729d2ccdf5c6715ee40e6697f5464829e3f9a/front_end/panels/console/ErrorStackParser.ts#L33-L35),\r\nbecause it doesn't have such prefix.",
+      "tree": {
+        "sha": "bc0c3e1c163558e66d7b8de887095ef0f3acba73",
+        "url": "https://api.github.com/repos/facebook/react/git/trees/bc0c3e1c163558e66d7b8de887095ef0f3acba73"
+      },
+      "url": "https://api.github.com/repos/facebook/react/git/commits/9f4e4611ead28d34f7f598c9bd12424cf68f5781",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6GA8CRC1aQ7uu5UhlAAAeb8QAKjClQz++kPQObnc9Oi8oJMv\nWiRHkFXfFnJKYrvK4K7ua0ufmJAUCPhR69X3mRb123O6jAFn5/U7+Y0NaN/cbaso\n0sEvKaTWTKBmSgJGwQlrbY3zgXh+JT3P0GEvpsbNZcVquvcXwcHhVDrw4egkfOC6\n2EiHpII/3mcTrZjE/Fkg39KEOaqWVppvjwdLdeIQ6EC1/LqllZUxseDxk6SaGczs\nHML5xavDWiq4KQAZa/LL6XB9shp4h8TwooO0vap2nJIPpmx6OdNidl6OzgNRcjjT\nWeDRqjMrJmuwLZtq3zVS6UIJg3WvazdnYKZaGA8zLzKTWSM6zFlUoM3O09KVNm8I\n7T/s+n5IztvqbEuwFNCz0KRb1pGmtxVR6NRcXWYN8rklHDUXadwzhvBSZtPPqKiB\nWTFhOxNTnKD2ePvEdE7zrNrHGxNtgC96uIBYcv/jjzq34zgFhmTB78YOlmT0yVGn\nikLkhUeO61UjXY/x7mlxx0wNpLIRdPGDb60wejBsV4leALgQqdRkWd4W5Qi6qFZK\niNM5MPT1JUuWPQVc51sl9KbYDiOh9Nr56aGqmuqYbmku3UZXOEP1ltlNxbktj9ap\nLBgG7zKbOF2bhKq0htIMcdAnnZOVaZwV6N7nL7CKfdYLJU1fjMtksLev9hHL4DhU\n4x9luIvk0ta2GavLv4zt\n=O1wr\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree bc0c3e1c163558e66d7b8de887095ef0f3acba73\nparent f2df5694f2be141954f22618fd3ad035203241a3\nauthor Ruslan Lesiutin <rdlesyutin@gmail.com> 1726505020 +0100\ncommitter GitHub <noreply@github.com> 1726505020 +0100\n\nfix: add Error prefix to Error objects names (#30969)\n\nThis fixes printing Error objects in Chrome DevTools.\r\n\r\nI've observed that Chrome DevTools is not source mapping and linkifying\r\nURLs, when was running this on larger apps. Chrome DevTools talks to V8\r\nvia Chrome DevTools protocol, every object has a corresponding\r\n[`RemoteObject`](https://chromedevtools.github.io/devtools-protocol/tot/Runtime/#type-RemoteObject).\r\n\r\nWhen Chrome DevTools sees that Error object is printed in the console,\r\nit will try to prettify it. `description` field of the corresponding\r\n`RemoteObject` for the `Error` JavaScript object is a combination of\r\n`Error` `name`, `message`, `stack` fields. This is not just a raw\r\n`stack` field, so our prefix for this field just doesn't work. [V8 is\r\nactually filtering out first line of the `stack` field, it only keeps\r\nthe stack frames as a string, and then this gets prefixed by `name` and\r\n`message` fields, if they are\r\navailable](https://source.chromium.org/chromium/chromium/src/+/main:v8/src/inspector/value-mirror.cc;l=252-311;drc=bdc48d1b1312cc40c00282efb1c9c5f41dcdca9a?fbclid=IwZXh0bgNhZW0CMTEAAR1tMm5YC4jqowObad1qXFT98X4RO76CMkCGNSxZ8rVsg6k2RrdvkVFL0i4_aem_e2fRrqotKdkYIeWlJnk0RA).\r\nAs an illustration, this:\r\n```\r\nconst fakeError = new Error('');\r\nfakeError.name = 'Stack';\r\nfakeError.stack = 'Error Stack:' + stack;\r\n```\r\n\r\nwill be formatted by `V8` as this `RemoteObject`:\r\n```\r\n{\r\n  ...\r\n  description: 'Stack: ...',\r\n  ...\r\n}\r\n```\r\n\r\nNotice that there is no `Error` prefix, that was previously added.\r\nBecause of this, [Chrome DevTools won't even try to symbolicate the\r\nstack](https://github.com/ChromeDevTools/devtools-frontend/blob/ee4729d2ccdf5c6715ee40e6697f5464829e3f9a/front_end/panels/console/ErrorStackParser.ts#L33-L35),\r\nbecause it doesn't have such prefix."
+      }
+    },
+    "url": "https://api.github.com/repos/facebook/react/commits/9f4e4611ead28d34f7f598c9bd12424cf68f5781",
+    "html_url": "https://github.com/facebook/react/commit/9f4e4611ead28d34f7f598c9bd12424cf68f5781",
+    "comments_url": "https://api.github.com/repos/facebook/react/commits/9f4e4611ead28d34f7f598c9bd12424cf68f5781/comments",
+    "author": {
+      "login": "hoxyq",
+      "id": 28902667,
+      "node_id": "MDQ6VXNlcjI4OTAyNjY3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28902667?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoxyq",
+      "html_url": "https://github.com/hoxyq",
+      "followers_url": "https://api.github.com/users/hoxyq/followers",
+      "following_url": "https://api.github.com/users/hoxyq/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoxyq/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoxyq/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoxyq/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoxyq/orgs",
+      "repos_url": "https://api.github.com/users/hoxyq/repos",
+      "events_url": "https://api.github.com/users/hoxyq/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoxyq/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f2df5694f2be141954f22618fd3ad035203241a3",
+        "url": "https://api.github.com/repos/facebook/react/commits/f2df5694f2be141954f22618fd3ad035203241a3",
+        "html_url": "https://github.com/facebook/react/commit/f2df5694f2be141954f22618fd3ad035203241a3"
+      }
+    ]
+  }
+]
