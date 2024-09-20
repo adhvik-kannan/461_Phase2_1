@@ -105,7 +105,7 @@ elif [ "$command" = "build" ]; then
     exit $?
 elif [ "$command" = "test" ]; then
     echo "Running tests..."
-    npm run test 
+    npm run test
     exit $?
 else
     if [[ "$command" =~ ^[a-zA-Z]: ]]; then

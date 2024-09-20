@@ -4,7 +4,8 @@
   "description": "Repository housing all files pertaining to our project for ECE 461.",
   "main": "index.js",
   "scripts": {
-    "test": "vitest --run"
+    "test": "vitest run --coverage.enabled=true",
+    "coverage": "vitest run --coverage"
   },
   "type": "module",
   "keywords": [],
@@ -19,6 +20,7 @@
     "git-url-parse": "^15.0.0",
     "http": "^0.0.1-security",
     "isomorphic-git": "^1.27.1",
+    "jsdom": "^25.0.0",
     "marked": "^14.1.2",
     "readability-score": "^1.0.1",
     "text-statistics": "^0.1.1",
@@ -33,6 +35,8 @@
     "@types/node": "^22.5.5",
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",
+    "@vitest/coverage-istanbul": "^2.1.1",
+    "@vitest/coverage-v8": "^2.1.1",
     "axios": "^1.7.7",
     "babel-jest": "^29.7.0",
     "eslint": "^9.10.0",

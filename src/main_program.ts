@@ -1,5 +1,6 @@
 
 import { metric_manager } from './metric_manager.js';
+import {isGithubTokenValid} from './github_checker.js';
 import { urlhandler } from './urlhandler.js';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -28,9 +29,12 @@ console.log(`The file path is: ${filePath}`);
 fs.readFile(filePath, 'utf8', async (err, data) => {
     if (err) {
         console.error('Error reading URL file:', err);
-        return;
+        process.exit(1);
     }
+    if( await isGithubTokenValid(process.env.GITHUB_TOKEN) === false){
+        process.exit(1);}
 
+    
     // Split the file content into individual URLs (assuming each URL is on a new line)
     const urls = data.split('\n').filter(Boolean); // Filter to remove any empty lines
 
