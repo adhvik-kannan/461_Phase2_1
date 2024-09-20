@@ -1,0 +1,2372 @@
+[
+  {
+    "sha": "70ed81ad46aa52d718fdedc8bb9b129e708f20d5",
+    "node_id": "C_kwDOAAjKydoAKDcwZWQ4MWFkNDZhYTUyZDcxOGZkZWRjOGJiOWIxMjllNzA4ZjIwZDU",
+    "commit": {
+      "author": {
+        "name": "Michael Herzog",
+        "email": "michael.herzog@human-interactive.org",
+        "date": "2024-09-20T15:15:31Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-20T15:15:31Z"
+      },
+      "message": "Docs: Improve VR guide. (#29456)",
+      "tree": {
+        "sha": "f48c443088b1d998d26ffa56b950f544bec8d099",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/f48c443088b1d998d26ffa56b950f544bec8d099"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/70ed81ad46aa52d718fdedc8bb9b129e708f20d5",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7ZGTCRC1aQ7uu5UhlAAAt0cQAEnpF55Q9+DJEf8iN4WRNTqx\nq2QquG1ORFMMUk+YF7VqadxJlvLUZNIcRlODlMHuauIPAzGB+payDYWlyNU+OxfL\nYxa/d1smztJFZuSFenELjapbElSejxyfRottEDutagKnnUBCB1GkeD+NbvMM6SFj\nAiqymTsJy6iFBRTl45u4zeuc8YmEUuAzn+lAj269YbK4KAiXJlhHJkSAJR3NQHy8\n7PwoNdzeNHseoinTaB+j8EnlJof75RtHQB437vithgj6jA/PNeNV0GBxzILtbYcE\nmI9WRaqqYYBA8QHiimDpJJYnbCOsijoYVbWinWjB1g4NnT/xwUrPwJbN6sZT9gn0\nILwyHgMT8Jc075AfGmRI7mFA0QnCyGckuKvk/NjO55t8M0CtmPJxEJOmP/i8dwj7\n2+TozTSA7kTU/M9KfIJEOkAP9fgYWR+Abe71v3/t0gIYA4LF7QlNyO30blEMcCd5\ngSY93ty4QRb3U7Nolzj1CU3r7PGb1QuvmW3kPJHKANz/xU1oOF/nS/D5AVAX9MoF\noe7WW9zzg2XwQ448uPRkJQ4YsxoLqPImqYpIghhSghpShR2Qb9KJGrjxeAkFHoBw\n9ZzYst7kK8B5HbmVbI/dxGKIOUoaohkuVVV0IKRWDTqxzCXtpd/YRFthKpjLnczf\nBIJMNkdn5sg1AxVYSmKr\n=F7L8\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree f48c443088b1d998d26ffa56b950f544bec8d099\nparent 3fc4a08f58b25eb70456d77f28c26f992444a547\nauthor Michael Herzog <michael.herzog@human-interactive.org> 1726845331 +0200\ncommitter GitHub <noreply@github.com> 1726845331 +0200\n\nDocs: Improve VR guide. (#29456)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/70ed81ad46aa52d718fdedc8bb9b129e708f20d5",
+    "html_url": "https://github.com/mrdoob/three.js/commit/70ed81ad46aa52d718fdedc8bb9b129e708f20d5",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/70ed81ad46aa52d718fdedc8bb9b129e708f20d5/comments",
+    "author": {
+      "login": "Mugen87",
+      "id": 12612165,
+      "node_id": "MDQ6VXNlcjEyNjEyMTY1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12612165?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Mugen87",
+      "html_url": "https://github.com/Mugen87",
+      "followers_url": "https://api.github.com/users/Mugen87/followers",
+      "following_url": "https://api.github.com/users/Mugen87/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Mugen87/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Mugen87/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Mugen87/subscriptions",
+      "organizations_url": "https://api.github.com/users/Mugen87/orgs",
+      "repos_url": "https://api.github.com/users/Mugen87/repos",
+      "events_url": "https://api.github.com/users/Mugen87/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Mugen87/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3fc4a08f58b25eb70456d77f28c26f992444a547",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/3fc4a08f58b25eb70456d77f28c26f992444a547",
+        "html_url": "https://github.com/mrdoob/three.js/commit/3fc4a08f58b25eb70456d77f28c26f992444a547"
+      }
+    ]
+  },
+  {
+    "sha": "3fc4a08f58b25eb70456d77f28c26f992444a547",
+    "node_id": "C_kwDOAAjKydoAKDNmYzRhMDhmNThiMjVlYjcwNDU2ZDc3ZjI4YzI2Zjk5MjQ0NGE1NDc",
+    "commit": {
+      "author": {
+        "name": "Mugen87",
+        "email": "michael.herzog@human-interactive.org",
+        "date": "2024-09-20T10:06:56Z"
+      },
+      "committer": {
+        "name": "Mugen87",
+        "email": "michael.herzog@human-interactive.org",
+        "date": "2024-09-20T10:06:56Z"
+      },
+      "message": "Updated builds.",
+      "tree": {
+        "sha": "3aa0e38e328f65e58252a8546b3ef710abf01c46",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/3aa0e38e328f65e58252a8546b3ef710abf01c46"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/3fc4a08f58b25eb70456d77f28c26f992444a547",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/3fc4a08f58b25eb70456d77f28c26f992444a547",
+    "html_url": "https://github.com/mrdoob/three.js/commit/3fc4a08f58b25eb70456d77f28c26f992444a547",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/3fc4a08f58b25eb70456d77f28c26f992444a547/comments",
+    "author": {
+      "login": "Mugen87",
+      "id": 12612165,
+      "node_id": "MDQ6VXNlcjEyNjEyMTY1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12612165?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Mugen87",
+      "html_url": "https://github.com/Mugen87",
+      "followers_url": "https://api.github.com/users/Mugen87/followers",
+      "following_url": "https://api.github.com/users/Mugen87/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Mugen87/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Mugen87/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Mugen87/subscriptions",
+      "organizations_url": "https://api.github.com/users/Mugen87/orgs",
+      "repos_url": "https://api.github.com/users/Mugen87/repos",
+      "events_url": "https://api.github.com/users/Mugen87/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Mugen87/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Mugen87",
+      "id": 12612165,
+      "node_id": "MDQ6VXNlcjEyNjEyMTY1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12612165?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Mugen87",
+      "html_url": "https://github.com/Mugen87",
+      "followers_url": "https://api.github.com/users/Mugen87/followers",
+      "following_url": "https://api.github.com/users/Mugen87/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Mugen87/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Mugen87/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Mugen87/subscriptions",
+      "organizations_url": "https://api.github.com/users/Mugen87/orgs",
+      "repos_url": "https://api.github.com/users/Mugen87/repos",
+      "events_url": "https://api.github.com/users/Mugen87/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Mugen87/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a789b4404af962cb5b8d1ee97dd272970c6cb2a2",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/a789b4404af962cb5b8d1ee97dd272970c6cb2a2",
+        "html_url": "https://github.com/mrdoob/three.js/commit/a789b4404af962cb5b8d1ee97dd272970c6cb2a2"
+      }
+    ]
+  },
+  {
+    "sha": "a789b4404af962cb5b8d1ee97dd272970c6cb2a2",
+    "node_id": "C_kwDOAAjKydoAKGE3ODliNDQwNGFmOTYyY2I1YjhkMWVlOTdkZDI3Mjk3MGM2Y2IyYTI",
+    "commit": {
+      "author": {
+        "name": "Don McCurdy",
+        "email": "dm@donmccurdy.com",
+        "date": "2024-09-20T03:07:22Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-20T03:07:22Z"
+      },
+      "message": "Loaders: Unpack colors to working color space (#29448)\n\n* feat(loaders): Loaders unpack colors to working color space\r\n\r\n* fix semicolons",
+      "tree": {
+        "sha": "79e46ea29a2f513413807316504f2eda0a11382f",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/79e46ea29a2f513413807316504f2eda0a11382f"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/a789b4404af962cb5b8d1ee97dd272970c6cb2a2",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7ObqCRC1aQ7uu5UhlAAAsXUQAG/Dyy8UN8jnZRQXrMS7LIcZ\ngRjJWiW7GG1rmH5j08EI8RKx5vi5B8LqVzYLyS0OxbOhAEWUrrklvduf42aMtQjW\nKyUpMe0+njE8wRQBh1pndOVNyW+J/t1APXoHsBR8sMOymrx5QrqIlONdroBgwIy0\n8O0gFRJDHbQbmg/xStrXc61URA5TtjorxCdGFE99UGdj+Q5XAjoZFQpK2KLXIoHp\n4wf2+Gwm2pnafOPc/0DwcZ7aTmEvTOvlkL0rg9WhavADLmec39jCNiqg6ByhOffN\nJvyp+a15Ko8WDunTbKQ8m1MGI3JuYtimC32I02AX284sYjZt91c4PTD0mvfm9XE4\nsqwjrN2kcZmL4JrJqNcmBQ/6DvQ40KZuVc/09xjRMLWjIcXvRg+Rx0d7C7X8a8ft\nh48gICXpP8rRrhrRjmiTDHnMtwgRxA9AUDR5NDekS56v+txNDlCRplSQpmc0Mk3D\n76mOwzRiIAwZlD++gfT4SQtqcyS2kdQSkQHIrI4kNZAMJgejOpFLd5kkahrRRQUy\n3cUNCuOAIQeU2lwYql8ssP5rXX8vEEU79Nuy6L+KpZRvCSWcwSC0cWbOVWI7IzRJ\nyajusSoQ7sw4ymABZO4w5St+i6BIbApJ3CLAWMAoaCTBSweqLlIVAzHuUv+qkL11\nTV7AWNO102Ibk83LBAt5\n=IGkW\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 79e46ea29a2f513413807316504f2eda0a11382f\nparent d4164b8804c56f716935ce4af63ad4ddbf56e0a3\nauthor Don McCurdy <dm@donmccurdy.com> 1726801642 -0400\ncommitter GitHub <noreply@github.com> 1726801642 +0900\n\nLoaders: Unpack colors to working color space (#29448)\n\n* feat(loaders): Loaders unpack colors to working color space\r\n\r\n* fix semicolons"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/a789b4404af962cb5b8d1ee97dd272970c6cb2a2",
+    "html_url": "https://github.com/mrdoob/three.js/commit/a789b4404af962cb5b8d1ee97dd272970c6cb2a2",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/a789b4404af962cb5b8d1ee97dd272970c6cb2a2/comments",
+    "author": {
+      "login": "donmccurdy",
+      "id": 1848368,
+      "node_id": "MDQ6VXNlcjE4NDgzNjg=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1848368?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/donmccurdy",
+      "html_url": "https://github.com/donmccurdy",
+      "followers_url": "https://api.github.com/users/donmccurdy/followers",
+      "following_url": "https://api.github.com/users/donmccurdy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/donmccurdy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/donmccurdy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/donmccurdy/subscriptions",
+      "organizations_url": "https://api.github.com/users/donmccurdy/orgs",
+      "repos_url": "https://api.github.com/users/donmccurdy/repos",
+      "events_url": "https://api.github.com/users/donmccurdy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/donmccurdy/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d4164b8804c56f716935ce4af63ad4ddbf56e0a3",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/d4164b8804c56f716935ce4af63ad4ddbf56e0a3",
+        "html_url": "https://github.com/mrdoob/three.js/commit/d4164b8804c56f716935ce4af63ad4ddbf56e0a3"
+      }
+    ]
+  },
+  {
+    "sha": "d4164b8804c56f716935ce4af63ad4ddbf56e0a3",
+    "node_id": "C_kwDOAAjKydoAKGQ0MTY0Yjg4MDRjNTZmNzE2OTM1Y2U0YWY2M2FkNGRkYmY1NmUwYTM",
+    "commit": {
+      "author": {
+        "name": "Andy",
+        "email": "94316446+beersandrew@users.noreply.github.com",
+        "date": "2024-09-19T16:59:41Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T16:59:41Z"
+      },
+      "message": "MaterialXLoader: add extract node implementation (#29443)",
+      "tree": {
+        "sha": "164ded490cf106be082a1021eceb5301ba89ce2e",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/164ded490cf106be082a1021eceb5301ba89ce2e"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/d4164b8804c56f716935ce4af63ad4ddbf56e0a3",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7Fh9CRC1aQ7uu5UhlAAADE4QAJjive4YsizkegeNtkFeStMB\nTibtSY3HPjdXLREmsivMUiCgzNB0vNR5cIzF642NTJX9QetuzpQZa1XY9UbXkIRY\nvM+E87iUEbTAud/vyNQI2VAB++84II2wDPwTe29K2a2FEW9t/EQCNPlc51Fp+c4L\nr8M5aq6hHmIwpDMuob9e9g6G7n1Yn6ZPboQuVCHQTxiVXJuuvB1GcJeYu7Hk84D2\nima0REl8f9ejWDO/vi8A70xAO7Ny0fLP46WgCzA5MogpET+odQJCCGHjanmG+wy3\nhCGwZaA8DeKAGeij57gVKaQwl/v8pxhbAp9lwTY0q+cYXxHYrVJJvkTG9i/U2B/c\nzdxqCd6m7tQEYurX8MNGbKjh1DAZ4xvIzwZA3+QqEJjeFr27t9lUITXLTbuTwBLJ\n85nxeurX4ysPlzTMRAbxs49QKiX5SNZtQv6lC8yzsI5bxg2vbvRdxHUppY1vOE4U\nrvWbr4xYurrtTJ8kj0PPrgSG1jVYRzogRsgGdEWS5MORhfzOhHyYxCV0b9435Xro\nkXn76zH+C6HPwVH7EQh9cRixejVaDuLV8XP8q0+k5KPs8SZHtiQ86CfL/uxkXgOi\ni4U0+bUEFOctZJJOucaudsfuJYMi16M/x/MGfxbNeBepd4Gg39NSM0Nzo85NHCYI\ntj8TCV/Jdopn2ix1DuHE\n=dtOo\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 164ded490cf106be082a1021eceb5301ba89ce2e\nparent 16dacdee457683949a0ab37aee69537ad6775c92\nauthor Andy <94316446+beersandrew@users.noreply.github.com> 1726765181 -0400\ncommitter GitHub <noreply@github.com> 1726765181 -0300\n\nMaterialXLoader: add extract node implementation (#29443)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/d4164b8804c56f716935ce4af63ad4ddbf56e0a3",
+    "html_url": "https://github.com/mrdoob/three.js/commit/d4164b8804c56f716935ce4af63ad4ddbf56e0a3",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/d4164b8804c56f716935ce4af63ad4ddbf56e0a3/comments",
+    "author": {
+      "login": "beersandrew",
+      "id": 94316446,
+      "node_id": "U_kgDOBZ8nng",
+      "avatar_url": "https://avatars.githubusercontent.com/u/94316446?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/beersandrew",
+      "html_url": "https://github.com/beersandrew",
+      "followers_url": "https://api.github.com/users/beersandrew/followers",
+      "following_url": "https://api.github.com/users/beersandrew/following{/other_user}",
+      "gists_url": "https://api.github.com/users/beersandrew/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/beersandrew/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/beersandrew/subscriptions",
+      "organizations_url": "https://api.github.com/users/beersandrew/orgs",
+      "repos_url": "https://api.github.com/users/beersandrew/repos",
+      "events_url": "https://api.github.com/users/beersandrew/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/beersandrew/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "16dacdee457683949a0ab37aee69537ad6775c92",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/16dacdee457683949a0ab37aee69537ad6775c92",
+        "html_url": "https://github.com/mrdoob/three.js/commit/16dacdee457683949a0ab37aee69537ad6775c92"
+      }
+    ]
+  },
+  {
+    "sha": "16dacdee457683949a0ab37aee69537ad6775c92",
+    "node_id": "C_kwDOAAjKydoAKDE2ZGFjZGVlNDU3NjgzOTQ5YTBhYjM3YWVlNjk1MzdhZDY3NzVjOTI",
+    "commit": {
+      "author": {
+        "name": "Andy",
+        "email": "94316446+beersandrew@users.noreply.github.com",
+        "date": "2024-09-19T16:53:03Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T16:53:03Z"
+      },
+      "message": "MaterialX: added invert implementation (#29433)\n\n* feat: added invert implementation\r\n\r\n- allow invert to be a number, vec 2|3|4, or color, subtracting the value from an optionally inputted amount field (which is defaulted to all parts 1 of the input type)\r\n\r\n* feat: update invert\r\n\r\n- simplified invert function\r\n- removed unneeded imports\r\n- moved invert to math nodes",
+      "tree": {
+        "sha": "b81a243ba33d97b11502e39d795b10e6b482d9e1",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/b81a243ba33d97b11502e39d795b10e6b482d9e1"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/16dacdee457683949a0ab37aee69537ad6775c92",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7FbvCRC1aQ7uu5UhlAAAJxMQAFmW7hfLtRHoYofUDLIHPU0o\nOzrLf9BTAzVv34QNNwTbMFcKYphwG9rhbiSrzm63xyjLxBUmc0trMc4bd78VgBxH\n+ne7kICqGTPb0/1d9lyWl0W/tJrhWDk09/lQ6F+DmGgmcBs53RH7Ib00dtAsp57V\nENXM9HwT3XKpe6ittykqnHf4xpIoBCmWHeqI3y6y0zQMe65jDuxSVR2m1Sy7AYNt\nh52RfASjwMo8lYbRRlZnXffiywsyDedV3TOKFQ8rafZ37nfvDxSPV83UTwbMawyt\nSpXF0ri6+VQCUBicA66Sp0remRpryejFIC2KokRjXc/UOwC0Vq5b7eG0rPjM2veB\n9LeGHuDVsCLn2Fv7X1R8VwjlplKZIFR1MbdohlG1mbDnNGv4jJb4cjMM4xK1aI2G\n8ozEGHfLmZ/iligb2WP7vQN2GoKsC7ifxcM7gGYOW6amHvbq6smkjeZiXSrsoUF8\nZWS65szZHQYeafHRJh05qjou3p5Tl1BvoykkaAPsWMdLMhkcCgoHkuBLlyOk/NiF\nw1w4e8tuuViL9AQXx7+Q+KaBxdUSQkZaaBIEOS3NiMaUK2GvbumrYaR1dBQfonUc\n09xN3/mTTmALXHp4PLyLbK3m1NRW/Ic6HT7bgIjxtDJnvKVfYsCOpX/oFqIFZxnO\nB+/v+OuQcDXO80W64xAC\n=3Fr3\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree b81a243ba33d97b11502e39d795b10e6b482d9e1\nparent 5e5d2711f5826972e8215f86781ead3c254abedd\nauthor Andy <94316446+beersandrew@users.noreply.github.com> 1726764783 -0400\ncommitter GitHub <noreply@github.com> 1726764783 -0300\n\nMaterialX: added invert implementation (#29433)\n\n* feat: added invert implementation\r\n\r\n- allow invert to be a number, vec 2|3|4, or color, subtracting the value from an optionally inputted amount field (which is defaulted to all parts 1 of the input type)\r\n\r\n* feat: update invert\r\n\r\n- simplified invert function\r\n- removed unneeded imports\r\n- moved invert to math nodes"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/16dacdee457683949a0ab37aee69537ad6775c92",
+    "html_url": "https://github.com/mrdoob/three.js/commit/16dacdee457683949a0ab37aee69537ad6775c92",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/16dacdee457683949a0ab37aee69537ad6775c92/comments",
+    "author": {
+      "login": "beersandrew",
+      "id": 94316446,
+      "node_id": "U_kgDOBZ8nng",
+      "avatar_url": "https://avatars.githubusercontent.com/u/94316446?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/beersandrew",
+      "html_url": "https://github.com/beersandrew",
+      "followers_url": "https://api.github.com/users/beersandrew/followers",
+      "following_url": "https://api.github.com/users/beersandrew/following{/other_user}",
+      "gists_url": "https://api.github.com/users/beersandrew/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/beersandrew/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/beersandrew/subscriptions",
+      "organizations_url": "https://api.github.com/users/beersandrew/orgs",
+      "repos_url": "https://api.github.com/users/beersandrew/repos",
+      "events_url": "https://api.github.com/users/beersandrew/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/beersandrew/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5e5d2711f5826972e8215f86781ead3c254abedd",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/5e5d2711f5826972e8215f86781ead3c254abedd",
+        "html_url": "https://github.com/mrdoob/three.js/commit/5e5d2711f5826972e8215f86781ead3c254abedd"
+      }
+    ]
+  },
+  {
+    "sha": "5e5d2711f5826972e8215f86781ead3c254abedd",
+    "node_id": "C_kwDOAAjKydoAKDVlNWQyNzExZjU4MjY5NzJlODIxNWY4Njc4MWVhZDNjMjU0YWJlZGQ",
+    "commit": {
+      "author": {
+        "name": "Don McCurdy",
+        "email": "dm@donmccurdy.com",
+        "date": "2024-09-19T14:51:19Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T14:51:19Z"
+      },
+      "message": "KTX2Loader: Add support for VK_FORMAT_ASTC_4x4_SFLOAT_BLOCK_EXT (#29441)",
+      "tree": {
+        "sha": "5a489c0c7a9849d04d98af9dc6ebf9459d621a4f",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/5a489c0c7a9849d04d98af9dc6ebf9459d621a4f"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/5e5d2711f5826972e8215f86781ead3c254abedd",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7DpnCRC1aQ7uu5UhlAAAhEkQAJvYBKb/olOPIHlMuBrJI/uH\nMn5CP06I1Tr4JAZi4n5EDIosrTnaZAgaXzC/749+ArC/OviQe1IpVVJEMVX0rUSY\nTd3ImuBVIj23OY4Hgia82QuMstCR0qHBpqGIIInw2aRrTWEet+oAFtTkKabR3nF+\nzfAficSgAHoel/vTeMBIRAJX1k6xZjq0VizpSAFuUgStMd3nK0viTmUaEUxVp8T1\n55YptvAHd0dOVleaUV93UMbJ0u4uE3x3SfgHM1n616CbQN88LRc0mssVMqbWQ1MY\nujto73JyCw3ZSbkSvJsjZw0GLlgdOggsORIr+N5p6aKKlCtrehNH4s8+vuWeRsRk\nKlppIforTm4Wfn9a/xElPkB8bAo3fbvVXW+Yr6bVsNqxQl5ICP1+KdFCZd59KlpT\nz99YX3MPdYRN2R0sonuEHt/n4ZmE40Uv50IIJAS3PjFt+J7Wom1Scpy9OGWs2kIf\nZ77Ow8vIyli0/AMP7Ycvwr9aLMaV9v/vLOU1E4KMgLTlxmpzasmVFGGbbgUOHQ2e\nz34rf+VHz7DiVFThNj4bIMRAPV4C/+rnGFqrerznoqtbtyBcJYMrgocZP/7W67/0\nvfkV+7VJwUEic1fyvZDqV+OVnYiwcLGjG0GNo2ItShwehREQZb4zA9ZCavO/cSgE\nH8bcr/lBmkYVfKRPzvHf\n=IIOY\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 5a489c0c7a9849d04d98af9dc6ebf9459d621a4f\nparent 0f6e05550f82680b2d1b837d651f184d5e2f38dc\nauthor Don McCurdy <dm@donmccurdy.com> 1726757479 -0400\ncommitter GitHub <noreply@github.com> 1726757479 -0400\n\nKTX2Loader: Add support for VK_FORMAT_ASTC_4x4_SFLOAT_BLOCK_EXT (#29441)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/5e5d2711f5826972e8215f86781ead3c254abedd",
+    "html_url": "https://github.com/mrdoob/three.js/commit/5e5d2711f5826972e8215f86781ead3c254abedd",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/5e5d2711f5826972e8215f86781ead3c254abedd/comments",
+    "author": {
+      "login": "donmccurdy",
+      "id": 1848368,
+      "node_id": "MDQ6VXNlcjE4NDgzNjg=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1848368?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/donmccurdy",
+      "html_url": "https://github.com/donmccurdy",
+      "followers_url": "https://api.github.com/users/donmccurdy/followers",
+      "following_url": "https://api.github.com/users/donmccurdy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/donmccurdy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/donmccurdy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/donmccurdy/subscriptions",
+      "organizations_url": "https://api.github.com/users/donmccurdy/orgs",
+      "repos_url": "https://api.github.com/users/donmccurdy/repos",
+      "events_url": "https://api.github.com/users/donmccurdy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/donmccurdy/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0f6e05550f82680b2d1b837d651f184d5e2f38dc",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/0f6e05550f82680b2d1b837d651f184d5e2f38dc",
+        "html_url": "https://github.com/mrdoob/three.js/commit/0f6e05550f82680b2d1b837d651f184d5e2f38dc"
+      }
+    ]
+  },
+  {
+    "sha": "0f6e05550f82680b2d1b837d651f184d5e2f38dc",
+    "node_id": "C_kwDOAAjKydoAKDBmNmUwNTU1MGY4MjY4MGIyZDFiODM3ZDY1MWYxODRkNWUyZjM4ZGM",
+    "commit": {
+      "author": {
+        "name": "aardgoose",
+        "email": "angus.sawyer@gmail.com",
+        "date": "2024-09-19T14:47:06Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T14:47:06Z"
+      },
+      "message": "MaterialXLoader: Implement separate(2|3|4) nodes (#29437)\n\n* implememt MaterialX seperate(2|3|4) nodes\r\n\r\n* remove testing mods\r\n\r\n* avoid cached nodes and handle output elements\r\n\r\n---------\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>",
+      "tree": {
+        "sha": "cc2e9a5c686da4f0c2ccaab55d112822f8d3af66",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/cc2e9a5c686da4f0c2ccaab55d112822f8d3af66"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/0f6e05550f82680b2d1b837d651f184d5e2f38dc",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm7DlqCRC1aQ7uu5UhlAAANmEQAEWCkcxVMnDOw6HUBpJbWiN5\nubezVDT4Sv16WLhSRypmTDiICdVOHvrjsd9T8nfEh7pxBF4Z1qi6TvOkxpTGF7qW\nF/J/Gv50y9s9am+KZw2W8vao9SM/Q+5kbLJt1HCsE8rYM2Wqr0X6T3dY58svqdGb\nbbJizHq4UjOQYu7bS/afc/td/n8JMH6BavWJUi9FC719OXGm/fTZn0W36p62bB88\nIZ+s7FahV2VzhaC6JVbRR1kyqBSZjJS/5k1ZjaKyjSIkJjFgvkW3gvI22D5s8Tsf\nmXvcd4uzQ89Ab1sUkf+sIGNGKZxGeQpQQpX2fV1v5u7A1rwyqV2+aQpeMWUuU+bg\n9yhbG56DKz2l7yJKT3uYRmdx5FC9RIyhn/LkqKpwjse1A3mERXA7gWHgqhd29SLI\nmWbdD/y7APXkGLqkUuFKNZ4QAhHl+lNJF9daKBICopBXIJuZbQvLpCwqEMGHsEHv\nPZYXj1Ux44dfI8IohmFYciZh5rF3duSxy1OtXBH4XW7JXN123Hfm5Qv1nMYj62Rb\nou0mRDnARILcSevZbPSqf9DCGuqT6ISQSM0wUd2nTdvePhp+oPCYr435yt6R0S34\nA6s6B6a2uTWRMrKOHHcdpkR8bxUsrt6bUx1m0goMIxdeDLRtjtq4OmsraZ+YFaly\nhqzwV/3CE68PwFdMoY8n\n=fJj8\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree cc2e9a5c686da4f0c2ccaab55d112822f8d3af66\nparent 944419f495128df121eb7af6c117de4394efd83c\nauthor aardgoose <angus.sawyer@gmail.com> 1726757226 +0100\ncommitter GitHub <noreply@github.com> 1726757226 -0300\n\nMaterialXLoader: Implement separate(2|3|4) nodes (#29437)\n\n* implememt MaterialX seperate(2|3|4) nodes\r\n\r\n* remove testing mods\r\n\r\n* avoid cached nodes and handle output elements\r\n\r\n---------\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/0f6e05550f82680b2d1b837d651f184d5e2f38dc",
+    "html_url": "https://github.com/mrdoob/three.js/commit/0f6e05550f82680b2d1b837d651f184d5e2f38dc",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/0f6e05550f82680b2d1b837d651f184d5e2f38dc/comments",
+    "author": {
+      "login": "aardgoose",
+      "id": 17364910,
+      "node_id": "MDQ6VXNlcjE3MzY0OTEw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17364910?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aardgoose",
+      "html_url": "https://github.com/aardgoose",
+      "followers_url": "https://api.github.com/users/aardgoose/followers",
+      "following_url": "https://api.github.com/users/aardgoose/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aardgoose/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aardgoose/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aardgoose/subscriptions",
+      "organizations_url": "https://api.github.com/users/aardgoose/orgs",
+      "repos_url": "https://api.github.com/users/aardgoose/repos",
+      "events_url": "https://api.github.com/users/aardgoose/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aardgoose/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "944419f495128df121eb7af6c117de4394efd83c",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/944419f495128df121eb7af6c117de4394efd83c",
+        "html_url": "https://github.com/mrdoob/three.js/commit/944419f495128df121eb7af6c117de4394efd83c"
+      }
+    ]
+  },
+  {
+    "sha": "944419f495128df121eb7af6c117de4394efd83c",
+    "node_id": "C_kwDOAAjKydoAKDk0NDQxOWY0OTUxMjhkZjEyMWViN2FmNmMxMTdkZTQzOTRlZmQ4M2M",
+    "commit": {
+      "author": {
+        "name": "VIKASH LAL",
+        "email": "105917542+Therobo77@users.noreply.github.com",
+        "date": "2024-09-19T09:41:48Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T09:41:48Z"
+      },
+      "message": "Added a CSS, pointer cursor when hovering over the summary tag within… (#27837)\n\n* Added a CSS, pointer cursor when hovering over the summary tag within a details element. Enhances user experience for interaction with details disclosure.\r\n\r\nAdded a CSS, pointer cursor when hovering over the summary tag within a details element. Enhances user experience for interaction with details disclosure.\r\n\r\nIt is more apealing.\r\n\r\n* Update page.css\r\n\r\nClean up.\r\n\r\n---------\r\n\r\nCo-authored-by: Michael Herzog <michael.herzog@human-interactive.org>",
+      "tree": {
+        "sha": "4feae87601ead511fd8675ca9107e8aab4cc996c",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/4feae87601ead511fd8675ca9107e8aab4cc996c"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/944419f495128df121eb7af6c117de4394efd83c",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6/HcCRC1aQ7uu5UhlAAAo44QAFVNnWCIpAimj2FjsQyM6srR\nxX8gRz1iBK61nQJ5CilPJFobUrwdOs9RE/Sa66cf62QgjwMWRGLuUUgPJqdcGKDP\n4eUH+wzJcjyfL0iakctNFcIv8HwVUB6ovQkX8Agc7bI7s48mUEM4ScGgpeqpYcS5\nzN2bVwOa2a/qrsP8D7AAz8ppkKGkXt/BSeVrIDaIE/0lAtMMHLAVXtZSJV57Qu0l\nhgsdLZxXxlQv5CPqTN9lRJZPMOc/K23L/B7QsH8b9a5x7gvWSMDZUueBpuLPljad\nqdr5rQwF5hZnurT9lFhDs7SH33KwL6mBkg5i7EXDQBsKFl6V24/F2XX+2+JaBQaD\ni02gXTCWZQKYGJ3AC5GhkXyFP1K/10d4rx3PjkOKZv3dFg73gsLz7YYYrP1kcJyY\nT2aSQtRKJH/Y4NI4379/i9OoNSun5PP45KBwLCoUb0/wcnWqIxiKhjYytqR1AaZB\n5P85YwzBiQr9fvRpDrq7OTA5s9xWz1U3M1IejGrXyjpgUDVBl9l8s09hQphv9KM9\nWboFi4jeef/WOrgQInh5MvDJk3DM9Dh6bdeiFB0FlniZerteU3XIQ3IG5BOtrDkA\nvsjkowQVGy4ZlJsJRqmq7cReoH3gFIojTWSyi32PYKp8t6ZrXVXrBu16NEoEKM+i\nPisOu7Z3IEirqRbWSgbz\n=ux7G\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 4feae87601ead511fd8675ca9107e8aab4cc996c\nparent 3feb41f5799a027dcb4710d5ff0f14b5e45eb821\nauthor VIKASH LAL <105917542+Therobo77@users.noreply.github.com> 1726738908 +0530\ncommitter GitHub <noreply@github.com> 1726738908 +0200\n\nAdded a CSS, pointer cursor when hovering over the summary tag within… (#27837)\n\n* Added a CSS, pointer cursor when hovering over the summary tag within a details element. Enhances user experience for interaction with details disclosure.\r\n\r\nAdded a CSS, pointer cursor when hovering over the summary tag within a details element. Enhances user experience for interaction with details disclosure.\r\n\r\nIt is more apealing.\r\n\r\n* Update page.css\r\n\r\nClean up.\r\n\r\n---------\r\n\r\nCo-authored-by: Michael Herzog <michael.herzog@human-interactive.org>"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/944419f495128df121eb7af6c117de4394efd83c",
+    "html_url": "https://github.com/mrdoob/three.js/commit/944419f495128df121eb7af6c117de4394efd83c",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/944419f495128df121eb7af6c117de4394efd83c/comments",
+    "author": {
+      "login": "Therobo77",
+      "id": 105917542,
+      "node_id": "U_kgDOBlAsZg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/105917542?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Therobo77",
+      "html_url": "https://github.com/Therobo77",
+      "followers_url": "https://api.github.com/users/Therobo77/followers",
+      "following_url": "https://api.github.com/users/Therobo77/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Therobo77/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Therobo77/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Therobo77/subscriptions",
+      "organizations_url": "https://api.github.com/users/Therobo77/orgs",
+      "repos_url": "https://api.github.com/users/Therobo77/repos",
+      "events_url": "https://api.github.com/users/Therobo77/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Therobo77/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3feb41f5799a027dcb4710d5ff0f14b5e45eb821",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/3feb41f5799a027dcb4710d5ff0f14b5e45eb821",
+        "html_url": "https://github.com/mrdoob/three.js/commit/3feb41f5799a027dcb4710d5ff0f14b5e45eb821"
+      }
+    ]
+  },
+  {
+    "sha": "3feb41f5799a027dcb4710d5ff0f14b5e45eb821",
+    "node_id": "C_kwDOAAjKydoAKDNmZWI0MWY1Nzk5YTAyN2RjYjQ3MTBkNWZmMGYxNGI1ZTQ1ZWI4MjE",
+    "commit": {
+      "author": {
+        "name": "Michael Herzog",
+        "email": "michael.herzog@human-interactive.org",
+        "date": "2024-09-19T09:17:59Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-19T09:17:59Z"
+      },
+      "message": "TrackballControls: Separate mouse action and state logic. (#29442)",
+      "tree": {
+        "sha": "c1f975e21478897cc495b4352f4e7f5b0afd57fd",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/c1f975e21478897cc495b4352f4e7f5b0afd57fd"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/3feb41f5799a027dcb4710d5ff0f14b5e45eb821",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6+xHCRC1aQ7uu5UhlAAAko8QACKIW4yHm6MKpyx68+IJChZ5\nMVknkrwe9U4RYmSaub1IZjmaM/IZYk6Ovknw9rjBzbmo252MFg5YKeVfN0qObWza\nXwMcHzewzs4tTEt2W7AsCOSGq+NGCK5j28XwE9tsnrpAo2GtVH7w413Guleyj9dC\nTzD6BV7lZBocZ+A2w14RZzUkN2qbX11cdJQxs1SGnqdIUCjgdA0DQW8DsjmnItui\n1UhagUeX40WIjKwX27vKstPuNwXjuhspiwN7Vm4XpW1GjJ4J2dLzZF7Btqs7tn1g\nGsbd2PeqfJQoVMmrHnFXljOalAIT4LIaopIhjp1/gJw8G+x+Gn7VmTXoC5a0BDru\n10y5b7G0F7LmhU9o/lazcArhIugtL1POG6oEoPhM1squejk0IAfh52/mfWRmNCTZ\nNGlPgL5u1spv2OAke1nURLsQr0EKs+3oy0xTcaZ4cE617xCNjE+DtBl+O7ypvH5U\nQtXSOFsb8WhYULqzq0f2EoUG6lMb4jg/IVvBQ33mCs7Af0gex3jdCH/+Zv1pZ8+w\nRUiM99H9mEBaF9TdhwuA5xkP2n/Ov6ZGfQUdeyoQBj82Zq9YXxH0ppfYAnjyiTfe\nQp0grj3EEkbo7T1FQueW2AvxAi0iyDAX99IEshZKR4+nKs+R7r39AP8iImg1FU8c\n2OHlHFuzMIUUmDFMkVwp\n=I2I/\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c1f975e21478897cc495b4352f4e7f5b0afd57fd\nparent 9cfaaa8d9a6975d78db2a7988b7aee6d61306752\nauthor Michael Herzog <michael.herzog@human-interactive.org> 1726737479 +0200\ncommitter GitHub <noreply@github.com> 1726737479 +0200\n\nTrackballControls: Separate mouse action and state logic. (#29442)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/3feb41f5799a027dcb4710d5ff0f14b5e45eb821",
+    "html_url": "https://github.com/mrdoob/three.js/commit/3feb41f5799a027dcb4710d5ff0f14b5e45eb821",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/3feb41f5799a027dcb4710d5ff0f14b5e45eb821/comments",
+    "author": {
+      "login": "Mugen87",
+      "id": 12612165,
+      "node_id": "MDQ6VXNlcjEyNjEyMTY1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12612165?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Mugen87",
+      "html_url": "https://github.com/Mugen87",
+      "followers_url": "https://api.github.com/users/Mugen87/followers",
+      "following_url": "https://api.github.com/users/Mugen87/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Mugen87/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Mugen87/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Mugen87/subscriptions",
+      "organizations_url": "https://api.github.com/users/Mugen87/orgs",
+      "repos_url": "https://api.github.com/users/Mugen87/repos",
+      "events_url": "https://api.github.com/users/Mugen87/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Mugen87/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "9cfaaa8d9a6975d78db2a7988b7aee6d61306752",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/9cfaaa8d9a6975d78db2a7988b7aee6d61306752",
+        "html_url": "https://github.com/mrdoob/three.js/commit/9cfaaa8d9a6975d78db2a7988b7aee6d61306752"
+      }
+    ]
+  },
+  {
+    "sha": "9cfaaa8d9a6975d78db2a7988b7aee6d61306752",
+    "node_id": "C_kwDOAAjKydoAKDljZmFhYThkOWE2OTc1ZDc4ZGIyYTc5ODhiN2FlZTZkNjEzMDY3NTI",
+    "commit": {
+      "author": {
+        "name": "Garrett Johnson",
+        "email": "garrett.kjohnson@gmail.com",
+        "date": "2024-09-18T21:23:31Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T21:23:31Z"
+      },
+      "message": "Raycasting: Add barycoord to intersection result, make attribution interpolation more convenient (#29340)\n\n* Add a barycoord helper\r\n\r\n* add fields to point, line\r\n\r\n* Fix import\r\n\r\n* Remove unused variables\r\n\r\n* Update docs\r\n\r\n* Rename method\r\n\r\n* Rename function in Mesh class",
+      "tree": {
+        "sha": "c38b158636a3dae6856ddac0acc0ee8fd1941fee",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/c38b158636a3dae6856ddac0acc0ee8fd1941fee"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/9cfaaa8d9a6975d78db2a7988b7aee6d61306752",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm60TTCRC1aQ7uu5UhlAAAGDAQAIbUwLRc5tpIvl3ehBtNhuHM\nYN29eE/CNrRG6MFMrO2j9kd8om0hBd0xnVGn5GU++zqYw+NMI0iRK1iaPUL/khlp\nET2RZkS2GE8RwTa7qLEVgy4L3zlvgIu4AUDRLKfPajHFUMFLHEum73biIBq/LspB\n8jnM/LErVm6DB716BryWaIw6XmQGrs3lGogv03afm+yJgAPMhfBtqri1UhIQ9ybE\nPUf87wZ/dMaT24n4cVI0UYRgdmSL2Mu+xUOMX9YBIXLjl9edVj/FbFWI/DJo3zyL\n0J9tPJWPupyv/HsBe6DETsKkOyRMFvDCtzUGkeFLpX15XT6TVlRilbrP+LrI5TK8\nTKY/LODXbRmp+gzLZ+DL+7eXWPIUbrf6UfMt2LMd2yYl+3daSw/RVWhEr0+bHLdv\nzBPP17kq4ERqRCGqNIUY2zVCzmMR0aQTV90Ujguz8C1SdjL3+/Ak59Ri2sY7lr/i\n0LlLU1omVlufCNE3Wnx6R2V+D7XTtrAx6S8k5YfKvw+TNEa58rSHi4TRg81SRlHo\n8vvQk3h89JAy0LGvsuBi1RcZegJnONeKw2OWQ990Tvx/bZ4znWiLUT9ybuv7cK5T\nh6TaQukYnh92TM3jIQQFr6EBofsXm/9ymTt8cB+tgwg7Y8yBTvTVGUaF1YCCyAqM\nlb2JTr1x9bDl06+jHRm8\n=8xxv\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c38b158636a3dae6856ddac0acc0ee8fd1941fee\nparent 01359e00034058c3c1ab037daae97c670f8228ac\nauthor Garrett Johnson <garrett.kjohnson@gmail.com> 1726694611 +0200\ncommitter GitHub <noreply@github.com> 1726694611 +0900\n\nRaycasting: Add barycoord to intersection result, make attribution interpolation more convenient (#29340)\n\n* Add a barycoord helper\r\n\r\n* add fields to point, line\r\n\r\n* Fix import\r\n\r\n* Remove unused variables\r\n\r\n* Update docs\r\n\r\n* Rename method\r\n\r\n* Rename function in Mesh class"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/9cfaaa8d9a6975d78db2a7988b7aee6d61306752",
+    "html_url": "https://github.com/mrdoob/three.js/commit/9cfaaa8d9a6975d78db2a7988b7aee6d61306752",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/9cfaaa8d9a6975d78db2a7988b7aee6d61306752/comments",
+    "author": {
+      "login": "gkjohnson",
+      "id": 734200,
+      "node_id": "MDQ6VXNlcjczNDIwMA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/734200?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/gkjohnson",
+      "html_url": "https://github.com/gkjohnson",
+      "followers_url": "https://api.github.com/users/gkjohnson/followers",
+      "following_url": "https://api.github.com/users/gkjohnson/following{/other_user}",
+      "gists_url": "https://api.github.com/users/gkjohnson/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/gkjohnson/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/gkjohnson/subscriptions",
+      "organizations_url": "https://api.github.com/users/gkjohnson/orgs",
+      "repos_url": "https://api.github.com/users/gkjohnson/repos",
+      "events_url": "https://api.github.com/users/gkjohnson/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/gkjohnson/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "01359e00034058c3c1ab037daae97c670f8228ac",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/01359e00034058c3c1ab037daae97c670f8228ac",
+        "html_url": "https://github.com/mrdoob/three.js/commit/01359e00034058c3c1ab037daae97c670f8228ac"
+      }
+    ]
+  },
+  {
+    "sha": "01359e00034058c3c1ab037daae97c670f8228ac",
+    "node_id": "C_kwDOAAjKydoAKDAxMzU5ZTAwMDM0MDU4YzNjMWFiMDM3ZGFhZTk3YzY3MGY4MjI4YWM",
+    "commit": {
+      "author": {
+        "name": "Michael Herzog",
+        "email": "michael.herzog@human-interactive.org",
+        "date": "2024-09-18T10:00:55Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-18T10:00:55Z"
+      },
+      "message": "Examples: Clean up. (#29438)",
+      "tree": {
+        "sha": "34b013f0a1d427f126cd50881f6f310bc8dbdc9e",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/34b013f0a1d427f126cd50881f6f310bc8dbdc9e"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/01359e00034058c3c1ab037daae97c670f8228ac",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6qTXCRC1aQ7uu5UhlAAAsrAQABSOesZK+KuKVX/h1s/gS1sG\nM4JfrLLkFTFhJllLygZpB5AluieRIac5Tl6AIMN4GI5KFjYJtYZykXkJIz9T0PLb\nD7djrlmCrZgewmdI2YemJMdP0FFaAAHDUEVBg97lUD2B6ERi07o2HI/V7opm8JZA\nMRycIiGRmx9H+zlYqPHgRHAZvh9KoJrWyQP9+Vd9sJHV/mGH7AZgHWna6CB6Vm4w\nukJzZrqMRo/5hmJwad3GgtdDbFj3Yz8AiCGqumrxNrCMxPlUIEKTvE+DvBjaC5s3\nOaXXYqFaJUpvitb/UY0jTlg45PNPX7b4t1wWi6ifVh1BccqLKavFoRdbzVo1MNUU\nXJ8ypd/Ag6GKhd1wyMXiuQIyf87dZRqnFRgzlxE7H+J6jp1xKI4HqkV5hvUj+Mi0\nyua21LzxYoYeHo1TXYG3A51BGwgiukLLyTvUrmfq2f+qDhodkiOp8poDA9jpayEE\n3JMw+ZyvVTUqkkw7AzWujh1kr+6Nr0t1yDa9qM/GJj+azC3lhNVId8R39kQL0kjb\nYSNv+B7ph5vo0GuhTQGxyKFZka3sMDJnG+hdUDTvZlPXVaVVKH4NYmD36bcDIk77\nI09f4iLs0+C+dBDlfJ65OY5p/CHnyAzEZjYfhnf+C9T7bHGQk0XBvnkQUbFz/zXf\nqWjxBOdn7RFtVjpZiCf6\n=x6FA\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 34b013f0a1d427f126cd50881f6f310bc8dbdc9e\nparent 111670613f1c475ed6e9c2d15056f960f0ad6f1b\nauthor Michael Herzog <michael.herzog@human-interactive.org> 1726653655 +0200\ncommitter GitHub <noreply@github.com> 1726653655 +0200\n\nExamples: Clean up. (#29438)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/01359e00034058c3c1ab037daae97c670f8228ac",
+    "html_url": "https://github.com/mrdoob/three.js/commit/01359e00034058c3c1ab037daae97c670f8228ac",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/01359e00034058c3c1ab037daae97c670f8228ac/comments",
+    "author": {
+      "login": "Mugen87",
+      "id": 12612165,
+      "node_id": "MDQ6VXNlcjEyNjEyMTY1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12612165?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Mugen87",
+      "html_url": "https://github.com/Mugen87",
+      "followers_url": "https://api.github.com/users/Mugen87/followers",
+      "following_url": "https://api.github.com/users/Mugen87/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Mugen87/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Mugen87/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Mugen87/subscriptions",
+      "organizations_url": "https://api.github.com/users/Mugen87/orgs",
+      "repos_url": "https://api.github.com/users/Mugen87/repos",
+      "events_url": "https://api.github.com/users/Mugen87/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Mugen87/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "111670613f1c475ed6e9c2d15056f960f0ad6f1b",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/111670613f1c475ed6e9c2d15056f960f0ad6f1b",
+        "html_url": "https://github.com/mrdoob/three.js/commit/111670613f1c475ed6e9c2d15056f960f0ad6f1b"
+      }
+    ]
+  },
+  {
+    "sha": "111670613f1c475ed6e9c2d15056f960f0ad6f1b",
+    "node_id": "C_kwDOAAjKydoAKDExMTY3MDYxM2YxYzQ3NWVkNmU5YzJkMTUwNTZmOTYwZjBhZDZmMWI",
+    "commit": {
+      "author": {
+        "name": "WestLangley",
+        "email": "WestLangley@users.noreply.github.com",
+        "date": "2024-09-17T16:29:12Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T16:29:12Z"
+      },
+      "message": "Examples: Clean up (#29209)\n\n* Fix incorrect args\r\n\r\n* E2E: Update screenshot.\r\n\r\n---------\r\n\r\nCo-authored-by: Mugen87 <michael.herzog@human-interactive.org>",
+      "tree": {
+        "sha": "70316bdc9e9809a318372f2af7a1c8a9afc930dc",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/70316bdc9e9809a318372f2af7a1c8a9afc930dc"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/111670613f1c475ed6e9c2d15056f960f0ad6f1b",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6a5YCRC1aQ7uu5UhlAAAdUgQAAdlTJLTOozvB/9xALFJ/OzE\nu8yBxcSKwkqsmXt5+Xk82lJ4Qzz9MYt1L8M6tdq++rQ8q0MxzPTlnSoz2EoagI8I\nN0TIBycNFPbuYb2g7y7Bw9ii8Eoy69R8nG3Ry+wp4fxSdjq+Q7GhT9RQdjDybhly\n/Zel0hWDqOgk5MooimuvsWtsBK2J4T9d6GGY94zqdKI200xz7rDlM1lBGWLf8qMo\nN3yu8CVBCftNNgKlcfHgTuVl+Yvho+oq7QdhIoUBXeVhDZpTTHYVMQfFsSBGG4KZ\nFhiPpyEMI+ZZSa02BRqlCOBA92ERGL9ctx+lbSvRYP7W/4/Atok9/FF5En6lwECR\n6tJOLkfTugZQ+TJjDDMKj1MPesBKN7dN91sft6jfxyXfrYqE2Sy87nkQhJz5gOOu\nENa90gI+17IpnmtutRowPHkSh0fw9EH7WSHrIYnCe5VWQyyiI4QNG/doH9R3nQ/f\nix8/mskSnRIIkurips0raF6TgPPn0rZ18HbWxm7dfsHJL1qC9k0Ee4bQhEkD4KGm\nOJtxK2dXZaeCa7WvsCe1oWpeHObyHOtQZeXtkpJict+eLZz0YyFVK+XQyF7vAvSm\n3T/0+kXPIFERARFFG46iITab3u6y5SXM3DiQgCddWLhmqYYqoBbfE7QsNFUaXyXV\nFUfd0WBTYp25TkcH0p1M\n=8AGd\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 70316bdc9e9809a318372f2af7a1c8a9afc930dc\nparent d16dec710c72b149c7260d28791f0acb7e0698ff\nauthor WestLangley <WestLangley@users.noreply.github.com> 1726590552 -0400\ncommitter GitHub <noreply@github.com> 1726590552 +0200\n\nExamples: Clean up (#29209)\n\n* Fix incorrect args\r\n\r\n* E2E: Update screenshot.\r\n\r\n---------\r\n\r\nCo-authored-by: Mugen87 <michael.herzog@human-interactive.org>"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/111670613f1c475ed6e9c2d15056f960f0ad6f1b",
+    "html_url": "https://github.com/mrdoob/three.js/commit/111670613f1c475ed6e9c2d15056f960f0ad6f1b",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/111670613f1c475ed6e9c2d15056f960f0ad6f1b/comments",
+    "author": {
+      "login": "WestLangley",
+      "id": 1000017,
+      "node_id": "MDQ6VXNlcjEwMDAwMTc=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1000017?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/WestLangley",
+      "html_url": "https://github.com/WestLangley",
+      "followers_url": "https://api.github.com/users/WestLangley/followers",
+      "following_url": "https://api.github.com/users/WestLangley/following{/other_user}",
+      "gists_url": "https://api.github.com/users/WestLangley/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/WestLangley/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/WestLangley/subscriptions",
+      "organizations_url": "https://api.github.com/users/WestLangley/orgs",
+      "repos_url": "https://api.github.com/users/WestLangley/repos",
+      "events_url": "https://api.github.com/users/WestLangley/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/WestLangley/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d16dec710c72b149c7260d28791f0acb7e0698ff",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/d16dec710c72b149c7260d28791f0acb7e0698ff",
+        "html_url": "https://github.com/mrdoob/three.js/commit/d16dec710c72b149c7260d28791f0acb7e0698ff"
+      }
+    ]
+  },
+  {
+    "sha": "d16dec710c72b149c7260d28791f0acb7e0698ff",
+    "node_id": "C_kwDOAAjKydoAKGQxNmRlYzcxMGM3MmIxNDljNzI2MGQyODc5MWYwYWNiN2UwNjk4ZmY",
+    "commit": {
+      "author": {
+        "name": "WestLangley",
+        "email": "WestLangley@users.noreply.github.com",
+        "date": "2024-09-17T16:16:33Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T16:16:33Z"
+      },
+      "message": "Clean up (#29431)",
+      "tree": {
+        "sha": "613f8ce57eb07979450b9d8097aa6f58eaffa5b9",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/613f8ce57eb07979450b9d8097aa6f58eaffa5b9"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/d16dec710c72b149c7260d28791f0acb7e0698ff",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6athCRC1aQ7uu5UhlAAA1EsQAIhtgcIORxn2/sGlMRRF+Fhv\npwDiOkR+yYlsas7L/eJ+lMqNvLEAVv8mgb+mSk8l23wq2tG/4li5uVdZ/xe36JxK\nXVuL8fn6Bf2a+YyjZ8kSsxDs+r80KRZFFmqaSrqy/ivs94uIRjwrkaXqxd18SSM9\n2w+60K6qkv6mwHdB/VqNk0iq7Qu42VZjlBzc3+TVIX8O1KKOZb8T7IyIdd7rPCNN\ncD+2VVVb7N2AMMKmWXv3quGjJmhK+dUE/xE9ta7RYB73TSm/DFl/7u6fw9SvElcF\npM34fXaPGLhHXnUWIpNGU2sMH6k8tWZX0jOllU6GE9BgXVUZ98itX5hPfb/mkkMy\naq9zXe//PLyVrAEZoi/n38unuwtIYjFoxW26T0uldIHS+OOR+16CCP0Z6l2KjZs3\nyPONtglWVFOAPsxAifQsJEZDGbbsxbjyyhwsDnJ355jTM2ESPSia+eKG4UlLAHnL\nwJrp+zFaSzH+SdaLbrGVkfZkteIyJrHCIHyXVhYYPUFejQupyRnFewlCGBU0Qu66\nuK8v6noiuBDl92a7dg/tr3uVEJsZxWkrkVbEI9SagTWgM66zAy+Sb4vi2Yxm1ABT\nAhWsoS0ZhZqSCm8DM++5OJaJPaLMeu9ao9Srdw7rZMxhjhMTha0uLQGRV3uaLe2s\nH31FHhbGMKRq/uAh/bVg\n=NA8S\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 613f8ce57eb07979450b9d8097aa6f58eaffa5b9\nparent 38fd5e9659b37d22d27a87cedf1b99edfbb12fe4\nauthor WestLangley <WestLangley@users.noreply.github.com> 1726589793 -0400\ncommitter GitHub <noreply@github.com> 1726589793 +0200\n\nClean up (#29431)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/d16dec710c72b149c7260d28791f0acb7e0698ff",
+    "html_url": "https://github.com/mrdoob/three.js/commit/d16dec710c72b149c7260d28791f0acb7e0698ff",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/d16dec710c72b149c7260d28791f0acb7e0698ff/comments",
+    "author": {
+      "login": "WestLangley",
+      "id": 1000017,
+      "node_id": "MDQ6VXNlcjEwMDAwMTc=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1000017?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/WestLangley",
+      "html_url": "https://github.com/WestLangley",
+      "followers_url": "https://api.github.com/users/WestLangley/followers",
+      "following_url": "https://api.github.com/users/WestLangley/following{/other_user}",
+      "gists_url": "https://api.github.com/users/WestLangley/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/WestLangley/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/WestLangley/subscriptions",
+      "organizations_url": "https://api.github.com/users/WestLangley/orgs",
+      "repos_url": "https://api.github.com/users/WestLangley/repos",
+      "events_url": "https://api.github.com/users/WestLangley/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/WestLangley/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "38fd5e9659b37d22d27a87cedf1b99edfbb12fe4",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/38fd5e9659b37d22d27a87cedf1b99edfbb12fe4",
+        "html_url": "https://github.com/mrdoob/three.js/commit/38fd5e9659b37d22d27a87cedf1b99edfbb12fe4"
+      }
+    ]
+  },
+  {
+    "sha": "38fd5e9659b37d22d27a87cedf1b99edfbb12fe4",
+    "node_id": "C_kwDOAAjKydoAKDM4ZmQ1ZTk2NTliMzdkMjJkMjdhODdjZWRmMWI5OWVkZmJiMTJmZTQ",
+    "commit": {
+      "author": {
+        "name": "Christian Helgeson",
+        "email": "62450112+cmhhelgeson@users.noreply.github.com",
+        "date": "2024-09-17T14:28:04Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T14:28:04Z"
+      },
+      "message": "Nodes: Add `AtomicFunctionNode` (#29385)\n\n* add atomic operations\r\n\r\n* add storeNode\r\n\r\n* cleanup\r\n\r\n---------",
+      "tree": {
+        "sha": "d9c8e4e847f9b276d3b77a2f3d187087292d7aee",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/d9c8e4e847f9b276d3b77a2f3d187087292d7aee"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/38fd5e9659b37d22d27a87cedf1b99edfbb12fe4",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6ZH0CRC1aQ7uu5UhlAAAvJkQAAAkvMVuVYSVYxfx1JQ5Y/OG\noKOP6A8psxGt/0QH5IJ1WRVa2qVtDKsbZIw2HbfqerzpOebpdVkfNcvm6xpKtoKN\nJTctxRKRNTSzCCknUmazCkEHfMk/be4FcX6hAqrAkbPxJWRzeSuyktQqTVJajBa9\nODpsex5uUVERfb9HPfdvaqYIYHsWSUO7Eq/W6LOEgHa67qYYNC0f6QJIcXQWRh5B\nDeLwfN5GTdbdJg4E993pL/CvMQtvoNQ4DHdQenFteY0e4qEC7GPwJ071Cp5a8X9M\nza66GobOb/gdMvbQTNeiMFWaDrz0+ynEAy06yxQLUUpfvh2iUpVa/O+tCHNfp2ln\n96vULSXWgWQNUErLDWE9adFn8YKR8O1CFWDy0mNTqgw9aEhNFjaQVEwG/Ctjy3Rw\nu/XZ8R9TtSPqFPk1OrnFuj/rSjabDnI+O/6cir2vyV6B2FJNx6nz28pLQYi4Zdw4\nTqjt9Vv8vdFZt/tSeWoBbgnSzJqCvgfQ6rHxVYUkfx1hHbHw2uFyvlvrBvJcocGv\nPaOfpH3twk6PUIxfhdwFCANBc3lmzlOfkEO6RtniedJMmUYzrgLb+GptF8mjNuvt\nrpMDROlAxB56cDZJ5aScMLEtcs1H1cug+Dw9gjs6TC9rqmOpdnBKPAGQ5kHm+aSS\nBLGAi1o87/7qGA2kKO7+\n=umY4\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d9c8e4e847f9b276d3b77a2f3d187087292d7aee\nparent 915392f4cfc2e8a71ae3d7e06de17233fc8ab284\nauthor Christian Helgeson <62450112+cmhhelgeson@users.noreply.github.com> 1726583284 -0700\ncommitter GitHub <noreply@github.com> 1726583284 -0300\n\nNodes: Add `AtomicFunctionNode` (#29385)\n\n* add atomic operations\r\n\r\n* add storeNode\r\n\r\n* cleanup\r\n\r\n---------"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/38fd5e9659b37d22d27a87cedf1b99edfbb12fe4",
+    "html_url": "https://github.com/mrdoob/three.js/commit/38fd5e9659b37d22d27a87cedf1b99edfbb12fe4",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/38fd5e9659b37d22d27a87cedf1b99edfbb12fe4/comments",
+    "author": {
+      "login": "cmhhelgeson",
+      "id": 62450112,
+      "node_id": "MDQ6VXNlcjYyNDUwMTEy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/62450112?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cmhhelgeson",
+      "html_url": "https://github.com/cmhhelgeson",
+      "followers_url": "https://api.github.com/users/cmhhelgeson/followers",
+      "following_url": "https://api.github.com/users/cmhhelgeson/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cmhhelgeson/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cmhhelgeson/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cmhhelgeson/subscriptions",
+      "organizations_url": "https://api.github.com/users/cmhhelgeson/orgs",
+      "repos_url": "https://api.github.com/users/cmhhelgeson/repos",
+      "events_url": "https://api.github.com/users/cmhhelgeson/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cmhhelgeson/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "915392f4cfc2e8a71ae3d7e06de17233fc8ab284",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/915392f4cfc2e8a71ae3d7e06de17233fc8ab284",
+        "html_url": "https://github.com/mrdoob/three.js/commit/915392f4cfc2e8a71ae3d7e06de17233fc8ab284"
+      }
+    ]
+  },
+  {
+    "sha": "915392f4cfc2e8a71ae3d7e06de17233fc8ab284",
+    "node_id": "C_kwDOAAjKydoAKDkxNTM5MmY0Y2ZjMmU4YTcxYWUzZDdlMDZkZTE3MjMzZmM4YWIyODQ",
+    "commit": {
+      "author": {
+        "name": "aardgoose",
+        "email": "angus.sawyer@gmail.com",
+        "date": "2024-09-17T14:09:40Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T14:09:40Z"
+      },
+      "message": "TSL: support `uniformArrays` from `userData()` and `.label()` for `userData()` and `reference()` (#29430)\n\nsupport reference().label()\r\nremove duplicate method\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>",
+      "tree": {
+        "sha": "90d3dd7232aec735c2c866b859b3b3fced04c8e5",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/90d3dd7232aec735c2c866b859b3b3fced04c8e5"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/915392f4cfc2e8a71ae3d7e06de17233fc8ab284",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6Y2kCRC1aQ7uu5UhlAAAzbEQAIbY2o+lNEIujmA75fYmtkAt\n3lbTxGGWldUVKm0qqEsyKXJrA2rfU08gmk/fAVBIw9IbbnQO0A+j56tqWkXjVFYK\nieGQW5R6E44ECjdaWU6FbDcSqzcYuaydRrg5Krnwj81K4BDVgRkxZmvpo9GlNSfw\nwGpo+l8C1tnCdvSzcMLCoNwoUS65GyLCq8V51AzwsnWCyrljOmIitdQPwJCZuYRJ\nwoDUUX48zrl+Y/9hI0Z80GpNcww86JatmsXGKbGJlhWatz763DCF3OndPKM84X+p\nPKCAP7w2nuJIir3wYA3amY1ZfsWvX+EqL3+8jeXMTJSICXpb5pVg4FmlkZUsoXAn\nx6sOKZrH0anG4Fc1VjNmJND7V3tvxev0NnL9JAVa9zMOxzeM7Im2IuHDKgVAYO5Z\nz5MlgqgscCRtnRfVYtdkRit4M1hHfyqbt/v8AHsE+LPxgP1oGA/NUvMwv/tuUBXf\naTkrRiMZe7OiKuGKW+OYzJWtVhTYTf4n1wI0TY1+goFlgeGCbckq8+silFOVwBrA\nLCuG2nCM40uZpc0Okv/h8yZkV8ASrLBZG4+PEDX8PrnMb2GXaWCjgn7UGcIzB7PH\nGmo6Op0wMLkEECx4p6vR6nRuQyG6JUIYAyYWTEQTp3ecvCDTHWGk9X2xMoaAd14Q\ned6JV1cSLtZTfPyFqh/Q\n=gGKe\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 90d3dd7232aec735c2c866b859b3b3fced04c8e5\nparent 8ebbbf28e8241de67b2d29070305f41b3c7787c9\nauthor aardgoose <angus.sawyer@gmail.com> 1726582180 +0100\ncommitter GitHub <noreply@github.com> 1726582180 -0300\n\nTSL: support `uniformArrays` from `userData()` and `.label()` for `userData()` and `reference()` (#29430)\n\nsupport reference().label()\r\nremove duplicate method\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/915392f4cfc2e8a71ae3d7e06de17233fc8ab284",
+    "html_url": "https://github.com/mrdoob/three.js/commit/915392f4cfc2e8a71ae3d7e06de17233fc8ab284",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/915392f4cfc2e8a71ae3d7e06de17233fc8ab284/comments",
+    "author": {
+      "login": "aardgoose",
+      "id": 17364910,
+      "node_id": "MDQ6VXNlcjE3MzY0OTEw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17364910?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aardgoose",
+      "html_url": "https://github.com/aardgoose",
+      "followers_url": "https://api.github.com/users/aardgoose/followers",
+      "following_url": "https://api.github.com/users/aardgoose/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aardgoose/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aardgoose/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aardgoose/subscriptions",
+      "organizations_url": "https://api.github.com/users/aardgoose/orgs",
+      "repos_url": "https://api.github.com/users/aardgoose/repos",
+      "events_url": "https://api.github.com/users/aardgoose/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aardgoose/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8ebbbf28e8241de67b2d29070305f41b3c7787c9",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/8ebbbf28e8241de67b2d29070305f41b3c7787c9",
+        "html_url": "https://github.com/mrdoob/three.js/commit/8ebbbf28e8241de67b2d29070305f41b3c7787c9"
+      }
+    ]
+  },
+  {
+    "sha": "8ebbbf28e8241de67b2d29070305f41b3c7787c9",
+    "node_id": "C_kwDOAAjKydoAKDhlYmJiZjI4ZTgyNDFkZTY3YjJkMjkwNzAzMDVmNDFiM2M3Nzg3Yzk",
+    "commit": {
+      "author": {
+        "name": "aardgoose",
+        "email": "angus.sawyer@gmail.com",
+        "date": "2024-09-17T14:07:14Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T14:07:14Z"
+      },
+      "message": "WebGPURenderer: correct texelFetch() texel coordinates in WebGL fallback (#29400)\n\n* texelLookup\r\n\r\n* lint\r\n\r\n* update\r\n\r\n* fix\r\n\r\n---------\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>",
+      "tree": {
+        "sha": "b8f68dab27871f4520c66f3945fd2fbf24bf5571",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/b8f68dab27871f4520c66f3945fd2fbf24bf5571"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/8ebbbf28e8241de67b2d29070305f41b3c7787c9",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6Y0SCRC1aQ7uu5UhlAAA4FoQAHmYaOXxNGZtNF8EW7ClPCbX\nUsIbQ3SvBHJugCH3ZZz3QP1xyEiVUpFzYSZQi+LOf/MSUmoSOPeHxCa66i/HrgFf\nNbqkV0ZOPRO8ZpKRmW5upGXbTrh2FcqDDZS+m/0034/vqRagxbKgA0GNBtEW8S2Q\n6Jc4IwDHnjsidFzopAYlkCrOBuOQBFHm3tbFHxQcBguEjZcah49Fngv6el+R54xh\nqO0vatvkRKrpIkXyKOxmDKabA/nUzori++6kXfbeFa0UEYiu7R3KqqXiRbvMWMLv\nimRpr888yHi2Y2HiIF5A0mxVRLmD7xjPCTXo3mq3Guex8vsJDWGwcC6sK33tJ930\nb8zj9c4IEl08SS4Sf8i4i1OFqP+JJc9frSxSz7DLIg6EhaQ7V79lK3r7fNMJledk\nyiRi41/bIoroD4twHUZ9dIGl4y1ORYdXELfkAhlqlqcNd2vkehck1p2/eiK+tx7z\nzsdH94omj+DlWnWKUuUHeX9LaYS8pS3tFy25v2X0MIKBlkkS6LPq/c3LGtXWJijM\n35abLe7cW8MM0e69n2xY/1E3f6Y7U3RrVxfd1kOXJ3XbIkxamFQh7q9A78uD4f48\nsmAzYEsx0VnaRzKWEtHCguAEe5ODRMkFqzyKixN7OO8H6r3isAZq1MrZCOr/mOv9\neMCRRmvmG9vQKkk2RH76\n=Kf8Q\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree b8f68dab27871f4520c66f3945fd2fbf24bf5571\nparent ac73c49cfd2333c52cf46601e9f4bdf8e1948379\nauthor aardgoose <angus.sawyer@gmail.com> 1726582034 +0100\ncommitter GitHub <noreply@github.com> 1726582034 -0300\n\nWebGPURenderer: correct texelFetch() texel coordinates in WebGL fallback (#29400)\n\n* texelLookup\r\n\r\n* lint\r\n\r\n* update\r\n\r\n* fix\r\n\r\n---------\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/8ebbbf28e8241de67b2d29070305f41b3c7787c9",
+    "html_url": "https://github.com/mrdoob/three.js/commit/8ebbbf28e8241de67b2d29070305f41b3c7787c9",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/8ebbbf28e8241de67b2d29070305f41b3c7787c9/comments",
+    "author": {
+      "login": "aardgoose",
+      "id": 17364910,
+      "node_id": "MDQ6VXNlcjE3MzY0OTEw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17364910?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aardgoose",
+      "html_url": "https://github.com/aardgoose",
+      "followers_url": "https://api.github.com/users/aardgoose/followers",
+      "following_url": "https://api.github.com/users/aardgoose/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aardgoose/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aardgoose/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aardgoose/subscriptions",
+      "organizations_url": "https://api.github.com/users/aardgoose/orgs",
+      "repos_url": "https://api.github.com/users/aardgoose/repos",
+      "events_url": "https://api.github.com/users/aardgoose/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aardgoose/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ac73c49cfd2333c52cf46601e9f4bdf8e1948379",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/ac73c49cfd2333c52cf46601e9f4bdf8e1948379",
+        "html_url": "https://github.com/mrdoob/three.js/commit/ac73c49cfd2333c52cf46601e9f4bdf8e1948379"
+      }
+    ]
+  },
+  {
+    "sha": "ac73c49cfd2333c52cf46601e9f4bdf8e1948379",
+    "node_id": "C_kwDOAAjKydoAKGFjNzNjNDljZmQyMzMzYzUyY2Y0NjYwMWU5ZjRiZGY4ZTE5NDgzNzk",
+    "commit": {
+      "author": {
+        "name": "aardgoose",
+        "email": "angus.sawyer@gmail.com",
+        "date": "2024-09-17T13:58:54Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T13:58:54Z"
+      },
+      "message": "WebGPURenderer: `copyFrameBufferTexture()`  rectangle parameter added (#29384)\n\n* add position parameter\r\n\r\n* text rect\r\n\r\n---------\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>",
+      "tree": {
+        "sha": "42fccc85b3a4749c527b35463c5f54ed72949b60",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/42fccc85b3a4749c527b35463c5f54ed72949b60"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/ac73c49cfd2333c52cf46601e9f4bdf8e1948379",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6YseCRC1aQ7uu5UhlAAA3+kQAKkADapYP2vcoK8woNRkDJmP\nsjYgRLBX6dD09kmzVh5yQV5YgujYHDlsmkQoBFM94OcgyKyHGmbtEF2sg9jmueQF\nnZNeaxZ/h5uQVs3Pk7JPoVbvWX9hjlUHqb3yn1GWkb4N7jFADR98CSKnA7GQudtN\nRNh3kjnvlJEqjANbpTDVnU1Lf8U3j3hH4J5H50aOPyPgydIxT/u4aQzegN+HeE0d\ndfBXt0RZIfaaehNUBq3tbE5brA+8RKymVAtih8dOB/SqhSTL78Bl9NDGt6YkvkP6\nnsMi3H4HfxXiUPhe/vNxKuOW4iAPU+/1HBMEczEIZa/cn+DfUu28G14szEQhInBb\npRu67RFrJDXEqdanJjsc9UTNQiaqK0wQanq/Cfhb85BNdon9AA9IJ9N5loO79pCt\nXegnw4O8gLB+RJMmVHsqIGUZemcROXb0UqjlBBPUQT7jM8jb0QMXif6b+oGOxqvo\nihwpKg5rvvBOUjHAcR9w/Q6vqsY97BhWrAI0KzwJdv/mNpJTYJapgMGB7iz13Xby\njpdBELVPajbcjW9cLAz3vtL4uKVCXsbMkV/Bx4OKax5U2v5pHOqcjCb478DDDCa0\nb7+ihuIBLZrd5CAreffq4gFgMvJUXd5voe0r5GTGg3DQISrTCQjNqRa9cefJJKNl\nigwy9s6qp0hWbx9kFmAg\n=vfcu\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 42fccc85b3a4749c527b35463c5f54ed72949b60\nparent 2208e8126a7c251fcfa95f3bdc752c22c8c6511c\nauthor aardgoose <angus.sawyer@gmail.com> 1726581534 +0100\ncommitter GitHub <noreply@github.com> 1726581534 -0300\n\nWebGPURenderer: `copyFrameBufferTexture()`  rectangle parameter added (#29384)\n\n* add position parameter\r\n\r\n* text rect\r\n\r\n---------\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/ac73c49cfd2333c52cf46601e9f4bdf8e1948379",
+    "html_url": "https://github.com/mrdoob/three.js/commit/ac73c49cfd2333c52cf46601e9f4bdf8e1948379",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/ac73c49cfd2333c52cf46601e9f4bdf8e1948379/comments",
+    "author": {
+      "login": "aardgoose",
+      "id": 17364910,
+      "node_id": "MDQ6VXNlcjE3MzY0OTEw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17364910?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aardgoose",
+      "html_url": "https://github.com/aardgoose",
+      "followers_url": "https://api.github.com/users/aardgoose/followers",
+      "following_url": "https://api.github.com/users/aardgoose/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aardgoose/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aardgoose/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aardgoose/subscriptions",
+      "organizations_url": "https://api.github.com/users/aardgoose/orgs",
+      "repos_url": "https://api.github.com/users/aardgoose/repos",
+      "events_url": "https://api.github.com/users/aardgoose/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aardgoose/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2208e8126a7c251fcfa95f3bdc752c22c8c6511c",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/2208e8126a7c251fcfa95f3bdc752c22c8c6511c",
+        "html_url": "https://github.com/mrdoob/three.js/commit/2208e8126a7c251fcfa95f3bdc752c22c8c6511c"
+      }
+    ]
+  },
+  {
+    "sha": "2208e8126a7c251fcfa95f3bdc752c22c8c6511c",
+    "node_id": "C_kwDOAAjKydoAKDIyMDhlODEyNmE3YzI1MWZjZmE5NWYzYmRjNzUyYzIyYzhjNjUxMWM",
+    "commit": {
+      "author": {
+        "name": "WestLangley",
+        "email": "WestLangley@users.noreply.github.com",
+        "date": "2024-09-17T08:00:01Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T08:00:01Z"
+      },
+      "message": "Simplify shader (#29397)",
+      "tree": {
+        "sha": "c568d22f9f031010b66dcb2c2dac3de1a91cb543",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/c568d22f9f031010b66dcb2c2dac3de1a91cb543"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/2208e8126a7c251fcfa95f3bdc752c22c8c6511c",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6TcBCRC1aQ7uu5UhlAAAQkwQAFovzpS5aPwd891XkNlroj3K\nzcDO3JgsJxnj4Hl3oy8rTtDspdalJy5pqpBmWdtmornl8IiQdcF7I0oSlQKsY7tx\nw1A+N8iZww9b8NloWgFd7IYJLXl9l9tHqRlZMWmQ0cL8obWPopb0gcCAc/rF/jXe\nHFZL/GxT9LVq4/meO7ixs8u9j9ZICg1SxcPmHv3i3rzJYRF1jw0iPeif/k3fD+kA\nPr2ZjnKK1rG80H37SjLGcW7gO5gKvk4KUG5pUe2G2csTYbM9kBQosB/1A8oXwQow\niWOG+h4IWGgDhqhwYtLXXyWdGHOylKx6NkeG777Wb8q+1x8kJz+hBdTznZYiC9/D\nVpu1U36d7v2YVaEFhYG8+d29Qs2D7oNfvm/qFhcldd82bPrjkqg9CqtOITh6ok3E\nCU1UlnWUmgoIPBxdjgFxO4zGQcpyGVvE/IU0uoNDb8PzkTRZT5uIEKpLD49ulak5\nzC3upIA/rImcU8prMmPC9u50BCwIX/7zRPAgFc+bp4BeKuY4jU5wB0ITwZwBac49\nH1ChQVW3FGm8Q7JXt6KcgEMQVy+6qY/q5p+10cGgxgz4XyLCBkercrp9xkHcVnEs\nzsNdtG5bXaTEXDcBfWH+a0AuS0wJ77sD1B2O4q9RPZXOYOoIO0+yMPXaPzFyr8WC\n2H1k3IugBtbHX1tnrM0w\n=Nuab\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree c568d22f9f031010b66dcb2c2dac3de1a91cb543\nparent 324c9db463a482971b9b27966bf3e73f7bdf039f\nauthor WestLangley <WestLangley@users.noreply.github.com> 1726560001 -0400\ncommitter GitHub <noreply@github.com> 1726560001 +0200\n\nSimplify shader (#29397)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/2208e8126a7c251fcfa95f3bdc752c22c8c6511c",
+    "html_url": "https://github.com/mrdoob/three.js/commit/2208e8126a7c251fcfa95f3bdc752c22c8c6511c",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/2208e8126a7c251fcfa95f3bdc752c22c8c6511c/comments",
+    "author": {
+      "login": "WestLangley",
+      "id": 1000017,
+      "node_id": "MDQ6VXNlcjEwMDAwMTc=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1000017?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/WestLangley",
+      "html_url": "https://github.com/WestLangley",
+      "followers_url": "https://api.github.com/users/WestLangley/followers",
+      "following_url": "https://api.github.com/users/WestLangley/following{/other_user}",
+      "gists_url": "https://api.github.com/users/WestLangley/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/WestLangley/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/WestLangley/subscriptions",
+      "organizations_url": "https://api.github.com/users/WestLangley/orgs",
+      "repos_url": "https://api.github.com/users/WestLangley/repos",
+      "events_url": "https://api.github.com/users/WestLangley/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/WestLangley/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "324c9db463a482971b9b27966bf3e73f7bdf039f",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/324c9db463a482971b9b27966bf3e73f7bdf039f",
+        "html_url": "https://github.com/mrdoob/three.js/commit/324c9db463a482971b9b27966bf3e73f7bdf039f"
+      }
+    ]
+  },
+  {
+    "sha": "324c9db463a482971b9b27966bf3e73f7bdf039f",
+    "node_id": "C_kwDOAAjKydoAKDMyNGM5ZGI0NjNhNDgyOTcxYjliMjc5NjZiZjNlNzNmN2JkZjAzOWY",
+    "commit": {
+      "author": {
+        "name": "Michael Herzog",
+        "email": "michael.herzog@human-interactive.org",
+        "date": "2024-09-17T07:58:10Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T07:58:10Z"
+      },
+      "message": "FBXLoader: Remove support for orthographic cameras. (#29425)\n\n* FBXLoader: Remove support for orthographic cameras.\r\n\r\n* FBXLoader: Add dummy 3D object.",
+      "tree": {
+        "sha": "a4c5d635255eca03ec04562442e51ed09f03c2fb",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/a4c5d635255eca03ec04562442e51ed09f03c2fb"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/324c9db463a482971b9b27966bf3e73f7bdf039f",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6TaSCRC1aQ7uu5UhlAAA03YQAAEuIzqou+UJR19cVTuxXziZ\nsEYXdBk7V400TMGiKRVIZqbBBxO7kpqj6jEA9eMhHAcocKS1KxVYt3Fmlm/wQyHt\nqZvu+VAzYlIlPUU9JHknbNI2VwdE3FL7ytLPghjCxfHmqiQnpSoU3kfP9uVAFiy5\nFK+d3lTmFKcuaMweRn4LdeojqoEj8Ekb5wI7a5X+4r9IIuzXiq1hKFAPH5g3BiVg\n4Fr0Fe2bq0ritYvVMy09xSyx9D8jncd7425y2HB1v3P2CN1eN4uKHu1BmcmYapmm\n/U+k/MFNUTfaUkWLtBxSzKRPijmhU97Ef7ZQTSolr+VASgA9Kwzed6H7CsvfoXWo\n/NPLiQtStiKc/IIJhP9zb6xcChCnOTIs+EIJWWg3NVtAT0C05HX1fnNRAoYJkeij\nc8gwrIa63RtfCJg/gmJZup7Wbca/qdz0n3FE88SR1ZqybBv157tPC7Z6jbnp7gti\nyKbljiBMML4FyUEhQvPNhQO8GqcZHAGXVY9u5eePfyZFo6EbejgjXH/70mF4QpKc\n60AeC1iFPf25K1jAnCBDa2sHIpgdD7qrEYZWfkOlwwoZbkV1kPff/UldMsol5NVq\nKTwy9We8bcnuZ2Lme2DLrhtyK/KepuXohnzSjeHphvErfmj0/elkBkPKithjOnW9\nPgI4e/2YDKfvNRZABSW/\n=oR0i\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree a4c5d635255eca03ec04562442e51ed09f03c2fb\nparent 3fa40fec3588c102e691ea71fa1b9ea6457b0bac\nauthor Michael Herzog <michael.herzog@human-interactive.org> 1726559890 +0200\ncommitter GitHub <noreply@github.com> 1726559890 +0200\n\nFBXLoader: Remove support for orthographic cameras. (#29425)\n\n* FBXLoader: Remove support for orthographic cameras.\r\n\r\n* FBXLoader: Add dummy 3D object."
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/324c9db463a482971b9b27966bf3e73f7bdf039f",
+    "html_url": "https://github.com/mrdoob/three.js/commit/324c9db463a482971b9b27966bf3e73f7bdf039f",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/324c9db463a482971b9b27966bf3e73f7bdf039f/comments",
+    "author": {
+      "login": "Mugen87",
+      "id": 12612165,
+      "node_id": "MDQ6VXNlcjEyNjEyMTY1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12612165?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Mugen87",
+      "html_url": "https://github.com/Mugen87",
+      "followers_url": "https://api.github.com/users/Mugen87/followers",
+      "following_url": "https://api.github.com/users/Mugen87/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Mugen87/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Mugen87/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Mugen87/subscriptions",
+      "organizations_url": "https://api.github.com/users/Mugen87/orgs",
+      "repos_url": "https://api.github.com/users/Mugen87/repos",
+      "events_url": "https://api.github.com/users/Mugen87/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Mugen87/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3fa40fec3588c102e691ea71fa1b9ea6457b0bac",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/3fa40fec3588c102e691ea71fa1b9ea6457b0bac",
+        "html_url": "https://github.com/mrdoob/three.js/commit/3fa40fec3588c102e691ea71fa1b9ea6457b0bac"
+      }
+    ]
+  },
+  {
+    "sha": "3fa40fec3588c102e691ea71fa1b9ea6457b0bac",
+    "node_id": "C_kwDOAAjKydoAKDNmYTQwZmVjMzU4OGMxMDJlNjkxZWE3MWZhMWI5ZWE2NDU3YjBiYWM",
+    "commit": {
+      "author": {
+        "name": "Jeremy Parmenter",
+        "email": "jeremyparmenter@icloud.com",
+        "date": "2024-09-17T07:52:32Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-17T07:52:32Z"
+      },
+      "message": "Docs: Fix white flash on iframe load for Safari (#29419)\n\n* Docs: Fix white flash on iframe load for Safari\r\n\r\n* Fix white page for root level /docs page (when no page is selected)\r\n\r\n* Update index.html\r\n\r\nFix code style.\r\n\r\n* Remove unnecessary error event listener\r\n\r\n---------\r\n\r\nCo-authored-by: Michael Herzog <michael.herzog@human-interactive.org>",
+      "tree": {
+        "sha": "2db08aa3ead2d14d07f1d3810b6ca5fdd21cd70b",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/2db08aa3ead2d14d07f1d3810b6ca5fdd21cd70b"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/3fa40fec3588c102e691ea71fa1b9ea6457b0bac",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6TVACRC1aQ7uu5UhlAAALcUQAGO0I0SCgcDLQIDkxbF50SIo\nTm884+g7nW18vmgFgYauvgT1d0kHXsH+I/8zbgtJ79SFEmzaxC+FTOY5LKehZJsG\nZ/2Uh2jdEKbtIQJnCVPOs9b37uRc6vi/uyrkeAIPLmIQJ3G8C/YcsouHZRWR4dDv\n6KHw6GRxgXe2vZlEiF2nIaSXRnRriFsJxm0ERhMNB2+egPsVCvOBlsdOVSvVtYug\nip7lh3A2djRz1ub3QwuqAItQ5ZRmoPAUuABtnSwNqT941fbIzGi4NJ5tSna7tq2w\nLyURXKUFEtm2+YFMsVXgrGhuT3HZuNpJ/fegAoV905dWr5fN18BqZdbV2gzuy1mv\nmVkFEzvpPtgy0m6VDPycOti8A/2Lv0g1uR17560kghkiywXFlzhJX9sAcYdbfZXY\npZloKAryqXQHBIeQhSNEwzHfbh0jRJ0Vv00xYWlR2f/t/VF6hA9Ng9lfb6FYlfsN\nap6Eb/djqUJHdnddm9vrW4BkJWcoombqbN2kv2d6ovZ8xLXJjMnPfTc0Y/X1NXQF\n99D/Z6deepy54sd/SHfjzfpPMqEFo/eejRRRiVgjP2JQLbtcSy6+t9AppLUSGNoL\nGHlMhDvj3JyryIfpCqyXMFRaIrrGnww5ZM3UUSwJ1yLmyT6F2+XKGshN8CPFToFB\nCTYx4P+jmHuDC+zLoFId\n=KA/n\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 2db08aa3ead2d14d07f1d3810b6ca5fdd21cd70b\nparent 09f1c619c3d4589685f50ad19026b5fc72efd426\nauthor Jeremy Parmenter <jeremyparmenter@icloud.com> 1726559552 +0800\ncommitter GitHub <noreply@github.com> 1726559552 +0200\n\nDocs: Fix white flash on iframe load for Safari (#29419)\n\n* Docs: Fix white flash on iframe load for Safari\r\n\r\n* Fix white page for root level /docs page (when no page is selected)\r\n\r\n* Update index.html\r\n\r\nFix code style.\r\n\r\n* Remove unnecessary error event listener\r\n\r\n---------\r\n\r\nCo-authored-by: Michael Herzog <michael.herzog@human-interactive.org>"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/3fa40fec3588c102e691ea71fa1b9ea6457b0bac",
+    "html_url": "https://github.com/mrdoob/three.js/commit/3fa40fec3588c102e691ea71fa1b9ea6457b0bac",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/3fa40fec3588c102e691ea71fa1b9ea6457b0bac/comments",
+    "author": {
+      "login": "JeremyJaydan",
+      "id": 15324232,
+      "node_id": "MDQ6VXNlcjE1MzI0MjMy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15324232?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/JeremyJaydan",
+      "html_url": "https://github.com/JeremyJaydan",
+      "followers_url": "https://api.github.com/users/JeremyJaydan/followers",
+      "following_url": "https://api.github.com/users/JeremyJaydan/following{/other_user}",
+      "gists_url": "https://api.github.com/users/JeremyJaydan/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/JeremyJaydan/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/JeremyJaydan/subscriptions",
+      "organizations_url": "https://api.github.com/users/JeremyJaydan/orgs",
+      "repos_url": "https://api.github.com/users/JeremyJaydan/repos",
+      "events_url": "https://api.github.com/users/JeremyJaydan/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/JeremyJaydan/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "09f1c619c3d4589685f50ad19026b5fc72efd426",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/09f1c619c3d4589685f50ad19026b5fc72efd426",
+        "html_url": "https://github.com/mrdoob/three.js/commit/09f1c619c3d4589685f50ad19026b5fc72efd426"
+      }
+    ]
+  },
+  {
+    "sha": "09f1c619c3d4589685f50ad19026b5fc72efd426",
+    "node_id": "C_kwDOAAjKydoAKDA5ZjFjNjE5YzNkNDU4OTY4NWY1MGFkMTkwMjZiNWZjNzJlZmQ0MjY",
+    "commit": {
+      "author": {
+        "name": "sunag",
+        "email": "sunagbrasil@gmail.com",
+        "date": "2024-09-16T23:47:46Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T23:47:46Z"
+      },
+      "message": "Examples: Retargeting animation - mixamo to readyplayer.me (#29428)",
+      "tree": {
+        "sha": "75e6c6eba6e42106d5a7a34f0b12c32a1503b80f",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/75e6c6eba6e42106d5a7a34f0b12c32a1503b80f"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/09f1c619c3d4589685f50ad19026b5fc72efd426",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6MOiCRC1aQ7uu5UhlAAAObUQAANK0lhf/oT8UqDHrPvL4NzJ\nFuBlbsQHLfe23G3spETTu81qaAj7J9OTb9cVAXnBtmDES0tb/QSkRy2NAKz+gYUl\nbzDvCh/EwnEcJAG4237bjzLf2HKvsEjb5uPqrzcvhmcKHrUjdaf8xPxDFMfCCBNY\nQP2IbWLl/pmy2U9sbnt9JkakW8ZOA1I9id9JvJdDpxSZuTlqh2uaB1Cnpnm83dXy\nmznhTmTElafVEaq0HbSwn8Ft0eng4jHXZFkahEU9d64+G1+TL2jILdI7mPh4C/pc\n2s7n+kMgdez3Bz3NqoTGYmuridl6hQHPIC843DyU5JiuMNjswkBC7zaGJZi5wRs1\nMMWNsotxUioo6+l2GoMR8u4g8hbElsb3cyEVNAomWkkpqPR5PQVxVF+wY7XeA6CJ\nyw9fU2p9usky4pVnE+Fvsc36j1xRnm5pgQManFtD/C56vPbFEF+o1k7D6/Of6+IH\nfqG0L2JUfd0/QObHYuw9OBkzhcwllyyUsc2769nRJPjIRWrhTp1ge3kCEpZN0YfN\n/mMcmOLAbo/PAxriOVN3W5qbn2svVdk2kZVSnBo8rpM1nsLbpd8n2hXRvbW9bXFg\ng6kguASAEeZctryzV80FZFoOtUbw4eHyZKd8dlIM/voouGPxnCeN0PjetoRtBOKN\ndOOUTIh0MsF1wLquKSbd\n=+kFA\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 75e6c6eba6e42106d5a7a34f0b12c32a1503b80f\nparent df70a142f65747824808ae06ba0a92a24d03a15c\nauthor sunag <sunagbrasil@gmail.com> 1726530466 -0300\ncommitter GitHub <noreply@github.com> 1726530466 -0300\n\nExamples: Retargeting animation - mixamo to readyplayer.me (#29428)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/09f1c619c3d4589685f50ad19026b5fc72efd426",
+    "html_url": "https://github.com/mrdoob/three.js/commit/09f1c619c3d4589685f50ad19026b5fc72efd426",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/09f1c619c3d4589685f50ad19026b5fc72efd426/comments",
+    "author": {
+      "login": "sunag",
+      "id": 502810,
+      "node_id": "MDQ6VXNlcjUwMjgxMA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/502810?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sunag",
+      "html_url": "https://github.com/sunag",
+      "followers_url": "https://api.github.com/users/sunag/followers",
+      "following_url": "https://api.github.com/users/sunag/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sunag/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sunag/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sunag/subscriptions",
+      "organizations_url": "https://api.github.com/users/sunag/orgs",
+      "repos_url": "https://api.github.com/users/sunag/repos",
+      "events_url": "https://api.github.com/users/sunag/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sunag/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "df70a142f65747824808ae06ba0a92a24d03a15c",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/df70a142f65747824808ae06ba0a92a24d03a15c",
+        "html_url": "https://github.com/mrdoob/three.js/commit/df70a142f65747824808ae06ba0a92a24d03a15c"
+      }
+    ]
+  },
+  {
+    "sha": "df70a142f65747824808ae06ba0a92a24d03a15c",
+    "node_id": "C_kwDOAAjKydoAKGRmNzBhMTQyZjY1NzQ3ODI0ODA4YWUwNmJhMGE5MmEyNGQwM2ExNWM",
+    "commit": {
+      "author": {
+        "name": "sunag",
+        "email": "sunagbrasil@gmail.com",
+        "date": "2024-09-16T23:08:17Z"
+      },
+      "committer": {
+        "name": "sunag",
+        "email": "sunagbrasil@gmail.com",
+        "date": "2024-09-16T23:08:17Z"
+      },
+      "message": "Updated builds.",
+      "tree": {
+        "sha": "c1c03f9e75d89fd67c4e591d5fa7afd916548c4c",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/c1c03f9e75d89fd67c4e591d5fa7afd916548c4c"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/df70a142f65747824808ae06ba0a92a24d03a15c",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/df70a142f65747824808ae06ba0a92a24d03a15c",
+    "html_url": "https://github.com/mrdoob/three.js/commit/df70a142f65747824808ae06ba0a92a24d03a15c",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/df70a142f65747824808ae06ba0a92a24d03a15c/comments",
+    "author": {
+      "login": "sunag",
+      "id": 502810,
+      "node_id": "MDQ6VXNlcjUwMjgxMA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/502810?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sunag",
+      "html_url": "https://github.com/sunag",
+      "followers_url": "https://api.github.com/users/sunag/followers",
+      "following_url": "https://api.github.com/users/sunag/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sunag/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sunag/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sunag/subscriptions",
+      "organizations_url": "https://api.github.com/users/sunag/orgs",
+      "repos_url": "https://api.github.com/users/sunag/repos",
+      "events_url": "https://api.github.com/users/sunag/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sunag/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sunag",
+      "id": 502810,
+      "node_id": "MDQ6VXNlcjUwMjgxMA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/502810?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sunag",
+      "html_url": "https://github.com/sunag",
+      "followers_url": "https://api.github.com/users/sunag/followers",
+      "following_url": "https://api.github.com/users/sunag/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sunag/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sunag/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sunag/subscriptions",
+      "organizations_url": "https://api.github.com/users/sunag/orgs",
+      "repos_url": "https://api.github.com/users/sunag/repos",
+      "events_url": "https://api.github.com/users/sunag/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sunag/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5de6c61e235f03f94b1725fc6c8bb26ee9926935",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/5de6c61e235f03f94b1725fc6c8bb26ee9926935",
+        "html_url": "https://github.com/mrdoob/three.js/commit/5de6c61e235f03f94b1725fc6c8bb26ee9926935"
+      }
+    ]
+  },
+  {
+    "sha": "5de6c61e235f03f94b1725fc6c8bb26ee9926935",
+    "node_id": "C_kwDOAAjKydoAKDVkZTZjNjFlMjM1ZjAzZjk0YjE3MjVmYzZjOGJiMjZlZTk5MjY5MzU",
+    "commit": {
+      "author": {
+        "name": "sunag",
+        "email": "sunagbrasil@gmail.com",
+        "date": "2024-09-16T22:22:31Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T22:22:31Z"
+      },
+      "message": "WebGPURenderer: Added geometry in material cache key (#29427)",
+      "tree": {
+        "sha": "375ed0afbae7e8aaa2d5981ffc689b987eb19d64",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/375ed0afbae7e8aaa2d5981ffc689b987eb19d64"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/5de6c61e235f03f94b1725fc6c8bb26ee9926935",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6K+nCRC1aQ7uu5UhlAAAamMQAB65Vh9ROQKveYl0ooh9gYA1\nrvY2KHkbsRv7AR5qNjyQNj2o8Jibw2sRuK2HNufIqxAm3gwktzmD829d0eEtO7ef\nidOL7dZNKbidauMMiolaTJbeMtMtB6r8b6zS//yIXQ23vJvjmDH9iSrixhBJWVvl\ni3YiNz0IPfBmfIngy/W1YcxApOe7MxgSXQYt8/qkMQvMsTwNC7zZV0H1Zf5NDbGV\nFz/5d6jIKe/sfi9XLy2qAWgZJJ4RcZEJygfaFWYzTkovRgmd2/ZM1jOO1jI0MaUB\nxnocWkHHwOajQ/DcaREM8FGmHBsAHVnnRKlRXSXxg8oj2RP+gYFMh08uo0oUTW4V\nsyO8AZ8p+QByaV5cNxxaWX5Ujnkk/eOFgiT0wYrniqQNRxCfIJ0BItqsA6d7ubPd\nn2kFFYhDxc1wvk6zj7ASh7huIekrvewHX1pcZSpO1z0SEvFX32ZiaVsAKgGCtw5r\nYpPJKzIyxQSAl7MkLuC7yLtiZjVusPqxThmzbbxbE6RRTwQ3jj+vvqzLygAUb2Ii\n1BD/KIczqZFl8sO26jszAp79a+MtAzw63ENbeudGcQpMQVVqhE9QIdoXLjq2CAV7\nqRo6W2/zI1zTgBE29VNFPZJS6nQ50urhcbpmOvIB3Lzz+KSRb18j4c0nbEUXTsrF\nItdWo00ZsAi8TSo3sjvv\n=VKqe\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 375ed0afbae7e8aaa2d5981ffc689b987eb19d64\nparent 4fd53600e5ee82c3ed2d4daf82921bd0dcc9ba24\nauthor sunag <sunagbrasil@gmail.com> 1726525351 -0300\ncommitter GitHub <noreply@github.com> 1726525351 -0300\n\nWebGPURenderer: Added geometry in material cache key (#29427)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/5de6c61e235f03f94b1725fc6c8bb26ee9926935",
+    "html_url": "https://github.com/mrdoob/three.js/commit/5de6c61e235f03f94b1725fc6c8bb26ee9926935",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/5de6c61e235f03f94b1725fc6c8bb26ee9926935/comments",
+    "author": {
+      "login": "sunag",
+      "id": 502810,
+      "node_id": "MDQ6VXNlcjUwMjgxMA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/502810?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sunag",
+      "html_url": "https://github.com/sunag",
+      "followers_url": "https://api.github.com/users/sunag/followers",
+      "following_url": "https://api.github.com/users/sunag/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sunag/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sunag/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sunag/subscriptions",
+      "organizations_url": "https://api.github.com/users/sunag/orgs",
+      "repos_url": "https://api.github.com/users/sunag/repos",
+      "events_url": "https://api.github.com/users/sunag/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sunag/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4fd53600e5ee82c3ed2d4daf82921bd0dcc9ba24",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/4fd53600e5ee82c3ed2d4daf82921bd0dcc9ba24",
+        "html_url": "https://github.com/mrdoob/three.js/commit/4fd53600e5ee82c3ed2d4daf82921bd0dcc9ba24"
+      }
+    ]
+  },
+  {
+    "sha": "4fd53600e5ee82c3ed2d4daf82921bd0dcc9ba24",
+    "node_id": "C_kwDOAAjKydoAKDRmZDUzNjAwZTVlZTgyYzNlZDJkNGRhZjgyOTIxYmQwZGNjOWJhMjQ",
+    "commit": {
+      "author": {
+        "name": "aardgoose",
+        "email": "angus.sawyer@gmail.com",
+        "date": "2024-09-16T19:17:37Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T19:17:37Z"
+      },
+      "message": "WebGPURenderer: add Texture state tracking to `NodeMaterialObserver`  (#29421)\n\n* texture tracking\r\n\r\n* rework\r\n\r\n* lint\r\n\r\n* rework 2\r\n\r\n---------\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>",
+      "tree": {
+        "sha": "bd28a24f57f1ded9b140fabe8579d2ce15e60ef6",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/bd28a24f57f1ded9b140fabe8579d2ce15e60ef6"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/4fd53600e5ee82c3ed2d4daf82921bd0dcc9ba24",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6IRRCRC1aQ7uu5UhlAAAL8EQALDDvipLAneM17aoDJ4x5tI3\nfIiUPeMdnR+ixFbwqHjZLN3sO5LU2+dlyIUn2nUMi4f9nHgnBMLjsgYjMYNwgySl\nNftUwHxYgxZIFo0+c3GoHztFyBqq4j/flC1g0aBg6i9xoriXgcV3GPGV1G95OVbX\nNvT8GyGVupeLyWEdOcDnjwhluQm79hCU8zkDhpUTwKNh7a+Vu7Uj7zeWiDtu66c2\nUH3+fz2oYDfJuDEfBKrIJkBGWsJCDVZ4ywyf/qRaIwrV03CAoD4LLf/YA0wFRsNC\noA79TRfYpfMEzUslGGVd20pruuwRviT1bTu6k+T3dHQgJQrUvtGsJ/N2gSaGm22v\nwjqWnwFrvjzUw2geOA3dplnG8/wMP6oPYj0AGKfNoSLDs/gRhkpqh03TcNFNQ9bL\n8jljmdQWPfPAYz+YykQmDALUKmeMzHSN/vjiZhqG4edRNka33WTEEHBhzK1MB68b\nZ1I6S7IaRS/bXqdG1jenhYj4pimDTRBaz3s029MjFwQOYibpRgPrW47Qd8htYjP4\ngoWuKm6XlQBYag5A5MsGZ9mYtT0DfE/ehzfHJODgZthaYSDFC5lbbJcZ2KZA2bWF\nDgtVH0fMlmFHhinjNtjgrbUMekgseFDR79AFM/UBDc8V66rwjuSFq9q8seaA+v6d\nNEZQLLJFgGPDq/D/Z8fU\n=hNos\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree bd28a24f57f1ded9b140fabe8579d2ce15e60ef6\nparent 3ddd8de8783d634ef7a3a4bccaf7da33598ebf98\nauthor aardgoose <angus.sawyer@gmail.com> 1726514257 +0100\ncommitter GitHub <noreply@github.com> 1726514257 -0300\n\nWebGPURenderer: add Texture state tracking to `NodeMaterialObserver`  (#29421)\n\n* texture tracking\r\n\r\n* rework\r\n\r\n* lint\r\n\r\n* rework 2\r\n\r\n---------\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/4fd53600e5ee82c3ed2d4daf82921bd0dcc9ba24",
+    "html_url": "https://github.com/mrdoob/three.js/commit/4fd53600e5ee82c3ed2d4daf82921bd0dcc9ba24",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/4fd53600e5ee82c3ed2d4daf82921bd0dcc9ba24/comments",
+    "author": {
+      "login": "aardgoose",
+      "id": 17364910,
+      "node_id": "MDQ6VXNlcjE3MzY0OTEw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17364910?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aardgoose",
+      "html_url": "https://github.com/aardgoose",
+      "followers_url": "https://api.github.com/users/aardgoose/followers",
+      "following_url": "https://api.github.com/users/aardgoose/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aardgoose/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aardgoose/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aardgoose/subscriptions",
+      "organizations_url": "https://api.github.com/users/aardgoose/orgs",
+      "repos_url": "https://api.github.com/users/aardgoose/repos",
+      "events_url": "https://api.github.com/users/aardgoose/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aardgoose/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3ddd8de8783d634ef7a3a4bccaf7da33598ebf98",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/3ddd8de8783d634ef7a3a4bccaf7da33598ebf98",
+        "html_url": "https://github.com/mrdoob/three.js/commit/3ddd8de8783d634ef7a3a4bccaf7da33598ebf98"
+      }
+    ]
+  },
+  {
+    "sha": "3ddd8de8783d634ef7a3a4bccaf7da33598ebf98",
+    "node_id": "C_kwDOAAjKydoAKDNkZGQ4ZGU4NzgzZDYzNGVmN2EzYTRiY2NhZjdkYTMzNTk4ZWJmOTg",
+    "commit": {
+      "author": {
+        "name": "jorodi",
+        "email": "106020393+jorodi@users.noreply.github.com",
+        "date": "2024-09-16T18:38:22Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T18:38:22Z"
+      },
+      "message": "fix: add xr input source hand check to prevent hand tracking model loading on connect (#29179)\n\nCo-authored-by: jorodi <jorodi@mpb16>",
+      "tree": {
+        "sha": "2e80de959f0f3016959660f44b346c2af482a195",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/2e80de959f0f3016959660f44b346c2af482a195"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/3ddd8de8783d634ef7a3a4bccaf7da33598ebf98",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6HseCRC1aQ7uu5UhlAAAgu8QADhQoxoQdVn/bJhG2Mszbv9Y\nEjTb61Qa0NnCItqLvc2jzPRflf4d0hxKgKXCUJ22HaKrmFhnlVeUn1ljmbe1Udes\nXoQihCA9mzrudQ/QT1H/6ku0rxiRtvpgYU3cz2NffuCDRlinxUlEIHHvM24GslsF\nOyI9p0lJDq4GKXozDxP01QUYGAl1r7NeOfVayhbsylgQCRtVW/+kEGJuJUC5lJX1\n1NQYo0pJH1mjJ0/tFhfbFwq17iE7N6LmXsW81pZ4DiAaqmBUbhCFL/35od68ipcV\nUxH6YM82XltGpDdYE05u0f/xl0h47C5fF8+6FrpSfXhwOMj6ItSF9aj/kGS9vlkk\nBoJiqqQUXVy5KLWb3MM3D7snG1ED5VjiTfXHGGqTNbcLfjXq8eigfEgyWbnKcWEI\nqhngVnxD81LkhI5uafyYII9VCtFmWk0DRg367MBI+PXUe6uq7DEI89CcIAOf7ttc\nviOx4qZ1RPE3Ht122Dm10ydSdRr+rSETvIxzQk5bb80t8RASovqhVSsOUC+UssEB\nqtRBJedAJf71eofku1FNe8XNEGP7YuTCtR3riKDWsxcd53H6bRpv59XLkyyp+FJ8\nES2Mqsnvy8/dHmwmNQoN1eqR+tVnieT7mU9CwmI7zNBH4BsTAtAYb3X8Sm8mHAj6\nm72EMs1W5nnnSRNu3VQV\n=jnhj\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 2e80de959f0f3016959660f44b346c2af482a195\nparent 3415f337633c94fbffc235499454e64c8c81e7ec\nauthor jorodi <106020393+jorodi@users.noreply.github.com> 1726511902 -0400\ncommitter GitHub <noreply@github.com> 1726511902 +0200\n\nfix: add xr input source hand check to prevent hand tracking model loading on connect (#29179)\n\nCo-authored-by: jorodi <jorodi@mpb16>"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/3ddd8de8783d634ef7a3a4bccaf7da33598ebf98",
+    "html_url": "https://github.com/mrdoob/three.js/commit/3ddd8de8783d634ef7a3a4bccaf7da33598ebf98",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/3ddd8de8783d634ef7a3a4bccaf7da33598ebf98/comments",
+    "author": {
+      "login": "jorodi",
+      "id": 106020393,
+      "node_id": "U_kgDOBlG-KQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/106020393?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jorodi",
+      "html_url": "https://github.com/jorodi",
+      "followers_url": "https://api.github.com/users/jorodi/followers",
+      "following_url": "https://api.github.com/users/jorodi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jorodi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jorodi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jorodi/subscriptions",
+      "organizations_url": "https://api.github.com/users/jorodi/orgs",
+      "repos_url": "https://api.github.com/users/jorodi/repos",
+      "events_url": "https://api.github.com/users/jorodi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jorodi/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "3415f337633c94fbffc235499454e64c8c81e7ec",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/3415f337633c94fbffc235499454e64c8c81e7ec",
+        "html_url": "https://github.com/mrdoob/three.js/commit/3415f337633c94fbffc235499454e64c8c81e7ec"
+      }
+    ]
+  },
+  {
+    "sha": "3415f337633c94fbffc235499454e64c8c81e7ec",
+    "node_id": "C_kwDOAAjKydoAKDM0MTVmMzM3NjMzYzk0ZmJmZmMyMzU0OTk0NTRlNjRjOGM4MWU3ZWM",
+    "commit": {
+      "author": {
+        "name": "sunag",
+        "email": "sunagbrasil@gmail.com",
+        "date": "2024-09-16T16:38:15Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T16:38:15Z"
+      },
+      "message": "SkeletonUtils: added `trim` (#29424)",
+      "tree": {
+        "sha": "10003b0c6fa542a60b98eaff71c2aed00a7a2934",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/10003b0c6fa542a60b98eaff71c2aed00a7a2934"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/3415f337633c94fbffc235499454e64c8c81e7ec",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6F73CRC1aQ7uu5UhlAAAdzwQADDeLUpppZyWn8E6YBVMl4d4\nqzC4S6i+mdKu4qiPdYhcFRJuau9AYJbVdUOpl56OxmJZytEVYOshM301kGSBhRSe\nfdbZp8n4iAFr5pNDT8R2TgVbIZWvmfyFI/cV8gNIjHv0UI65V98ES1B4N8ISdiDP\nKzN2GfGLOVEJ7RIfKiG+y+yPPpMsnPOYFbEI6C0e/Z5FaD/0PEFyZqITmLTfJob6\nnfkGAtnlVl+gcNW1ok9dqHunMkOQnT5/7p2+QZHExsxRAsNvG43qNd8J9Mvx52oi\nH4ClRhpHBtsfI3iMEOpe/rlrL2DinHD3XSP/x0uxmnPr+/mbC7CEXEiNy9kDwJGJ\n4Uu1Ki05Yi3OTzhUt+GYzd1iQlj6VJBwzgK3hbl6hILpN1kpUNKmf7G9ZymXEsZs\nLA2a9a9Jaw+DV1hFzHJEDhry0evf2UqDrqRB9EPTFLVMRLUE6S/P6+xLi2EFeUPf\nDQidMq8jEF31QTrLYgZ7CYg9aKp31Es7+JxyxXruq74MXiQ+VdcQK2c9sMYuwqNC\nEVykVFDFs0DeCKcOdyEdQdK3dgpSfZIecOHcCbwMC3M3dwZ2z6AWazVZKsTiqrad\n6sJekpq68QjpYjbDrnyDR7dudRLYBsW5YincTt9XlqI7GdVEX+sgOImh/yipmfnf\n7YjvJYdgtRuplm9xtjl+\n=4pRt\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 10003b0c6fa542a60b98eaff71c2aed00a7a2934\nparent 62611409e554e55f11d942ec013750f7837a2ef0\nauthor sunag <sunagbrasil@gmail.com> 1726504695 -0300\ncommitter GitHub <noreply@github.com> 1726504695 -0300\n\nSkeletonUtils: added `trim` (#29424)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/3415f337633c94fbffc235499454e64c8c81e7ec",
+    "html_url": "https://github.com/mrdoob/three.js/commit/3415f337633c94fbffc235499454e64c8c81e7ec",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/3415f337633c94fbffc235499454e64c8c81e7ec/comments",
+    "author": {
+      "login": "sunag",
+      "id": 502810,
+      "node_id": "MDQ6VXNlcjUwMjgxMA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/502810?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sunag",
+      "html_url": "https://github.com/sunag",
+      "followers_url": "https://api.github.com/users/sunag/followers",
+      "following_url": "https://api.github.com/users/sunag/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sunag/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sunag/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sunag/subscriptions",
+      "organizations_url": "https://api.github.com/users/sunag/orgs",
+      "repos_url": "https://api.github.com/users/sunag/repos",
+      "events_url": "https://api.github.com/users/sunag/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sunag/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "62611409e554e55f11d942ec013750f7837a2ef0",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/62611409e554e55f11d942ec013750f7837a2ef0",
+        "html_url": "https://github.com/mrdoob/three.js/commit/62611409e554e55f11d942ec013750f7837a2ef0"
+      }
+    ]
+  },
+  {
+    "sha": "62611409e554e55f11d942ec013750f7837a2ef0",
+    "node_id": "C_kwDOAAjKydoAKDYyNjExNDA5ZTU1NGU1NWYxMWQ5NDJlYzAxMzc1MGY3ODM3YTJlZjA",
+    "commit": {
+      "author": {
+        "name": "aardgoose",
+        "email": "angus.sawyer@gmail.com",
+        "date": "2024-09-16T14:58:17Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T14:58:17Z"
+      },
+      "message": "WebGPURenderer: WebGL fallback, use shared UBOs for common uniform groups (#29420)\n\n* Use shared UBOs for common uniform groups\r\n\r\n* cleanup\r\n\r\n---------\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>",
+      "tree": {
+        "sha": "6ca1f76e35b4610e8eb9421681a2c45420119874",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/6ca1f76e35b4610e8eb9421681a2c45420119874"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/62611409e554e55f11d942ec013750f7837a2ef0",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6EeJCRC1aQ7uu5UhlAAAPmQQABor/Zc1nAHTM0Cy3bA19AZL\n1yJjkO1Cu6ijRDZp7E169UMrFgqFFdK5lZJVAQLxrmKMJTIsaptGo/K7t2XYUjd+\nISvDbEtwS3EoTlT9KYOzTkZ7fcu8i5G8AsXKtSTgMZpQfJ4rj9WwNU/4DIWcmSos\nocDd8TAoEt1WhDhxm+38YIslRB3vksNUx3+QIeN7B5YnFEJhdmvVmX9DcO/eyUmX\nolScdkNmegVOEsfW3HF00/QIU5GcEeHOywIYdP7ZrDFp8cC1ej4fFmTRLAGoPSOC\n1JqQZxZwPN4lV2zhHEBzoCLVJVYD4ES+sgPH7xJayqCSOqh7LP4Y7ChxNjQ+V9pN\ncbsLSkahtJeuBm2KNKFF8Y8VUzPco2qSNRYN90W6bnt8cWDGHobxWCLEldYdKdcI\nwa3H8l63HT2Jm2BWpqNLUiRFhaG+WrEXVo3LfIAdX5E92wQ1j/Q7kVebsz2MlhUk\nZ28oDoI+/TE4VBFY3y7t8rT1x5+NvmrI5tEmPyWZ96AKc/1fqvWDEqLxz8WZ7WZ4\nqDOlLyHsS01erKzFrSrcYyVrVKKW8fN8LCOhD0TzZ3WFtHNpQ8AbjOc/IxYHxyHX\n6rboX1EmR51j2ObGKJolN3mL6HvCKQ1x9FBhfHrF56uZy4uroK3itK8W2sChlCtX\ncxxbCm0jkGzTUkYKN0I6\n=9n0Y\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 6ca1f76e35b4610e8eb9421681a2c45420119874\nparent 2857c2ae453648e27a5f642ac08cf94a91513ba2\nauthor aardgoose <angus.sawyer@gmail.com> 1726498697 +0100\ncommitter GitHub <noreply@github.com> 1726498697 -0300\n\nWebGPURenderer: WebGL fallback, use shared UBOs for common uniform groups (#29420)\n\n* Use shared UBOs for common uniform groups\r\n\r\n* cleanup\r\n\r\n---------\r\n\r\nCo-authored-by: aardgoose <angus.sawyer@email.com>"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/62611409e554e55f11d942ec013750f7837a2ef0",
+    "html_url": "https://github.com/mrdoob/three.js/commit/62611409e554e55f11d942ec013750f7837a2ef0",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/62611409e554e55f11d942ec013750f7837a2ef0/comments",
+    "author": {
+      "login": "aardgoose",
+      "id": 17364910,
+      "node_id": "MDQ6VXNlcjE3MzY0OTEw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17364910?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aardgoose",
+      "html_url": "https://github.com/aardgoose",
+      "followers_url": "https://api.github.com/users/aardgoose/followers",
+      "following_url": "https://api.github.com/users/aardgoose/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aardgoose/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aardgoose/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aardgoose/subscriptions",
+      "organizations_url": "https://api.github.com/users/aardgoose/orgs",
+      "repos_url": "https://api.github.com/users/aardgoose/repos",
+      "events_url": "https://api.github.com/users/aardgoose/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aardgoose/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2857c2ae453648e27a5f642ac08cf94a91513ba2",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/2857c2ae453648e27a5f642ac08cf94a91513ba2",
+        "html_url": "https://github.com/mrdoob/three.js/commit/2857c2ae453648e27a5f642ac08cf94a91513ba2"
+      }
+    ]
+  },
+  {
+    "sha": "2857c2ae453648e27a5f642ac08cf94a91513ba2",
+    "node_id": "C_kwDOAAjKydoAKDI4NTdjMmFlNDUzNjQ4ZTI3YTVmNjQyYWMwOGNmOTRhOTE1MTNiYTI",
+    "commit": {
+      "author": {
+        "name": "sunag",
+        "email": "sunagbrasil@gmail.com",
+        "date": "2024-09-16T14:50:25Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T14:50:25Z"
+      },
+      "message": "SkeletonUtils: added `hipInfluence` (#29423)",
+      "tree": {
+        "sha": "2b8879bf159ea43ba96caee2aef03aaf9046eb6d",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/2b8879bf159ea43ba96caee2aef03aaf9046eb6d"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/2857c2ae453648e27a5f642ac08cf94a91513ba2",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6EWxCRC1aQ7uu5UhlAAAsDEQAACFs+CcRfPVJcCX4zpmqjGt\n1vOfKMYEWzpaDhRcaz/iyQ2ev+7PcgMwVyB6wLhpVPgZwIIc+ZF+1sKANlirfFk0\nWQRJV0jTgiZKZzNUz9C+NClvSx9/cVC4TwprzDjAt4uUs6ayjXfmwc2yRVHqpM6w\nhmNaolV+0kGoqtVLsYO1sJvGk4PAvw2PYoQQgqvx2CuNQmvdTr76aG8CHipZbNt8\nNA6m847ayuHG22aNTz6cNdYp6Q8ImMQCFRlrxhApIhHD3/+fTM/5j7wqjIJryRnR\nAB2FTQza6JT2Y7rd4b71BmRwLd/lSDxNcAUjyryx5Nk0iB1uMYmmpuP2dJRDUI3J\nAubfbLu6pqmcwnOVOKBJwIQLjl+x5VPEsXV0PWNH3U0bwZLN3oscs1xvHX0GwICc\nLk77Tj46zPhUtnjrH7JFXzu3NJKsD0TtQW+stSIowNOZZ+h7wRoJ4zOxpeTjsLy7\n3y08Wwh9T0hLn8Ah4S7D5ZgFe/klzCT+N//1/gWPeLu9MW8HBk45pxQznlrW59n1\nZJKSr5UNGRcDLfvQMiWrZQl5RwC5rfj9e3Y+vfoQxXtE1L+WG0h3VF+Gge8XByy9\nvzM0I8MSYHyJcl59ksDbVfgcQ09A472JHC+nX2ebdh71S6TrUTzS9LmJDgco5PHY\n8zJG0VKptKUrfLaHwoBT\n=yYFV\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 2b8879bf159ea43ba96caee2aef03aaf9046eb6d\nparent f048cd92b596baf13888f590af3f5bb3d7310b52\nauthor sunag <sunagbrasil@gmail.com> 1726498225 -0300\ncommitter GitHub <noreply@github.com> 1726498225 -0300\n\nSkeletonUtils: added `hipInfluence` (#29423)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/2857c2ae453648e27a5f642ac08cf94a91513ba2",
+    "html_url": "https://github.com/mrdoob/three.js/commit/2857c2ae453648e27a5f642ac08cf94a91513ba2",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/2857c2ae453648e27a5f642ac08cf94a91513ba2/comments",
+    "author": {
+      "login": "sunag",
+      "id": 502810,
+      "node_id": "MDQ6VXNlcjUwMjgxMA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/502810?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sunag",
+      "html_url": "https://github.com/sunag",
+      "followers_url": "https://api.github.com/users/sunag/followers",
+      "following_url": "https://api.github.com/users/sunag/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sunag/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sunag/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sunag/subscriptions",
+      "organizations_url": "https://api.github.com/users/sunag/orgs",
+      "repos_url": "https://api.github.com/users/sunag/repos",
+      "events_url": "https://api.github.com/users/sunag/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sunag/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f048cd92b596baf13888f590af3f5bb3d7310b52",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/f048cd92b596baf13888f590af3f5bb3d7310b52",
+        "html_url": "https://github.com/mrdoob/three.js/commit/f048cd92b596baf13888f590af3f5bb3d7310b52"
+      }
+    ]
+  },
+  {
+    "sha": "f048cd92b596baf13888f590af3f5bb3d7310b52",
+    "node_id": "C_kwDOAAjKydoAKGYwNDhjZDkyYjU5NmJhZjEzODg4ZjU5MGFmM2Y1YmIzZDczMTBiNTI",
+    "commit": {
+      "author": {
+        "name": "Michael Herzog",
+        "email": "michael.herzog@human-interactive.org",
+        "date": "2024-09-16T11:35:16Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T11:35:16Z"
+      },
+      "message": "Examples: Clean up. (#29422)\n\n* Examples: Clean up.\r\n\r\n* Example: Clean up.\r\n\r\n* Examples: Simplify frustum setup.",
+      "tree": {
+        "sha": "89da8ee9f6ff25444f8c71fdb179eafd452178fd",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/89da8ee9f6ff25444f8c71fdb179eafd452178fd"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/f048cd92b596baf13888f590af3f5bb3d7310b52",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm6Bf0CRC1aQ7uu5UhlAAAigQQAECQMR8hgUWXgDBZkTlY/FsC\nNLmPsK/KF0sctX8gcIcUtJ1CkS3EnScS0ReKrMLXSjMniTYhn2JJxTFkGBJUraZn\ncFTAe7pOTdcFAoFv2BXGeofuQOZz8zPTFZEWbI/lnuAgR9ejTrPxIA/noUErFGbL\nnSmGvIJuIKdABjDqrKlcSQXileBt26GRmj64KmgOdo51dep7bkq92NhuGRLIDL8G\n06FCkEooTca6NrrioZqexIPxvW4blXvm9GHAPmR9tcAucVkUno19TruXchPkctpV\nQBguWXZYINmVMB1VB/PgTBCTH7/2v8WpqSyZcHIMStF+OL6rgxsopuVLudZr9jff\nC28UScDUwJCdv0RlPmC9x44Ylgkd/1WlZS4SvBRXZFT8fHbzM+/BKIF8zKRcYVhc\nX8MvFRRP09J1coDtC0J/7KGGVOD0Xc0hNGen/Bxqte2yLjNrWrKAgHOjtnv0+H5x\nLhxjJKw8ImsETnGteoMST5to4XjCzXv6HVRQuLW+21enxNqKfoAcyM5xVEhX18LO\ngi+AYdt8BSzGR6Ultx5kyOMOJjibVcx2gCZdXmVS5rhrQODkNztfaajcrLw53ICp\nCUeZgPam/txsdV5mKOjlqZ9r20PuSdZhnsyaXMcFl6Y3voTJKJVdqtYRIHTNLdgS\nbFuEl2qMhBm9yftX7T1p\n=uauR\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 89da8ee9f6ff25444f8c71fdb179eafd452178fd\nparent 302240259d4ae8ae54557f7be6f0515a662f256d\nauthor Michael Herzog <michael.herzog@human-interactive.org> 1726486516 +0200\ncommitter GitHub <noreply@github.com> 1726486516 +0200\n\nExamples: Clean up. (#29422)\n\n* Examples: Clean up.\r\n\r\n* Example: Clean up.\r\n\r\n* Examples: Simplify frustum setup."
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/f048cd92b596baf13888f590af3f5bb3d7310b52",
+    "html_url": "https://github.com/mrdoob/three.js/commit/f048cd92b596baf13888f590af3f5bb3d7310b52",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/f048cd92b596baf13888f590af3f5bb3d7310b52/comments",
+    "author": {
+      "login": "Mugen87",
+      "id": 12612165,
+      "node_id": "MDQ6VXNlcjEyNjEyMTY1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12612165?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Mugen87",
+      "html_url": "https://github.com/Mugen87",
+      "followers_url": "https://api.github.com/users/Mugen87/followers",
+      "following_url": "https://api.github.com/users/Mugen87/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Mugen87/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Mugen87/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Mugen87/subscriptions",
+      "organizations_url": "https://api.github.com/users/Mugen87/orgs",
+      "repos_url": "https://api.github.com/users/Mugen87/repos",
+      "events_url": "https://api.github.com/users/Mugen87/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Mugen87/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "302240259d4ae8ae54557f7be6f0515a662f256d",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/302240259d4ae8ae54557f7be6f0515a662f256d",
+        "html_url": "https://github.com/mrdoob/three.js/commit/302240259d4ae8ae54557f7be6f0515a662f256d"
+      }
+    ]
+  },
+  {
+    "sha": "302240259d4ae8ae54557f7be6f0515a662f256d",
+    "node_id": "C_kwDOAAjKydoAKDMwMjI0MDI1OWQ0YWU4YWU1NDU1N2Y3YmU2ZjA1MTVhNjYyZjI1NmQ",
+    "commit": {
+      "author": {
+        "name": "Don McCurdy",
+        "email": "dm@donmccurdy.com",
+        "date": "2024-09-16T08:31:06Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2024-09-16T08:31:06Z"
+      },
+      "message": "deps(basis): Upgrade to Basis Universal v1.50 (#29418)",
+      "tree": {
+        "sha": "bf2e12239c5369293efb716e0b130af96bcf03f0",
+        "url": "https://api.github.com/repos/mrdoob/three.js/git/trees/bf2e12239c5369293efb716e0b130af96bcf03f0"
+      },
+      "url": "https://api.github.com/repos/mrdoob/three.js/git/commits/302240259d4ae8ae54557f7be6f0515a662f256d",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJm5+zKCRC1aQ7uu5UhlAAAckUQAAl9eWbBuZNI8030tJ6fIHrk\nIUDV/00MtpPLIYXXt77LkTttBrwr+qjQzaQloCuHlIv/DeLwVxBVqTXzsXtr/4gH\nLIkTS2KFHtVSV8947gt+7b+6S9byO811A9TZ2DxdD1pPfdDKpOBF4ewDvcE339xF\nn8jR8OSJoKuBtXRZJw1KuC3+9a1ceR4/BBSlRiKJDI3RueEsi9wNntLtgyRTftBi\nMHT6DSgnmQ1B3Tj8PoxZ7Fo0MOOWv6/XVBmm934+TGwMYWKiLdujxGxa0Nbgla7F\n6f0Ys/yiM/Q6VNgq7mx2K83vonFYP51YvrjSHVNO/Kf3Pu4pI9pLawzZd7BS9s9U\n1U+o2hckcbox3hkvp6SdwsQmY77+DkXvHuW8k0P6Cbf6/bTQSAC6o/zCqTeEc5MW\nzLn3C9lW936IoW6YP4RAARyRajFBeLJb8cVZ/pl5ZkmBwxzm8oO53lFUoW8iOUDQ\noaYk9XOr8OJ034id4g8DpY+fF959PLQpz+qfgN5QxpDoz4mqfSu3VKj58+Z5WbZk\ng+j8NOO2vKc/1SeHhEgcTvQrEPllLkDvX/jBcoBtHtFlSSElx+7CdPXypsJHomKm\nDBd4uuyUwJpySfR/zs3uGlqKrl0QVX0eyV2s9yesk94KpZDrWYVPBd610kFSILX3\nJ4NckynBYf4eGiX3I7qx\n=tU0+\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree bf2e12239c5369293efb716e0b130af96bcf03f0\nparent dcb30fd11276a14255155f3cb6eb3345622c9aef\nauthor Don McCurdy <dm@donmccurdy.com> 1726475466 -0400\ncommitter GitHub <noreply@github.com> 1726475466 +0200\n\ndeps(basis): Upgrade to Basis Universal v1.50 (#29418)\n\n"
+      }
+    },
+    "url": "https://api.github.com/repos/mrdoob/three.js/commits/302240259d4ae8ae54557f7be6f0515a662f256d",
+    "html_url": "https://github.com/mrdoob/three.js/commit/302240259d4ae8ae54557f7be6f0515a662f256d",
+    "comments_url": "https://api.github.com/repos/mrdoob/three.js/commits/302240259d4ae8ae54557f7be6f0515a662f256d/comments",
+    "author": {
+      "login": "donmccurdy",
+      "id": 1848368,
+      "node_id": "MDQ6VXNlcjE4NDgzNjg=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1848368?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/donmccurdy",
+      "html_url": "https://github.com/donmccurdy",
+      "followers_url": "https://api.github.com/users/donmccurdy/followers",
+      "following_url": "https://api.github.com/users/donmccurdy/following{/other_user}",
+      "gists_url": "https://api.github.com/users/donmccurdy/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/donmccurdy/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/donmccurdy/subscriptions",
+      "organizations_url": "https://api.github.com/users/donmccurdy/orgs",
+      "repos_url": "https://api.github.com/users/donmccurdy/repos",
+      "events_url": "https://api.github.com/users/donmccurdy/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/donmccurdy/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "dcb30fd11276a14255155f3cb6eb3345622c9aef",
+        "url": "https://api.github.com/repos/mrdoob/three.js/commits/dcb30fd11276a14255155f3cb6eb3345622c9aef",
+        "html_url": "https://github.com/mrdoob/three.js/commit/dcb30fd11276a14255155f3cb6eb3345622c9aef"
+      }
+    ]
+  }
+]

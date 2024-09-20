@@ -6,6 +6,15 @@ test('Test for license', async () => {
     expect(await temp_license('https://github.com/ryanve/unlicensed')).toBe(false);
 });
 
+test('Test for license', async () => {
+    expect(await temp_license('https://github.com/lodash/lodash')).toBe(true);
+});
+
+test('Test for license', async () => {
+    expect(await temp_license('invalid url')).toBe(false);
+}   );  
+
+
 
         
 
