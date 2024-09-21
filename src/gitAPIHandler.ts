@@ -14,6 +14,8 @@ export class gitAPIHandler{
     private repo: string;
     private url: URL
     public metadata: any;
+    public validtoken: Promise<boolean>;
+    
 
     constructor(url: string){
         this.url = new URL(url)
@@ -22,15 +24,17 @@ export class gitAPIHandler{
         this.octokit = new Octokit({ 
             auth: process.env.GITHUB_TOKEN
           });
+        this.validtoken =  this.isGithubTokenValid(process.env.GITHUB_TOKEN);
 
         
     }
 
     public async getRepoDetails() {
         
-            // const tempURL = this.url.toString();
-            // const [owner, repo] = tempURL.replace("https://github.com/", "").split("/");
-            // console.log(owner, repo)
+            if(!this.validtoken){
+                console.error("Invalid Github Token");
+                return;
+            }
 
             try {
                 const response = await this.octokit.repos.get({
@@ -50,6 +54,10 @@ export class gitAPIHandler{
     
     //get all commits in repository
     public async getCommitHistory() {
+      if(!this.validtoken){
+          console.error("Invalid Github Token");
+          return;
+      }
       let commits = [];
       let page = 1;
       const perPage = 100; // Fetch the maximum number of commits per page
@@ -102,10 +110,11 @@ export class gitAPIHandler{
     
 
     public async get_readme(){
-        // if (this.identify(this.url) === "GitHub") {
-        //     const tempURL = this.url.toString();
-        //     const [owner, repo] = tempURL.replace("https://github.com/", "").split("/");
-
+        if(!this.validtoken){
+            console.error("Invalid Github Token");
+            return;
+        }
+      
         try{
             const response = await this.octokit.rest.repos.getReadme ({
                 owner:this.owner,
@@ -124,6 +133,10 @@ export class gitAPIHandler{
         }
         
     public async getIssues() {
+        if(!this.validtoken){
+            console.error("Invalid Github Token");
+            return;
+        }
             const sixMonthsAgo = new Date();
             sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
         
@@ -138,6 +151,10 @@ export class gitAPIHandler{
         
         // Fetch pull requests from the last 6 months
     public async getPullRequests() {
+        if(!this.validtoken){
+            console.error("Invalid Github Token");
+            return;
+        }
         const sixMonthsAgo = new Date();
         sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
         const pullRequests = await this.octokit.pulls.list({
@@ -152,6 +169,10 @@ export class gitAPIHandler{
         
         // Fetch active maintainers from the last 6 months
       public async getContributors() {
+        if(!this.validtoken){
+            console.error("Invalid Github Token");
+            return;   
+        }
 
           //get commits from the last 90 days
           const ninetyDaysAgo = new Date();
@@ -172,97 +193,130 @@ export class gitAPIHandler{
 
 
 
-    public async fetchAllFiles(path:string){
-        
-            try {
-              // Fetch content of the repository at the specified path
-              const response = await this.octokit.repos.getContent({
-                owner: this.owner,
-                repo: this.repo,
-                
-                path: ''
-              });
+public async fetchAllFiles(path:string){
+  if(!this.validtoken){   
+      console.error("Invalid Github Token");
+      return;
+  }
+    
+  try {
+    // Fetch content of the repository at the specified path
+    const response = await this.octokit.repos.getContent({
+      owner: this.owner,
+      repo: this.repo,
+      
+      path: ''
+    });
 
+    let files: string[] = [];
 
-          
-              let files: string[] = [];
-          
-              if (Array.isArray(response.data)) {
-                for (const item of response.data) {
-                  if (item.type === 'file') {
-                    files.push(item.path);
-                  }
-                }
-              }
-              else {
-                files.push(response.data.path);
-              }
-            //         return license
-            //     }
-            //   }
-              console.info('Successfully fetched files');
-              return files
-            // console.log(response);
-            
-            } catch (error) {
-              console.error('Error fetching files:', error);
-              throw error;
-            }
+    if (Array.isArray(response.data)) {
+      for (const item of response.data) {
+        if (item.type === 'file') {
+          files.push(item.path);
+        }
+      }
+    }
+    else {
+      files.push(response.data.path);
+    }
+  
+    console.info('Successfully fetched files');
+    return files
+  
+  } catch (error) {
+    console.error('Error fetching files:', error);
+    throw error;
+  }
+}
+
+public async fetchFileContent(path: string) {
+    if(!this.validtoken){
+        console.error("Invalid Github Token");
+        return;
+    }
+    try {
+      const response = await this.octokit.repos.getContent({
+        owner:this.owner,
+        repo: this.repo,
+        path: path,
+      });
+
+      // The file content is base64 encoded, so we need to decode it
+      if (response.data.type === 'file' && response.data.encoding === 'base64') {
+        const content = Buffer.from(response.data.content, 'base64').toString('utf-8');
+        return content;
+      } 
+      else {
+        console.error('Unable to read file content');
+        throw new Error('Unable to read file content');
+      }
+    } catch (error) {
+      console.error('Error fetching file content:', error);
+      throw error;
+    }
+  }
+
+  public async getRepositoryFiles(): Promise<string[]> {
+    if(!this.validtoken){
+        console.error("Invalid Github Token");
+        return;
     }
 
-    public async fetchFileContent(path: string) {
-        try {
-          const response = await this.octokit.repos.getContent({
-            owner:this.owner,
-            repo: this.repo,
-            path: path,
-          });
- 
-          // The file content is base64 encoded, so we need to decode it
-          if (response.data.type === 'file' && response.data.encoding === 'base64') {
-            const content = Buffer.from(response.data.content, 'base64').toString('utf-8');
+    try {
+      const allFiles = await this.fetchAllFiles('');
+      const fileContents: string[] = [];
 
-            return content;
-          } else {
-            console.error('Unable to read file content');
-            throw new Error('Unable to read file content');
-          }
-        } catch (error) {
-          console.error('Error fetching file content:', error);
-          throw error;
-        }
+      for (const file of allFiles) {
+        const content = await this.fetchFileContent(file);
+        fileContents.push(content);
       }
 
-      public async getRepositoryFiles(): Promise<string[]> {
-        try {
-          const allFiles = await this.fetchAllFiles('');
-          const fileContents: string[] = [];
-    
-          for (const file of allFiles) {
-            const content = await this.fetchFileContent(file);
-            fileContents.push(content);
-          }
-    
-          return fileContents;
-        } catch (error) {
-          console.error('Error fetching repository files for ramp-up analysis:', error);
-          return [];
-        }
-      }
+      return fileContents;
+    } catch (error) {
+      console.error('Error fetching repository files for ramp-up analysis:', error);
+      return [];
+    }
+  }
 
 
-      public async cloneRepository(path: string): Promise<void> {
-        try {
-            const cloneCmd = `git clone https://github.com/${this.owner}/${this.repo}.git "${path}"`;
-            await execPromise(cloneCmd); // Clone the repository using git
-            console.log("Repository cloned to", path);
-        } catch (error) {
-            console.error("Error cloning repository:", error);
-            throw error;
-        }
+  public async cloneRepository(path: string): Promise<void> {
+    if(!this.validtoken){
+        console.error("Invalid Github Token");
+        return;
+    }
+    try {
+        const cloneCmd = `git clone https://github.com/${this.owner}/${this.repo}.git "${path}"`;
+        await execPromise(cloneCmd); // Clone the repository using git
+        //console.log("Repository cloned to", path);
+    } catch (error) {
+        console.error("Error cloning repository:", error);
+        throw error;
     }
 }
-        
+
+public async isGithubTokenValid(token: string): Promise<boolean> {
+  try {
+      const octokit = new Octokit({
+          auth: token, // Provide the GitHub access token
+      });
+
+      // Test the token by making an authenticated request
+      const { status } = await octokit.request('GET /user');
+
+      // If we get a 200 status, the token is valid
+      return status === 200;
+  } catch (error: any) {
+      // If we get a 401 status, the token is invalid
+      if (error.status === 401) {
+          console.error('Invalid GitHub token:', error.message);
+          return false;
+      }
+      ; // Handle other types of errors (network, etc.)
+  }
+}
+}
     
+
 
 

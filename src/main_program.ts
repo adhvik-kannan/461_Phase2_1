@@ -1,12 +1,15 @@
 
 import { metric_manager } from './metric_manager.js';
-import {isGithubTokenValid} from './github_checker.js';
+import {isGithubTokenValid} from './github_utils.js';
 import { urlhandler } from './urlhandler.js';
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import logger from './logging.js';
 import {output_formatter} from './output_formatter.js';
+import { cloneRepository } from './github_utils.js';
+import os from 'os';
+
 
 
 
@@ -21,7 +24,7 @@ if (!filePath) {
     process.exit(1);
 }
 
-console.log(`The file path is: ${filePath}`);
+//console.log(`The file path is: ${filePath}`);
 
 // const filePath = path.join(__dirname, 'URL_FILE.txt'); // Path to your URL file
 
@@ -41,10 +44,11 @@ fs.readFile(filePath, 'utf8', async (err, data) => {
     for (const url of urls) {
         try {
             // Call the urlHandler to process each URL
-            console.log(`Processing URL: ${url}`);
+            //console.log(`Processing URL: ${url}`);
             logger.info(`Processing URL: ${url}`);
             logger.debug(`Processing URL: ${url}`);
-            
+
+             
             const handler = new urlhandler(url); // Initialize handler with individual URL
           
             
@@ -54,11 +58,26 @@ fs.readFile(filePath, 'utf8', async (err, data) => {
             const issues = await handler.issues;
             const pullRequests = await handler.pullRequests;
             const commits = await handler.commits;
+
+            // Clone the repository to a temporary directory
+            //const tempDir= path.resolve(process.cwd(), 'repo');
+            const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'temp-repo-'));
+            await cloneRepository(gitUrl.toString(), tempDir);
             
 
             // Once the URL is processed, create and compute the metric
-            const test_metric = new metric_manager(data, contributors, issues, pullRequests, commits, gitUrl);
+            const test_metric = new metric_manager(data, contributors, issues, pullRequests, commits, gitUrl, tempDir);
             const metric_array = await test_metric.parallel_metric_and_net_score_calc();
+
+            // Delete the temporary directory
+            try {
+                if (fs.existsSync(tempDir)) {
+                    fs.rmSync(tempDir, { recursive: true, force: true });
+                    //console.log(`Deleted existing directory: ${repoPath}`);
+                }
+            } catch (error) {
+                console.error(`Error deleting directory: ${tempDir}`, error);
+            }
             
              //console.log(
                  //`Bus Factor Score: ${metric_array[0]}\n` +
