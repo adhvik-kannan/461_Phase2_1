@@ -1,0 +1,6 @@
+[submodule "test/testing_data/repos_to_test/socket.io"]
+	path = test/testing_data/repos_to_test/socket.io
+	url = https://github.com/socketio/socket.io.git
+[submodule "test/testing_data/repos_to_test/libvlc"]
+	path = test/testing_data/repos_to_test/libvlc
+	url = https://github.com/prathameshnetake/libvlc
