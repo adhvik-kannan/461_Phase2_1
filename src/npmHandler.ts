@@ -106,7 +106,7 @@ export class npmHandler {
                 let normalizedUrl = getgithuburl(urlInfo); // Function to get the final GitHub URL
     
                 // Log the converted URL
-                console.debug("npm url converted to: ", normalizedUrl);
+                logger.debug("npm url converted to: ", normalizedUrl);
     
                 // Check if the URL includes 'https' and is valid
                 if (!normalizedUrl.includes('https')) {

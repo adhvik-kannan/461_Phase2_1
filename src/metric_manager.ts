@@ -3,9 +3,12 @@ import { Octokit } from "@octokit/rest";
 import { gitAPIHandler } from "./gitAPIHandler.js";
 import { maintainer_net } from "./maintainer_calculator.js";
 import { temp_license } from "./template_for_license.js";
-
+import { cloneRepository } from "./github_utils.js";
 import { temp_bus_factor_calc } from "./new_bus_factor_calc.js";
 import logger from './logging.js'
+import fs from 'fs';
+import path from "path";
+import os from "os";
 
 //import { temp_bus_factor_calc } from "./bus_factor_calc.js";
 import { calculateRampUpScore } from './rampUp.js'; // Assuming rampUp contains ESLint logic
@@ -29,8 +32,9 @@ export class metric_manager {
     public commits: any;
     public url:string;
     public data:any;
+    public tempDir: string;
 
-    constructor(data, contributors, issues, pullRequests, commits, url /*a lot of arguments*/) {
+    constructor(data, contributors, issues, pullRequests, commits, url, tempDir /*a lot of arguments*/) {
         this.bus_factor_latency = 0;
         this.correctness_latency = 0;
         this.ramp_up_latency = 0;
@@ -44,6 +48,10 @@ export class metric_manager {
         this.commits = commits;
         this.url = url;
         this.data = data;
+        this.tempDir = tempDir;
+        //this.tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'temp-repo-'));
+        // this.tempDir= path.resolve(process.cwd(), 'repo');
+        // cloneRepository(this.url, this.tempDir);
 
     }
     
@@ -75,7 +83,7 @@ export class metric_manager {
         const startTime = Date.now();
         // Call the ramp-up score function, assuming repoData contains the necessary files
         //const rampUpScore = await calculateRampUpScore(this.data.files || []);
-        const rampUpScore = await calculateRampUpScore(this.url);
+        const rampUpScore = await calculateRampUpScore(this.url,this.tempDir);
         const endTime = Date.now();
         this.ramp_up_latency = endTime - startTime;
 
@@ -104,9 +112,10 @@ export class metric_manager {
                 // if so, return 1 (function end)
                 // else, return 0, as license will appear nowhere else in the package (function end)
         const startTime = performance.now();
+       
         // calculations for license verification
         logger.debug("Calculating license verification")
-        let license_score = await temp_license(this.url);
+        let license_score = await temp_license(this.url, this.tempDir);
         const endTime = performance.now();
         this.license_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
         if (license_score === true) {
@@ -119,6 +128,8 @@ export class metric_manager {
 
     // run all the metrics in parallel and calculate the net score
     public async parallel_metric_and_net_score_calc() {
+        //fs.rmSync(await this.tempDir, { recursive: true, force: true });
+        //logger.info("Temporary repository directory removed:", this.tempDir);
         const startTime = performance.now();
         const metric_array = await Promise.all([
             Promise.resolve(this.bus_factor_calc()),

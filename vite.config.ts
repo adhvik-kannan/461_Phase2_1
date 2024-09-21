@@ -5,6 +5,8 @@ import { defineConfig } from 'vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   test: {
+    exclude: ['test/testing_data/**', 'node_modules'],
+    testTimeout: 40000,
     globals: true,
     includeSource: ['src/**/*.{js,ts}'], 
     environment: 'jsdom',

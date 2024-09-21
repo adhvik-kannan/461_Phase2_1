@@ -6,6 +6,7 @@ import { marked } from 'marked';
 import TextStatistics from 'text-statistics';
 import { gitAPIHandler } from './gitAPIHandler.js'; // For GitHub repos
 import { npmHandler } from './npmHandler.js'; // For npm packages
+import logger from './logging.js';
 
 const execPromise = promisify(exec);
 
@@ -33,9 +34,10 @@ function calculateReadability(textContent: string): { ease: number, gradeLevel: 
 // Check Documentation Quality of README.md in the repository
 async function checkDocumentationQuality(repoPath: string): Promise<number> {
     try {
-        const readmePath = path.join(repoPath, 'README.md');
+        const readmePath = path.join(repoPath.toString(), 'README.md');
+        console.log('README Path:', readmePath);
         if (!fs.existsSync(readmePath)) {
-            console.error('README.md not found.');
+            logger.error('README.md not found.');
             return 0;
         }
 
@@ -47,7 +49,7 @@ async function checkDocumentationQuality(repoPath: string): Promise<number> {
         //console.log('README.md content:', plainTextContent.substring(0, 200));
 
         const totalScore = readabilityScores.ease / 100;
-        console.log(`Documentation quality checked successfully with readability assessment.`);
+        //console.log(`Documentation quality checked successfully with readability assessment.`);
         return totalScore;
 
     } catch (error) {
@@ -65,12 +67,12 @@ function isNpmUrl(url: string): boolean {
 }
 
 // Main function to calculate the ramp-up score based on URL type
-export async function calculateRampUpScore(url: string | URL): Promise<number> {
-    const repoPath = path.resolve(process.cwd(), 'repo'); // The repo will be cloned in the current directory
+export async function calculateRampUpScore(url: string | URL, repoPath): Promise<number> {
+    //const repoPath = path.resolve(process.cwd(), 'repo'); // The repo will be cloned in the current directory
 
     try {
         // Clean up the repo directory first
-        await deleteDirectory(repoPath);
+        //await deleteDirectory(repoPath);
 
         // Convert the URL object to a string if necessary
         const urlString = typeof url === 'string' ? url : url.toString();
@@ -81,9 +83,9 @@ export async function calculateRampUpScore(url: string | URL): Promise<number> {
 
         // Handle GitHub URLs
         if (isGithubUrl(urlString)) {
-            console.log('Processing GitHub repository...');
-            const gitHandler = new gitAPIHandler(urlString);
-            await gitHandler.cloneRepository(repoPath);
+            //console.log('Processing GitHub repository...');
+            //const gitHandler = new gitAPIHandler(urlString);
+            //await gitHandler.cloneRepository(repoPath);
             //console.log("Repository cloned successfully.");
 
             // Check documentation quality
@@ -96,17 +98,17 @@ export async function calculateRampUpScore(url: string | URL): Promise<number> {
             const packageName = urlString.split('/').pop(); // Get package name from URL
             const npmMetadata = await npmHandler.processPackage(packageName || '');
 
-            console.log('NPM Metadata:', npmMetadata);
+            //console.log('NPM Metadata:', npmMetadata);
 
             // If there's a GitHub repository URL in the npm metadata, clone and analyze
             if (npmMetadata.gitUrl && isGithubUrl(npmMetadata.gitUrl)) {
-                console.log('GitHub repository found in NPM metadata, processing GitHub repo...');
-                const gitHandler = new gitAPIHandler(npmMetadata.gitUrl);
-                await gitHandler.cloneRepository(repoPath);
+                //console.log('GitHub repository found in NPM metadata, processing GitHub repo...');
+                // const gitHandler = new gitAPIHandler(npmMetadata.gitUrl);
+                // await gitHandler.cloneRepository(repoPath);
                 rampUpScore = await checkDocumentationQuality(repoPath);
             } else {
                 // If no GitHub repo is available, base the score on npm metadata (e.g., maintainers, license)
-                console.log('No GitHub repository found, scoring based on npm metadata...');
+                //console.log('No GitHub repository found, scoring based on npm metadata...');
                 rampUpScore = npmMetadata.maintainers.length / 10; // Example score based on maintainers
             }
             //console.log(`Ramp-Up Score (NPM): ${rampUpScore}`);
@@ -116,10 +118,10 @@ export async function calculateRampUpScore(url: string | URL): Promise<number> {
         }
 
         // Clean up after analysis
-        await deleteDirectory(repoPath);
+        //await deleteDirectory(repoPath);
         //console.log(`Repository directory cleaned up: ${repoPath}`);
 
-        return rampUpScore;
+        return Math.min(1,rampUpScore);
     } catch (error) {
         console.error('Error in ramp-up score calculation:', error);
         return 0; // Return 0 in case of error

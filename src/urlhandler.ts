@@ -2,7 +2,6 @@
 import { npmHandler } from '../src/npmHandler.js';
 import { promises as fs } from 'fs';  // To read files
 import { gitAPIHandler } from './gitAPIHandler.js';
-import { license_verifier } from './license_verifier.js';
 import logger from './logging.js'
 
 

@@ -1,39 +1,34 @@
 import logger from './logging.js'
 
-export async function temp_bus_factor_calc(repoUrl:string, commits: any[]): Promise<number>{
+export async function temp_bus_factor_calc(repoUrl: string, commits: any[]): Promise<number> {
     const contributorCommits: { [key: string]: number } = {};
-    //console.log("commits", commits.length);
+
     commits.forEach((commit: any) => {
-        const author = commit.commit.author.name;
-        contributorCommits[author] = (contributorCommits[author] || 0) + 1;
+        // Check if the commit is not a merge commit by ensuring it has only one parent
+        if (commit.parents.length === 1) {
+            const author = commit.commit.author.name;
+            contributorCommits[author] = (contributorCommits[author] || 0) + 1;
+        }
     });
 
     const sortedContributors = Object.entries(contributorCommits)
-    .sort(([, a], [, b]) => b - a); // Sort by commit count
+        .sort(([, a], [, b]) => b - a); // Sort by commit count
 
-    
+    logger.debug(`sorted contributors ${sortedContributors}`);
 
     const totalCommits = sortedContributors.reduce((sum, [, count]) => sum + count, 0);
-    //const thresholdCommits = totalCommits* .5
-    const topContributors = Math.ceil(sortedContributors.length/100); //top 5% of contributors
-    // console.log(contributorCommits)
-    // console.log(topContributors)
-    // console.log(sortedContributors)
-    let topContributors_commits = 0;
+    logger.debug(`total commits for bus factor ${totalCommits}`);
 
-    for (let i = 0; i < topContributors; i += 1){
-        topContributors_commits += sortedContributors[i][1]
+    const topContributors = Math.ceil(sortedContributors.length / 100); // top 5% of contributors
+    logger.debug(`top contributors ${topContributors}`);
+    let topContributorsCommits = 0;
+
+    for (let i = 0; i < topContributors; i += 1) {
+        topContributorsCommits += sortedContributors[i][1];
     }
 
-    //console.log("Top contributors commits", topContributors_commits)
-    //console.log("Total commits", totalCommits)
+    logger.debug(`top contributors commits ${topContributorsCommits}`);
+    logger.debug(`bus factor ${1 - (topContributorsCommits / totalCommits)}`);
 
-    return 1 - topContributors_commits/totalCommits
-
-
-
+    return 1 - (topContributorsCommits / totalCommits);
 }
-
-
-  
-  
