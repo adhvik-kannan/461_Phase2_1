@@ -35,7 +35,7 @@ function calculateReadability(textContent: string): { ease: number, gradeLevel: 
 async function checkDocumentationQuality(repoPath: string): Promise<number> {
     try {
         const readmePath = path.join(repoPath.toString(), 'README.md');
-        console.log('README Path:', readmePath);
+        //console.log('README Path:', readmePath);
         if (!fs.existsSync(readmePath)) {
             logger.error('README.md not found.');
             return 0;

@@ -33,6 +33,7 @@ export class metric_manager {
     public url:string;
     public data:any;
     public tempDir: string;
+    public net_score: number;
 
     constructor(data, contributors, issues, pullRequests, commits, url, tempDir /*a lot of arguments*/) {
         this.bus_factor_latency = 0;
@@ -49,6 +50,7 @@ export class metric_manager {
         this.url = url;
         this.data = data;
         this.tempDir = tempDir;
+    
         //this.tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'temp-repo-'));
         // this.tempDir= path.resolve(process.cwd(), 'repo');
         // cloneRepository(this.url, this.tempDir);
@@ -71,7 +73,7 @@ export class metric_manager {
     }
     public correctness_calc(): number {
         const startTime = performance.now();
-        logger.debug("Calculating correctness ")
+        logger.debug("Calculating correctness")
         // calculations for correctness factor
 
         const endTime = performance.now();
@@ -133,13 +135,15 @@ export class metric_manager {
         const startTime = performance.now();
         const metric_array = await Promise.all([
             Promise.resolve(this.bus_factor_calc()),
-            Promise.resolve(this.correctness_calc()),
+            //Promise.resolve(this.correctness_calc()),
             Promise.resolve(this.calculateRampUpMetric()),
             Promise.resolve(this.maintainer_calc()),
             Promise.resolve(this.licence_verify())
         ]);
+        this.net_score = .3*metric_array[2] + .3*metric_array[0] + .2*metric_array[3] + .2*metric_array[1];
         const endTime = performance.now();
         this.net_score_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
+        
         return metric_array;
     }
 }

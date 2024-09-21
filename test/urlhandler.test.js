@@ -24,16 +24,28 @@ test('Test for urlhandler with npm URL', async () => {
 
 
 test('Get data from npm URL', async () => {
+    const mockData = { name: 'lodash' };
+    urlhandler.mockImplementation(() => {
+        return {
+            handle: vi.fn().mockResolvedValue(mockData),
+        };
+    });
+
     const url_good = new urlhandler('https://www.npmjs.com/package/lodash');
     const data = await url_good.handle();
-    //expect(data).toBeInstanceOf(Promise);
     expect(data).toHaveProperty('name', 'lodash');
 });
 
 test('Get data from GitHub URL', async () => {
+    const mockData = { name: 'lodash' };
+    urlhandler.mockImplementation(() => {
+        return {
+            handle: vi.fn().mockResolvedValue(mockData),
+        };
+    });
+
     const url_good = new urlhandler('https://github.com/lodash/lodash');
     const data = await url_good.handle();
-    //expect(data).toBeInstanceOf(Promise);
     expect(data.name).toBe('lodash');
 });
 

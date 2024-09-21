@@ -10,10 +10,6 @@ import {output_formatter} from './output_formatter.js';
 import { cloneRepository } from './github_utils.js';
 import os from 'os';
 
-
-
-
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 //get the file path from the command line in run file
@@ -24,9 +20,6 @@ if (!filePath) {
     process.exit(1);
 }
 
-//console.log(`The file path is: ${filePath}`);
-
-// const filePath = path.join(__dirname, 'URL_FILE.txt'); // Path to your URL file
 
 // Read URLs from the file
 fs.readFile(filePath, 'utf8', async (err, data) => {
@@ -46,12 +39,9 @@ fs.readFile(filePath, 'utf8', async (err, data) => {
             // Call the urlHandler to process each URL
             //console.log(`Processing URL: ${url}`);
             logger.info(`Processing URL: ${url}`);
-            logger.debug(`Processing URL: ${url}`);
-
-             
+            logger.debug(`Processing URL: ${url}`); 
             const handler = new urlhandler(url); // Initialize handler with individual URL
-          
-            
+           
             const data = await handler.handle(); // Call handler to process the URL
             const gitUrl = await handler.url;
             const contributors = await handler.contributors;
@@ -78,21 +68,7 @@ fs.readFile(filePath, 'utf8', async (err, data) => {
             } catch (error) {
                 console.error(`Error deleting directory: ${tempDir}`, error);
             }
-            
-             //console.log(
-                 //`Bus Factor Score: ${metric_array[0]}\n` +
-                 //`Bus Factor Latency: ${test_metric.bus_factor_latency}\n` +
-                 //`Correctness Score: ${metric_array[1]}\n` +
-                 //`Correctness Latency: ${test_metric.correctness_latency}\n` +
-                 //`Ramp Up Score: ${metric_array[2]}\n` +
-                 //`Ramp Up Latency: ${test_metric.ramp_up_latency}\n` +
-                 //`Maintainer Score: ${metric_array[3]}\n` +
-                 //`Maintainer Latency: ${test_metric.maintainer_latency}\n` +
-                 //`License Score: ${metric_array[4]}\n` +
-                 //`License Latency: ${test_metric.license_latency}\n` +
-                 //`Net Score: ${metric_array.reduce((a, b) => a + b, 0)}\n` +
-                 //`Net Score Latency: ${test_metric.net_score_latency}\n`
-             //)//;
+  
             logger.info("Net Score, Net Latency: ", metric_array.reduce((a, b) => a + b, 0), test_metric.net_score_latency);
             output_formatter(url, metric_array, test_metric);
 

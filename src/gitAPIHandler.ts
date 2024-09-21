@@ -16,7 +16,6 @@ export class gitAPIHandler{
     public metadata: any;
     public validtoken: Promise<boolean>;
     
-
     constructor(url: string){
         this.url = new URL(url)
         const tempURL = this.url.toString();
@@ -24,17 +23,11 @@ export class gitAPIHandler{
         this.octokit = new Octokit({ 
             auth: process.env.GITHUB_TOKEN
           });
-        this.validtoken =  this.isGithubTokenValid(process.env.GITHUB_TOKEN);
-
-        
+           
     }
 
-    public async getRepoDetails() {
-        
-            if(!this.validtoken){
-                console.error("Invalid Github Token");
-                return;
-            }
+    public async getRepoDetails() {       
+          
 
             try {
                 const response = await this.octokit.repos.get({
@@ -46,18 +39,11 @@ export class gitAPIHandler{
                 return response.data;
             } catch (error) {
                 console.error("Error fetching repository details:", error);
-            }
-        
-        
-        
+            } 
     }
-    
-    //get all commits in repository
+       //get all commits in repository
     public async getCommitHistory() {
-      if(!this.validtoken){
-          console.error("Invalid Github Token");
-          return;
-      }
+     
       let commits = [];
       let page = 1;
       const perPage = 100; // Fetch the maximum number of commits per page
@@ -85,36 +71,14 @@ export class gitAPIHandler{
           // Move to the next page
           page += 1;
         }
-    
-        //console.log(`Total commits fetched: ${commits.length}`);
-        return commits;
+            return commits;
       } catch (error) {
         console.error(`Error fetching commits: ${error}`);
       }
     }
-    
-
-            // try {
-            //         const response = await this.octokit.rest.repos.listCommits({
-            //         owner: this.owner,
-            //         repo: this.repo,
-            //     });
-            //     logger.info(`Successfully fetched commit history for ${this.owner}/${this.repo}`);
-            //     console.log("commits", response.data.length);
-            //     return response.data;
-            // } catch (error) {
-            //     console.error("Error fetching repository details:", error);
-            // }
-    
-        
-    
-
+ 
     public async get_readme(){
-        if(!this.validtoken){
-            console.error("Invalid Github Token");
-            return;
-        }
-      
+       
         try{
             const response = await this.octokit.rest.repos.getReadme ({
                 owner:this.owner,
@@ -133,10 +97,7 @@ export class gitAPIHandler{
         }
         
     public async getIssues() {
-        if(!this.validtoken){
-            console.error("Invalid Github Token");
-            return;
-        }
+       
             const sixMonthsAgo = new Date();
             sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
         
@@ -151,10 +112,7 @@ export class gitAPIHandler{
         
         // Fetch pull requests from the last 6 months
     public async getPullRequests() {
-        if(!this.validtoken){
-            console.error("Invalid Github Token");
-            return;
-        }
+       
         const sixMonthsAgo = new Date();
         sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
         const pullRequests = await this.octokit.pulls.list({
@@ -163,17 +121,12 @@ export class gitAPIHandler{
               state: 'all', 
               per_page: 100,
           });
-        //console.log("Pull Requests",pullRequests.data);
       return pullRequests.data;
       }
         
         // Fetch active maintainers from the last 6 months
       public async getContributors() {
-        if(!this.validtoken){
-            console.error("Invalid Github Token");
-            return;   
-        }
-
+        
           //get commits from the last 90 days
           const ninetyDaysAgo = new Date();
           ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
@@ -184,21 +137,13 @@ export class gitAPIHandler{
             
             });
 
-        //console.log("Contributors: ", contributors.data);
         //write contributers data to a file
           fs.writeFileSync('contributors.json', JSON.stringify(commits.data));
           return commits.data;
         }
 
-
-
-
 public async fetchAllFiles(path:string){
-  if(!this.validtoken){   
-      console.error("Invalid Github Token");
-      return;
-  }
-    
+   
   try {
     // Fetch content of the repository at the specified path
     const response = await this.octokit.repos.getContent({
@@ -207,9 +152,7 @@ public async fetchAllFiles(path:string){
       
       path: ''
     });
-
     let files: string[] = [];
-
     if (Array.isArray(response.data)) {
       for (const item of response.data) {
         if (item.type === 'file') {
@@ -219,9 +162,8 @@ public async fetchAllFiles(path:string){
     }
     else {
       files.push(response.data.path);
-    }
-  
-    console.info('Successfully fetched files');
+    } 
+    logger.info('Successfully fetched files');
     return files
   
   } catch (error) {
@@ -231,10 +173,7 @@ public async fetchAllFiles(path:string){
 }
 
 public async fetchFileContent(path: string) {
-    if(!this.validtoken){
-        console.error("Invalid Github Token");
-        return;
-    }
+    
     try {
       const response = await this.octokit.repos.getContent({
         owner:this.owner,
@@ -258,11 +197,7 @@ public async fetchFileContent(path: string) {
   }
 
   public async getRepositoryFiles(): Promise<string[]> {
-    if(!this.validtoken){
-        console.error("Invalid Github Token");
-        return;
-    }
-
+  
     try {
       const allFiles = await this.fetchAllFiles('');
       const fileContents: string[] = [];
@@ -280,43 +215,4 @@ public async fetchFileContent(path: string) {
   }
 
 
-  public async cloneRepository(path: string): Promise<void> {
-    if(!this.validtoken){
-        console.error("Invalid Github Token");
-        return;
-    }
-    try {
-        const cloneCmd = `git clone https://github.com/${this.owner}/${this.repo}.git "${path}"`;
-        await execPromise(cloneCmd); // Clone the repository using git
-        //console.log("Repository cloned to", path);
-    } catch (error) {
-        console.error("Error cloning repository:", error);
-        throw error;
-    }
 }
-
-public async isGithubTokenValid(token: string): Promise<boolean> {
-  try {
-      const octokit = new Octokit({
-          auth: token, // Provide the GitHub access token
-      });
-
-      // Test the token by making an authenticated request
-      const { status } = await octokit.request('GET /user');
-
-      // If we get a 200 status, the token is valid
-      return status === 200;
-  } catch (error: any) {
-      // If we get a 401 status, the token is invalid
-      if (error.status === 401) {
-          console.error('Invalid GitHub token:', error.message);
-          return false;
-      }
-      ; // Handle other types of errors (network, etc.)
-  }
-}
-}
-    
-
-
-

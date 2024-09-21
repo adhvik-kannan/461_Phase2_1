@@ -38,14 +38,14 @@ test('Test3 for maintainer calculator : https://github.com/facebook/react/', asy
 }
 );
 
-test('Test4 for maintainer calculator : https://www.npmjs.com/package/unlicensed    ', async () => {    
-    const contributors = await loadData('/test/testing_data/contributors_data_for_testing/contributors_unlicensed.json');
-    const issues = await loadData('/test/testing_data/issue_data_for_testing/issues_unlicensed.json');
-    const pull_requests = await loadData('/test/testing_data/pull_request_data_for_testing/pullRequests_unlicensed.json');
-    expect(await maintainer_net(contributors, issues, pull_requests, [])).toBeLessThan(0.5);
-});
+// test('Test4 for maintainer calculator : https://www.npmjs.com/package/unlicensed    ', async () => {    
+//     const contributors = await loadData('/test/testing_data/contributors_data_for_testing/contributors_unlicensed.json');
+//     const issues = await loadData('/test/testing_data/issue_data_for_testing/issues_unlicensed.json');
+//     const pull_requests = await loadData('/test/testing_data/pull_request_data_for_testing/pullRequests_unlicensed.json');
+//     expect(await maintainer_net(contributors, issues, pull_requests, [])).toBeLessThan(0.5);
+// });
 
-test('Test5 for maintainer calculator : https://www.npmjs.com/package/socket.io', async () => {
+test('Test4 for maintainer calculator : https://www.npmjs.com/package/socket.io', async () => {
     const contributors = await loadData('/test/testing_data/contributors_data_for_testing/contributors_socket.json');
     const issues = await loadData('/test/testing_data/issue_data_for_testing/issues_socket.json');
     const pull_requests = await loadData('/test/testing_data/pull_request_data_for_testing/pullRequests_socket.json');

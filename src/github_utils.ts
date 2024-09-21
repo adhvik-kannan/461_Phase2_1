@@ -20,7 +20,7 @@ export async function isGithubTokenValid(token: string): Promise<boolean> {
     } catch (error: any) {
         // If we get a 401 status, the token is invalid
         if (error.status === 401) {
-            console.error('Invalid GitHub token');
+            console.error('Invalid GitHub token provided');
             return false;
         }
         ; // Handle other types of errors (network, etc.)
@@ -40,18 +40,8 @@ export  async function cloneRepository(repoUrl: string, tempDir: string) {
            
           })
         logger.info("Repository cloned successfully", repoUrl);
-        //console.log("Repository cloned successfully", tempDir);
-        //const myfiles = fs.readdirSync(tempDir);
-        //console.log("Contents of cloned repository:", myfiles);
-        //console.log("Repository cloned successfully", repoUrl);
-        // const head = await git.resolveRef({
-        //     fs,
-        //     dir: tempDir,
-        //     ref: 'HEAD',
-        //   });
-          //console.log('HEAD is at:', head);
-          let files = await git.listFiles({ fs, dir: tempDir, ref: 'HEAD' }) 
-          //console.log("Files fetched from root: ", files.length);
+       
+          
         } 
         
      catch (error) {
