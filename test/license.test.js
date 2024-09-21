@@ -3,15 +3,15 @@ import { expect, test } from 'vitest'
 // import {describe, expect, test} from '@jest/globals'
 
 test('Test for license', async () => {
-    expect(await temp_license('https://github.com/ryanve/unlicensed')).toBe(false);
+    expect(await temp_license('https://github.com/socketio/socket.io', 'test/testing_data/repos_to_test/socket.io')).toBe(true);
 });
 
 test('Test for license', async () => {
-    expect(await temp_license('https://github.com/lodash/lodash')).toBe(true);
+    expect(await temp_license('https://github.com/prathameshnetake/libvlc', 'test/testing_data/repos_to_test/libvlc')).toBe(false);
 });
 
 test('Test for license', async () => {
-    expect(await temp_license('invalid url')).toBe(false);
+    expect(await temp_license('invalid url', "invalid path")).toBe(false);
 }   );  
 
 
