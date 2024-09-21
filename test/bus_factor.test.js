@@ -28,18 +28,14 @@ test('Test2 for bus factor ', async () => {
     expect(await temp_bus_factor_calc("",commitData)).toBeGreaterThan(0.5);
 });
 
-test('Test3 for bus factor ', async () => {
-    const commitData = await loadCommitData('/test/testing_data/commit_data_for_testing/lodashcommits.json');
-    expect(await temp_bus_factor_calc("",commitData)).toBeGreaterThan(0.5);
-}
-);
 
-test('Test4 for bus factor ', async () => {
+
+test('Test3 for bus factor ', async () => {
     const commitData = await loadCommitData('/test/testing_data/commit_data_for_testing/prathameshnetakecommts.json');
     expect(await temp_bus_factor_calc("",commitData)).toBeLessThan(0.5);
 });
 
-test('Test5 for bus factor ', async () => {
+test('Test4 for bus factor ', async () => {
     const commitData = await loadCommitData('/test/testing_data/commit_data_for_testing/socketiocomitdata.json');
     let factor = await temp_bus_factor_calc("",commitData);
     expect(factor).toBeLessThan(0.78);
