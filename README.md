@@ -22,7 +22,8 @@ This project is a tool that assesses the health of various repositories by check
     - run echo $GITHUB_TOKEN to check if the token is set
     - if it is not:
         - run export GITHUB_TOKEN="your token"
-2. run "chmod +x run" to create an executable
-3. run "./run install" to install the necessary dependencies
-4. run "./run URL_FILE" to run the metrics on the urls inside the URL_FILE.txt file
-5. run "./run test" to run test cases for the program
+2. Set LOG_FILE to path you want your log file to be created, and LOG_LEVEL to the level of verbosity you would like the logger to output (0 for silent, 1 for info, 2 for debug).
+3. run "chmod +x run" to create an executable
+4. run "./run install" to install the necessary dependencies
+5. run "./run URL_FILE" to run the metrics on the urls inside the URL_FILE.txt file
+6. run "./run test" to run test cases for the program
