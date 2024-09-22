@@ -109,6 +109,7 @@ elif [ "$command" = "build" ]; then
     exit $?
 elif [ "$command" = "test" ]; then
     echo "Running tests..."
+    npx tsc
     npm run test
     exit $?
 else

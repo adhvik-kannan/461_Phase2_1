@@ -14,10 +14,9 @@ export default defineConfig({
     //setupFiles: './src/test/setup.ts',
     coverage: {
       provider: 'istanbul',
-      reporter: ['text-summary', 'json-summary', 'json'],
-      
+      reporter: ['text', 'json-summary'],
       reportsDirectory: './coverage',
-      include: ['src/**.js'],
+      include: ['src/**.js','test/ignore/**.js'],
       exclude: ['test/**', '*.ts'],
       reportOnFailure: true,
     },
