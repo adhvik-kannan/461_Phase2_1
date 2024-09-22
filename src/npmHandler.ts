@@ -88,7 +88,7 @@ export class npmHandler {
     }
 
     //extract gitUrl if present
-    private static getGitRepositoryUrl(data: any): string {
+    public static getGitRepositoryUrl(data: any): string {
         try {
             if (data.repository && data.repository.url) {
                 // Clean the URL by removing "git+" and ".git"

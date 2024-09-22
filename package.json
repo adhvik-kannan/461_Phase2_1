@@ -4,7 +4,7 @@
   "description": "Repository housing all files pertaining to our project for ECE 461.",
   "main": "index.js",
   "scripts": {
-    "test": "vitest run --coverage.enabled=true",
+    "test": "vitest run  --silent --coverage.enabled=true  --reporter verbose > test-results.txt   && node test/printResults.js ",
     "coverage": "vitest run --coverage"
   },
   "type": "module",
@@ -32,6 +32,7 @@
     "@babel/preset-typescript": "^7.24.7",
     "@types/axios": "^0.14.0",
     "@types/jest": "^29.5.13",
+    "@types/mocha": "^10.0.8",
     "@types/node": "^22.5.5",
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",

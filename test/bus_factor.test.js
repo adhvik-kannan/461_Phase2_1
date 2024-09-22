@@ -2,6 +2,7 @@ import {temp_bus_factor_calc} from '../src/new_bus_factor_calc.js';
 import { expect, test } from 'vitest';
 import path from 'path';
 import fs from 'fs/promises';
+//import {incrementTestCount, incrementTestPassed} from './testcount.js';
 
 
 
@@ -18,9 +19,11 @@ try {
 }
 
 test('Test1 for bus factor ', async () => {
+    //incrementTestCount();
     const commitData = await loadCommitData('/test/testing_data/commit_data_for_testing/hasansultancommits.json');
     //expect((Array.isArray(commitData)) ).toBe(true)
     expect(await temp_bus_factor_calc("",commitData)).toBeLessThan(0.5);
+    //incrementTestPassed();
 });
 
 test('Test2 for bus factor ', async () => {
