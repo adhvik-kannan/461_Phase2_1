@@ -9,7 +9,7 @@ try {
   const data = await fs.readFile(filePath, 'utf8');
   const coverageSummary = JSON.parse(data);
   const lineCoveragePct = coverageSummary.total.lines.pct;
-
+  //console.log(lineCoveragePct)
   const { passed, total } = extractTestResults(filePath2);
   console.log(`${passed}/${total} test cases passed. ${lineCoveragePct.toFixed(0)}% line coverage achieved.`);
 

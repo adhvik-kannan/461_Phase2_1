@@ -3,7 +3,7 @@ import { Octokit } from '@octokit/rest';
 import fs from 'fs';
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { gitAPIHandler } from '../src/gitAPIHandler.js'; // Adjust the import path as needed
+import { gitAPIHandler } from '../src/gitAPIHandler'; // Adjust the import path as needed
 
 vi.mock('@octokit/rest');
 vi.mock('fs');

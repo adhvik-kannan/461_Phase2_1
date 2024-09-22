@@ -1,4 +1,4 @@
-import {temp_bus_factor_calc} from '../src/new_bus_factor_calc.js';
+import {temp_bus_factor_calc} from '../src/new_bus_factor_calc';
 import { expect, test } from 'vitest';
 import path from 'path';
 import fs from 'fs/promises';
