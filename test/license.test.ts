@@ -1,4 +1,4 @@
-import {temp_license} from '../src/template_for_license.js'
+import {temp_license, license_verifier} from '../src/template_for_license.js'
 import { expect, test } from 'vitest'
 // import {describe, expect, test} from '@jest/globals'
 
@@ -7,16 +7,12 @@ import { expect, test } from 'vitest'
 // });
 
 test('Test for license', async () => {
-    expect(await temp_license('https://github.com/prathameshnetake/libvlc', 'test/testing_data/repos_to_test/libvlc')).toBe(false);
+    expect( await license_verifier('MIT')).toBe(true);
 });
 
 test('Test for license', async () => {
     expect(await temp_license('invalid url', "invalid path")).toBe(false);
 }   );  
-
-
-
-        
 
 
 
