@@ -5,7 +5,30 @@ import logger from './logging.js'
 import gitUrlParse from 'git-url-parse'
 import getgithuburl from 'get-github-url'
 
+/**
+ * The `npmHandler` class provides methods to process and fetch metadata for NPM packages.
+ * 
+ * @remarks
+ * This class includes methods to fetch metadata from the NPM registry, extract specific information
+ * such as the package name, version, maintainers, dependencies, license, and Git repository URL.
+ * 
+ * @example
+ * ```typescript
+ * const metadata = await npmHandler.processPackage('example-package');
+ * console.log(metadata);
+ * ```
+ * 
+ * @public
+ */
 export class npmHandler {
+    
+    /**
+     * Processes an NPM package by fetching its metadata.
+     *
+     * @param packageName - The name of the NPM package to process.
+     * @returns A promise that resolves to the metadata of the NPM package.
+     * @throws Will throw an error if there is an issue processing the NPM package.
+     */
     static async processPackage(packageName: string) {
         try {
             logger.debug('Processing NPM Package:', packageName);
@@ -19,7 +42,20 @@ export class npmHandler {
         }
     }
 
-    // Fetches metadata for the package, including name, version, maintainers, dependencies, and license
+    /**
+     * Fetches metadata for a given npm package from the npm registry.
+     * 
+     * @param packageName - The name of the npm package to fetch metadata for.
+     * @returns A promise that resolves to an object containing the package metadata, including:
+     * - `name`: The name of the package.
+     * - `version`: The latest version of the package.
+     * - `maintainers`: An array of maintainers for the package.
+     * - `dependencies`: An object representing the package's dependencies.
+     * - `license`: The license of the package.
+     * - `gitUrl`: The Git repository URL of the package.
+     * 
+     * @throws Will throw an error if the metadata fetching fails.
+     */
     private static async fetchNpmPackageMetadata(packageName: string) {
         logger.debug(`Fetching metadata for package: ${packageName}`);
         const url = `https://registry.npmjs.org/${packageName}`;
@@ -49,45 +85,77 @@ export class npmHandler {
             throw error;
         }
     }
-    // static getCommitHistory() {
-    //     throw new Error('Method not implemented.');
-    // }
-    // static getPullRequests() {
-    //     throw new Error('Method not implemented.');
-    // }
-    // static getIssues() {
-    //     throw new Error('Method not implemented.');
-    // }
-    // static getContributors() {
-    //     throw new Error('Method not implemented.');
-    // }
 
-    // Extract the package name
+    /**
+     * Retrieves the name property from the provided data object.
+     * If the name property is not present, it returns 'Unknown'.
+     *
+     * @param data - The data object from which to retrieve the name.
+     * @returns The name property of the data object, or 'Unknown' if the name is not present.
+     */
     private static getName(data: any) {
         return data.name || 'Unknown';
     }
 
-    // Extract the latest version of the package
+    /**
+     * Retrieves the latest version from the provided data object.
+     *
+     * @param data - The data object containing version information.
+     * @returns The latest version as a string, or 'Unknown' if not available.
+     */
     private static getVersion(data: any) {
         return data['dist-tags']?.latest || 'Unknown';
     }
 
-    // Extract the maintainers of the package
+    /**
+     * Extracts the names of maintainers from the provided data.
+     *
+     * @param data - The data object containing maintainer information.
+     * @returns An array of maintainer names. If no maintainers are found, returns an empty array.
+     */
     private static getMaintainers(data: any) {
         return data.maintainers ? data.maintainers.map((m: any) => m.name) : [];
     }
 
-    // Extract the dependencies of the package
+    /**
+     * Retrieves the dependencies of the latest version from the provided data.
+     *
+     * @param data - The data object containing version information.
+     * @returns An object representing the dependencies of the latest version, or an empty object if no dependencies are found.
+     */
     private static getDependencies(data: any) {
         return data.versions[data['dist-tags'].latest]?.dependencies || {};
     }
 
-    // Extract the license information of the package
+    /**
+     * Retrieves the license information from the provided data.
+     *
+     * @param data - The data object containing license information.
+     * @returns The license information if available, otherwise returns 'Unknown'.
+     */
     private static getLicense(data: any) {
         return data.license || 'Unknown';
     }
 
-    //extract gitUrl if present
+    /**
+     * Retrieves and normalizes the Git repository URL from the provided npm metadata.
+     *
+     * @param data - The npm metadata object containing repository information.
+     * @returns The normalized GitHub repository URL as a string. Returns an empty string if the URL is invalid or not found.
+     *
+     * @throws Will log an error message if there is an issue processing the repository URL.
+     *
+     * @example
+     * ```typescript
+     * const npmData = {
+     *   repository: {
+     *     url: "git+https://github.com/user/repo.git"
+     *   }
+     * };
+     * const url = getGitRepositoryUrl(npmData);
+     * console.log(url); // Outputs: "https://github.com/user/repo"
+     * ```
+     */
     public static getGitRepositoryUrl(data: any): string {
         try {
             if (data.repository && data.repository.url) {

@@ -1,5 +1,16 @@
 import logger from './logging.js'
 
+/**
+ * Calculates the bus factor for a given repository based on commit data.
+ * The bus factor is a measure of the risk associated with the concentration of information
+ * in individual contributors. A higher bus factor indicates lower risk.
+ *
+ * @param repoUrl - The URL of the repository.
+ * @param commits - An array of commit objects. Each commit object should have a `commit` property
+ *                  with an `author` property containing the author's name, and a `parents` property
+ *                  which is an array of parent commits.
+ * @returns A promise that resolves to the bus factor as a number.
+ */
 export async function temp_bus_factor_calc(repoUrl: string, commits: any[]): Promise<number> {
     const contributorCommits: { [key: string]: number } = {};
 
