@@ -1,11 +1,15 @@
 import { Octokit } from '@octokit/rest';
 import logger from './logging.js'
 import git from 'isomorphic-git';
-import os from 'os';
 import fs from 'fs';
 import http from 'isomorphic-git/http/node/index.cjs';
-import path from 'path';
 
+/**
+ * This function checks if the provided GitHub access token is valid
+ * 
+ * @param token - GitHub access token
+ * @returns - Boolean indicating whether the token is valid
+ */
 export async function isGithubTokenValid(token: string): Promise<boolean> {
     try {
         const octokit = new Octokit({
@@ -25,8 +29,14 @@ export async function isGithubTokenValid(token: string): Promise<boolean> {
         }
         ; // Handle other types of errors (network, etc.)
     }
-  }
-;
+};
+
+/**
+ * This function clones the specified repository to the specified directory
+ * 
+ * @param repoUrl - URL of the repository to clone
+ * @param tempDir - Temporary directory to clone the repository to
+ */
 export  async function cloneRepository(repoUrl: string, tempDir: string) {
     try {
         
