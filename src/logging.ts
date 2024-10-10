@@ -32,7 +32,12 @@ const logger = winston.createLogger({
   silent: logLevel === '0'
 });
 
-// Helper function to map numeric log levels to Winston log levels
+/**
+ * This function returns the respective logging level based on the provided numerical value
+ * 
+ * @param level - Set the logging level
+ * @returns - The logging level
+ */
 function getLogLevel(level: string): string {
   switch (level) {
     case '0':
