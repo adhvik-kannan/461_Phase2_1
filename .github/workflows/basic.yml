@@ -1,0 +1,44 @@
+name: Basic Workflow Pipeline
+
+# Trigger the workflow on push or pull request to any integration/ branch
+on:
+  push:
+    branches:
+      - 'integration/**'
+  pull_request:
+    branches:
+      - 'integration/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code from the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js (use the version specified in your .nvmrc or package.json, if applicable)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Change the version to whatever you are using
+
+      # Step 3: Run ./run install to install dependencies
+      - name: Install Dependencies
+        run: ./run install
+
+      # Step 4: Run ./run test to execute the test suite
+      - name: Run Test Suite
+        run: ./run test
+
+      # Step 5: Run ./run URL_FILE to process the environment variable (assumes URL_FILE is passed in as an environment variable)
+      - name: Run URL_FILE Command
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOG_LEVEL: 2
+          LOG_FILE: log.txt
+        run: |
+            echo "https://github.com/caolan/async" > URL_FILE.txt
+            FILE_PATH=$(realpath URL_FILE.txt)
+            ./run "$FILE_PATH"
