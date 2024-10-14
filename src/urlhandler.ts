@@ -5,6 +5,37 @@ import { gitAPIHandler } from './gitAPIHandler.js';
 import logger from './logging.js'
 
 
+/**
+ * The `urlhandler` class is responsible for handling and processing URLs, specifically GitHub and NPM URLs.
+ * It identifies the type of URL and delegates the processing to the appropriate handler.
+ * 
+ * @class urlhandler
+ * 
+ * @property {URL} url - The URL to be processed.
+ * @property {RegExp} GITHUB_URL_PATTERN - Regular expression pattern to identify GitHub URLs.
+ * @property {RegExp} NPM_URL_PATTERN - Regular expression pattern to identify NPM URLs.
+ * @property {any} issues - Stores issues data fetched from the URL.
+ * @property {any} pullRequests - Stores pull requests data fetched from the URL.
+ * @property {any} commits - Stores commits data fetched from the URL.
+ * @property {any} contributors - Stores contributors data fetched from the URL.
+ * 
+ * @constructor
+ * @param {string} url - The URL to be processed.
+ * 
+ * @method identify
+ * @param {URL} url_pattern - The URL pattern to be identified.
+ * @returns {string} - Returns "GitHub" if the URL matches the GitHub pattern, "NPM" if it matches the NPM pattern, and "Not Found" otherwise.
+ * 
+ * @method handle
+ * @async
+ * @returns {Promise<any>} - Processes the URL and returns the data fetched from the appropriate handler.
+ * 
+ * @method processUrlsFromFile
+ * @static
+ * @async
+ * @param {string} filePath - The file path containing URLs to be processed.
+ * @returns {Promise<void>} - Reads URLs from the file and processes each URL.
+ */
 export class urlhandler {
     public url: URL;
     private GITHUB_URL_PATTERN: RegExp;
@@ -25,6 +56,15 @@ export class urlhandler {
 
     }
 
+    /**
+     * Identifies the type of URL based on predefined patterns.
+     *
+     * @param url_pattern - The URL to be identified.
+     * @returns A string indicating the type of URL. Possible values are:
+     * - "GitHub" if the URL matches the GitHub pattern.
+     * - "NPM" if the URL matches the NPM pattern.
+     * - "Not Found" if the URL does not match any known patterns.
+     */
     public identify(url_pattern: URL): string{
         if(this.GITHUB_URL_PATTERN.test(url_pattern.toString())){
             return "GitHub";
@@ -36,6 +76,17 @@ export class urlhandler {
 
     }
 
+    /**
+     * Processes URLs from a file.
+     * 
+     * This method reads a file containing URLs, one per line, and processes each URL.
+     * It logs the processing of each URL and handles any errors that occur during processing.
+     * 
+     * @param filePath - The path to the file containing the URLs.
+     * 
+     * @throws Will throw an error if the file cannot be read.
+     * @throws Will log an error if a URL cannot be processed.
+     */
     static async processUrlsFromFile(filePath: string) {
         try {
             const fileData = await fs.readFile(filePath, 'utf-8');
@@ -56,6 +107,21 @@ export class urlhandler {
     }
 
 
+    /**
+     * Handles the URL based on its type (GitHub or NPM) and delegates the processing
+     * to the appropriate handler (GitAPIHandler or npmHandler).
+     * 
+     * @returns {Promise<any>} The data retrieved from the respective handler.
+     * 
+     * @throws {Error} If the URL type is unsupported or if the NPM URL format is invalid.
+     * 
+     * @remarks
+     * - If the URL matches the GitHub pattern, it delegates to `GitAPIHandler` to fetch repository details,
+     *   contributors, commit history, issues, and pull requests.
+     * - If the URL matches the NPM pattern, it extracts the package name, processes the package using `npmHandler`,
+     *   and then delegates to `GitAPIHandler` to fetch additional details from the associated GitHub repository.
+     * - If the URL does not match any supported patterns, it logs an error indicating an unsupported URL type.
+     */
     public async handle() {
         // if (this.GITHUB_URL_PATTERN.test(this.url.toString())) {
             // Delegate to GitAPIHandler
