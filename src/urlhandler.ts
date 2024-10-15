@@ -18,6 +18,7 @@ import logger from './logging.js'
  * @property {any} pullRequests - Stores pull requests data fetched from the URL.
  * @property {any} commits - Stores commits data fetched from the URL.
  * @property {any} contributors - Stores contributors data fetched from the URL.
+ * @property {any} closedIssues - Stores closed issues data fetched from the URL.
  * 
  * @constructor
  * @param {string} url - The URL to be processed.
@@ -44,6 +45,7 @@ export class urlhandler {
     public pullRequests: any;
     public commits: any;
     public contributors: any;
+    public closedIssues: any;
 
     constructor(url: string) {
         try{
@@ -132,32 +134,8 @@ export class urlhandler {
                 this.commits = await gitHandler.getCommitHistory();
                 this.issues = await gitHandler.getIssues();
                 this.pullRequests = await gitHandler.getPullRequests();
-                
+                this.closedIssues = await gitHandler.getClosedIssues();
                 return data;
-                // const decoded_readme = await gitHandler.get_readme();
-                // const return_val = await license_verifier(decoded_readme);
-                // if (return_val) {
-                //     // set license verifier metric value to 1
-                //     console.log(return_val);
-                //     return return_val;
-                // }
-                // else {
-                //     // get all files of the repo and find a file with the name 'License' of some sort
-                //     const repo_files = await gitHandler.fetchAllFiles(this.url.toString());
-                //     // console.log(repo_files);
-                //     const license_regex: RegExp = /license/i;
-                //     let license_found: boolean = false;
-                //     for (let i=0; i<repo_files.length; i++) {
-                //         if (license_regex.test(repo_files[i])) {
-                //             const license_content: string = await gitHandler.fetchFileContent(repo_files[i]);
-                //             license_found = await license_verifier(license_content);
-                //             console.log(license_found);
-                //             return license_found;
-                //         }
-                //     }
-                //     console.log(license_found);
-                //     return license_found;
-                //} 
         }
         else if (this.NPM_URL_PATTERN.test(this.url.toString())) {
             // Delegate to npmHandler
@@ -175,6 +153,7 @@ export class urlhandler {
                 this.commits = await gitHandler.getCommitHistory();
                 this.issues = await gitHandler.getIssues();    
                 this.pullRequests = await gitHandler.getPullRequests();
+                this.closedIssues = await gitHandler.getClosedIssues();
         
                 return data;
             } else {
