@@ -3,10 +3,12 @@ import { calculateCorrectnessScore } from '../src/correctness_calc';
 import logger from '../src/logging.js';
 
 // Mocking the logger module
-vi.mock('./logging.js');
+vi.mock('../src/logging.js', () => ({
+  debug: vi.fn(),
+}));
 
 test('calculateCorrectnessScore should return 1 when there are no issues', async () => {
-    const repoUrl = 'https://github.com/user/repo';
+    const repoUrl = 'https://github.com/axios/axios'; // NPM package GitHub repo
     const issues = [];
     const closedIssues = [];
     
@@ -17,7 +19,7 @@ test('calculateCorrectnessScore should return 1 when there are no issues', async
 });
 
 test('calculateCorrectnessScore should calculate score correctly when there are some closed issues', async () => {
-    const repoUrl = 'https://github.com/user/repo';
+    const repoUrl = 'https://github.com/axios/axios'; // NPM package GitHub repo
     const issues = [{ id: 1 }, { id: 2 }, { id: 3 }];
     const closedIssues = [{ id: 1 }];
     
@@ -30,7 +32,7 @@ test('calculateCorrectnessScore should calculate score correctly when there are 
 });
 
 test('calculateCorrectnessScore should return 1 when all issues are closed', async () => {
-    const repoUrl = 'https://github.com/user/repo';
+    const repoUrl = 'https://github.com/axios/axios'; // NPM package GitHub repo
     const issues = [{ id: 1 }, { id: 2 }];
     const closedIssues = [{ id: 1 }, { id: 2 }];
     
@@ -43,7 +45,7 @@ test('calculateCorrectnessScore should return 1 when all issues are closed', asy
 });
 
 test('calculateCorrectnessScore should return 0 when no issues are closed', async () => {
-    const repoUrl = 'https://github.com/user/repo';
+    const repoUrl = 'https://github.com/axios/axios'; // NPM package GitHub repo
     const issues = [{ id: 1 }, { id: 2 }];
     const closedIssues = [];
     
