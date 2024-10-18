@@ -1,6 +1,6 @@
 import logger from './logging.js'
 
-export async function calculateCorrectnessScore(repoUrl: string, issues: any[], closedIssues: any[]): Promise<number> {
+export async function calculateCorrectnessScore( issues: any[], closedIssues: any[]): Promise<number> {
     if (issues.length == 0) {
         logger.debug('Total issues count is zero, returning score as 1.');
         return 1;
