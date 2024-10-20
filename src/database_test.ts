@@ -41,6 +41,7 @@ export async function disconnectMongoDB() {
     }
 }
 
+// might want to make this just go update if it finds that a package with the same name is already present
 export async function addNewPackage(name: String, url: String, score?: String, version?: String, previousVersion?: String) {
     const newPackage = new Package({
         name: name,
