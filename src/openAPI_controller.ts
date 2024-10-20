@@ -1,7 +1,9 @@
 import express from 'express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import { extractPackageName } from './utils';
 import { metric_manager } from './metric_manager';
+
 
 const app = express();
 app.use(express.json()); // parse incoming requests with JSON payloads
@@ -34,6 +36,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.post('/upload/:url/:version', (req, res) => {
     const url = req.params.url;
     const version = req.params.version;
+    const package_name = extractPackageName(url);
+
 });
 
 
