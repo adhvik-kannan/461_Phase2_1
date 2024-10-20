@@ -18,7 +18,7 @@ const packageSchema = new mongoose.Schema({
 // const User = mongoose.model('User', userSchema); // This defines the "users" collection
 const Package = mongoose.model('Package', packageSchema)
 
-async function connectToMongoDB(database: string) {
+export async function connectToMongoDB(database: string) {
     try {
         // Replace with your actual MongoDB URI
         const mongoURI = `mongodb+srv://askannan:IxnNnCuO0ICCZXGl@cluster0.9gpef.mongodb.net/${database}?retryWrites=true&w=majority&appName=Cluster0`;
@@ -32,7 +32,7 @@ async function connectToMongoDB(database: string) {
     }
 }
 
-async function disconnectMongoDB() {
+export async function disconnectMongoDB() {
     try {
         await mongoose.disconnect();
         console.log('Disconnected from MongoDB');
@@ -41,7 +41,7 @@ async function disconnectMongoDB() {
     }
 }
 
-async function addNewPackage(name: String, url: String, score?: String, version?: String, previousVersion?: String) {
+export async function addNewPackage(name: String, url: String, score?: String, version?: String, previousVersion?: String) {
     const newPackage = new Package({
         name: name,
         url: url,
@@ -58,7 +58,7 @@ async function addNewPackage(name: String, url: String, score?: String, version?
     }
 }
 
-async function updatePackageVersion(name: string, newVersion: string) {
+export async function updatePackageVersion(name: string, newVersion: string) {
     try {
         // Find the package by name
         const packageDoc = await Package.findOne({ name });
@@ -83,7 +83,7 @@ async function updatePackageVersion(name: string, newVersion: string) {
     }
 }
 
-async function updatePackageScore(name: string, newScore: string) {
+export async function updatePackageScore(name: string, newScore: string) {
     try {
         const result = await Package.updateOne(
             { name },
@@ -95,7 +95,7 @@ async function updatePackageScore(name: string, newScore: string) {
     }
 }
 
-async function deleteDB() {
+export async function deleteDB() {
     try {
         await mongoose.connection.db.dropDatabase();
         console.log('Database deleted successfully');
@@ -107,7 +107,7 @@ async function deleteDB() {
     }
 }
 
-async function removeUserCollection() {
+export async function removeUserCollection() {
     try {
         await Package.collection.drop();
         console.log('User collection removed');
@@ -116,7 +116,7 @@ async function removeUserCollection() {
     }
 }
 
-async function getAllPackages() {
+export async function getAllPackages() {
     try {
         const users = await Package.find();
         console.log('All Users:', users);
@@ -125,7 +125,7 @@ async function getAllPackages() {
     }
 }
 
-async function getPackageByName(name: string) {
+export async function getPackageByName(name: string) {
     try {
         const pkg = await Package.findOne({ name });
         console.log('User found:', pkg);
@@ -134,7 +134,7 @@ async function getPackageByName(name: string) {
     }
 }
 
-async function findPackagesByPartialName(partialName: string) {
+export async function findPackagesByPartialName(partialName: string) {
     try {
         // Use regex to find packages where the name contains the partial string (case-insensitive)
         const pkgs = await Package.find({ name: { $regex: partialName, $options: 'i' } });
