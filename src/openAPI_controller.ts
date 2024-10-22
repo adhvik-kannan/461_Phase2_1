@@ -4,6 +4,7 @@ import swaggerUi from 'swagger-ui-express';
 import * as util from './utils';
 import { metric_manager } from './metric_manager';
 import * as db from './database_test';
+import { rate } from './rate';
 
 
 const app = express();
@@ -55,14 +56,14 @@ app.post('/upload/:url', (req, res) => {
         const url = req.params.url;
         const package_name = util.extractPackageName(url);
         db.addNewPackage(package_name, url);
-        // const rating = getRating(url);
-        // if (rating >= 0.5) {
-        //     const version = util.extractPackageVersion(url);
-        //     db.addNewPackage(package_name, url, version, rating);
-        // } else {
-        //     res.status(400).send('Package rating is too low.');
-        //     console.log('Package rating is too low.');
-        // }
+        const package_rating = rate(url);
+        if (package_rating[1] >= 0.5) {
+            if (db.getPackageByName(package_name) == null) {
+                db.addNewPackage(package_name, package_rating[1]);
+            }
+        } else {
+
+        }
         res.status(200).send('Package uploaded successfully');
     } catch (error) {
         console.error(`Error uploading package:`, error);
