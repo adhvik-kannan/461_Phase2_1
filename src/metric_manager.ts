@@ -172,12 +172,10 @@ export class metric_manager {
      */
     // run all the metrics in parallel and calculate the net score
     public async parallel_metric_and_net_score_calc() {
-        //fs.rmSync(await this.tempDir, { recursive: true, force: true });
-        //logger.info("Temporary repository directory removed:", this.tempDir);
         const startTime = performance.now();
         const metric_array = await Promise.all([
             Promise.resolve(this.bus_factor_calc()),
-            //Promise.resolve(this.correctness_calc()),
+            Promise.resolve(this.correctness_calc()),
             Promise.resolve(this.calculateRampUpMetric()),
             Promise.resolve(this.maintainer_calc()),
             Promise.resolve(this.licence_verify())
