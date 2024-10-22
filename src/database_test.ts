@@ -42,9 +42,10 @@ export async function connectToMongoDB(database: string) {
         // Connect to the MongoDB cluster
         await mongoose.connect(mongoURI);
         console.log('Connected to MongoDB');
+        return [true, null];
     } catch (error) {
         console.error('Error connecting to MongoDB', error);
-        return error;
+        return [false, error];
         // process.exit(1); // Exit process with failure
     }
 }
@@ -57,9 +58,10 @@ export async function disconnectMongoDB() {
     try {
         await mongoose.disconnect();
         console.log('Disconnected from MongoDB');
+        return [true, null];
     } catch (error) {
         console.error('Error disconnecting from MongoDB:', error);
-        return error;
+        return [false, error];
     }
 }
 
@@ -85,10 +87,10 @@ export async function addNewPackage(name: String, url: String, score?: String, v
     try {
         const savedPackage = await newPackage.save();
         console.log('Package saved:', savedPackage);
-        return savedPackage;
+        return [true, savedPackage];
     } catch (error) {
         console.error('Error saving package:', error);
-        return error;
+        return [false, error];
     }
 }
 
@@ -115,14 +117,14 @@ export async function updatePackageVersion(name: string, newVersion: string) {
             // Save the updated document
             const updatedPackage = await packageDoc.save();
             console.log('Package updated:', updatedPackage);
-            return updatedPackage;
+            return [true, updatedPackage];
         } else {
             console.log('Package not found');
-            return Error(`Package ${name} not found`);
+            return [false, Error(`Package ${name} not found`)];
         }
     } catch (error) {
         console.error('Error updating package:', error);
-        return error;
+        return [false, error];
     }
 }
 
@@ -139,10 +141,10 @@ export async function updatePackageScore(name: string, newScore: string) {
             { $set: { score: newScore } }
         );
         console.log('Update result:', result);
-        return result;
+        return [true, result];
     } catch (error) {
         console.error('Error updating package:', error);
-        return error;
+        return [false, error];
     }
 }
 
@@ -156,11 +158,11 @@ export async function deleteDB() {
         console.log('Database deleted successfully');
     } catch (error) {
         console.error('Error deleting database:', error);
-        return { success: false, error};
+        return [false, error];
     } finally {
         await mongoose.disconnect();
         console.log('Disconnected from MongoDB');
-        return { success: true};
+        return [true, null];
     }
 }
 
@@ -172,9 +174,10 @@ export async function removePackageCollection() {
     try {
         await Package.collection.drop();
         console.log('Package collection removed');
+        return [true, null]
     } catch (error) {
         console.error('Error removing collection:', error);
-        return error;
+        return [false, error];
     }
 }
 
@@ -186,10 +189,10 @@ export async function getAllPackages() {
     try {
         const users = await Package.find();
         console.log('All Users:', users);
-        return users;
+        return [true, users];
     } catch (error) {
         console.error('Error fetching users:', error);
-        return error;
+        return [false, error];
     }
 }
 
@@ -202,10 +205,10 @@ export async function getPackageByName(name: string) {
     try {
         const pkg = await Package.findOne({ name });
         console.log('User found:', pkg);
-        return pkg;
+        return [true, pkg];
     } catch (error) {
         console.error('Error fetching user:', error);
-        return error;
+        return [false, error];
     }
 }
 
@@ -224,10 +227,10 @@ export async function findPackagesByPartialName(partialName: string) {
         } else {
             console.log('No packages found with the partial name:', partialName);
         }
-        return pkgs
+        return [true, pkgs]
     } catch (error) {
         console.error('Error fetching packages:', error);
-        return error;
+        return [false, error];
     }
 }
 
