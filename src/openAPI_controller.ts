@@ -35,6 +35,20 @@ const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 
+app.delete('/delete', (res) => {
+    try {
+        const result = await db.deleteDB();
+        if (result.success) {
+            res.status(200).send('Database deleted successfully');
+        } else {
+            res.status(500).send('Error deleting database');
+        }
+    } catch (error) {
+        console.error(`Error deleting package:`, error);
+        res.status(500).send('Error deleting package');
+    }
+});
+
 app.post('/upload/:url', (req, res) => {
     // need to add error catching and make sure codes are correct
     try {
