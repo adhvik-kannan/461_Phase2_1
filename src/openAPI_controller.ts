@@ -2,9 +2,9 @@ import express from 'express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import * as util from './utils';
-import { metric_manager } from './metric_manager';
 import * as db from './database_test';
 import { rate } from './rate';
+import logger from './logging';
 
 
 const app = express();
@@ -26,7 +26,7 @@ const swaggerOptions = {
                 },
                 {
                     url: 'https://aws-web-server-here', // where serve will be hosted
-                }
+                }]
         }
     },
     apis: ['./src/*.ts'], // where the doc strings are located to automatically generate API documentation
@@ -36,53 +36,60 @@ const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 
-app.delete('/delete', (res) => {
+app.delete('/delete', async (res) => {
     try {
         const result = await db.deleteDB();
-        if (result.success) {
+        if (result[0] == true) {
             res.status(200).send('Database deleted successfully');
         } else {
             res.status(500).send('Error deleting database');
         }
     } catch (error) {
-        console.error(`Error deleting package:`, error);
+        logger.error('Error deleting database:', error);
         res.status(500).send('Error deleting package');
     }
 });
 
-app.post('/upload/:url', (req, res) => {
-    // need to add error catching and make sure codes are correct
+app.post('/upload/:url', async (req, res) => {
     try {
         const url = req.params.url;
-        const package_name = util.extractPackageName(url);
-        db.addNewPackage(package_name, url);
-        const package_rating = rate(url);
-        if (package_rating[1] >= 0.5) {
-            if (db.getPackageByName(package_name) == null) {
-                db.addNewPackage(package_name, package_rating[1]);
-            }
+        const package_name = await util.extractPackageName(url);
+        const pkg = await db.getPackageByName(package_name);
+        if (pkg[0] == true) { // if the package already exists, just return the score
+            res.status(200).send(pkg[1]["score"]);
         } else {
-
+            const [package_rating, package_net] = await rate(url);
+            if  (package_net >= 0.5) {
+                const result = await db.addNewPackage(package_name, url, package_rating);
+                if (result[0] == true) {
+                    res.status(200).send(package_rating);
+                } else {
+                    res.status(500).send('Error uploading package');
+                }
+            } else {
+                res.status(403).send('Package rating too low');
+            }
         }
-        res.status(200).send('Package uploaded successfully');
     } catch (error) {
-        console.error(`Error uploading package:`, error);
+        logger.error(`Error uploading package:`, error);
         res.status(500).send('Error uploading package');
     }
 });
 
-app.post('/rate/:url', (req, res) => {
+app.post('/rate/:url', async (req, res) => {
     try {
         const url = req.params.url;
-        // const rating = x.getRating(url);
-        // if (rating[0] != -1) { assuming rating[0] is net or something
-        //  res.json({rating: rating})
-        // }
-        res.status(200).send('Package rated successfully');
-
+        const package_name = await util.extractPackageName(url);
+        const pkg = await db.getPackageByName(package_name);
+        if (pkg[0] == true) { // if the package already exists, just return the score
+            res.status(200).send(pkg[1]["score"]);
+        } else {
+            const [package_rating, package_net] = await rate(url);
+            res.status(200).send(package_rating);
+        }
     } catch (error) {
-        console.error(`Error rating package:`, error);
         res.status(500).send('Error rating package');
+        logger.error(`Error rating package:`, error);
     }
 });
 

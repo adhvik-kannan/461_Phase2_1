@@ -7,7 +7,7 @@ import logger from './logging.js';
 import { cloneRepository } from './github_utils.js';
 import os from 'os';
 
-export async function rate(url: string): Promise<(string | number)[]> {
+export async function rate(url: string): Promise<[string, number]> {
     try {
         logger.info(`Processing URL: ${url}`);
         logger.debug(`Processing URL: ${url}`); 
