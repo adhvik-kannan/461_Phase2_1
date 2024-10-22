@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 
 // Define a schema
+/**
+ * Schema for how entries are stored in the database for users
+ */
 const userSchema = new mongoose.Schema({
     name: String,
     email: String,
@@ -8,6 +11,9 @@ const userSchema = new mongoose.Schema({
     accessLevel: Number
 });
 
+/**
+ * Schema for how entries are stored in the database for packages
+ */
 const packageSchema = new mongoose.Schema({
     name: String,
     url: String,
@@ -15,9 +21,19 @@ const packageSchema = new mongoose.Schema({
     version: String,
     prev_versions: [String]
 });
+
 // const User = mongoose.model('User', userSchema); // This defines the "users" collection
+
+/**
+ * Package collection
+ */
 const Package = mongoose.model('Package', packageSchema)
 
+/**
+ * Connect to MongoDB Cloud Database
+ * @param database name of the database you want to create a connection to
+ * @returns error on failure to connect
+ */
 export async function connectToMongoDB(database: string) {
     try {
         // Replace with your actual MongoDB URI
@@ -28,20 +44,35 @@ export async function connectToMongoDB(database: string) {
         console.log('Connected to MongoDB');
     } catch (error) {
         console.error('Error connecting to MongoDB', error);
-        process.exit(1); // Exit process with failure
+        return error;
+        // process.exit(1); // Exit process with failure
     }
 }
 
+/**
+ * Disconnects from MongoDB Cloud Database
+ * @returns error on failure to disconnect
+ */
 export async function disconnectMongoDB() {
     try {
         await mongoose.disconnect();
         console.log('Disconnected from MongoDB');
     } catch (error) {
         console.error('Error disconnecting from MongoDB:', error);
+        return error;
     }
 }
 
 // might want to make this just go update if it finds that a package with the same name is already present
+/**
+ * Add a new package to the database
+ * @param name Package name
+ * @param url Package url
+ * @param score Optional score for package
+ * @param version Optional version for package
+ * @param previousVersion Optional previous versions for package
+ * @returns savedPackage of the package saved or error if the package couldn't be stored
+ */
 export async function addNewPackage(name: String, url: String, score?: String, version?: String, previousVersion?: String) {
     const newPackage = new Package({
         name: name,
@@ -54,11 +85,19 @@ export async function addNewPackage(name: String, url: String, score?: String, v
     try {
         const savedPackage = await newPackage.save();
         console.log('Package saved:', savedPackage);
+        return savedPackage;
     } catch (error) {
         console.error('Error saving package:', error);
+        return error;
     }
 }
 
+/**
+ * Update the version of a given package
+ * @param name Package name
+ * @param newVersion New version of the package
+ * @returns The updated package or an error
+ */
 export async function updatePackageVersion(name: string, newVersion: string) {
     try {
         // Find the package by name
@@ -76,14 +115,23 @@ export async function updatePackageVersion(name: string, newVersion: string) {
             // Save the updated document
             const updatedPackage = await packageDoc.save();
             console.log('Package updated:', updatedPackage);
+            return updatedPackage;
         } else {
             console.log('Package not found');
+            return Error(`Package ${name} not found`);
         }
     } catch (error) {
         console.error('Error updating package:', error);
+        return error;
     }
 }
 
+/**
+ * Updates the score for a given package
+ * @param name Package name
+ * @param newScore New score for the package
+ * @returns Updated package or error
+ */
 export async function updatePackageScore(name: string, newScore: string) {
     try {
         const result = await Package.updateOne(
@@ -91,50 +139,80 @@ export async function updatePackageScore(name: string, newScore: string) {
             { $set: { score: newScore } }
         );
         console.log('Update result:', result);
+        return result;
     } catch (error) {
         console.error('Error updating package:', error);
+        return error;
     }
 }
 
+/**
+ * Deletes the connected database and then disconnects from Mongo
+ * @returns error if it cannot delete a database
+ */
 export async function deleteDB() {
     try {
         await mongoose.connection.db.dropDatabase();
         console.log('Database deleted successfully');
     } catch (error) {
         console.error('Error deleting database:', error);
+        return error;
     } finally {
         await mongoose.disconnect();
         console.log('Disconnected from MongoDB');
     }
 }
 
-export async function removeUserCollection() {
+/**
+ * Removes package collection from the database 
+ * @returns error or nothing
+ */
+export async function removePackageCollection() {
     try {
         await Package.collection.drop();
-        console.log('User collection removed');
+        console.log('Package collection removed');
     } catch (error) {
         console.error('Error removing collection:', error);
+        return error;
     }
 }
 
+/**
+ * Gets all the packages in the collection
+ * @returns All packages or error
+ */
 export async function getAllPackages() {
     try {
         const users = await Package.find();
         console.log('All Users:', users);
+        return users;
     } catch (error) {
         console.error('Error fetching users:', error);
+        return error;
     }
 }
 
+/**
+ * Gets a package for a given name
+ * @param name Package name
+ * @returns package struct or error
+ */
 export async function getPackageByName(name: string) {
     try {
         const pkg = await Package.findOne({ name });
         console.log('User found:', pkg);
+        return pkg;
     } catch (error) {
         console.error('Error fetching user:', error);
+        return error;
     }
 }
 
+/**
+ * Finds and gets all packages that have the partial name in their name
+ * @param partialName Partial name to look for
+ * @returns All packages with the partial name or error
+ */
 export async function findPackagesByPartialName(partialName: string) {
     try {
         // Use regex to find packages where the name contains the partial string (case-insensitive)
@@ -148,9 +226,13 @@ export async function findPackagesByPartialName(partialName: string) {
         return pkgs
     } catch (error) {
         console.error('Error fetching packages:', error);
+        return error;
     }
 }
 
+/**
+ * Test function to check functionality
+ */
 async function run() {
     await connectToMongoDB('Packages');
     await addNewPackage('Example', 'http://example.com');
@@ -167,7 +249,7 @@ async function run() {
     await disconnectMongoDB();
 }
 
-run();
+// run();
 
 // UNCOMMENT LATER WHEN NEEDED
 
