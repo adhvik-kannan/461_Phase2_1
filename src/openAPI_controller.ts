@@ -35,21 +35,57 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-
-app.delete('/delete', async (res) => {
+/**
+ * @swagger
+ *  /delete:
+ *      delete:
+ *          summary: Deletes the database
+ *          responses:
+ *              200:
+ *                  description: Database deleted successfully
+ *              500:
+ *                  description: Error deleting database
+ */
+app.delete('/delete', async (req, res) => {
     try {
         const result = await db.deleteDB();
         if (result[0] == true) {
+            logger.info('Database deleted successfully');
             res.status(200).send('Database deleted successfully');
         } else {
+            logger.error('Error deleting database:', result[1]);
             res.status(500).send('Error deleting database');
         }
     } catch (error) {
         logger.error('Error deleting database:', error);
-        res.status(500).send('Error deleting package');
+        res.status(500).send('Error deleting database');
     }
 });
 
+/**
+ * @swagger
+ *  /upload/{url}:
+ *     post:
+ *      summary: Uploads a package and calculates the score
+ *      parameters:
+ *          name: url
+ *              required: true
+ *              schema:
+ *              type: string
+ *              description: The URL of the package to upload
+ *      responses:
+ *          200:
+ *              description: Package uploaded successfully
+ *              content:
+ *                  number:
+ *                  description: The score of the package
+ *          403:
+ *              description: Package rating too low
+ *          500:
+ *              description: Error uploading package
+ * 
+ * 
+ */
 app.post('/upload/:url', async (req, res) => {
     try {
         const url = req.params.url;
@@ -57,16 +93,20 @@ app.post('/upload/:url', async (req, res) => {
         const pkg = await db.getPackageByName(package_name);
         if (pkg[0] == true) { // if the package already exists, just return the score
             res.status(200).send(pkg[1]["score"]);
+            logger.info(`Package ${package_name} already exists with score: ${pkg[1]["score"]}`);
         } else {
             const [package_rating, package_net] = await rate(url);
-            if  (package_net >= 0.5) {
+            if (package_net >= 0.5) {
                 const result = await db.addNewPackage(package_name, url, package_rating);
                 if (result[0] == true) {
+                    logger.info(`Package ${package_name} uploaded with score: ${package_rating}`);
                     res.status(200).send(package_rating);
                 } else {
+                    logger.error(`Error uploading package:`, package_name);
                     res.status(500).send('Error uploading package');
                 }
             } else {
+                logger.info(`Package ${package_name} rating too low: ${package_rating}`);
                 res.status(403).send('Package rating too low');
             }
         }
@@ -76,16 +116,39 @@ app.post('/upload/:url', async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /rate/{url}:
+ *      post:
+ *          summary: Rates a package
+ *          parameters:
+ *              name: url
+ *              required: true
+ *              schema:
+ *                  type: string
+ *              description: The URL of the package to rate
+ *          responses:
+ *              200:
+ *                  description: Package rated successfully   
+ *                  content:
+ *                      number:
+ *                      description: The score of the package
+ *              500:
+ *                  description: Error rating package
+ * 
+ */
 app.post('/rate/:url', async (req, res) => {
     try {
         const url = req.params.url;
         const package_name = await util.extractPackageName(url);
         const pkg = await db.getPackageByName(package_name);
         if (pkg[0] == true) { // if the package already exists, just return the score
+            logger.info(`Package ${package_name} already exists with score: ${pkg[1]["score"]}`); 
             res.status(200).send(pkg[1]["score"]);
         } else {
             const [package_rating, package_net] = await rate(url);
             res.status(200).send(package_rating);
+            logger.info(`Package ${package_name} rated with score: ${package_rating}`);
         }
     } catch (error) {
         res.status(500).send('Error rating package');

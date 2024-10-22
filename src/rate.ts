@@ -7,6 +7,20 @@ import logger from './logging.js';
 import { cloneRepository } from './github_utils.js';
 import os from 'os';
 
+/**
+ * Processes a given URL to compute various metrics and returns a formatted output and net score.
+ *
+ * @param {string} url - The URL to be processed.
+ * @returns {Promise<[string, number]>} A promise that resolves to a tuple containing the formatted output and net score.
+ *
+ * @throws Will throw an error if the URL processing fails.
+ *
+ * @example
+ * ```typescript
+ * const [formattedOutput, netScore] = await rate('https://example.com/repo');
+ * console.log(formattedOutput, netScore);
+ * ```
+ */
 export async function rate(url: string): Promise<[string, number]> {
     try {
         logger.info(`Processing URL: ${url}`);
