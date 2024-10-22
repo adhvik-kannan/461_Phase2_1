@@ -156,10 +156,11 @@ export async function deleteDB() {
         console.log('Database deleted successfully');
     } catch (error) {
         console.error('Error deleting database:', error);
-        return error;
+        return { success: false, error};
     } finally {
         await mongoose.disconnect();
         console.log('Disconnected from MongoDB');
+        return { success: true};
     }
 }
 
