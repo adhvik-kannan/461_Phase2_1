@@ -22,16 +22,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Change the version to whatever you are using
+          node-version: '18.17.1'  # Change the version to whatever you are using
 
       # Step 3: Run ./run install to install dependencies
       - name: Install Dependencies
         run: ./run install
 
-      # Step 4: Run ./run test to execute the test suite
+      # Step 4: Run tests to execute the test suite
       - name: Run Test Suite
-        run: ./run test
-
+        run: npx vitest run --coverage.enabled=true
+        
       # Step 5: Run ./run URL_FILE to process the environment variable (assumes URL_FILE is passed in as an environment variable)
       - name: Run URL_FILE Command
         env:

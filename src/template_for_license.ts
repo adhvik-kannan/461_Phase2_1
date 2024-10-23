@@ -5,7 +5,7 @@ import fs from 'fs';
 import http from 'isomorphic-git/http/node/index.cjs';
 import path from 'path';
 
-
+//hi
 
 const compatible_licenses: RegExp[] = [/MIT\s[Ll]icense/, /GNU Lesser General Public License v2.0/,
     /GNU Lesser General Public License v2.1/, /GNU Lesser General Public License v3.0/, /\bMIT\b/];
