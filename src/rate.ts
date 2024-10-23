@@ -32,6 +32,7 @@ export async function rate(url: string): Promise<[string, number]> {
         const contributors = await handler.contributors;
         const issues = await handler.issues;
         const pullRequests = await handler.pullRequests;
+        const closedIssues = await handler.closedIssues;
         const commits = await handler.commits;
 
         const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'temp-repo-'));
@@ -39,7 +40,7 @@ export async function rate(url: string): Promise<[string, number]> {
         
 
         // Once the URL is processed, create and compute the metric
-        const test_metric = new metric_manager(data, contributors, issues, pullRequests, commits, gitUrl, tempDir);
+        const test_metric = new metric_manager(data, contributors, issues, pullRequests, commits, gitUrl, tempDir, closedIssues);
         const metric_array = await test_metric.parallel_metric_and_net_score_calc();
 
         // Delete the temporary directory
