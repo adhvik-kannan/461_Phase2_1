@@ -5,6 +5,7 @@ import * as util from './utils';
 import * as db from './database_test';
 import { rate } from './rate';
 import logger from './logging';
+import { status } from 'isomorphic-git';
 
 
 const app = express();
@@ -46,19 +47,26 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *              500:
  *                  description: Error deleting database
  */
-app.delete('/delete', async (req, res) => {
-    try {
-        const result = await db.deleteDB();
-        if (result[0] == true) {
-            logger.info('Database deleted successfully');
-            res.status(200).send('Database deleted successfully');
-        } else {
-            logger.error('Error deleting database:', result[1]);
+// TODO: HAVE TO ADD AUTHENTICATION PARSING
+app.delete('/reset', async (req, res) => {
+    const authToken = req.headers['X-Authorization'];
+    if (!authToken) {
+        logger.error('There is missing field(s) in the AuthenticationToken or it is formed improperly, or the AuthenticationToken is invalid.');
+        res.status(400).send('There is missing field(s) in the AuthenticationToken or it is formed improperly, or the AuthenticationToken is invalid.');
+    } else {
+        try {
+            const result = await db.deleteDB();
+            if (result[0] == true) {
+                logger.info('Registry is reset.');
+                res.status(200).send('Registry is reset.');
+            } else {
+                logger.error('Error deleting database:', result[1]);
+                res.status(500).send('Error deleting database');
+            }
+        } catch (error) {
+            logger.error('Error deleting database:', error);
             res.status(500).send('Error deleting database');
         }
-    } catch (error) {
-        logger.error('Error deleting database:', error);
-        res.status(500).send('Error deleting database');
     }
 });
 
