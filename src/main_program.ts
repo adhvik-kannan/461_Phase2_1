@@ -51,7 +51,6 @@ fs.readFile(filePath, 'utf8', async (err, data) => {
             const closedIssues = await handler.closedIssues;
 
             // Clone the repository to a temporary directory
-            //const tempDir= path.resolve(process.cwd(), 'repo');
             const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'temp-repo-'));
             await cloneRepository(gitUrl.toString(), tempDir);
             
@@ -64,7 +63,6 @@ fs.readFile(filePath, 'utf8', async (err, data) => {
             try {
                 if (fs.existsSync(tempDir)) {
                     fs.rmSync(tempDir, { recursive: true, force: true });
-                    //console.log(`Deleted existing directory: ${repoPath}`);
                 }
             } catch (error) {
                 console.error(`Error deleting directory: ${tempDir}`, error);
