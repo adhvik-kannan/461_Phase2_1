@@ -9,6 +9,7 @@ import logger from './logging.js';
 import {output_formatter} from './output_formatter.js';
 import { cloneRepository } from './github_utils.js';
 import os from 'os';
+import { close } from 'node:inspector/promises';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

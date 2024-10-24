@@ -4,7 +4,6 @@ import { maintainer_net } from '../src/maintainer_calculator.js';
 import { temp_license } from '../src/template_for_license.js';
 import { temp_bus_factor_calc } from '../src/new_bus_factor_calc.js';
 import { calculateRampUpScore } from '../src/rampUp.js';
-import exp from 'constants';
 
 // Mocking the dependencies
 vi.mock('../src/maintainer_calculator.js', () => ({
@@ -45,8 +44,8 @@ test('Calculates metrics in parallel', async () => {
     expect(calculateRampUpScore).toHaveBeenCalledWith(manager.url, manager.tempDir);
     expect(maintainer_net).toHaveBeenCalledWith(manager.contributors, manager.issues, manager.pullRequests, manager.commits);
     expect(temp_license).toHaveBeenCalledWith(manager.url, manager.tempDir);
+    
     // Check that the net score is calculated as expected
-    // expect(manager.net_score).toBeGreaterThanOrEqual(0); // Adjust based on expected logic
     expect(manager.net_score).toBeGreaterThan(0); // Adjust based on expected logic
 });
 

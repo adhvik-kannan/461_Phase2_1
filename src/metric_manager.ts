@@ -59,7 +59,7 @@ export class metric_manager {
      * @param tempDir - Temporary directory where URL Repo is cloned
      * @param closedIssues - Array of closed issues
      */
-    constructor(data: any, contributors: any, issues: any, pullRequests: any, commits: any, gitUrl: any, tempDir: any, closedIssues: any) {
+    constructor(data, contributors, issues, pullRequests, commits, url, tempDir, closedIssues /*a lot of arguments*/) {
         this.bus_factor_latency = 0;
         this.correctness_latency = 0;
         this.ramp_up_latency = 0;
@@ -72,10 +72,10 @@ export class metric_manager {
         this.closedIssues = closedIssues;
         this.pullRequests = pullRequests;
         this.commits = commits;
-        this.url = gitUrl;
+        this.url = url;
         this.data = data;
         this.tempDir = tempDir;
-        this.gitUrl = gitUrl;
+
     }
     
     // functions for calculating each metric
@@ -174,9 +174,7 @@ export class metric_manager {
      * @returns Array of metric scores
      */
     // run all the metrics in parallel and calculate the net score
-    public async parallel_metric_and_net_score_calc(): Promise<number[]> {
-        //fs.rmSync(await this.tempDir, { recursive: true, force: true });
-        //logger.info("Temporary repository directory removed:", this.tempDir);
+    public async parallel_metric_and_net_score_calc() {
         const startTime = performance.now();
         const metric_array = await Promise.all([
             Promise.resolve(this.bus_factor_calc()),
@@ -211,64 +209,3 @@ export class metric_manager {
         return reviewedPullRequests.length / totalPullRequests;
     }
 }
-
-import { expect, test, vi, beforeEach } from 'vitest';
-
-// Mocking the dependencies
-vi.mock('../src/maintainer_calculator.js', () => ({
-    maintainer_net: vi.fn(() => 1),
-}));
-
-vi.mock('../src/template_for_license.js', () => ({
-    temp_license: vi.fn(() => Promise.resolve(true)),
-}));
-
-vi.mock('../src/new_bus_factor_calc.js', () => ({
-    temp_bus_factor_calc: vi.fn(() => 1),
-}));
-
-vi.mock('../src/rampUp.js', () => ({
-    calculateRampUpScore: vi.fn(() => Promise.resolve(1)),
-}));
-
-let manager: metric_manager;
-
-beforeEach(() => {
-    const mockData: any = {}; // Add your mock data here
-    const mockContributors: any[] = [];
-    const mockIssues: any[] = [];
-    const mockPullRequests: any[] = [
-        { reviewed: true },
-        { reviewed: false },
-        { reviewed: true },
-    ]; // Example pull requests data
-    const mockCommits: any[] = [];
-    const mockUrl: string = 'https://github.com/example/repo';
-    const tempDir: string = '/tmp/example';
-
-    manager = new metric_manager(mockData, mockContributors, mockIssues, mockPullRequests, mockCommits, mockUrl, tempDir, []);
-});
-
-test('Calculates metrics in parallel', async () => {
-    const result = await manager.parallel_metric_and_net_score_calc();
-
-    // Check if the metrics were calculated
-    expect(temp_bus_factor_calc).toHaveBeenCalledWith(manager.url, manager.commits);
-    expect(calculateRampUpScore).toHaveBeenCalledWith(manager.url, manager.tempDir);
-    expect(maintainer_net).toHaveBeenCalledWith(manager.contributors, manager.issues, manager.pullRequests, manager.commits);
-    expect(temp_license).toHaveBeenCalledWith(manager.url, manager.tempDir);
-    
-    // Check that the net score is calculated as expected
-    console.log(manager.net_score);
-    expect(manager.net_score).toBeGreaterThan(0); // Adjust based on expected logic
-
-    // Check the pull_request_code metric
-    const pullRequestCodeMetric = manager.calculatePullRequestCodeMetric();
-    expect(pullRequestCodeMetric).toBe(2 / 3); // 2 out of 3 pull requests were reviewed
-});
-
-test('Calculates bus factor', () => {
-    const result = manager.bus_factor_calc();
-    expect(temp_bus_factor_calc).toHaveBeenCalledWith(manager.url, manager.commits);
-    expect(result).toBe(1); // Check if the expected return value matches
-});
