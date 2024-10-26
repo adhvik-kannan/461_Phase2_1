@@ -29,6 +29,7 @@ export class gitAPIHandler{
     this.url = new URL(url)
     const tempURL = this.url.toString();
     [this.owner, this.repo] = tempURL.replace("https://github.com/", "").split("/");
+    console.log(process.env.GITHUB_TOKEN);
     this.octokit = new Octokit({ 
         auth: process.env.GITHUB_TOKEN
       });
