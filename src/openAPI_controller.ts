@@ -1,10 +1,10 @@
 import express from 'express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import * as util from './utils';
-import * as db from './database_test';
-import { rate } from './rate';
-import logger from './logging';
+import * as util from './utils.js';
+import * as db from './database_test.js';
+import { rate } from './rate.js';
+import logger from './logging.js';
 
 const app = express();
 app.use(express.json()); // parse incoming requests with JSON payloads
