@@ -57,5 +57,6 @@ export async function rate(url: string): Promise<[string, number]> {
         return [output_formatter(url, metric_array, test_metric), test_metric.net_score];
     } catch (error) {
         console.error(`Error processing URL ${url}:`, error);
+        return ["Error processing URL", 0];
     }
 }

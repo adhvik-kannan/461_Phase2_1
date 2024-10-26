@@ -115,14 +115,19 @@
       "module": "ESNext",                 // Use ESNext modules for compatibility with ESM
       "target": "ES2015",                 // Keep target as ES2015
       "outDir": "./dist",                 // Use a separate directory for compiled JS files
-      "typeRoots": ["./node_modules/@types"],
+      "typeRoots": ["./node_modules/@types", "./types"],
       "esModuleInterop": true,            // Enable compatibility with CommonJS modules
       "moduleResolution": "node",         // Resolve module paths like Node.js
       "allowJs": true,                    // Allow JavaScript files in the project
       "resolveJsonModule": true,          // Enable importing .json files
       "skipLibCheck": true,               // Skip type checking of declaration files to improve performance
       "forceConsistentCasingInFileNames": true, // Enforce consistent file name casing
-      "strict": true                      // Enable strict type checking
+      "strict": true,                      // Enable strict type checking
+      "noEmit":true,
+      "baseUrl": "./",
+      "paths": {
+        "@/*": ["src/*"]
+      }
     },
     "include": ["src/**/*.ts"],           // Include all .ts files in src
     "exclude": ["node_modules"],          // Exclude node_modules from compilation

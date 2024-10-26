@@ -5,7 +5,6 @@ import * as util from './utils';
 import * as db from './database_test';
 import { rate } from './rate';
 import logger from './logging';
-import { status } from 'isomorphic-git';
 
 const app = express();
 app.use(express.json()); // parse incoming requests with JSON payloads
@@ -99,6 +98,11 @@ app.post('/upload/:url', async (req, res) => {
     try {
         const url = req.params.url;
         const package_name = await util.extractPackageName(url);
+        if (package_name == null) {
+            console.error('Could not get package name');
+            res.status(500).send('Could not get package name');    
+            return;
+        }
         const pkg = await db.getPackageByName(package_name);
         if (pkg[0] == true) { // if the package already exists, just return the score
             res.status(200).send(pkg[1]["score"].toString());
@@ -110,18 +114,22 @@ app.post('/upload/:url', async (req, res) => {
                 if (result[0] == true) {
                     logger.info(`Package ${package_name} uploaded with score: ${package_rating}`);
                     res.status(200).send(package_rating.toString());
+                    return;
                 } else {
                     logger.error(`Error uploading package:`, package_name);
                     res.status(500).send('Error uploading package');
+                    return;
                 }
             } else {
                 logger.info(`Package ${package_name} rating too low: ${package_rating}`);
                 res.status(403).send('Package rating too low');
+                return;
             }
         }
     } catch (error) {
         logger.error(`Error uploading package:`, error);
         res.status(500).send('Error uploading package');
+        return;
     }
 });
 
@@ -152,14 +160,21 @@ app.get('/rate/:url', async (req, res) => {
     try {
         const url = decodeURIComponent(req.params.url);
         const package_name = await util.extractPackageName(url);
+        if (package_name == null) {
+            logger.error('Could not get package name');
+            res.status(500).send('Could not get package name');
+            return;
+        }
         const pkg = await db.getPackageByName(package_name);
         if (pkg[0] == true) { // if the package already exists, just return the score
             logger.info(`Package ${package_name} already exists with score: ${pkg[1]["score"]}`); 
             res.status(200).send(pkg[1]["score"].toString());
+            return;
         } else {
             const [package_rating, package_net] = await rate(url);
             res.status(200).send(package_rating.toString());
             logger.info(`Package ${package_name} rated with score: ${package_rating}`);
+            return;
         }
     } catch (error) {
         res.status(500).send('Error rating package');
