@@ -13,6 +13,8 @@ import os from "os";
 //import { temp_bus_factor_calc } from "./bus_factor_calc.js";
 import { calculateRampUpScore } from './rampUp.js'; // Assuming rampUp contains ESLint logic
 
+import { calculateCorrectnessScore } from "./correctness_calc.js";
+
 /**
  * Rounding function
  * @param val Value to be rounded
@@ -43,6 +45,8 @@ export class metric_manager {
     public data:any;
     public tempDir: string;
     public net_score: number;
+    public closedIssues: any;
+    public gitUrl: any;
 
     /**
      * Creates metric_manager class
@@ -53,8 +57,9 @@ export class metric_manager {
      * @param commits Array of commits
      * @param url - Specific URL
      * @param tempDir - Temporary directory where URL Repo is cloned
+     * @param closedIssues - Array of closed issues
      */
-    constructor(data, contributors, issues, pullRequests, commits, url, tempDir /*a lot of arguments*/) {
+    constructor(data, contributors, issues, pullRequests, commits, url, tempDir, closedIssues /*a lot of arguments*/) {
         this.bus_factor_latency = 0;
         this.correctness_latency = 0;
         this.ramp_up_latency = 0;
@@ -64,15 +69,12 @@ export class metric_manager {
         this.metadata = data;
         this.contributors = contributors;
         this.issues = issues;
+        this.closedIssues = closedIssues;
         this.pullRequests = pullRequests;
         this.commits = commits;
         this.url = url;
         this.data = data;
         this.tempDir = tempDir;
-    
-        //this.tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'temp-repo-'));
-        // this.tempDir= path.resolve(process.cwd(), 'repo');
-        // cloneRepository(this.url, this.tempDir);
 
     }
     
@@ -98,14 +100,15 @@ export class metric_manager {
      * Calculates correctness score - NOT IMPLEMENTED
      * @returns Correctness score
      */
-    public correctness_calc(): number {
+    public correctness_calc(){
         const startTime = performance.now();
         logger.debug("Calculating correctness")
         // calculations for correctness factor
 
+        let correctness = calculateCorrectnessScore(this.issues, this.closedIssues);
         const endTime = performance.now();
         this.correctness_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
-        return 1;
+        return correctness;
     }
 
     /**
@@ -172,20 +175,37 @@ export class metric_manager {
      */
     // run all the metrics in parallel and calculate the net score
     public async parallel_metric_and_net_score_calc() {
-        //fs.rmSync(await this.tempDir, { recursive: true, force: true });
-        //logger.info("Temporary repository directory removed:", this.tempDir);
         const startTime = performance.now();
         const metric_array = await Promise.all([
             Promise.resolve(this.bus_factor_calc()),
-            //Promise.resolve(this.correctness_calc()),
+            Promise.resolve(this.correctness_calc()),
             Promise.resolve(this.calculateRampUpMetric()),
             Promise.resolve(this.maintainer_calc()),
-            Promise.resolve(this.licence_verify())
+            Promise.resolve(this.licence_verify()),
+            Promise.resolve(this.calculatePullRequestCodeMetric())
         ]);
-        this.net_score = .3*metric_array[2] + .3*metric_array[0] + .2*metric_array[3] + .2*metric_array[1];
+        
+        console.log(metric_array);
+
+        this.net_score = metric_array[4] * (.4*metric_array[3] + .3*metric_array[1] + .1*metric_array[0] + .1*metric_array[2] + .1*metric_array[5]);
         const endTime = performance.now();
         this.net_score_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
         
+        // Calculate pull_request_code metric
+        const pullRequestCodeMetric = this.calculatePullRequestCodeMetric();
+        metric_array.push(pullRequestCodeMetric);
+
         return metric_array;
+    }
+
+    calculatePullRequestCodeMetric(): number {
+        const reviewedPullRequests = this.pullRequests.filter((pr: any) => pr.reviewed);
+        const totalPullRequests = this.pullRequests.length;
+
+        if (totalPullRequests === 0) {
+            return 0;
+        }
+
+        return reviewedPullRequests.length / totalPullRequests;
     }
 }

@@ -9,6 +9,7 @@ import logger from './logging.js';
 import {output_formatter} from './output_formatter.js';
 import { cloneRepository } from './github_utils.js';
 import os from 'os';
+import { close } from 'node:inspector/promises';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,22 +49,21 @@ fs.readFile(filePath, 'utf8', async (err, data) => {
             const issues = await handler.issues;
             const pullRequests = await handler.pullRequests;
             const commits = await handler.commits;
+            const closedIssues = await handler.closedIssues;
 
             // Clone the repository to a temporary directory
-            //const tempDir= path.resolve(process.cwd(), 'repo');
             const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'temp-repo-'));
             await cloneRepository(gitUrl.toString(), tempDir);
             
 
             // Once the URL is processed, create and compute the metric
-            const test_metric = new metric_manager(data, contributors, issues, pullRequests, commits, gitUrl, tempDir);
+            const test_metric = new metric_manager(data, contributors, issues, pullRequests, commits, gitUrl, tempDir, closedIssues);
             const metric_array = await test_metric.parallel_metric_and_net_score_calc();
 
             // Delete the temporary directory
             try {
                 if (fs.existsSync(tempDir)) {
                     fs.rmSync(tempDir, { recursive: true, force: true });
-                    //console.log(`Deleted existing directory: ${repoPath}`);
                 }
             } catch (error) {
                 console.error(`Error deleting directory: ${tempDir}`, error);
