@@ -32,6 +32,21 @@ export class gitAPIHandler{
     this.octokit = new Octokit({ 
         auth: process.env.GITHUB_TOKEN
       });
+    this.validtoken = this.validateToken();
+  }
+
+  /**
+   * This function validates the GitHub token
+   * 
+   * @returns - A promise that resolves to a boolean indicating if the token is valid
+   */
+  private async validateToken(): Promise<boolean> {
+    try {
+      await this.octokit.request('/user');
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
 
   /**
@@ -59,7 +74,7 @@ export class gitAPIHandler{
    */
   public async getCommitHistory() {
     
-    let commits = [];
+    let commits: any[] = [];
     let page = 1;
     const perPage = 100; // Fetch the maximum number of commits per page
   

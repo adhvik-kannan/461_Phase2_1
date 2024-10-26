@@ -2,7 +2,7 @@ import { Octokit } from '@octokit/rest';
 import logger from './logging.js'
 import git from 'isomorphic-git';
 import fs from 'fs';
-import http from 'isomorphic-git/http/node/index.cjs';
+import http from 'isomorphic-git/http/node';
 
 /**
  * This function checks if the provided GitHub access token is valid
@@ -27,7 +27,9 @@ export async function isGithubTokenValid(token: string): Promise<boolean> {
             console.error('Invalid GitHub token provided');
             return false;
         }
-        ; // Handle other types of errors (network, etc.)
+        // Handle other types of errors (network, etc.)
+        console.error('Error validating GitHub token:', error);
+        return false;
     }
 };
 
