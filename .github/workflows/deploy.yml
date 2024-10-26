@@ -29,12 +29,7 @@ jobs:
         chmod 600 new_aws_access.pem  # Secure the key file
     - name: Deploy application to EC2
       run: |
-        if [ -f "./new_aws_access.pem" ]; then
-          echo "File exists."
-        else
-          echo "File does not exist."
-        fi
-        ssh -vvv -o StrictHostKeyChecking=no -i "new_aws_access.pem" ec2-user@${{ secrets.EC2_IP_ADDRESS }} << 'EOF'
+        ssh -vvv -o StrictHostKeyChecking=no -i "new_aws_access.pem" ec2-user@ec2-18-212-160-233.compute-1.amazonaws.com<< 'EOF'
         cd 461_Phase2
         export LOG_LEVEL=${{ env.LOG_LEVEL }}      # Set log level on EC2
         export LOG_FILE=${{ env.LOG_FILE }}        # Set log file path on EC2
