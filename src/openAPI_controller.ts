@@ -6,6 +6,8 @@ import * as db from './database_test.js';
 import { rate } from './rate.js';
 import logger from './logging.js';
 
+const test = db.connectToMongoDB("Packages");
+
 const app = express();
 app.use(express.json()); // parse incoming requests with JSON payloads
 

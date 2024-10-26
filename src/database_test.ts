@@ -209,6 +209,10 @@ export async function getAllPackages() {
 export async function getPackageByName(name: string): Promise<[boolean, any | Error]>{
     try {
         const pkg = await Package.findOne({ name });
+        if (pkg == null) {
+            console.log('No package found with the name:', name);
+            return [false, Error(`No package found with the name: ${name}`)];
+        }
         console.log('User found:', pkg);
         return [true, pkg];
     } catch (error) {
