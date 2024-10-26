@@ -24,13 +24,16 @@ jobs:
 
     - name: Write SSH Key
       run: |
-        printf "%s" "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem
-        # echo "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem  # Write the PEM key from the secret to a file
+        # printf "%s" "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem
+        echo "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem  # Write the PEM key from the secret to a file
         chmod 600 new_aws_access.pem  # Secure the key file
-        ls -l new_aws_access.pem  # List file details for debugging
-        cat new_aws_access.pem  # Output the file content for debugging
     - name: Deploy application to EC2
       run: |
+        if [ -f "./new_aws_access.pem" ]; then
+          echo "File exists."
+        else
+          echo "File does not exist."
+        fi
         ssh -vvv -o StrictHostKeyChecking=no -i "new_aws_access.pem" ec2-user@${{ secrets.EC2_IP_ADDRESS }} << 'EOF'
         cd 461_Phase2
         export LOG_LEVEL=${{ env.LOG_LEVEL }}      # Set log level on EC2
