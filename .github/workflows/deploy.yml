@@ -24,9 +24,7 @@ jobs:
 
     - name: Write SSH Key
       run: |
-        cat << 'EOF' > new_aws_access.pem
-        ${{ secrets.AWS_PEM_KEY }}
-        EOF
+        printf "%s" "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem
         # echo "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem  # Write the PEM key from the secret to a file
         chmod 600 new_aws_access.pem  # Secure the key file
         ls -l new_aws_access.pem  # List file details for debugging
