@@ -24,7 +24,6 @@ jobs:
 
     - name: Deploy application to EC2
       run: |
-        # printf "%s" "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem
         echo "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem  # Write the PEM key from the secret to a file
         chmod 600 new_aws_access.pem  # Secure the key file
         sudo ssh -vvv -o StrictHostKeyChecking=no -i new_aws_access.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP_ADDRESS }} << 'EOF'
