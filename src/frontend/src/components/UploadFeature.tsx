@@ -5,6 +5,7 @@ const UploadFeature: React.FC = () => {
   const [url, setUrl] = useState<string>('');
   const [file, setFile] = useState<File | null>(null);
   const [showOptions, setShowOptions] = useState<boolean>(false); // To control visibility
+  const [responseMessage, setResponseMessage] = useState<string | null>(null); // State to store response message
 
   // Handle file upload through drag and drop
   const onDrop = (acceptedFiles: File[]) => {
@@ -22,6 +23,36 @@ const UploadFeature: React.FC = () => {
       'application/gzip': ['.tar.gz']
     }, // Accept only npm package formats
   });
+
+  // Function to handle the submission
+  const handleSubmit = async () => {
+    if (url) {
+      try {
+        const response = await fetch(`https://localhost:3000/upload/${encodeURIComponent(url)}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setResponseMessage(`Package uploaded successfully with score: ${data}`);
+          console.log('Package uploaded successfully:', data);
+        } else {
+          const errorText = await response.text();
+          setResponseMessage(`Error uploading package: ${errorText}`);
+          console.error('Error uploading package:', response.statusText);
+        }
+      } catch (error) {
+        setResponseMessage(`Error uploading package: ${(error as Error).message}`);
+        console.error('Error uploading package:', error);
+      }
+    } else {
+      setResponseMessage('URL is required');
+      console.error('URL is required');
+    }
+  };
 
   return (
     <div style={{ padding: '20px', border: '1px solid #ccc', margin: '20px' }}>
@@ -79,15 +110,17 @@ const UploadFeature: React.FC = () => {
           <button
             type="button"
             style={{ marginTop: '20px', padding: '10px 20px' }}
-            onClick={() => {
-              console.log('URL:', url);
-              if (file) {
-                console.log('File ready to be processed:', file.name);
-              }
-            }}
+            onClick={handleSubmit}
           >
             Submit
           </button>
+        </div>
+      )}
+
+      {/* Display the response message */}
+      {responseMessage && (
+        <div style={{ marginTop: '20px', color: 'blue' }}>
+          {responseMessage}
         </div>
       )}
     </div>
