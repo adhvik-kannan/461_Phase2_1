@@ -99,10 +99,11 @@ export class metric_manager {
      * Calculates correctness score
      * @returns Correctness score
      */
-    public correctness_calc() {
+    public correctness_calc(): Promise<number> {
         const startTime = performance.now();
         logger.debug("Calculating correctness")
-        // calculations for correctness factor
+        logger.debug("Issues: ", this.issues)
+        
         let correctness = calculateCorrectnessScore(this.issues, this.closedIssues);
         const endTime = performance.now();
         this.correctness_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
@@ -148,6 +149,27 @@ export class metric_manager {
     }
 
     /**
+     * Calculates the code metric for pull requests by determining the ratio of reviewed pull requests
+     * to the total number of pull requests.
+     *
+     * @returns {Promise<number>} A promise that resolves to the ratio of reviewed pull requests to total pull requests.
+     *                            If there are no pull requests, the function returns 0.
+     */
+    public async calculatePullRequestCodeMetric(): Promise<number> {
+        const reviewedPullRequests = this.pullRequests.filter((pr: any) => pr.merged_at !== null);
+        const totalPullRequests = this.pullRequests.length;
+        logger.debug('Total pull requests:', totalPullRequests);
+        logger.debug('Reviewed pull requests:', reviewedPullRequests.length);
+
+        if (totalPullRequests === 0) {
+            logger.debug('Total pull requests count is zero, returning score as 0.');
+            return 0;
+        }
+
+        return reviewedPullRequests.length / totalPullRequests;
+    }
+
+    /**
      * Calculates netscore and runs the metric calculations in parallel
      * @returns Array of metric scores
      */
@@ -171,14 +193,5 @@ export class metric_manager {
         return metric_array;
     }
 
-    calculatePullRequestCodeMetric(): number {
-        const reviewedPullRequests = this.pullRequests.filter((pr: any) => pr.reviewed);
-        const totalPullRequests = this.pullRequests.length;
-
-        if (totalPullRequests === 0) {
-            return 0;
-        }
-
-        return reviewedPullRequests.length / totalPullRequests;
-    }
+    
 }

@@ -2,7 +2,7 @@ import { Octokit } from '@octokit/rest';
 import logger from './logging.js'
 import git from 'isomorphic-git';
 import fs from 'fs';
-import http from 'isomorphic-git/http/node';
+import http from 'isomorphic-git/http/node/index.cjs';
 
 /**
  * This function checks if the provided GitHub access token is valid

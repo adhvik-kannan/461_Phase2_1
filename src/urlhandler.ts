@@ -117,17 +117,15 @@ export class urlhandler {
     public async handle(): Promise<any> {
         if (this.identify(this.url) === "GitHub") {
             // Delegate to GitAPIHandler
-        if (this.identify(this.url) == "GitHub"){
-                const gitHandler = new gitAPIHandler(this.url.toString());
-                const data = await gitHandler.getRepoDetails();;
-                this.contributors = await gitHandler.getContributors();
-                this.commits = await gitHandler.getCommitHistory();
-                this.issues = await gitHandler.getIssues();
-                this.pullRequests = await gitHandler.getPullRequests();
-                this.closedIssues = await gitHandler.getClosedIssues();
-                return data;
-        }
-        else if (this.NPM_URL_PATTERN.test(this.url.toString())) {
+            const gitHandler = new gitAPIHandler(this.url.toString());
+            const data = await gitHandler.getRepoDetails();
+            this.contributors = await gitHandler.getContributors();
+            this.commits = await gitHandler.getCommitHistory();
+            this.issues = await gitHandler.getIssues();
+            this.pullRequests = await gitHandler.getPullRequests();
+            this.closedIssues = await gitHandler.getClosedIssues();
+            return data;
+        } else if (this.NPM_URL_PATTERN.test(this.url.toString())) {
             // Delegate to npmHandler
             const match = this.NPM_URL_PATTERN.exec(this.url.toString());
             const packageName = match ? match[1] : null;
@@ -141,7 +139,7 @@ export class urlhandler {
                 this.issues = await gitHandler.getIssues();
                 this.pullRequests = await gitHandler.getPullRequests();
                 this.closedIssues = await gitHandler.getClosedIssues();
-        
+
                 return data;
             } else {
                 console.error('Invalid NPM URL format.');
