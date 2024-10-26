@@ -25,7 +25,7 @@ jobs:
     - name: Write SSH Key
       run: |
         echo "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem  # Write the PEM key from the secret to a file
-        chmod 400 new_aws_access.pem  # Secure the key file
+        chmod 600 new_aws_access.pem  # Secure the key file
         ls -l new_aws_access.pem  # List file details for debugging
         cat new_aws_access.pem  # Output the file content for debugging
     - name: Deploy application to EC2
