@@ -119,7 +119,7 @@
         "./node_modules/@types"
       ],
       "esModuleInterop": true,
-      "moduleResolution": "Bundler",
+      "moduleResolution": "node",
       "allowJs": true,
       "resolveJsonModule": true
   },

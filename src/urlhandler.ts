@@ -134,7 +134,7 @@ export class urlhandler {
                 this.commits = await gitHandler.getCommitHistory();
                 this.issues = await gitHandler.getIssues();
                 this.pullRequests = await gitHandler.getPullRequests();
-                // this.closedIssues = await gitHandler.getClosedIssues();
+                this.closedIssues = await gitHandler.getClosedIssues();
                 return data;
         }
         else if (this.NPM_URL_PATTERN.test(this.url.toString())) {
@@ -150,7 +150,7 @@ export class urlhandler {
                 this.commits = await gitHandler.getCommitHistory();
                 this.issues = await gitHandler.getIssues();    
                 this.pullRequests = await gitHandler.getPullRequests();
-                // this.closedIssues = await gitHandler.getClosedIssues();
+                this.closedIssues = await gitHandler.getClosedIssues();
         
                 return data;
             } else {

@@ -27,7 +27,7 @@ const packageSchema = new mongoose.Schema({
 /**
  * Package collection
  */
-const Package = mongoose.model('Package', packageSchema)
+export const Package = mongoose.model('Package', packageSchema)
 
 /**
  * Connect to MongoDB Cloud Database
@@ -156,13 +156,13 @@ export async function deleteDB() {
     try {
         await mongoose.connection.db.dropDatabase();
         console.log('Database deleted successfully');
+        return [true, null];
     } catch (error) {
         console.error('Error deleting database:', error);
         return [false, error];
     } finally {
         await mongoose.disconnect();
         console.log('Disconnected from MongoDB');
-        return [true, null];
     }
 }
 

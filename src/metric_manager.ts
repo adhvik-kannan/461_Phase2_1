@@ -104,7 +104,6 @@ export class metric_manager {
         const startTime = performance.now();
         logger.debug("Calculating correctness")
         // calculations for correctness factor
-
         let correctness = calculateCorrectnessScore(this.issues, this.closedIssues);
         const endTime = performance.now();
         this.correctness_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
