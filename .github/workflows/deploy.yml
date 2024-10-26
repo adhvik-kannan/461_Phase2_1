@@ -1,0 +1,42 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - integration/adhvik/**  # Trigger on push to the main branch
+  pull_request:
+    branches:
+      - 'integration/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      LOG_LEVEL: 1                  # Set log level to 0
+      LOG_FILE: "./logfile.txt"      # Define log file path
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      EC2_IP_ADDRESS: ${{ secrets.EC2_IP_ADDRESS }}  # Store the EC2 IP as a secret
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Write SSH Key
+      run: |
+        echo "${{ secrets.AWS_PEM_KEY }}" > aws_access.pem  # Write the PEM key from the secret to a file
+        chmod 600 aws_access.pem  # Secure the key file
+
+    - name: Deploy application to EC2
+      run: |
+        ssh -o StrictHostKeyChecking=no -i "aws_access.pem" ec2-user@${{ secrets.EC2_IP_ADDRESS }} << 'EOF'
+        cd 461_Phase2
+        export LOG_LEVEL=${{ env.LOG_LEVEL }}      # Set log level on EC2
+        export LOG_FILE=${{ env.LOG_FILE }}        # Set log file path on EC2
+        export GITHUB_TOKEN=${{ env.GITHUB_TOKEN }}  # Set GitHub token on EC2
+        git pull origin integration/adhvik/ACM-9_aws
+        # Log the deployment process
+        echo "Deployment started at $(date)" >> $LOG_FILE
+        ./deploy.sh >> $LOG_FILE 2>&1  # Redirect output to the log file
+        echo "Deployment finished at $(date)" >> $LOG_FILE
+        EOF
