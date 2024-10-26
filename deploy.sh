@@ -6,8 +6,8 @@ if [ "$LOG_LEVEL" -eq 1 ]; then
 fi
 
 # Pull the latest code and log output
-echo "Pulling latest code from GitHub..." >> $LOG_FILE
-git pull origin main >> $LOG_FILE 2>&1
+# echo "Pulling latest code from GitHub..." >> $LOG_FILE
+# git pull origin main >> $LOG_FILE 2>&1
 
 # Install dependencies using ./run install
 echo "Running './run install' to install dependencies..." >> $LOG_FILE
