@@ -28,7 +28,7 @@ jobs:
         chmod 600 new_aws_access.pem  # Secure the key file
         ssh -vvv -o StrictHostKeyChecking=no -i new_aws_access.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP_ADDRESS }} << 'EOF'
         if [ ! -d "461_Phase2_1" ]; then
-          git clone https://github.com/Team-18-ECE-461/ECE-461-Project-Repo.git
+          git clone https://github.com/AWV2804/461_Phase2.git
         fi
         pwd
         cd 461_Phase2
