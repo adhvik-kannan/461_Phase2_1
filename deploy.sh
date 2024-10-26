@@ -7,7 +7,7 @@ fi
 
 # Pull the latest code and log output
 # echo "Pulling latest code from GitHub..." >> $LOG_FILE
-# git pull origin main >> $LOG_FILE 2>&1
+git pull origin integration/1.0 >> $LOG_FILE 2>&1
 
 # Install dependencies using ./run install
 echo "Running './run install' to install dependencies..." >> $LOG_FILE

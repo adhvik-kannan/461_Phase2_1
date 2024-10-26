@@ -3,10 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - integration/adhvik/**  # Trigger on push to the main branch
-  pull_request:
-    branches:
-      - 'integration/**'
+      - integration/1.0  # Trigger on push to the main branch
 
 jobs:
   deploy:
@@ -16,8 +13,7 @@ jobs:
       LOG_LEVEL: 1                  # Set log level to 0
       LOG_FILE: "./logfile.txt"      # Define log file path
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # EC2_IP_ADDRESS: ${{ secrets.EC2_IP_ADDRESS }}  # Store the EC2 IP as a secret
-      # AWS_PEM_KEY: ${{ secrets.AWS_PEM_KEY }}
+      
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -33,7 +29,7 @@ jobs:
         pwd
         cd 461_Phase2
         echo "Switching to the integration branch"
-        git checkout integration/adhvik/ACM-9_aws
+        git checkout integration/1.0
         chmod +x deploy.sh
         export LOG_LEVEL=${{ env.LOG_LEVEL }}      # Set log level on EC2
         export LOG_FILE=${{ env.LOG_FILE }}        # Set log file path on EC2
@@ -41,7 +37,7 @@ jobs:
         echo $LOG_LEVEL
         echo $LOG_FILE
         echo $GITHUB_TOKEN
-        # git pull origin integration/adhvik/ACM-9_aws
+        git pull origin integration/1.0
         # Log the deployment process
         echo "Deployment started at $(date)" >> $LOG_FILE
         ./deploy.sh >> $LOG_FILE 2>&1  # Redirect output to the log file
