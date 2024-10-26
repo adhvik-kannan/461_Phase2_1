@@ -26,8 +26,8 @@ jobs:
       run: |
         echo "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem  # Write the PEM key from the secret to a file
         chmod 600 new_aws_access.pem  # Secure the key file
-        ssh -vvv -o StrictHostKeyChecking=no -i new_aws_access.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP_ADDRESS }} << 'EOF'
-        if [ ! -d "461_Phase2_1" ]; then
+        ssh -o StrictHostKeyChecking=no -i new_aws_access.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP_ADDRESS }} << 'EOF'
+        if [ ! -d "461_Phase2" ]; then
           git clone https://github.com/AWV2804/461_Phase2.git
         fi
         pwd
