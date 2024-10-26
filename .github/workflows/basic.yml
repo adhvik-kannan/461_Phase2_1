@@ -42,3 +42,11 @@ jobs:
             echo "https://github.com/caolan/async" > URL_FILE.txt
             FILE_PATH=$(realpath URL_FILE.txt)
             ./run "$FILE_PATH"
+            
+      # Step 6: Start the backend server
+      - name: Start Backend Server
+        run: npm run start:backend
+
+      # Step 7: Start the frontend server
+      - name: Start Frontend Server
+        run: npm start
