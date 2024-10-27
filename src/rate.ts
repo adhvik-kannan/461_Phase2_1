@@ -40,7 +40,7 @@ export async function rate(url: string): Promise<[string, number]> {
         
 
         // Once the URL is processed, create and compute the metric
-        const test_metric = new metric_manager(data, contributors, issues, pullRequests, commits, gitUrl, tempDir, closedIssues);
+        const test_metric = new metric_manager(data, contributors, issues, pullRequests, commits, gitUrl.toString(), tempDir, closedIssues);
         const metric_array = await test_metric.parallel_metric_and_net_score_calc();
 
         // Delete the temporary directory
@@ -57,5 +57,6 @@ export async function rate(url: string): Promise<[string, number]> {
         return [output_formatter(url, metric_array, test_metric), test_metric.net_score];
     } catch (error) {
         console.error(`Error processing URL ${url}:`, error);
+        return ["Error processing URL", 0];
     }
 }

@@ -27,7 +27,7 @@ const packageSchema = new mongoose.Schema({
 /**
  * Package collection
  */
-const Package = mongoose.model('Package', packageSchema)
+export const Package = mongoose.model('Package', packageSchema)
 
 /**
  * Connect to MongoDB Cloud Database
@@ -154,15 +154,20 @@ export async function updatePackageScore(name: string, newScore: string) {
  */
 export async function deleteDB() {
     try {
-        await mongoose.connection.db.dropDatabase();
+        const db = mongoose.connection.db;
+        if (!db) {
+            console.error('No database found');
+            return [false, Error('No database found')];
+        }
+        const success = await db.dropDatabase();
         console.log('Database deleted successfully');
+        return [true, success];
     } catch (error) {
         console.error('Error deleting database:', error);
         return [false, error];
     } finally {
         await mongoose.disconnect();
         console.log('Disconnected from MongoDB');
-        return [true, null];
     }
 }
 
@@ -201,9 +206,13 @@ export async function getAllPackages() {
  * @param name Package name
  * @returns package struct or error
  */
-export async function getPackageByName(name: string) {
+export async function getPackageByName(name: string): Promise<[boolean, any | Error]>{
     try {
         const pkg = await Package.findOne({ name });
+        if (pkg == null) {
+            console.log('No package found with the name:', name);
+            return [false, Error(`No package found with the name: ${name}`)];
+        }
         console.log('User found:', pkg);
         return [true, pkg];
     } catch (error) {

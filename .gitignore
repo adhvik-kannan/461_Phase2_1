@@ -7,3 +7,4 @@ coverage/*
 contributors.json
 *.txt
 ece461_fall2024_spec.yaml
+build/

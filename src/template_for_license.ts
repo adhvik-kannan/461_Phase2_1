@@ -2,7 +2,7 @@ import logger from './logging.js'
 import git, { clone } from 'isomorphic-git';
 import os from 'os';
 import fs from 'fs';
-import http from 'isomorphic-git/http/node/index.cjs';
+import http from 'isomorphic-git/http/node';
 import path from 'path';
 
 //hi
@@ -42,21 +42,26 @@ export async function temp_license(repoUrl: string, tempDir: string): Promise<bo
    
               if(file.toLowerCase() === "package.json"){
                 const jsoncontent = await getFileContent(tempDir, file);
-                const packagejson = JSON.parse(jsoncontent);
-                const license = packagejson.license;
-                if(license){
-                  const has_lic = license_verifier(license.toString());
-                  if(has_lic){
-                    return has_lic;
+                if (jsoncontent) {
+                  const packagejson = JSON.parse(jsoncontent);
+                  const license = packagejson.license;
+                  if(license){
+                    const has_lic = await license_verifier(license.toString());
+                    if(has_lic){
+                      return has_lic;
+                    }
                   }
-                }}
+                }
+              }
               else{
                 const content = await getFileContent(tempDir, file);
-                logger.info(`Content of ${repoUrl}:`, content);
-                const license = license_verifier(content);
-                //console.log(`License found: ${license}`);
-                if(license)
-                  return license;
+                if (content) {
+                  logger.info(`Content of ${repoUrl}:`, content);
+                  const license = await license_verifier(content);
+                  //console.log(`License found: ${license}`);
+                  if(license)
+                    return license;
+                }
               }
             }
           }
@@ -83,7 +88,7 @@ export async function temp_license(repoUrl: string, tempDir: string): Promise<bo
  *
  * @throws Will log an error message to the console if the file cannot be read.
  */
- async function getFileContent(tempDir, filepath) {
+ async function getFileContent(tempDir: string, filepath: string): Promise<string | undefined> {
   try {
     // Construct the full path to the file
     const filePath = path.join(tempDir, filepath);
@@ -108,7 +113,7 @@ export async function temp_license(repoUrl: string, tempDir: string): Promise<bo
  * @param file_contents - The contents of the file to be checked against the compatible licenses.
  * @returns A promise that resolves to `true` if a compatible license is found, otherwise `false`.
  */
-export async function license_verifier(file_contents: string) {
+export async function license_verifier(file_contents: string): Promise<boolean> {
         for (let i=0; i<compatible_licenses.length; i++) {
             if (compatible_licenses[i].test(file_contents)) {
                 return true;

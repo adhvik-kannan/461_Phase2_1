@@ -1,9 +1,7 @@
-//import { GitAPIHandler } from './gitAPIHandler';
 import { npmHandler } from '../src/npmHandler.js';
 import { promises as fs } from 'fs';  // To read files
 import { gitAPIHandler } from './gitAPIHandler.js';
 import logger from './logging.js'
-
 
 /**
  * The `urlhandler` class is responsible for handling and processing URLs, specifically GitHub and NPM URLs.
@@ -48,14 +46,9 @@ export class urlhandler {
     public closedIssues: any;
 
     constructor(url: string) {
-        try{
-            this.url = new URL(url);
-            this.GITHUB_URL_PATTERN = /^https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
-            this.NPM_URL_PATTERN = /^https:\/\/www\.npmjs\.com\/package\/([^\/]+)/;
-        }catch(error){
-            console.error("Invalid URL")
-        }
-
+        this.url = new URL(url);
+        this.GITHUB_URL_PATTERN = /^https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
+        this.NPM_URL_PATTERN = /^https:\/\/www\.npmjs\.com\/package\/([^\/]+)/;
     }
 
     /**
@@ -67,15 +60,13 @@ export class urlhandler {
      * - "NPM" if the URL matches the NPM pattern.
      * - "Not Found" if the URL does not match any known patterns.
      */
-    public identify(url_pattern: URL): string{
-        if(this.GITHUB_URL_PATTERN.test(url_pattern.toString())){
+    public identify(url_pattern: URL): string {
+        if (this.GITHUB_URL_PATTERN.test(url_pattern.toString())) {
             return "GitHub";
-        }
-        else if(this.NPM_URL_PATTERN.test(url_pattern.toString())){
+        } else if (this.NPM_URL_PATTERN.test(url_pattern.toString())) {
             return "NPM";
         }
         return "Not Found";
-
     }
 
     /**
@@ -89,7 +80,7 @@ export class urlhandler {
      * @throws Will throw an error if the file cannot be read.
      * @throws Will log an error if a URL cannot be processed.
      */
-    static async processUrlsFromFile(filePath: string) {
+    static async processUrlsFromFile(filePath: string): Promise<void> {
         try {
             const fileData = await fs.readFile(filePath, 'utf-8');
             const urls = fileData.split('\n').map(url => url.trim()).filter(url => url.length > 0); // Filter out empty lines
@@ -100,14 +91,13 @@ export class urlhandler {
                     const handler = new urlhandler(url);
                     await handler.handle();
                 } catch (error) {
-                    console.error(`Error processing URL ${url}:`);
+                    console.error(`Error processing URL ${url}:`, error);
                 }
             }
         } catch (error) {
-            console.error('Error reading the file:');
+            console.error('Error reading the file:', error);
         }
     }
-
 
     /**
      * Handles the URL based on its type (GitHub or NPM) and delegates the processing
@@ -124,20 +114,18 @@ export class urlhandler {
      *   and then delegates to `GitAPIHandler` to fetch additional details from the associated GitHub repository.
      * - If the URL does not match any supported patterns, it logs an error indicating an unsupported URL type.
      */
-    public async handle() {
-        // if (this.GITHUB_URL_PATTERN.test(this.url.toString())) {
+    public async handle(): Promise<any> {
+        if (this.identify(this.url) === "GitHub") {
             // Delegate to GitAPIHandler
-        if (this.identify(this.url) == "GitHub"){
-                const gitHandler = new gitAPIHandler(this.url.toString());
-                const data = await gitHandler.getRepoDetails();;
-                this.contributors = await gitHandler.getContributors();
-                this.commits = await gitHandler.getCommitHistory();
-                this.issues = await gitHandler.getIssues();
-                this.pullRequests = await gitHandler.getPullRequests();
-                // this.closedIssues = await gitHandler.getClosedIssues();
-                return data;
-        }
-        else if (this.NPM_URL_PATTERN.test(this.url.toString())) {
+            const gitHandler = new gitAPIHandler(this.url.toString());
+            const data = await gitHandler.getRepoDetails();
+            this.contributors = await gitHandler.getContributors();
+            this.commits = await gitHandler.getCommitHistory();
+            this.issues = await gitHandler.getIssues();
+            this.pullRequests = await gitHandler.getPullRequests();
+            this.closedIssues = await gitHandler.getClosedIssues();
+            return data;
+        } else if (this.NPM_URL_PATTERN.test(this.url.toString())) {
             // Delegate to npmHandler
             const match = this.NPM_URL_PATTERN.exec(this.url.toString());
             const packageName = match ? match[1] : null;
@@ -148,10 +136,10 @@ export class urlhandler {
                 const gitHandler = new gitAPIHandler(this.url.toString());
                 this.contributors = await gitHandler.getContributors();
                 this.commits = await gitHandler.getCommitHistory();
-                this.issues = await gitHandler.getIssues();    
+                this.issues = await gitHandler.getIssues();
                 this.pullRequests = await gitHandler.getPullRequests();
-                // this.closedIssues = await gitHandler.getClosedIssues();
-        
+                this.closedIssues = await gitHandler.getClosedIssues();
+
                 return data;
             } else {
                 console.error('Invalid NPM URL format.');
@@ -159,11 +147,5 @@ export class urlhandler {
         } else {
             console.error('Unsupported URL type.');
         }
-
     }
-
-
-
-    
-
 }

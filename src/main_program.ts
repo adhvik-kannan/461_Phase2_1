@@ -9,7 +9,7 @@ import logger from './logging.js';
 import {output_formatter} from './output_formatter.js';
 import { cloneRepository } from './github_utils.js';
 import os from 'os';
-import { close } from 'node:inspector/promises';
+// import { close } from 'node:inspector/promises';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,7 +17,7 @@ const __dirname = path.dirname(__filename);
 const filePath = process.argv[2];
 
 if (!filePath) {
-    console.error('Please provide a file path');
+    logger.error('Please provide a file path');
     process.exit(1);
 }
 
@@ -25,10 +25,12 @@ if (!filePath) {
 // Read URLs from the file
 fs.readFile(filePath, 'utf8', async (err, data) => {
     if (err) {
-        console.error('Error reading URL file:', err);
+        logger.error('Error reading URL file:', err);
         process.exit(1);
     }
-    if( await isGithubTokenValid(process.env.GITHUB_TOKEN) === false){
+    const githubToken = process.env.GITHUB_TOKEN;
+    if (!githubToken || await isGithubTokenValid(githubToken) === false){
+        logger.error("Invalid GitHub token provided");
         process.exit(1);}
 
     
@@ -57,7 +59,7 @@ fs.readFile(filePath, 'utf8', async (err, data) => {
             
 
             // Once the URL is processed, create and compute the metric
-            const test_metric = new metric_manager(data, contributors, issues, pullRequests, commits, gitUrl, tempDir, closedIssues);
+            const test_metric = new metric_manager(data, contributors, issues, pullRequests, commits, gitUrl.toString(), tempDir, closedIssues);
             const metric_array = await test_metric.parallel_metric_and_net_score_calc();
 
             // Delete the temporary directory

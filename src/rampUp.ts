@@ -119,7 +119,7 @@ function isNpmUrl(url: string): boolean {
  * If an unsupported URL type is provided, the function logs an error and returns a score of 0.
  * In case of any errors during the process, the function catches the error, logs it, and returns a score of 0.
  */
-export async function calculateRampUpScore(url: string | URL, repoPath): Promise<number> {
+export async function calculateRampUpScore(url: string | URL, repoPath: string): Promise<number> {
     //const repoPath = path.resolve(process.cwd(), 'repo'); // The repo will be cloned in the current directory
 
     try {

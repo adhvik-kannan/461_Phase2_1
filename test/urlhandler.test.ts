@@ -70,7 +70,6 @@ test('identify should return Not Found for unsupported URLs', () => {
 //     }
 // });
 
- //    expect(fs.readFile).toHaveBeenCalledWith(mockFilePath, 'utf-8');
 test('handle should delegate GitHub URLs to gitAPIHandler', async () => {
     const mockGitHandler = {
         getRepoDetails: vi.fn().mockResolvedValue({}),
@@ -78,6 +77,7 @@ test('handle should delegate GitHub URLs to gitAPIHandler', async () => {
         getCommitHistory: vi.fn().mockResolvedValue([]),
         getIssues: vi.fn().mockResolvedValue([]),
         getPullRequests: vi.fn().mockResolvedValue([]),
+        getClosedIssues: vi.fn().mockResolvedValue([]), // Added missing method
     };
 
     // Mocking gitAPIHandler
@@ -92,6 +92,7 @@ test('handle should delegate GitHub URLs to gitAPIHandler', async () => {
     expect(mockGitHandler.getCommitHistory).toHaveBeenCalled();
     expect(mockGitHandler.getIssues).toHaveBeenCalled();
     expect(mockGitHandler.getPullRequests).toHaveBeenCalled();
+    expect(mockGitHandler.getClosedIssues).toHaveBeenCalled(); // Added assertion
 });
 
 test('handle should delegate NPM URLs to npmHandler', async () => {
@@ -104,6 +105,7 @@ test('handle should delegate NPM URLs to npmHandler', async () => {
         getCommitHistory: vi.fn().mockResolvedValue([]),
         getIssues: vi.fn().mockResolvedValue([]),
         getPullRequests: vi.fn().mockResolvedValue([]),
+        getClosedIssues: vi.fn().mockResolvedValue([]), // Added missing method
     };
 
     // Mocking npmHandler and gitAPIHandler
@@ -121,6 +123,7 @@ test('handle should delegate NPM URLs to npmHandler', async () => {
     expect(mockGitHandler.getCommitHistory).toHaveBeenCalled();
     expect(mockGitHandler.getIssues).toHaveBeenCalled();
     expect(mockGitHandler.getPullRequests).toHaveBeenCalled();
+    expect(mockGitHandler.getClosedIssues).toHaveBeenCalled(); // Added assertion
 });
 
 test('handle should log error for unsupported URLs', async () => {
@@ -132,4 +135,3 @@ test('handle should log error for unsupported URLs', async () => {
     // Ensure console.error was called for unsupported URLs
     expect(consoleErrorMock).toHaveBeenCalledWith('Unsupported URL type.');
 });
-
