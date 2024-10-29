@@ -6,5 +6,5 @@ node_modules/
 coverage/*
 contributors.json
 *.txt
-ece461_fall2024_spec.yaml
 build/
+ece461_fall_2024_openapi_spec.yaml
