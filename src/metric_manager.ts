@@ -41,12 +41,13 @@ export class metric_manager {
     public issues: any;
     public pullRequests: any;
     public commits: any;
-    public url:string;
-    public data:any;
+    public url: string;
+    public data: any;
     public tempDir: string;
     public net_score: number;
     public closedIssues: any;
     public gitUrl: any;
+    public dependency_pinning_latency: number;
 
     /**
      * Creates metric_manager class
@@ -75,16 +76,69 @@ export class metric_manager {
         this.url = url;
         this.data = data;
         this.tempDir = tempDir;
+        this.dependency_pinning_latency = 0;
+
 
     }
-    
+    /**
+ * Calculates dependency pinning score
+ * @returns Dependency pinning score
+ */
+    public dependency_pinning_calc(): number {
+        const startTime = performance.now();
+        logger.debug("Calculating dependency pinning score for GitHub repo: ", this.url);
+
+        try {
+            const packageJsonPath = path.join(this.tempDir, 'package.json');
+            if (!fs.existsSync(packageJsonPath)) {
+                logger.warn(`package.json not found in ${this.tempDir}. Assuming zero dependencies.`);
+                this.dependency_pinning_latency = roundToNumDecimalPlaces(performance.now() - startTime, 3);
+                return 1.0; // No dependencies, score is 1.0
+            }
+
+            const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
+            const dependencies = packageJson.dependencies || {};
+            const devDependencies = packageJson.devDependencies || {};
+
+            const allDependencies = { ...dependencies, ...devDependencies };
+            const totalDependencies = Object.keys(allDependencies).length;
+
+            if (totalDependencies === 0) {
+                this.dependency_pinning_latency = roundToNumDecimalPlaces(performance.now() - startTime, 3);
+                return 1.0;
+            }
+
+            let pinnedCount = 0;
+
+            const versionRegex = /^(\d+)\.(\d+)\.\d+$/; // Matches 'X.Y.Z'
+
+            for (const [dep, version] of Object.entries(allDependencies)) {
+                // Remove any leading characters like ^, ~, >=, etc.
+                const cleanedVersion = (version as string).replace(/^[^\d]*/, '');
+
+                const match = cleanedVersion.match(versionRegex);
+                if (match) {
+                    pinnedCount += 1;
+                }
+            }
+
+            const score = pinnedCount / totalDependencies;
+            this.dependency_pinning_latency = roundToNumDecimalPlaces(performance.now() - startTime, 3);
+            return roundToNumDecimalPlaces(score, 3);
+        } catch (error) {
+            logger.error("Error calculating dependency pinning score:", error);
+            this.dependency_pinning_latency = roundToNumDecimalPlaces(performance.now() - startTime, 3);
+            return 0.0; // In case of error, default to 0.0
+        }
+    }
+
     // functions for calculating each metric
     //public bus_factor_calc(): Promise<number> {
     /**
      * Calculates busfactor score
      * @returns Busfactor score
      */
-    public bus_factor_calc(){        
+    public bus_factor_calc() {
         const startTime = performance.now();
         // calculations for bus factor
         logger.debug("Calculating bus factor for github repo: ", this.url)
@@ -92,15 +146,15 @@ export class metric_manager {
         const endTime = performance.now();
         this.bus_factor_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
         return busfactor
-     
-    
-        
+
+
+
     }
     /**
      * Calculates correctness score - NOT IMPLEMENTED
      * @returns Correctness score
      */
-    public correctness_calc(){
+    public correctness_calc() {
         const startTime = performance.now();
         logger.debug("Calculating correctness")
         // calculations for correctness factor
@@ -118,11 +172,11 @@ export class metric_manager {
         const startTime = Date.now();
         // Call the ramp-up score function, assuming repoData contains the necessary files
         //const rampUpScore = await calculateRampUpScore(this.data.files || []);
-        const rampUpScore = await calculateRampUpScore(this.url,this.tempDir);
+        const rampUpScore = await calculateRampUpScore(this.url, this.tempDir);
         const endTime = Date.now();
         this.ramp_up_latency = endTime - startTime;
 
-        return rampUpScore; 
+        return rampUpScore;
     }
 
     /**
@@ -144,17 +198,17 @@ export class metric_manager {
     public async licence_verify(/* accept API call (most likely string of file paths)*/): Promise<number> {
         // if file name is some combination of lowercase and capital letters to make the word 'license'
         // regex statement to do so: r'^(?i)license(\.)?[a-zA-z]*$'
-            // make API call to retrieve contents of 'license' file
-            // check to see if there is a regex match of GNU LGPL v2.1 compatible licenses
-                // if so, return 1 (function end)
-                // else, return to outer control
+        // make API call to retrieve contents of 'license' file
+        // check to see if there is a regex match of GNU LGPL v2.1 compatible licenses
+        // if so, return 1 (function end)
+        // else, return to outer control
         // else, make API call to retrieve contents of 'readME' file
-            // check to see if there is a regex match of GNU LGPL v2.1 compatible licenses (should be under markdown heading
-                    // called 'license', need to check if there is a more efficient way to skip to this heading)
-                // if so, return 1 (function end)
-                // else, return 0, as license will appear nowhere else in the package (function end)
+        // check to see if there is a regex match of GNU LGPL v2.1 compatible licenses (should be under markdown heading
+        // called 'license', need to check if there is a more efficient way to skip to this heading)
+        // if so, return 1 (function end)
+        // else, return 0, as license will appear nowhere else in the package (function end)
         const startTime = performance.now();
-       
+
         // calculations for license verification
         logger.debug("Calculating license verification")
         let license_score = await temp_license(this.url, this.tempDir);
@@ -166,6 +220,29 @@ export class metric_manager {
         else {
             return 0;
         }
+    }
+
+
+    /**
+     * Calculates the code metric for pull requests.
+     * 
+     * This method filters the pull requests to find those that have been merged,
+     * and then calculates the ratio of merged pull requests to the total number
+     * of pull requests. The result is rounded to three decimal places.
+     * 
+     * @returns {number} The ratio of merged pull requests to total pull requests,
+     * rounded to three decimal places. If there are no pull requests, returns 0.
+     */
+    calculatePullRequestCodeMetric(): number {
+        const reviewedPullRequests = this.pullRequests.filter((pr: any) => pr.merged_at !== null);
+        const totalPullRequests = this.pullRequests.length;
+         if (totalPullRequests === 0) {
+            logger.debug('Total pull requests count is zero, returning score as 0.');
+            return 0;
+        }
+
+        return roundToNumDecimalPlaces(reviewedPullRequests.length / totalPullRequests, 3);
+
     }
 
     /**
@@ -181,15 +258,16 @@ export class metric_manager {
             Promise.resolve(this.calculateRampUpMetric()),
             Promise.resolve(this.maintainer_calc()),
             Promise.resolve(this.licence_verify()),
-            Promise.resolve(this.calculatePullRequestCodeMetric())
+            Promise.resolve(this.calculatePullRequestCodeMetric()),
+            Promise.resolve(this.dependency_pinning_calc()) 
         ]);
-        
+
         console.log(metric_array);
 
-        this.net_score = metric_array[4] * (.4*metric_array[3] + .3*metric_array[1] + .1*metric_array[0] + .1*metric_array[2] + .1*metric_array[5]);
+        this.net_score = metric_array[4] * (.3 * metric_array[3] + .3 * metric_array[1] + .1 * metric_array[0] + .1 * metric_array[2] + .1 * metric_array[5] + .1 & metric_array[6]);
         const endTime = performance.now();
         this.net_score_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
-        
+
         // Calculate pull_request_code metric
         const pullRequestCodeMetric = this.calculatePullRequestCodeMetric();
         metric_array.push(pullRequestCodeMetric);
@@ -197,14 +275,5 @@ export class metric_manager {
         return metric_array;
     }
 
-    calculatePullRequestCodeMetric(): number {
-        const reviewedPullRequests = this.pullRequests.filter((pr: any) => pr.reviewed);
-        const totalPullRequests = this.pullRequests.length;
-
-        if (totalPullRequests === 0) {
-            return 0;
-        }
-
-        return reviewedPullRequests.length / totalPullRequests;
-    }
+    
 }
