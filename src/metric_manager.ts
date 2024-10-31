@@ -212,50 +212,6 @@ export class metric_manager {
         return license_score === true ? 1 : 0;
     }
 
-    /**
-     * Calculates the code metric for pull requests by determining the ratio of reviewed pull requests
-     * to the total number of pull requests.
-     *
-     * @returns {Promise<number>} A promise that resolves to the ratio of reviewed pull requests to total pull requests.
-     *                            If there are no pull requests, the function returns 0.
-     */
-    public async calculatePullRequestCodeMetric(): Promise<number> {
-        const reviewedPullRequests = this.pullRequests.filter((pr: any) => pr.merged_at !== null);
-        const totalPullRequests = this.pullRequests.length;
-        logger.debug('Total pull requests:', totalPullRequests);
-        logger.debug('Reviewed pull requests:', reviewedPullRequests.length);
-
-        if (totalPullRequests === 0) {
-            logger.debug('Total pull requests count is zero, returning score as 0.');
-            return 0;
-        }
-
-        return reviewedPullRequests.length / totalPullRequests;
-    }
-
-
-    /**
-     * Calculates the code metric for pull requests.
-     * 
-     * This method filters the pull requests to find those that have been merged,
-     * and then calculates the ratio of merged pull requests to the total number
-     * of pull requests. The result is rounded to three decimal places.
-     * 
-     * @returns {number} The ratio of merged pull requests to total pull requests,
-     * rounded to three decimal places. If there are no pull requests, returns 0.
-     */
-    calculatePullRequestCodeMetric(): number {
-        const reviewedPullRequests = this.pullRequests.filter((pr: any) => pr.merged_at !== null);
-        const totalPullRequests = this.pullRequests.length;
-         if (totalPullRequests === 0) {
-            logger.debug('Total pull requests count is zero, returning score as 0.');
-            return 0;
-        }
-
-        return roundToNumDecimalPlaces(reviewedPullRequests.length / totalPullRequests, 3);
-
-    }
-
 
     /**
      * Calculates the code metric for pull requests.
@@ -297,7 +253,7 @@ export class metric_manager {
 
         console.log(metric_array);
 
-        this.net_score = metric_array[4] * (.4*metric_array[3] + .3*metric_array[1] + .1*metric_array[0] + .1*metric_array[2] + .1*metric_array[5]);
+        this.net_score = metric_array[4] * (.3*metric_array[3] + .3*metric_array[1] + .1*metric_array[0] + .1*metric_array[2] + .1*metric_array[5] + .1*metric_array[6]);
         const endTime = performance.now();
         this.net_score_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
         
