@@ -17,10 +17,11 @@ const Login: React.FC = () => {
 
   // Handle the login action
   const handleLogin = () => {
-    const hashedPassword = hashPassword(password);
+    //const hashedPassword = hashPassword(password);
+    const unhashedPassword = password;
     // You could send `username` and `hashedPassword` to the backend here
     console.log('Username:', username);
-    console.log('Hashed Password:', hashedPassword);
+    console.log('Hashed Password:', unhashedPassword);
     //TODO: send username and hashedPassword to the openAPI_controller.ts
   };
 
