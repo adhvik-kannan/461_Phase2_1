@@ -2,7 +2,7 @@ import express from 'express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import * as util from './utils.js';
-import * as db from './database_test';
+import * as db from './database';
 import { rate } from './rate.js';
 import logger from './logging.js';
 // import * as userDB from './userDB.js';
