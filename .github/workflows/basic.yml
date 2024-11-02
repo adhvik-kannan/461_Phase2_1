@@ -51,7 +51,7 @@ jobs:
       - name: Wait for Backend Server
         run: |
             echo "Waiting for backend to start..."
-            sleep 30  # Adjust time if backend takes longer to start
+            sleep 60  # Adjust time if backend takes longer to start
             curl -f http://localhost:3000/api-docs || exit 1
         shell: bash     
       
