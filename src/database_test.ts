@@ -1,20 +1,19 @@
 import mongoose from 'mongoose';
+const rootName = 'ece30861defaultadminuser'
 
 // Define a schema
 /**
  * Schema for how entries are stored in the database for users
  */
-const userSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    password: String,
-    accessLevel: Number
+export const userSchema = new mongoose.Schema({
+    username: String,
+    isAdmin: Boolean,
+    userHash: String
 });
-
 /**
  * Schema for how entries are stored in the database for packages
  */
-const packageSchema = new mongoose.Schema({
+export const packageSchema = new mongoose.Schema({
     name: String,
     url: String,
     score: String,
@@ -27,43 +26,43 @@ const packageSchema = new mongoose.Schema({
 /**
  * Package collection
  */
-export const Package = mongoose.model('Package', packageSchema)
+// export const Package = mongoose.model('Package', packageSchema)
 
-/**
- * Connect to MongoDB Cloud Database
- * @param database name of the database you want to create a connection to
- * @returns error on failure to connect
- */
-export async function connectToMongoDB(database: string) {
-    try {
-        // Replace with your actual MongoDB URI
-        const mongoURI = `mongodb+srv://askannan:IxnNnCuO0ICCZXGl@cluster0.9gpef.mongodb.net/${database}?retryWrites=true&w=majority&appName=Cluster0`;
+// /**
+//  * Connect to MongoDB Cloud Database
+//  * @param database name of the database you want to create a connection to
+//  * @returns error on failure to connect
+//  */
+// export async function connectToMongoDB(database: string) {
+//     try {
+//         // Replace with your actual MongoDB URI
+//         const mongoURI = `mongodb+srv://askannan:IxnNnCuO0ICCZXGl@cluster0.9gpef.mongodb.net/${database}?retryWrites=true&w=majority&appName=Cluster0`;
 
-        // Connect to the MongoDB cluster
-        await mongoose.connect(mongoURI);
-        console.log('Connected to MongoDB');
-        return [true, null];
-    } catch (error) {
-        console.error('Error connecting to MongoDB', error);
-        return [false, error];
-        // process.exit(1); // Exit process with failure
-    }
-}
+//         // Connect to the MongoDB cluster
+//         await mongoose.connect(mongoURI);
+//         console.log('Connected to MongoDB');
+//         return [true, null];
+//     } catch (error) {
+//         console.error('Error connecting to MongoDB', error);
+//         return [false, error];
+//         // process.exit(1); // Exit process with failure
+//     }
+// }
 
-/**
- * Disconnects from MongoDB Cloud Database
- * @returns error on failure to disconnect
- */
-export async function disconnectMongoDB() {
-    try {
-        await mongoose.disconnect();
-        console.log('Disconnected from MongoDB');
-        return [true, null];
-    } catch (error) {
-        console.error('Error disconnecting from MongoDB:', error);
-        return [false, error];
-    }
-}
+// /**
+//  * Disconnects from MongoDB Cloud Database
+//  * @returns error on failure to disconnect
+//  */
+// export async function disconnectMongoDB() {
+//     try {
+//         await mongoose.disconnect();
+//         console.log('Disconnected from MongoDB');
+//         return [true, null];
+//     } catch (error) {
+//         console.error('Error disconnecting from MongoDB:', error);
+//         return [false, error];
+//     }
+// }
 
 // might want to make this just go update if it finds that a package with the same name is already present
 /**
@@ -75,7 +74,7 @@ export async function disconnectMongoDB() {
  * @param previousVersion Optional previous versions for package
  * @returns savedPackage of the package saved or error if the package couldn't be stored
  */
-export async function addNewPackage(name: String, url: String, score?: String, version?: String, previousVersion?: String) {
+export async function addNewPackage(name: String, url: String, Package: mongoose.Model<any>, score?: String, version?: String, previousVersion?: String) {
     const newPackage = new Package({
         name: name,
         url: url,
@@ -100,7 +99,7 @@ export async function addNewPackage(name: String, url: String, score?: String, v
  * @param newVersion New version of the package
  * @returns The updated package or an error
  */
-export async function updatePackageVersion(name: string, newVersion: string) {
+export async function updatePackageVersion(name: string, newVersion: string, Package: mongoose.Model<any>) {
     try {
         // Find the package by name
         const packageDoc = await Package.findOne({ name });
@@ -134,7 +133,7 @@ export async function updatePackageVersion(name: string, newVersion: string) {
  * @param newScore New score for the package
  * @returns Updated package or error
  */
-export async function updatePackageScore(name: string, newScore: string) {
+export async function updatePackageScore(name: string, newScore: string, Package: mongoose.Model<any>) {
     try {
         const result = await Package.updateOne(
             { name },
@@ -152,30 +151,30 @@ export async function updatePackageScore(name: string, newScore: string) {
  * Deletes the connected database and then disconnects from Mongo
  * @returns error if it cannot delete a database
  */
-export async function deleteDB() {
-    try {
-        const db = mongoose.connection.db;
-        if (!db) {
-            console.error('No database found');
-            return [false, Error('No database found')];
-        }
-        const success = await db.dropDatabase();
-        console.log('Database deleted successfully');
-        return [true, success];
-    } catch (error) {
-        console.error('Error deleting database:', error);
-        return [false, error];
-    } finally {
-        await mongoose.disconnect();
-        console.log('Disconnected from MongoDB');
-    }
-}
+// export async function deleteDB() {
+//     try {
+//         const db = mongoose.connection.db;
+//         if (!db) {
+//             console.error('No database found');
+//             return [false, Error('No database found')];
+//         }
+//         const success = await db.dropDatabase();
+//         console.log('Database deleted successfully');
+//         return [true, success];
+//     } catch (error) {
+//         console.error('Error deleting database:', error);
+//         return [false, error];
+//     } finally {
+//         await mongoose.disconnect();
+//         console.log('Disconnected from MongoDB');
+//     }
+// }
 
 /**
  * Removes package collection from the database 
  * @returns error or nothing
  */
-export async function removePackageCollection() {
+export async function removePackageCollection(Package: mongoose.Model<any>) {
     try {
         await Package.collection.drop();
         console.log('Package collection removed');
@@ -190,7 +189,7 @@ export async function removePackageCollection() {
  * Gets all the packages in the collection
  * @returns All packages or error
  */
-export async function getAllPackages() {
+export async function getAllPackages(Package: mongoose.Model<any>) {
     try {
         const users = await Package.find();
         console.log('All Users:', users);
@@ -206,7 +205,7 @@ export async function getAllPackages() {
  * @param name Package name
  * @returns package struct or error
  */
-export async function getPackageByName(name: string): Promise<[boolean, any | Error]>{
+export async function getPackageByName(name: string, Package: mongoose.Model<any>): Promise<[boolean, any | Error]>{
     try {
         const pkg = await Package.findOne({ name });
         if (pkg == null) {
@@ -226,7 +225,7 @@ export async function getPackageByName(name: string): Promise<[boolean, any | Er
  * @param partialName Partial name to look for
  * @returns All packages with the partial name or error
  */
-export async function findPackagesByPartialName(partialName: string) {
+export async function findPackagesByPartialName(partialName: string, Package: mongoose.Model<any>) {
     try {
         // Use regex to find packages where the name contains the partial string (case-insensitive)
         const pkgs = await Package.find({ name: { $regex: partialName, $options: 'i' } });
@@ -243,83 +242,207 @@ export async function findPackagesByPartialName(partialName: string) {
     }
 }
 
+
+/**
+ * Schema for how entries are stored in the database for packages
+ */
+// export const User = mongoose.model('User', userSchema); // This defines the "users" collection
+
+/**
+ * Connect to MongoDB Cloud Database
+ * @param database name of the database you want to create a connection to
+ * @returns error on failure to connect
+ */
+export async function connectToMongoDB(database: string) {
+    try {
+        // Replace with your actual MongoDB URI
+        // const mongoURI = `mongodb+srv://askannan:IxnNnCuO0ICCZXGl@cluster0.9gpef.mongodb.net/${database}?retryWrites=true&w=majority&appName=Cluster0`;
+        const mongoURI = `mongodb+srv://askannan:IxnNnCuO0ICCZXGl@cluster0.9gpef.mongodb.net/${database}?retryWrites=true&w=majority&appName=Cluster0`;
+        // Connect to the MongoDB cluster
+        const db = mongoose.createConnection(mongoURI);
+        console.log('Connected to MongoDB');
+        return [true, db];
+    } catch (error) {
+        console.error('Error connecting to MongoDB', error);
+        return [false, error];
+        // process.exit(1); // Exit process with failure
+    }
+}
+
+/**
+ * Disconnects from MongoDB Cloud Database
+ * @returns error on failure to disconnect
+ */
+export async function disconnectMongoDB(db: mongoose.Connection) {
+    try {
+        await db.close();
+        console.log('Disconnected from MongoDB');
+        return [true, null];
+    } catch (error) {
+        console.error('Error disconnecting from MongoDB:', error);
+        return [false, error];
+    }
+}
+
+/**
+ * Deletes the connected database and then disconnects from Mongo
+ * @returns error if it cannot delete a database
+ */
+export async function deleteDB(db: mongoose.Connection) {
+    try {
+        // const db = mongoose.connection.db;
+        // if (!db) {
+        //     console.error('No database found');
+        //     return [false, Error('No database found')];
+        // }
+        const success = await db.dropDatabase();
+        console.log('Database deleted successfully');
+        return [true, success];
+    } catch (error) {
+        console.error('Error deleting database:', error);
+        return [false, error];
+    } finally {
+        await mongoose.disconnect();
+        console.log('Disconnected from MongoDB');
+    }
+}
+
+/**
+ * Deletes all User documents except for the one with the specified userHash.
+ * @param rootHash - The userHash of the User document to retain.
+ * @returns A promise that resolves to a tuple indicating success and a message or error.
+ */
+export async function deleteUsersExcept(User: mongoose.Model<any>): Promise<[boolean, string | Error]> {
+    try {
+        // Validate rootHash
+
+        // Perform deletion: delete all users where userHash is not equal to rootHash
+        const deleteResult = await User.deleteMany({ username: { $ne: rootName } });
+
+        // console.log(`Deleted ${deleteResult.deletedCount} user(s) except for userHash: ${rootName}`);
+        return [true, `Deleted ${deleteResult.deletedCount} user(s) except for userHash: ${rootName}`];
+    } catch (error) {
+        console.error('Error deleting users:', error);
+        return [false, error as Error];
+    }
+}
+
+export async function addUser(username: String, userHash: String, isAdmin: Boolean, User: mongoose.Model<any>) {
+    try {
+        const newUser = new User({
+            username: username,
+            isAdmin: isAdmin,
+            userHash: userHash
+        });
+        const user = await getUserByName(username, User);
+        if(user[0] == true) {
+            console.log('User already exists');
+            return [false, Error('User already exists')];
+        }
+        const result = await newUser.save();
+        console.log('User added:', result);
+        return [true, result];
+    } catch (error) {
+        console.error('Error adding user:', error);
+        return [false, error];
+    }
+}
+
+export async function removeUserByName(username: string, User: mongoose.Model<any>) {
+    try {
+        const result = await User.deleteOne({ username });
+        console.log('User removed:', result);
+        return [true, result];
+    } catch (error) {
+        console.error('Error removing user:', error);
+        return [false, error];
+    }
+}
+
+export async function getAllUsers(User: mongoose.Model<any>) {
+    try {
+        const users = await User.find();
+        console.log('All Users:', users);
+        return [true, users];
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        return [false, error];
+    }
+}
+
+export async function getUserByHash(userHash: string, User: mongoose.Model<any>) {
+    try {
+        const user = await User.findOne({ userHash });
+        if(user == null) {
+            console.log('User not found');
+            return [false, Error('User not found')];
+        }
+        console.log('User found:', user);
+        return [true, user];
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        return [false, error];
+    }
+}
+
+export async function getUserByName(username: String, User: mongoose.Model<any>) {
+    try {
+        const user = await User.findOne({ username });
+        if(user == null) {
+            console.log('User not found');
+            return [false, Error('User not found')];
+        }
+        console.log('User found:', user);
+        return [true, user];
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        return [false, error];
+    }
+}
+
 /**
  * Test function to check functionality
  */
-async function run() {
-    await connectToMongoDB('Packages');
-    await addNewPackage('Example', 'http://example.com');
-    await updatePackageScore('Example', 'test score: 75');
-    await updatePackageVersion('Example', '1.0.0');
-    await updatePackageVersion('Example', '1.0.1');
-    await addNewPackage('python-lib', 'python-lib.com', '', '1.0.1');
-    await addNewPackage('pyplot', 'pyplot.com');
-    await getAllPackages();
-    console.log();
-    await getPackageByName('Example');
-    const pkgs = await findPackagesByPartialName('py');
-    console.log(pkgs);
-    await disconnectMongoDB();
-}
+// async function run() {
+//     await connectToMongoDB('Users');
+//     await addUser('Annan', 'x', 1);
+//     const x = await getAllUsers();
+//     console.log(x);
+//     console.log();
+//     // const y = await getUserByHash(rootHash);
+//     // console.log(y); 
+//     // console.log();
+//     await addUser('Annan', 'y', 1);
+//     // const z = await removeUserByHash('y');
+//     // console.log(z);
+//     // console.log();
+//     const d = await deleteUsersExcept();
+//     console.log(d);
+//     console.log();
+//     await disconnectMongoDB();
+// }
+
+// run();
+
+/**
+ * Test function to check functionality
+ */
+// async function run() {
+//     await connectToMongoDB('Packages');
+//     await addNewPackage('Example', 'http://example.com');
+//     await updatePackageScore('Example', 'test score: 75');
+//     await updatePackageVersion('Example', '1.0.0');
+//     await updatePackageVersion('Example', '1.0.1');
+//     await addNewPackage('python-lib', 'python-lib.com', '', '1.0.1');
+//     await addNewPackage('pyplot', 'pyplot.com');
+//     await getAllPackages();
+//     console.log();
+//     await getPackageByName('Example');
+//     const pkgs = await findPackagesByPartialName('py');
+//     console.log(pkgs);
+//     await disconnectMongoDB();
+// }
 
 // run();
 
 // UNCOMMENT LATER WHEN NEEDED
-
-// async function addUser(name: String, email: String, password: String, accessLevel: Number) {
-//     try {
-//         const newUser = new User({
-//             name: name,
-//             email: email,
-//             password: password,
-//             accessLevel: accessLevel
-//         });
-
-//         const result = await newUser.save();
-//         console.log('User added:', result);
-//     } catch (error) {
-//         console.error('Error adding user:', error);
-//     }
-// }
-
-// async function removeUserByEmail(email: string) {
-//     try {
-//         const result = await User.deleteOne({ email });
-//         console.log('User removed:', result);
-//     } catch (error) {
-//         console.error('Error removing user:', error);
-//     }
-// }
-
-// // async function removeUsersByAge(age: number) {
-// //     try {
-// //         const result = await User.deleteMany({ age });
-// //         console.log('Users removed:', result);
-// //     } catch (error) {
-// //         console.error('Error removing users:', error);
-// //     }
-// // }
-
-
-
-// async function getAllUsers() {
-//     try {
-//         const users = await User.find();
-//         console.log('All Users:', users);
-//     } catch (error) {
-//         console.error('Error fetching users:', error);
-//     }
-// }
-
-// async function getUserByEmail(email: string) {
-//     try {
-//         const user = await User.findOne({ email });
-//         console.log('User found:', user);
-//     } catch (error) {
-//         console.error('Error fetching user:', error);
-//     }
-// }
-
-
-
-
