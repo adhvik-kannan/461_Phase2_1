@@ -257,7 +257,7 @@ export async function findPackagesByPartialName(partialName: string, Package: mo
  * @param database name of the database you want to create a connection to
  * @returns error on failure to connect
  */
-export async function connectToMongoDB(database: string) {
+export function connectToMongoDB(database: string) {
     try {
         // Replace with your actual MongoDB URI
         // const mongoURI = `mongodb+srv://askannan:IxnNnCuO0ICCZXGl@cluster0.9gpef.mongodb.net/${database}?retryWrites=true&w=majority&appName=Cluster0`;

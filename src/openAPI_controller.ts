@@ -8,8 +8,8 @@ import logger from './logging.js';
 // import * as userDB from './userDB.js';
 import SHA256 from 'crypto-js/sha256';
 
-const packageDB = await db.connectToMongoDB("Packages");
-const userDB = await db.connectToMongoDB("Users");
+const packageDB = db.connectToMongoDB("Packages");
+const userDB = db.connectToMongoDB("Users");
 
 // console.log(packageDB);
 const Package = packageDB[1].model('Package', db.packageSchema);
