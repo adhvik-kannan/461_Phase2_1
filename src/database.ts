@@ -139,6 +139,10 @@ export async function updatePackageScore(name: string, newScore: string, Package
             { name },
             { $set: { score: newScore } }
         );
+        if(result.matchedCount == 0 || result.modifiedCount == 0) {
+            console.log('Package not found');
+            return [false, Error(`Error updating package`)];
+        }
         console.log('Update result:', result);
         return [true, result];
     } catch (error) {
@@ -260,6 +264,10 @@ export async function connectToMongoDB(database: string) {
         const mongoURI = `mongodb+srv://askannan:IxnNnCuO0ICCZXGl@cluster0.9gpef.mongodb.net/${database}?retryWrites=true&w=majority&appName=Cluster0`;
         // Connect to the MongoDB cluster
         const db = mongoose.createConnection(mongoURI);
+        // if(db == null) {
+        //     console.error('Error connecting to MongoDB');
+        //     return [false, Error('Error connecting to MongoDB')];
+        // }
         console.log('Connected to MongoDB');
         return [true, db];
     } catch (error) {
@@ -421,28 +429,3 @@ export async function getUserByName(username: String, User: mongoose.Model<any>)
 //     console.log();
 //     await disconnectMongoDB();
 // }
-
-// run();
-
-/**
- * Test function to check functionality
- */
-// async function run() {
-//     await connectToMongoDB('Packages');
-//     await addNewPackage('Example', 'http://example.com');
-//     await updatePackageScore('Example', 'test score: 75');
-//     await updatePackageVersion('Example', '1.0.0');
-//     await updatePackageVersion('Example', '1.0.1');
-//     await addNewPackage('python-lib', 'python-lib.com', '', '1.0.1');
-//     await addNewPackage('pyplot', 'pyplot.com');
-//     await getAllPackages();
-//     console.log();
-//     await getPackageByName('Example');
-//     const pkgs = await findPackagesByPartialName('py');
-//     console.log(pkgs);
-//     await disconnectMongoDB();
-// }
-
-// run();
-
-// UNCOMMENT LATER WHEN NEEDED
