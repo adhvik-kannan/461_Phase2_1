@@ -2,11 +2,18 @@ import express from 'express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import * as util from './utils.js';
-import * as db from './database_test.js';
+import * as db from './database';
 import { rate } from './rate.js';
 import logger from './logging.js';
+// import * as userDB from './userDB.js';
+import SHA256 from 'crypto-js/sha256';
 
-const test = db.connectToMongoDB("Packages");
+const packageDB = db.connectToMongoDB("Packages");
+const userDB = db.connectToMongoDB("Users");
+
+// console.log(packageDB);
+const Package = packageDB[1].model('Package', db.packageSchema);
+const UserModel = userDB[1].model('User', db.userSchema);
 
 const app = express();
 app.use(express.json()); // parse incoming requests with JSON payloads
@@ -56,7 +63,7 @@ app.delete('/reset', async (req, res) => {
         res.status(400).send('There is missing field(s) in the AuthenticationToken or it is formed improperly, or the AuthenticationToken is invalid.');
     } else {
         try {
-            const result = await db.deleteDB();
+            const result = await db.deleteDB(packageDB[1]);
             if (result[0] == true) {
                 logger.info('Registry is reset.');
                 res.status(200).send('Registry is reset.');
@@ -104,14 +111,14 @@ app.post('/upload/:url', async (req, res) => {
             logger.debug('Could not get package name');
             res.status(500).send('Could not get package name');    
         }
-        const pkg = await db.getPackageByName(package_name);
+        const pkg = await db.getPackageByName(package_name, Package);
         if (pkg[0] == true) { // if the package already exists, just return the score
             logger.info(`Package ${package_name} already exists with score: ${pkg[1]["score"]}`);
             res.status(200).send(pkg[1]["score"].toString());
         } else {
             const [package_rating, package_net] = await rate(url);
             if (package_net >= 0.5) {
-                const result = await db.addNewPackage(package_name, url, package_rating);
+                const result = await db.addNewPackage(package_name, url, Package, package_rating);
                 if (result[0] == true) {
                     logger.info(`Package ${package_name} uploaded with score: ${package_rating}`);
                     res.status(200).send(package_rating.toString());
@@ -161,7 +168,7 @@ app.get('/rate/:url', async (req, res) => {
             logger.error('Could not get package name');
             res.status(500).send('Could not get package name');
         }
-        const pkg = await db.getPackageByName(package_name);
+        const pkg = await db.getPackageByName(package_name, Package);
         if (pkg[0] == true) { // if the package already exists, just return the score
             logger.info(`Package ${package_name} already exists with score: ${pkg[1]["score"]}`); 
             res.status(200).send(pkg[1]["score"].toString());
@@ -176,7 +183,55 @@ app.get('/rate/:url', async (req, res) => {
     }
 });
 
+app.put('/authenticate', async (req, res) => {
+    try {
+        const { User, Secret } = req.body;
+    
+        // Validate request structure
+        if (
+          !User ||
+          typeof User.name !== 'string' ||
+          typeof User.isAdmin !== 'boolean' ||
+          !Secret ||
+          typeof Secret.password !== 'string'
+        ) {
+          return res.status(400).json({ error: 'Malformed AuthenticationRequest' });
+        }
+    
+        const { name, isAdmin } = User;
+        const { password } = Secret;
+    
+        // Hash the provided password using SHA-256
+        const hashedPassword = SHA256(password).toString()
+        
+        let x = "";
+        // Query the database for the user
+        const [found, user] = await db.getUserByName(name, UserModel);
+        if(!found) {
+          return res.status(401).json({ error: 'Invalid username' });
+        }
+        if(user.userHash !== hashedPassword) {
+          return res.status(401).json({ error: 'Invalid password' });
+        }
+        if(user.isAdmin == true) {
+            x = "isAdmin=1";
+        } else {
+            x = "isAdmin=0";
+        }
+        console.log(user.isAdmin);
+        const hashh = SHA256(x).toString();
+        const authToken = `bearer ${hashh}`;
+        return res.status(200).json({ authToken: `"${authToken}"` });
+      } catch (error) {
+        console.error(error);
+        return res.status(400).json({ error: 'Bad Request' });
+      }
+});
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
