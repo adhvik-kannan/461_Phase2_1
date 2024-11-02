@@ -16,7 +16,7 @@ export default defineConfig({
       provider: 'istanbul',
       reporter: ['text', 'json-summary'],
       reportsDirectory: './coverage',
-      include: ['src/**.js','test/ignore/**.js'],
+      include: ['src/**/*.js'],
       exclude: ['test/**', '*.ts'],
       reportOnFailure: true,
     },
