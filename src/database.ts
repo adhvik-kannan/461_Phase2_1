@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 const rootName = 'ece30861defaultadminuser'
+import logger from './logging.js';
 
 // Define a schema
 /**
@@ -14,6 +15,7 @@ export const userSchema = new mongoose.Schema({
  * Schema for how entries are stored in the database for packages
  */
 export const packageSchema = new mongoose.Schema({
+    id: String,
     name: String,
     url: String,
     score: String,
@@ -40,10 +42,10 @@ export const packageSchema = new mongoose.Schema({
 
 //         // Connect to the MongoDB cluster
 //         await mongoose.connect(mongoURI);
-//         console.log('Connected to MongoDB');
+//         logger.info('Connected to MongoDB');
 //         return [true, null];
 //     } catch (error) {
-//         console.error('Error connecting to MongoDB', error);
+//         logger.debug('Error connecting to MongoDB', error);
 //         return [false, error];
 //         // process.exit(1); // Exit process with failure
 //     }
@@ -56,10 +58,10 @@ export const packageSchema = new mongoose.Schema({
 // export async function disconnectMongoDB() {
 //     try {
 //         await mongoose.disconnect();
-//         console.log('Disconnected from MongoDB');
+//         logger.info('Disconnected from MongoDB');
 //         return [true, null];
 //     } catch (error) {
-//         console.error('Error disconnecting from MongoDB:', error);
+//         logger.debug('Error disconnecting from MongoDB:', error);
 //         return [false, error];
 //     }
 // }
@@ -85,10 +87,10 @@ export async function addNewPackage(name: String, url: String, Package: mongoose
 
     try {
         const savedPackage = await newPackage.save();
-        console.log('Package saved:', savedPackage);
+        logger.info('Package saved:', savedPackage);
         return [true, savedPackage];
     } catch (error) {
-        console.error('Error saving package:', error);
+        logger.debug('Error saving package:', error);
         return [false, error];
     }
 }
@@ -115,14 +117,14 @@ export async function updatePackageVersion(name: string, newVersion: string, Pac
 
             // Save the updated document
             const updatedPackage = await packageDoc.save();
-            console.log('Package updated:', updatedPackage);
+            logger.info('Package updated:', updatedPackage);
             return [true, updatedPackage];
         } else {
-            console.log('Package not found');
+            logger.info('Package not found');
             return [false, Error(`Package ${name} not found`)];
         }
     } catch (error) {
-        console.error('Error updating package:', error);
+        logger.debug('Error updating package:', error);
         return [false, error];
     }
 }
@@ -140,13 +142,13 @@ export async function updatePackageScore(name: string, newScore: string, Package
             { $set: { score: newScore } }
         );
         if(result.matchedCount == 0 || result.modifiedCount == 0) {
-            console.log('Package not found');
+            logger.info('Package not found');
             return [false, Error(`Error updating package`)];
         }
-        console.log('Update result:', result);
+        logger.info('Update result:', result);
         return [true, result];
     } catch (error) {
-        console.error('Error updating package:', error);
+        logger.debug('Error updating package:', error);
         return [false, error];
     }
 }
@@ -159,18 +161,18 @@ export async function updatePackageScore(name: string, newScore: string, Package
 //     try {
 //         const db = mongoose.connection.db;
 //         if (!db) {
-//             console.error('No database found');
+//             logger.debug('No database found');
 //             return [false, Error('No database found')];
 //         }
 //         const success = await db.dropDatabase();
-//         console.log('Database deleted successfully');
+//         logger.info('Database deleted successfully');
 //         return [true, success];
 //     } catch (error) {
-//         console.error('Error deleting database:', error);
+//         logger.debug('Error deleting database:', error);
 //         return [false, error];
 //     } finally {
 //         await mongoose.disconnect();
-//         console.log('Disconnected from MongoDB');
+//         logger.info('Disconnected from MongoDB');
 //     }
 // }
 
@@ -181,10 +183,10 @@ export async function updatePackageScore(name: string, newScore: string, Package
 export async function removePackageCollection(Package: mongoose.Model<any>) {
     try {
         await Package.collection.drop();
-        console.log('Package collection removed');
+        logger.info('Package collection removed');
         return [true, null]
     } catch (error) {
-        console.error('Error removing collection:', error);
+        logger.debug('Error removing collection:', error);
         return [false, error];
     }
 }
@@ -196,30 +198,36 @@ export async function removePackageCollection(Package: mongoose.Model<any>) {
 export async function getAllPackages(Package: mongoose.Model<any>) {
     try {
         const users = await Package.find();
-        console.log('All Users:', users);
+        logger.info('All Users:', users);
         return [true, users];
     } catch (error) {
-        console.error('Error fetching users:', error);
+        logger.debug('Error fetching users:', error);
         return [false, error];
     }
 }
 
 /**
- * Gets a package for a given name
- * @param name Package name
- * @returns package struct or error
+ * Retrieves a package from the database based on the specified query parameter.
+ *
+ * @param name - The name or ID of the package to retrieve.
+ * @param by - The type of query to perform, either 'name' or 'id'.
+ * @param Package - The Mongoose model to use for querying the database.
+ * @returns A promise that resolves to a tuple. The first element is a boolean indicating success or failure.
+ *          The second element is either the retrieved package object or an Error object.
  */
-export async function getPackageByName(name: string, Package: mongoose.Model<any>): Promise<[boolean, any | Error]>{
+export async function getPackage(name: string, by:string, Package: mongoose.Model<any>): Promise<[boolean, any | Error]>{
     try {
-        const pkg = await Package.findOne({ name });
+        const query = by == 'name' ? {name:name} : by == 'id' ? {id:name} : 'error';
+        if (query == 'error') return [false, Error('Invalid query')];
+        const pkg = await Package.findOne(query);
         if (pkg == null) {
-            console.log('No package found with the name:', name);
-            return [false, Error(`No package found with the name: ${name}`)];
+            logger.info('No package found with ${by}: ', name);
+            return [false, Error(`No package found with ${by}: ${name}`)];
         }
-        console.log('User found:', pkg);
+        logger.info('Package found:', pkg);
         return [true, pkg];
     } catch (error) {
-        console.error('Error fetching user:', error);
+        logger.debug('Error fetching package:', error);
         return [false, error];
     }
 }
@@ -235,13 +243,13 @@ export async function findPackagesByPartialName(partialName: string, Package: mo
         const pkgs = await Package.find({ name: { $regex: partialName, $options: 'i' } });
         
         if (pkgs.length > 0) {
-            console.log('Found packages:', pkgs);
+            logger.info('Found packages:', pkgs);
         } else {
-            console.log('No packages found with the partial name:', partialName);
+            logger.info('No packages found with the partial name:', partialName);
         }
         return [true, pkgs]
     } catch (error) {
-        console.error('Error fetching packages:', error);
+        logger.debug('Error fetching packages:', error);
         return [false, error];
     }
 }
@@ -265,13 +273,13 @@ export function connectToMongoDB(database: string) {
         // Connect to the MongoDB cluster
         const db = mongoose.createConnection(mongoURI);
         // if(db == null) {
-        //     console.error('Error connecting to MongoDB');
+        //     logger.debug('Error connecting to MongoDB');
         //     return [false, Error('Error connecting to MongoDB')];
         // }
-        console.log('Connected to MongoDB');
+        logger.info('Connected to MongoDB');
         return [true, db];
     } catch (error) {
-        console.error('Error connecting to MongoDB', error);
+        logger.debug('Error connecting to MongoDB', error);
         return [false, error];
         // process.exit(1); // Exit process with failure
     }
@@ -284,10 +292,10 @@ export function connectToMongoDB(database: string) {
 export async function disconnectMongoDB(db: mongoose.Connection) {
     try {
         await db.close();
-        console.log('Disconnected from MongoDB');
+        logger.info('Disconnected from MongoDB');
         return [true, null];
     } catch (error) {
-        console.error('Error disconnecting from MongoDB:', error);
+        logger.debug('Error disconnecting from MongoDB:', error);
         return [false, error];
     }
 }
@@ -300,18 +308,18 @@ export async function deleteDB(db: mongoose.Connection) {
     try {
         // const db = mongoose.connection.db;
         // if (!db) {
-        //     console.error('No database found');
+        //     logger.debug('No database found');
         //     return [false, Error('No database found')];
         // }
         const success = await db.dropDatabase();
-        console.log('Database deleted successfully');
+        logger.info('Database deleted successfully');
         return [true, success];
     } catch (error) {
-        console.error('Error deleting database:', error);
+        logger.debug('Error deleting database:', error);
         return [false, error];
     } finally {
         await mongoose.disconnect();
-        console.log('Disconnected from MongoDB');
+        logger.info('Disconnected from MongoDB');
     }
 }
 
@@ -327,10 +335,10 @@ export async function deleteUsersExcept(User: mongoose.Model<any>): Promise<[boo
         // Perform deletion: delete all users where userHash is not equal to rootHash
         const deleteResult = await User.deleteMany({ username: { $ne: rootName } });
 
-        // console.log(`Deleted ${deleteResult.deletedCount} user(s) except for userHash: ${rootName}`);
+        // logger.info(`Deleted ${deleteResult.deletedCount} user(s) except for userHash: ${rootName}`);
         return [true, `Deleted ${deleteResult.deletedCount} user(s) except for userHash: ${rootName}`];
     } catch (error) {
-        console.error('Error deleting users:', error);
+        logger.debug('Error deleting users:', error);
         return [false, error as Error];
     }
 }
@@ -344,14 +352,14 @@ export async function addUser(username: String, userHash: String, isAdmin: Boole
         });
         const user = await getUserByName(username, User);
         if(user[0] == true) {
-            console.log('User already exists');
+            logger.info('User already exists');
             return [false, Error('User already exists')];
         }
         const result = await newUser.save();
-        console.log('User added:', result);
+        logger.info('User added:', result);
         return [true, result];
     } catch (error) {
-        console.error('Error adding user:', error);
+        logger.debug('Error adding user:', error);
         return [false, error];
     }
 }
@@ -359,10 +367,10 @@ export async function addUser(username: String, userHash: String, isAdmin: Boole
 export async function removeUserByName(username: string, User: mongoose.Model<any>) {
     try {
         const result = await User.deleteOne({ username });
-        console.log('User removed:', result);
+        logger.info('User removed:', result);
         return [true, result];
     } catch (error) {
-        console.error('Error removing user:', error);
+        logger.debug('Error removing user:', error);
         return [false, error];
     }
 }
@@ -370,10 +378,10 @@ export async function removeUserByName(username: string, User: mongoose.Model<an
 export async function getAllUsers(User: mongoose.Model<any>) {
     try {
         const users = await User.find();
-        console.log('All Users:', users);
+        logger.info('All Users:', users);
         return [true, users];
     } catch (error) {
-        console.error('Error fetching users:', error);
+        logger.debug('Error fetching users:', error);
         return [false, error];
     }
 }
@@ -382,13 +390,13 @@ export async function getUserByHash(userHash: string, User: mongoose.Model<any>)
     try {
         const user = await User.findOne({ userHash });
         if(user == null) {
-            console.log('User not found');
+            logger.info('User not found');
             return [false, Error('User not found')];
         }
-        console.log('User found:', user);
+        logger.info('User found:', user);
         return [true, user];
     } catch (error) {
-        console.error('Error fetching user:', error);
+        logger.debug('Error fetching user:', error);
         return [false, error];
     }
 }
@@ -397,13 +405,13 @@ export async function getUserByName(username: String, User: mongoose.Model<any>)
     try {
         const user = await User.findOne({ username });
         if(user == null) {
-            console.log('User not found');
+            logger.info('User not found');
             return [false, Error('User not found')];
         }
-        console.log('User found:', user);
+        logger.info('User found:', user);
         return [true, user];
     } catch (error) {
-        console.error('Error fetching user:', error);
+        logger.debug('Error fetching user:', error);
         return [false, error];
     }
 }
@@ -415,17 +423,17 @@ export async function getUserByName(username: String, User: mongoose.Model<any>)
 //     await connectToMongoDB('Users');
 //     await addUser('Annan', 'x', 1);
 //     const x = await getAllUsers();
-//     console.log(x);
-//     console.log();
+//     logger.info(x);
+//     logger.info();
 //     // const y = await getUserByHash(rootHash);
-//     // console.log(y); 
-//     // console.log();
+//     // logger.info(y); 
+//     // logger.info();
 //     await addUser('Annan', 'y', 1);
 //     // const z = await removeUserByHash('y');
-//     // console.log(z);
-//     // console.log();
+//     // logger.info(z);
+//     // logger.info();
 //     const d = await deleteUsersExcept();
-//     console.log(d);
-//     console.log();
+//     logger.info(d);
+//     logger.info();
 //     await disconnectMongoDB();
 // }
