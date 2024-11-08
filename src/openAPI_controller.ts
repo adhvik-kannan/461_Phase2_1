@@ -7,6 +7,9 @@ import { rate } from './rate.js';
 import logger from './logging.js';
 // import * as userDB from './userDB.js';
 import SHA256 from 'crypto-js/sha256';
+import { GetObjectCommand } from '@aws-sdk/client-s3';
+import { BUCKET_NAME, s3, streamToBuffer } from './s3_utils.js';
+import { Readable } from 'stream';
 
 const packageDB = db.connectToMongoDB("Packages");
 const userDB = db.connectToMongoDB("Users");
@@ -111,7 +114,7 @@ app.post('/upload/:url', async (req, res) => {
             logger.debug('Could not get package name');
             res.status(500).send('Could not get package name');    
         }
-        const pkg = await db.getPackageByName(package_name, Package);
+        const pkg = await db.getPackage(package_name, "name", Package);
         if (pkg[0] == true) { // if the package already exists, just return the score
             logger.info(`Package ${package_name} already exists with score: ${pkg[1]["score"]}`);
             res.status(200).send(pkg[1]["score"].toString());
@@ -168,7 +171,7 @@ app.get('/rate/:url', async (req, res) => {
             logger.error('Could not get package name');
             res.status(500).send('Could not get package name');
         }
-        const pkg = await db.getPackageByName(package_name, Package);
+        const pkg = await db.getPackage(package_name, "name", Package);
         if (pkg[0] == true) { // if the package already exists, just return the score
             logger.info(`Package ${package_name} already exists with score: ${pkg[1]["score"]}`); 
             res.status(200).send(pkg[1]["score"].toString());
@@ -227,6 +230,52 @@ app.put('/authenticate', async (req, res) => {
         return res.status(400).json({ error: 'Bad Request' });
       }
 });
+
+
+app.get('/package/:id', async (req, res) => {
+    try {
+        const token = req.headers['authorization'];
+        const [valid, user] = await db.getUserByHash(token, UserModel);
+        if (!valid) {
+            logger.info(`Authentication failed due to invalid or missing AuthenticationToken: ${user}`);
+            return res.status(403).send(`Authentication failed due to invalid or missing AuthenticationToken: ${user}`);
+        }
+        const packageID = req.params.id;
+        if (!packageID || typeof packageID !== 'string') {
+            logger.info('There is missing field(s) in the PackageID or it is iformed improperly, or it is invalid.');
+            return res.status(400).send('There is missing field(s) in the PackageID or it is iformed improperly, or it is invalid.');
+        }
+        
+        const packageInfo = await db.getPackage(packageID, "id", Package);
+        if (!packageInfo[0]) {
+            return res.status(404).send('Package not found: ' + packageInfo[1]);
+        }
+
+        const getFromS3 = new GetObjectCommand({
+            Bucket: BUCKET_NAME,
+            Key: packageID,
+        })
+
+        const response = await s3.send(getFromS3);
+        if (!response.Body) {
+            logger.debug('Failed to retreive the package from S3');
+            return res.status(500).send('Failed to retreive the package from S3');
+        }
+
+        const bodyStream = response.Body as Readable;
+        const pkg = await streamToBuffer(bodyStream);
+
+        return res.status(200).json({ package: pkg.toString(), info: packageInfo[1] });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({ error: 'Bad Request' });
+    }
+
+});
+
+
+
 
 
 const PORT = process.env.PORT || 3000;
