@@ -8,6 +8,8 @@ import logger from './logging.js';
 // import * as userDB from './userDB.js';
 import SHA256 from 'crypto-js/sha256';
 
+const security = '66abf860f10edcdd512e9f3f9fdc8af1bdc676503922312f8323f5090ef09a6a'
+
 const packageDB = db.connectToMongoDB("Packages");
 const userDB = db.connectToMongoDB("Users");
 
@@ -58,9 +60,13 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // TODO: HAVE TO ADD AUTHENTICATION PARSING
 app.delete('/reset', async (req, res) => {
     const authToken = req.headers['X-Authorization'];
-    if (!authToken) {
-        logger.error('There is missing field(s) in the AuthenticationToken or it is formed improperly, or the AuthenticationToken is invalid.');
-        res.status(400).send('There is missing field(s) in the AuthenticationToken or it is formed improperly, or the AuthenticationToken is invalid.');
+    if(authToken == '' || authToken == null) {
+        logger.error('Missing Authentication Header');
+        res.status(403).send('Missing Authentication Header');
+    }
+    if (authToken != security) {
+        logger.error('You do not have the correct permissions to delete the database.');
+        res.status(401).send('You do not have the correct permissions to delete the database.');
     } else {
         try {
             const result = await db.deleteDB(packageDB[1]);
@@ -70,6 +76,14 @@ app.delete('/reset', async (req, res) => {
             } else {
                 logger.error('Error deleting database:', result[1]);
                 res.status(500).send('Error deleting database');
+            }
+            const result2 = await db.deleteUsersExcept(UserModel);
+            if (result2[0] == true) {
+                logger.info('Users are reset.');
+                res.status(200).send('Users are reset.');
+            } else {
+                logger.error('Error deleting users:', result2[1]);
+                res.status(500).send('Error deleting users');
             }
         } catch (error) {
             logger.error('Error deleting database:', error);
