@@ -11,6 +11,8 @@ import { GetObjectCommand } from '@aws-sdk/client-s3';
 import { BUCKET_NAME, s3, streamToBuffer } from './s3_utils.js';
 import { Readable } from 'stream';
 
+const security = '66abf860f10edcdd512e9f3f9fdc8af1bdc676503922312f8323f5090ef09a6a'
+
 const packageDB = db.connectToMongoDB("Packages");
 const userDB = db.connectToMongoDB("Users");
 
@@ -234,11 +236,11 @@ app.put('/authenticate', async (req, res) => {
 
 app.get('/package/:id', async (req, res) => {
     try {
-        const token = req.headers['authorization'];
-        const [valid, user] = await db.getUserByHash(token, UserModel);
-        if (!valid) {
-            logger.info(`Authentication failed due to invalid or missing AuthenticationToken: ${user}`);
-            return res.status(403).send(`Authentication failed due to invalid or missing AuthenticationToken: ${user}`);
+        const token = req.headers['X-Authorization'];
+        // const [valid, user] = await db.getUserByHash(token, UserModel);
+        if (token != security) {
+            logger.info(`Authentication failed due to invalid or missing AuthenticationToken`);
+            return res.status(403).send(`Authentication failed due to invalid or missing AuthenticationToken`);
         }
         const packageID = req.params.id;
         if (!packageID || typeof packageID !== 'string') {
