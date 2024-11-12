@@ -1,6 +1,7 @@
+// src/frontend/src/components/Upload.tsx
 import React, { useState, useEffect } from 'react';
 
-const UploadFeature: React.FC = () => {
+const Upload: React.FC = () => {
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
 
   // Function to handle the submission
@@ -43,4 +44,4 @@ const UploadFeature: React.FC = () => {
   );
 };
 
-export default UploadFeature;
+export default Upload;

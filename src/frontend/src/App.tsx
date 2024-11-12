@@ -1,28 +1,47 @@
 // src/frontend/src/App.tsx
 import React from 'react';
-import { Route, Routes, Link } from 'react-router-dom'; // Removed Router import
-import UploadFeature from './components/UploadFeature';
+import { Route, Routes, Link } from 'react-router-dom';
+import Upload from './components/Upload';
 import Login from './components/Login';
 import Home from './components/Home';
 import CreateAccount from './components/CreateAccount';
+import Search from './components/Search';
+import Update from './components/Update';
+import Cost from './components/Cost';
+import Reset from './components/Reset';
+import './App.css'; // Import the CSS file for styling
 
 const App: React.FC = () => {
-    return (
-      <div>
-        <header style={{ display: 'flex', justifyContent: 'space-between', padding: '10px' }}>
-          <h1>Package Rating Web Interface</h1>
-          <Link to="/login">
-            <button style={{ padding: '10px 20px' }} data-testid="header-login-button">Login</button>
+  return (
+    <div>
+      <header className="app-header">
+        <nav className="nav-container">
+          {/* Home Link - Typically, a logo or brand name can serve this purpose */}
+          <Link to="/" className="nav-logo">
+            Home
           </Link>
-        </header>
+          
+          <div className="nav-links">
+            <Link to="/login" className="nav-button">
+              Login
+            </Link>
+          </div>
+        </nav>
+      </header>
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/upload" element={<UploadFeature />} />
+          <Route path="/upload" element={<Upload />} />
           <Route path="/create-account" element={<CreateAccount />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/update" element={<Update />} />
+          <Route path="/cost" element={<Cost />} />
+          <Route path="/reset" element={<Reset />} />
         </Routes>
-      </div>
-    );
-  };
+      </main>
+    </div>
+  );
+};
 
 export default App;

@@ -15,10 +15,10 @@ test('renders Login component on /login route', () => {
     expect(loginElements.length).toBeGreaterThan(0);
 });
   
-//   test('renders UploadFeature component on /upload route', () => {
+//   test('renders Upload component on /upload route', () => {
 //     window.history.pushState({}, 'Upload Page', '/upload');
 //     render(<App />);
-//     const uploadElement = screen.getByText(/Upload/i); // Adjust based on the actual text in UploadFeature
+//     const uploadElement = screen.getByText(/Upload/i); // Adjust based on the actual text in Upload
 //     expect(uploadElement).toBeInTheDocument();
 //   });
   
