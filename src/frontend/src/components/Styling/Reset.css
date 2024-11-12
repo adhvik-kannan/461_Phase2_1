@@ -1,0 +1,22 @@
+.reset-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    height: 100vh;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .reset-button {
+    padding: 10px;
+    background-color: #661313;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .reset-button:hover {
+    background-color: #a75a5a;
+  }

@@ -12,7 +12,8 @@
     "build": "react-scripts build",
     "test_frontend": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:backend": "tsx src/openAPI_controller.ts"
+    "start:backend": "tsx src/openAPI_controller.ts",
+    "bstart": "concurrently \"npm run prestart\" \"npm run start:backend\" \"react-scripts start\""
   },
   "type": "module",
   "keywords": [],
@@ -73,6 +74,7 @@
     "@vitest/coverage-v8": "2.1.1",
     "axios": "^1.7.7",
     "babel-jest": "^29.7.0",
+    "concurrently": "^9.1.0",
     "crypto-js": "^4.2.0",
     "eslint": "^9.10.0",
     "eslint-plugin-complexity": "^1.0.2",

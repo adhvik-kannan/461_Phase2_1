@@ -8,7 +8,6 @@ import { AuthContext } from '../AuthContext'; // Import AuthContext
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  //const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
   const isAdminHash = `\"bearer ${SHA256('isAdmin=1').toString()}\"`;
   const isNotAdminHash = `\"bearer ${SHA256('isAdmin=0').toString()}\"`;
@@ -17,7 +16,7 @@ const Login: React.FC = () => {
   // Dynamically construct the backend URL based on the current host
   const constructBackendUrl = (path: string): string => {
     const { protocol, hostname } = window.location;
-    return `${protocol}//${hostname}:3000${path}`;
+    return `${protocol}//${hostname}:${process.env.REACT_APP_BACKEND_PORT}${path}`;
   };
   // Handle the login action
   const handleLogin = async () => {
@@ -50,10 +49,10 @@ const Login: React.FC = () => {
         const data = await response.json();
         console.log('Authentication successful:', data.authToken);
         if (data.authToken === `${isAdminHash}`) {
-          login(true, username);
+          login(true, username, data.authToken);
           navigate('/'); // Redirect to Home or another page upon successful login
         } else if (data.authToken === `${isNotAdminHash}`) {
-          login(false, username);
+          login(false, username, data.authToken);
           navigate('/'); // Redirect to Home or another page upon successful login
         } else {
           alert('Hash return invalid');

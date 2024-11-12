@@ -52,22 +52,52 @@ const App: React.FC = () => {
           </nav>
         </header>
         <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/upload" element={<Upload />} />
-            <Route path="/create-account"
-              element={
-                <ProtectedRoute>
-                  <CreateAccount />
-                </ProtectedRoute>
-              }/>            
-            <Route path="/search" element={<Search />} />
-            <Route path="/update" element={<Update />} />
-            <Route path="/cost" element={<Cost />} />
-            <Route path="/reset" element={<Reset />} />
-          </Routes>
-        </main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/upload"
+            element={
+              <ProtectedRoute adminOnly>
+                <Upload />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/create-account"
+            element={
+              <ProtectedRoute adminOnly>
+                <CreateAccount />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <ProtectedRoute>
+                <Search />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/update"
+            element={
+              <ProtectedRoute adminOnly>
+                <Update />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/cost" element={<Cost />} />
+          <Route
+            path="/reset"
+            element={
+              <ProtectedRoute adminOnly>
+                <Reset />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </main>
       </div>
     );
   };

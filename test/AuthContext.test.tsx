@@ -1,4 +1,3 @@
-// src/frontend/src/AuthContext.test.tsx
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { AuthProvider, AuthContext } from '../src/frontend/src/AuthContext';
@@ -8,11 +7,12 @@ describe('AuthContext', () => {
         render(
             <AuthProvider>
                 <AuthContext.Consumer>
-                    {({ isLoggedIn, isAdmin, username }) => (
+                    {(value) => (
                         <>
-                            <div data-testid="isLoggedIn">{isLoggedIn.toString()}</div>
-                            <div data-testid="isAdmin">{isAdmin.toString()}</div>
-                            <div data-testid="username">{username}</div>
+                            <span data-testid="isLoggedIn">{value.isLoggedIn.toString()}</span>
+                            <span data-testid="isAdmin">{value.isAdmin.toString()}</span>
+                            <span data-testid="username">{value.username}</span>
+                            <span data-testid="x_authorization">{value.x_authorization}</span>
                         </>
                     )}
                 </AuthContext.Consumer>
@@ -22,18 +22,20 @@ describe('AuthContext', () => {
         expect(screen.getByTestId('isLoggedIn').textContent).toBe('false');
         expect(screen.getByTestId('isAdmin').textContent).toBe('false');
         expect(screen.getByTestId('username').textContent).toBe('');
+        expect(screen.getByTestId('x_authorization').textContent).toBe('');
     });
 
     it('should login correctly', () => {
         render(
             <AuthProvider>
                 <AuthContext.Consumer>
-                    {({ isLoggedIn, isAdmin, username, login }) => (
+                    {(value) => (
                         <>
-                            <div data-testid="isLoggedIn">{isLoggedIn.toString()}</div>
-                            <div data-testid="isAdmin">{isAdmin.toString()}</div>
-                            <div data-testid="username">{username}</div>
-                            <button onClick={() => login(true, 'testuser')}>Login</button>
+                            <button onClick={() => value.login(true, 'testUser', 'testToken')}>Login</button>
+                            <span data-testid="isLoggedIn">{value.isLoggedIn.toString()}</span>
+                            <span data-testid="isAdmin">{value.isAdmin.toString()}</span>
+                            <span data-testid="username">{value.username}</span>
+                            <span data-testid="x_authorization">{value.x_authorization}</span>
                         </>
                     )}
                 </AuthContext.Consumer>
@@ -44,20 +46,22 @@ describe('AuthContext', () => {
 
         expect(screen.getByTestId('isLoggedIn').textContent).toBe('true');
         expect(screen.getByTestId('isAdmin').textContent).toBe('true');
-        expect(screen.getByTestId('username').textContent).toBe('testuser');
+        expect(screen.getByTestId('username').textContent).toBe('testUser');
+        expect(screen.getByTestId('x_authorization').textContent).toBe('testToken');
     });
 
     it('should logout correctly', () => {
         render(
             <AuthProvider>
                 <AuthContext.Consumer>
-                    {({ isLoggedIn, isAdmin, username, login, logout }) => (
+                    {(value) => (
                         <>
-                            <div data-testid="isLoggedIn">{isLoggedIn.toString()}</div>
-                            <div data-testid="isAdmin">{isAdmin.toString()}</div>
-                            <div data-testid="username">{username}</div>
-                            <button onClick={() => login(true, 'testuser')}>Login</button>
-                            <button onClick={logout}>Logout</button>
+                            <button onClick={() => value.login(true, 'testUser', 'testToken')}>Login</button>
+                            <button onClick={value.logout}>Logout</button>
+                            <span data-testid="isLoggedIn">{value.isLoggedIn.toString()}</span>
+                            <span data-testid="isAdmin">{value.isAdmin.toString()}</span>
+                            <span data-testid="username">{value.username}</span>
+                            <span data-testid="x_authorization">{value.x_authorization}</span>
                         </>
                     )}
                 </AuthContext.Consumer>
@@ -70,5 +74,6 @@ describe('AuthContext', () => {
         expect(screen.getByTestId('isLoggedIn').textContent).toBe('false');
         expect(screen.getByTestId('isAdmin').textContent).toBe('false');
         expect(screen.getByTestId('username').textContent).toBe('');
+        expect(screen.getByTestId('x_authorization').textContent).toBe('');
     });
 });
