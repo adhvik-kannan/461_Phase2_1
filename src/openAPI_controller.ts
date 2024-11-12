@@ -16,7 +16,6 @@ const userDB = db.connectToMongoDB("Users");
 // console.log(packageDB);
 const Package = packageDB[1].model('Package', db.packageSchema);
 const UserModel = userDB[1].model('User', db.userSchema);
-
 const app = express();
 app.use(express.json()); // parse incoming requests with JSON payloads
 
@@ -31,14 +30,14 @@ app.use(cors({
 console.log(`Frontend is running on port ${FRONTEND_PORT}`);
 
 // Backend config setup
-const BACKEND_PORT = process.env.REACT_APP_BACKEND_PORT || 3000;
+const BACKEND_PORT = process.env.REACT_APP_BACKEND_PORT || 3004;
 
 app.listen(BACKEND_PORT, () => {
     console.log(`Server is running on port ${BACKEND_PORT}`);
 });
 //XXX:
-console.log(`OpenAPI_controller.ts(40): ADD "PORT=3001" and "REACT_APP_BACKEND_PORT=3000" to your .env or things could potentially break. Then delete this console.log.`);
-
+console.log(`OpenAPI_controller.ts(40): ADD "PORT=${FRONTEND_PORT}" and "REACT_APP_BACKEND_PORT=${BACKEND_PORT}" to your .env or things could potentially break. Then delete this console.log.`);
+console.log("Also add BACKEND_PORT to be forwarded in Vscode ports");
 const swaggerOptions = {
     swaggerDefinition: {
         openapi: '3.0.2',
@@ -51,7 +50,7 @@ const swaggerOptions = {
             version: '1.0.0',
             servers: [
                 {
-                    url: 'http://localhost:3000',
+                    url: `http://localhost:${BACKEND_PORT}`,
                 },
                 {
                     url: 'https://aws-web-server-here',

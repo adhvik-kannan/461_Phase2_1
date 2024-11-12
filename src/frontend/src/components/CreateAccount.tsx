@@ -14,8 +14,8 @@ const CreateAccount: React.FC = () => {
     // Dynamically construct the backend URL based on the current host
     const constructBackendUrl = (path: string): string => {
         const { protocol, hostname } = window.location;
-        return `${protocol}//${hostname}:3000${path}`;
-    };
+        return `${protocol}//${hostname}:${process.env.REACT_APP_BACKEND_PORT}${path}`;
+      };
 
     // Handle the create account action
     const handleCreateAccount = async () => {
