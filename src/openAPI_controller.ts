@@ -4,7 +4,9 @@ import swaggerUi from 'swagger-ui-express';
 import * as util from './utils.js';
 import * as db from './database';
 import { rate } from './rate.js';
+import cors from 'cors';
 import logger from './logging.js';
+import dotenv from 'dotenv';
 // import * as userDB from './userDB.js';
 import SHA256 from 'crypto-js/sha256';
 
@@ -17,6 +19,25 @@ const UserModel = userDB[1].model('User', db.userSchema);
 
 const app = express();
 app.use(express.json()); // parse incoming requests with JSON payloads
+
+dotenv.config();
+// Frontend connnection setup
+const FRONTEND_PORT = process.env.PORT || 3001;
+app.use(cors({
+    origin: `http://localhost:${FRONTEND_PORT}`, // Frontend's URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true, // If you need to send cookies or auth headers
+  }));
+console.log(`Frontend is running on port ${FRONTEND_PORT}`);
+
+// Backend config setup
+const BACKEND_PORT = process.env.BACKEND_PORT || 3000;
+
+app.listen(BACKEND_PORT, () => {
+    console.log(`Server is running on port ${BACKEND_PORT}`);
+});
+//XXX:
+console.log(`OpenAPI_controller.ts(40): ADD "PORT=3001" and "BACKEND_PORT=3000" to your .env or things could potentially break. Then delete this console.log.`);
 
 const swaggerOptions = {
     swaggerDefinition: {
@@ -292,74 +313,146 @@ app.put('/authenticate', async (req, res) => {
  *         description: Too many packages returned.
  */
 
-app.post('/packages', async (req, res) => {
-    //FIXME: needs to be tweaked to add db functions 
-    const authToken = req.headers['x-authorization'] as string | undefined;
-    if (!authToken) {
-        logger.error('Missing or invalid AuthenticationToken.');
-        return res.status(403).send('Authentication failed due to invalid or missing AuthenticationToken.');
+// app.post('/packages', async (req, res) => {
+//     //FIXME: needs to be tweaked to add db functions 
+//     const authToken = req.headers['x-authorization'] as string | undefined;
+//     if (!authToken) {
+//         logger.error('Missing or invalid AuthenticationToken.');
+//         return res.status(403).send('Authentication failed due to invalid or missing AuthenticationToken.');
+//     }
+
+//     try {
+//         const queries: PackageQuery[] = req.body;
+
+//         // Validate that queries is a non-empty array
+//         if (!Array.isArray(queries) || queries.length === 0) {
+//             logger.error('Request body must be a non-empty array of PackageQuery.');
+//             return res.status(400).send('There is missing field(s) in the PackageQuery or it is formed improperly, or is invalid.');
+//         }
+
+//         // Validate each query
+//         for (const query of queries) {
+//             if (!query.Name || !query.Version) {
+//                 logger.error('Each PackageQuery must have Name and Version.');
+//                 return res.status(400).send('There is missing field(s) in the PackageQuery or it is formed improperly, or is invalid.');
+//             }
+//             // Further validation on Version
+//             const versionRegex = /^(?:\^|~)?\d+\.\d+\.\d+(?:-\d+\.\d+\.\d+)?$/;
+//             if (!versionRegex.test(query.Version)) {
+//                 logger.error(`Invalid version format: ${query.Version}`);
+//                 return res.status(400).send('There is missing field(s) in the PackageQuery or it is formed improperly, or is invalid.');
+//             }
+//         }
+
+//         // Handle the case where Name is "*"
+//         if (queries.length === 1 && queries[0].Name === '*') {
+//             // Enumerate all packages
+//             const packages = await db.getAllPackages();
+//             const offset = req.query.offset ? parseInt(req.query.offset as string, 10) : 0;
+//             const limit = 50; // Define a suitable limit
+
+//             const paginatedPackages = packages.slice(offset, offset + limit);
+//             res.setHeader('offset', (offset + limit).toString());
+//             return res.status(200).json(paginatedPackages);
+//         }
+//         //FIXME: spec update maybe gone?
+//         // Perform search based on queries
+//         const result = await db.searchPackages(queries);
+
+//         if (result.length > 1000) { // Define a suitable threshold
+//             logger.warn('Too many packages returned.');
+//             return res.status(413).send('Too many packages returned.');
+//         }
+
+//         // Pagination
+//         const offset = req.query.offset ? parseInt(req.query.offset as string, 10) : 0;
+//         const limit = 50; // Define a suitable limit
+//         const paginatedPackages = result.slice(offset, offset + limit);
+//         res.setHeader('offset', (offset + limit).toString());
+
+//         return res.status(200).json(paginatedPackages);
+
+//     } catch (error) {
+//         logger.error('Error fetching packages:', error);
+//         return res.status(500).send('Error fetching packages');
+//     }
+// });
+
+/*------------------ Extra APIs not in spec ------------------*/
+
+/**
+ * @swagger
+ * /create-account:
+ *   post:
+ *     summary: Create a new user account
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               isAdmin:
+ *                 type: boolean
+ *             required:
+ *               - username
+ *               - password
+ *               - isAdmin
+ *     responses:
+ *       201:
+ *         description: User created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 user:
+ *                   type: object
+ *                   properties:
+ *                     username:
+ *                       type: string
+ *                     isAdmin:
+ *                       type: boolean
+ *                     userHash:
+ *                       type: string
+ *                     _id:
+ *                       type: string
+ *                     __v:
+ *                       type: number
+ *       400:
+ *         description: Invalid request data
+ *       500:
+ *         description: Server error
+ */
+app.post('/create-account', async (req, res) => {
+    const { username, password, isAdmin } = req.body;
+
+    // Validate request data
+    if (!username || !password || typeof isAdmin !== 'boolean') {
+        return res.status(400).json({ error: 'Invalid request data' });
     }
+
+    // Hash the password using SHA-256
+    const hashedPassword = SHA256(password).toString();
 
     try {
-        const queries: PackageQuery[] = req.body;
-
-        // Validate that queries is a non-empty array
-        if (!Array.isArray(queries) || queries.length === 0) {
-            logger.error('Request body must be a non-empty array of PackageQuery.');
-            return res.status(400).send('There is missing field(s) in the PackageQuery or it is formed improperly, or is invalid.');
+        const [success, result] = await db.addUser(username, hashedPassword, isAdmin, UserModel);
+        if (success) {
+            return res.status(201).json({ message: 'User created successfully', user: result });
+        } else {
+            return res.status(500).json({ error: 'Failed to create user', details: result });
         }
-
-        // Validate each query
-        for (const query of queries) {
-            if (!query.Name || !query.Version) {
-                logger.error('Each PackageQuery must have Name and Version.');
-                return res.status(400).send('There is missing field(s) in the PackageQuery or it is formed improperly, or is invalid.');
-            }
-            // Further validation on Version
-            const versionRegex = /^(?:\^|~)?\d+\.\d+\.\d+(?:-\d+\.\d+\.\d+)?$/;
-            if (!versionRegex.test(query.Version)) {
-                logger.error(`Invalid version format: ${query.Version}`);
-                return res.status(400).send('There is missing field(s) in the PackageQuery or it is formed improperly, or is invalid.');
-            }
-        }
-
-        // Handle the case where Name is "*"
-        if (queries.length === 1 && queries[0].Name === '*') {
-            // Enumerate all packages
-            const packages = await db.getAllPackages();
-            const offset = req.query.offset ? parseInt(req.query.offset as string, 10) : 0;
-            const limit = 50; // Define a suitable limit
-
-            const paginatedPackages = packages.slice(offset, offset + limit);
-            res.setHeader('offset', (offset + limit).toString());
-            return res.status(200).json(paginatedPackages);
-        }
-        //FIXME: spec update maybe gone?
-        // Perform search based on queries
-        const result = await db.searchPackages(queries);
-
-        if (result.length > 1000) { // Define a suitable threshold
-            logger.warn('Too many packages returned.');
-            return res.status(413).send('Too many packages returned.');
-        }
-
-        // Pagination
-        const offset = req.query.offset ? parseInt(req.query.offset as string, 10) : 0;
-        const limit = 50; // Define a suitable limit
-        const paginatedPackages = result.slice(offset, offset + limit);
-        res.setHeader('offset', (offset + limit).toString());
-
-        return res.status(200).json(paginatedPackages);
-
     } catch (error) {
-        logger.error('Error fetching packages:', error);
-        return res.status(500).send('Error fetching packages');
+        console.error('Error in /create-account:', error);
+        return res.status(500).json({ error: 'Server error' });
     }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
 
 

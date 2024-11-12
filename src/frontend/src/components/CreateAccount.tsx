@@ -1,24 +1,55 @@
 // src/frontend/src/components/CreateAccount.tsx
 import React, { useState } from 'react';
 import SHA256 from 'crypto-js/sha256';
-import './Login.css';
+import './Styling/Login.css';
+import { useNavigate } from 'react-router-dom';
+
 
 const CreateAccount: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isAdmin, setIsAdmin] = useState(false);
+  const navigate = useNavigate();
 
-  // Hash password function using SHA-256
-  const hashPassword = (password: string): string => {
-    return SHA256(password).toString();
-  };
+    // Dynamically construct the backend URL based on the current host
+    const constructBackendUrl = (path: string): string => {
+        const { protocol, hostname } = window.location;
+        return `${protocol}//${hostname}:3000${path}`;
+    };
 
-  // Handle the create account action
-  const handleCreateAccount = () => {
-    const hashedPassword = hashPassword(password);
-    // You could send `username` and `hashedPassword` to the backend here
-    console.log('Username:', username);
-    console.log('Hashed Password:', hashedPassword);
-    //TODO: send username and hashedPassword to the openAPI_controller.ts
+    // Handle the create account action
+    const handleCreateAccount = async () => {
+    //const hashedPassword = hashPassword(password);
+    try {
+      const backendUrl = constructBackendUrl('/create-account');
+
+      const response = await fetch(backendUrl, { // Adjust the URL based on your backend setup
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username,
+          password,
+          isAdmin,
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (response.status === 201) {
+        alert(`Account created successfully for user: ${username} with admin: ${isAdmin}!`);
+        // Reset fields
+        setUsername('');
+        setPassword('');
+        setIsAdmin(false);
+        navigate('/'); // Redirect to Home or another page upon successful login
+      } else {
+        alert(data.error || 'Failed to create account.');
+      }
+    } catch (err) {
+      console.error('Error creating account:', err);
+    }
   };
 
   return (
@@ -30,6 +61,7 @@ const CreateAccount: React.FC = () => {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            style={{ marginLeft: '10px' }}
           />
         </label>
         <label>
@@ -38,7 +70,17 @@ const CreateAccount: React.FC = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            style={{ marginLeft: '13px' }}
           />
+        </label>
+        <label>
+            Admin:
+            <input
+            type="checkbox"
+            style={{ marginLeft: '10px' }}
+            checked={isAdmin}
+            onChange={(e) => setIsAdmin(e.target.checked)}
+            />
         </label>
         <button type="button" onClick={handleCreateAccount}>
           Create Account

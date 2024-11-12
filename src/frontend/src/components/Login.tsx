@@ -1,36 +1,72 @@
 // src/frontend/src/components/Login.tsx
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import SHA256 from 'crypto-js/sha256';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import './Styling//Login.css';
+import { AuthContext } from '../AuthContext'; // Import AuthContext
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isAdmin, setIsAdmin] = useState(false);
+  //const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
+  const isAdminHash = `\"bearer ${SHA256('isAdmin=1').toString()}\"`;
+  const isNotAdminHash = `\"bearer ${SHA256('isAdmin=0').toString()}\"`;
+  const { login } = useContext(AuthContext); // Use AuthContext
 
-  // Hash password function using SHA-256
-  const hashPassword = (password: string): string => {
-    return SHA256(password).toString();
+  // Dynamically construct the backend URL based on the current host
+  const constructBackendUrl = (path: string): string => {
+    const { protocol, hostname } = window.location;
+    return `${protocol}//${hostname}:3000${path}`;
   };
-
   // Handle the login action
-  const handleLogin = () => {
-    //const hashedPassword = hashPassword(password);
-    const unhashedPassword = password;
-    // You could send `username` and `hashedPassword` to the backend here
-    console.log('Username:', username);
-    console.log('Hashed Password:', unhashedPassword);
-    //TODO: send username and hashedPassword to the openAPI_controller.ts
-  };
-
-  // Handle the make an account action
-  const handleMakeAccount = () => {
-    if (isAdmin) {
-      navigate('/create-account');
-    } else {
-      alert('Admin privileges are required to create an account.');
+  const handleLogin = async () => {
+    try {
+      const requestBody = JSON.stringify({
+        User: {
+          name: username,
+          isAdmin: false,
+        },
+        Secret: {
+          password: password,
+        },
+      });
+      const backendUrl = constructBackendUrl('/authenticate');
+      console.log("BackendURL: ", backendUrl);
+      console.log('Request Body:', requestBody); // Log the request body
+  
+      const response = await fetch(backendUrl, { // Explicitly use the full URL
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json', 
+        },
+        body: requestBody,
+      });
+  
+      console.log(username, password);
+      
+      if (response.status === 200) {
+        const data = await response.json();
+        console.log('Authentication successful:', data.authToken);
+        if (data.authToken === `${isAdminHash}`) {
+          login(true, username);
+          navigate('/'); // Redirect to Home or another page upon successful login
+        } else if (data.authToken === `${isNotAdminHash}`) {
+          login(false, username);
+          navigate('/'); // Redirect to Home or another page upon successful login
+        } else {
+          alert('Hash return invalid');
+        }
+        
+      } else {
+        const errorData = await response.json();
+        console.error('Authentication failed:', errorData.error);
+        alert(`Login failed: ${errorData.error}`);
+      }
+    } catch (error) {
+      console.error('Error during authentication:', error);
+      alert(error);
     }
   };
 
@@ -59,9 +95,9 @@ const Login: React.FC = () => {
           Login
         </button>
         <div style={{ margin: '10px 0' }}></div>
-        <button type="button" onClick={handleMakeAccount}>
+        {/* <button type="button" onClick={handleMakeAccount}>
           Make an account
-        </button>
+        </button> */}
       </form>
     </div>
   );
