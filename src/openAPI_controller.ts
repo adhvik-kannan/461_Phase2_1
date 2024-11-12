@@ -30,7 +30,7 @@ app.use(cors({
 console.log(`Frontend is running on port ${FRONTEND_PORT}`);
 
 // Backend config setup
-const BACKEND_PORT = process.env.REACT_APP_BACKEND_PORT || 3004;
+const BACKEND_PORT = process.env.REACT_APP_BACKEND_PORT || 3000;
 
 app.listen(BACKEND_PORT, () => {
     console.log(`Server is running on port ${BACKEND_PORT}`);
