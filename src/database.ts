@@ -18,7 +18,9 @@ export const packageSchema = new mongoose.Schema({
     url: String,
     score: String,
     version: String,
-    prev_versions: [String]
+    prev_versions: [String],
+    packageId: String,
+    netScore: Number
 });
 
 // const User = mongoose.model('User', userSchema); // This defines the "users" collection
@@ -74,13 +76,15 @@ export const packageSchema = new mongoose.Schema({
  * @param previousVersion Optional previous versions for package
  * @returns savedPackage of the package saved or error if the package couldn't be stored
  */
-export async function addNewPackage(name: String, url: String, Package: mongoose.Model<any>, score?: String, version?: String, previousVersion?: String) {
+export async function addNewPackage(name: String, url: String, Package: mongoose.Model<any>, packageId?: String, score?: String, version?: String, previousVersion?: String, netScore?: Number) {
     const newPackage = new Package({
         name: name,
         url: url,
         score: score,
         version: version,
-        previousVersions: previousVersion
+        previousVersions: previousVersion,
+        packageId: packageId,
+        netScore: netScore
     });
 
     try {
@@ -205,24 +209,31 @@ export async function getAllPackages(Package: mongoose.Model<any>) {
 }
 
 /**
- * Gets a package for a given name
- * @param name Package name
- * @returns package struct or error
+ * 
+ * @param identifier Hash or name of the package
+ * @param Package Mongoose model for Package DB
+ * @returns If the package was found and the package or error
  */
-export async function getPackageByName(name: string, Package: mongoose.Model<any>): Promise<[boolean, any | Error]>{
+export async function getPackagesByNameOrHash(identifier: string, Package: mongoose.Model<any> ): Promise<[boolean, any[] | Error]> {
     try {
-        const pkg = await Package.findOne({ name });
-        if (pkg == null) {
-            console.log('No package found with the name:', name);
-            return [false, Error(`No package found with the name: ${name}`)];
-        }
-        console.log('User found:', pkg);
-        return [true, pkg];
+      // Find all packages where `name` or `hash` matches the identifier and sort by version
+      const packages = await Package.find({
+        $or: [{ name: identifier }, { hash: identifier }],
+      }).sort({ version: -1 });
+  
+      if (packages.length === 0) {
+        console.log('No packages found with the name or hash:', identifier);
+        return [false, Error(`No packages found with the name or hash: ${identifier}`)];
+      }
+  
+      console.log('Packages found:', packages);
+      return [true, packages];
     } catch (error) {
-        console.error('Error fetching user:', error);
-        return [false, error];
+      console.error('Error fetching packages:', error);
+      return [false, error];
     }
-}
+  }
+  
 
 /**
  * Finds and gets all packages that have the partial name in their name
@@ -309,10 +320,11 @@ export async function deleteDB(db: mongoose.Connection) {
     } catch (error) {
         console.error('Error deleting database:', error);
         return [false, error];
-    } finally {
-        await mongoose.disconnect();
-        console.log('Disconnected from MongoDB');
     }
+    // } finally {
+    //     await mongoose.disconnect();
+    //     console.log('Disconnected from MongoDB');
+    // }
 }
 
 /**
@@ -323,7 +335,7 @@ export async function deleteDB(db: mongoose.Connection) {
 export async function deleteUsersExcept(User: mongoose.Model<any>): Promise<[boolean, string | Error]> {
     try {
         // Validate rootHash
-
+        console.log(User);
         // Perform deletion: delete all users where userHash is not equal to rootHash
         const deleteResult = await User.deleteMany({ username: { $ne: rootName } });
 
