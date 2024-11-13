@@ -13,6 +13,25 @@ const streamToBuffer = (stream: Readable): Promise<Buffer> => { // Convert strea
     });
 }
 
+export async function requestContentFromS3(hashKey: string): Promise<Buffer> {
+    const getObjectParams = {
+        Bucket: BUCKET_NAME,
+        Key: hashKey
+    };
+
+    try {
+        const request = await s3.send(new GetObjectCommand(getObjectParams));
+        console.log('Successfully retrieved content from S3 with key:', hashKey);   
+        return await streamToBuffer(request.Body as Readable);
+    } catch (error) {
+        console.error('Error retrieving content from S3:', error);
+        throw error; // Re-throw the error for upstream
+    }
+}
+
+
+
+
 /**
 * Uploads the Base64-encoded content to S3 with the provided hash as the key.
 * @param content - The Base64-encoded content to upload.
@@ -40,5 +59,3 @@ export async function uploadContentToS3(content: string, hashKey: string): Promi
        throw error; // Re-throw the error for upstream handling
    }
 }
-
-export { s3, BUCKET_NAME, streamToBuffer };
