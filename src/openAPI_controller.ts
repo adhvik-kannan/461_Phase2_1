@@ -503,10 +503,12 @@ app.put('/authenticate', async (req, res) => {
 app.get('/package/:id', async (req, res) => {
     try {
         const token = req.headers['X-Authorization'] || req.headers['x-authorization']
-        // const [valid, user] = await db.getUserByHash(token, UserModel);
-        if (token != security) {
-            logger.info(`Authentication failed due to invalid or missing AuthenticationToken`);
-            return res.status(403).send(`Authentication failed due to invalid or missing AuthenticationToken`);
+        if (token == '' || token == null) { 
+            logger.info('Authentication failed due to invalid or missing AuthenticationToken');
+            return res.status(403).send('Authentication failed due to invalid or missing AuthenticationToken');
+        } else if (token != monkeyBusiness) {
+            logger.info(`Authentication failed due to insufficient permissions`);
+            return res.status(403).send(`Authentication failed due to insufficient permissions`);
         }
         const packageID = req.params.id;
         if (!packageID || typeof packageID !== 'string') {
@@ -514,26 +516,15 @@ app.get('/package/:id', async (req, res) => {
             return res.status(400).send('There is missing field(s) in the PackageID or it is iformed improperly, or it is invalid.');
         }
         
-        const packageInfo = await db.getPackage(packageID, "id", Package);
+        const packageInfo = await db.getPackagesByNameOrHash(packageID, Package);
         if (!packageInfo[0]) {
             return res.status(404).send('Package not found: ' + packageInfo[1]);
         }
 
-        const getFromS3 = new GetObjectCommand({
-            Bucket: BUCKET_NAME,
-            Key: packageID,
-        })
+        const packageContent = s3.requestContentFromS3(packageID);
 
-        const response = await s3.send(getFromS3);
-        if (!response.Body) {
-            logger.debug('Failed to retreive the package from S3');
-            return res.status(500).send('Failed to retreive the package from S3');
-        }
-
-        const bodyStream = response.Body as Readable;
-        const pkg = await streamToBuffer(bodyStream);
-
-        return res.status(200).json({ package: pkg.toString(), info: packageInfo[1] });
+        logger.info('Successfully retrieved package content and info');
+        return res.status(200).json({ package: packageContent, info: packageInfo[1] });
 
     } catch (error) {
         logger.error(error);
