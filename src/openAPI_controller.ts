@@ -26,8 +26,6 @@ const __dirname = dirname(__filename);
 
 const monkeyBusiness = '\"bearer 66abf860f10edcdd512e9f3f9fdc8af1bdc676503922312f8323f5090ef09a6a\"'
 
-const security = '66abf860f10edcdd512e9f3f9fdc8af1bdc676503922312f8323f5090ef09a6a'
-
 const packageDB = db.connectToMongoDB("Packages");
 const userDB = db.connectToMongoDB("Users");
 
@@ -35,6 +33,9 @@ const userDB = db.connectToMongoDB("Users");
 const Package = packageDB[1].model('Package', db.packageSchema);
 const UserModel = userDB[1].model('User', db.userSchema);
 const app = express();
+// app.use(express.json()); // parse incoming requests with JSON payloads
+app.use(express.json({ limit: '200mb' }));
+app.use(express.urlencoded({ limit: '200mb', extended: true }));
 // app.use(express.json()); // parse incoming requests with JSON payloads
 app.use(express.json({ limit: '200mb' }));
 app.use(express.urlencoded({ limit: '200mb', extended: true }));
