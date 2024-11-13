@@ -20,7 +20,9 @@ export const packageSchema = new mongoose.Schema({
     url: String,
     score: String,
     version: String,
-    prev_versions: [String]
+    prev_versions: [String],
+    packageId: String,
+    netScore: Number
 });
 
 // const User = mongoose.model('User', userSchema); // This defines the "users" collection
@@ -76,13 +78,15 @@ export const packageSchema = new mongoose.Schema({
  * @param previousVersion Optional previous versions for package
  * @returns savedPackage of the package saved or error if the package couldn't be stored
  */
-export async function addNewPackage(name: String, url: String, Package: mongoose.Model<any>, score?: String, version?: String, previousVersion?: String) {
+export async function addNewPackage(name: String, url: String, Package: mongoose.Model<any>, packageId?: String, score?: String, version?: String, previousVersion?: String, netScore?: Number) {
     const newPackage = new Package({
         name: name,
         url: url,
         score: score,
         version: version,
-        previousVersions: previousVersion
+        previousVersions: previousVersion,
+        packageId: packageId,
+        netScore: netScore
     });
 
     try {
@@ -207,30 +211,31 @@ export async function getAllPackages(Package: mongoose.Model<any>) {
 }
 
 /**
- * Retrieves a package from the database based on the specified query parameter.
- *
- * @param name - The name or ID of the package to retrieve.
- * @param by - The type of query to perform, either 'name' or 'id'.
- * @param Package - The Mongoose model to use for querying the database.
- * @returns A promise that resolves to a tuple. The first element is a boolean indicating success or failure.
- *          The second element is either the retrieved package object or an Error object.
+ * 
+ * @param identifier Hash or name of the package
+ * @param Package Mongoose model for Package DB
+ * @returns If the package was found and the package or error
  */
-export async function getPackage(name: string, by:string, Package: mongoose.Model<any>): Promise<[boolean, any | Error]>{
+export async function getPackagesByNameOrHash(identifier: string, Package: mongoose.Model<any> ): Promise<[boolean, any[] | Error]> {
     try {
-        const query = by == 'name' ? {name:name} : by == 'id' ? {id:name} : 'error';
-        if (query == 'error') return [false, Error('Invalid query')];
-        const pkg = await Package.findOne(query);
-        if (pkg == null) {
-            logger.info('No package found with ${by}: ', name);
-            return [false, Error(`No package found with ${by}: ${name}`)];
-        }
-        logger.info('Package found:', pkg);
-        return [true, pkg];
+      // Find all packages where `name` or `hash` matches the identifier and sort by version
+      const packages = await Package.find({
+        $or: [{ name: identifier }, { hash: identifier }],
+      }).sort({ version: -1 });
+  
+      if (packages.length === 0) {
+        console.log('No packages found with the name or hash:', identifier);
+        return [false, Error(`No packages found with the name or hash: ${identifier}`)];
+      }
+  
+      console.log('Packages found:', packages);
+      return [true, packages];
     } catch (error) {
-        logger.debug('Error fetching package:', error);
-        return [false, error];
+      console.error('Error fetching packages:', error);
+      return [false, error];
     }
-}
+  }
+  
 
 /**
  * Finds and gets all packages that have the partial name in their name
@@ -317,10 +322,11 @@ export async function deleteDB(db: mongoose.Connection) {
     } catch (error) {
         logger.debug('Error deleting database:', error);
         return [false, error];
-    } finally {
-        await mongoose.disconnect();
-        logger.info('Disconnected from MongoDB');
     }
+    // } finally {
+    //     await mongoose.disconnect();
+    //     console.log('Disconnected from MongoDB');
+    // }
 }
 
 /**
@@ -331,7 +337,7 @@ export async function deleteDB(db: mongoose.Connection) {
 export async function deleteUsersExcept(User: mongoose.Model<any>): Promise<[boolean, string | Error]> {
     try {
         // Validate rootHash
-
+        console.log(User);
         // Perform deletion: delete all users where userHash is not equal to rootHash
         const deleteResult = await User.deleteMany({ username: { $ne: rootName } });
 
