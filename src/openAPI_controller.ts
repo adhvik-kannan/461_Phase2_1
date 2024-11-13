@@ -236,7 +236,7 @@ app.put('/authenticate', async (req, res) => {
 
 app.get('/package/:id', async (req, res) => {
     try {
-        const token = req.headers['X-Authorization'];
+        const token = req.headers['X-Authorization'] || req.headers['x-authorization']
         // const [valid, user] = await db.getUserByHash(token, UserModel);
         if (token != security) {
             logger.info(`Authentication failed due to invalid or missing AuthenticationToken`);
@@ -270,15 +270,21 @@ app.get('/package/:id', async (req, res) => {
         return res.status(200).json({ package: pkg.toString(), info: packageInfo[1] });
 
     } catch (error) {
-        console.error(error);
+        logger.error(error);
         return res.status(400).json({ error: 'Bad Request' });
     }
 
 });
 
 
-
-
+app.post('/package/:id', async (req, res) => {
+    try {
+        
+    } catch (error) {
+        logger.error(error);
+        return res.status(400).json({ error: 'Bad Request' });
+    }
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
