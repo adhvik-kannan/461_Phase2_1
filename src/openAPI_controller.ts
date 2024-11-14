@@ -475,6 +475,49 @@ app.put('/authenticate', async (req, res) => {
 });
 
 
+app.get('/package/:id', async (req, res) => {
+    try {
+        const token = req.headers['X-Authorization'] || req.headers['x-authorization']
+        if (token == '' || token == null) { 
+            logger.info('Authentication failed due to invalid or missing AuthenticationToken');
+            return res.status(403).send('Authentication failed due to invalid or missing AuthenticationToken');
+        } else if (token != monkeyBusiness) {
+            logger.info(`Authentication failed due to insufficient permissions`);
+            return res.status(403).send(`Authentication failed due to insufficient permissions`);
+        }
+        const packageID = req.params.id;
+        if (!packageID || typeof packageID !== 'string') {
+            logger.info('There is missing field(s) in the PackageID or it is iformed improperly, or it is invalid.');
+            return res.status(400).send('There is missing field(s) in the PackageID or it is iformed improperly, or it is invalid.');
+        }
+        
+        const packageInfo = await db.getPackagesByNameOrHash(packageID, Package);
+        if (!packageInfo[0]) {
+            return res.status(404).send('Package not found: ' + packageInfo[1]);
+        }
+
+        const packageContent = s3.requestContentFromS3(packageID);
+
+        logger.info('Successfully retrieved package content and info');
+        return res.status(200).json({ package: packageContent, info: packageInfo[1] });
+
+    } catch (error) {
+        logger.error(error);
+        return res.status(400).json({ error: 'Bad Request' });
+    }
+
+});
+
+
+app.post('/package/:id', async (req, res) => {
+    try {
+        
+    } catch (error) {
+        logger.error(error);
+        return res.status(400).json({ error: 'Bad Request' });
+    }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

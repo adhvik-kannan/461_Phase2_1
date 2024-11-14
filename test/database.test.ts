@@ -3,7 +3,7 @@ import { describe, test, beforeAll, afterAll, expect, vi } from 'vitest';
 import mongoose from 'mongoose';
 import {
     addNewPackage, updatePackageVersion, updatePackageScore, removePackageCollection,
-    getAllPackages, getPackageByName, findPackagesByPartialName, addUser, 
+    getAllPackages, getPackage, findPackagesByPartialName, addUser, 
     removeUserByName, getAllUsers, getUserByHash, getUserByName, deleteUsersExcept, connectToMongoDB, disconnectMongoDB
 } from '../src/database';
 
@@ -79,10 +79,10 @@ describe('Package Functions', () => {
         expect(response[1]).toEqual(packages);
     });
 
-    test('getPackageByName should find a package by name', async () => {
+    test('getPackage should find a package by name or ID', async () => {
         const pkg = { name: 'TestPackage' };
         Package.findOne.mockResolvedValue(pkg);
-        const response = await getPackageByName('TestPackage', Package);
+        const response = await getPackage('TestPackage', 'name', Package);
         expect(response[0]).toBe(true);
         expect(response[1]).toEqual(pkg);
     });
@@ -224,7 +224,7 @@ describe('Error Conditions for Database Operation Functions', () => {
 
     test('getPackageByName should handle error when searching by name', async () => {
         Package.findOne.mockRejectedValueOnce(new Error('Search failed'));
-        const response = await getPackageByName('FailPackage', Package);
+        const response = await getPackage('FailPackage', 'name', Package);
         expect(response[0]).toBe(false);
     });
 

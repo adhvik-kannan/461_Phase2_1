@@ -43,6 +43,7 @@ export class metric_manager {
     public closedIssues: any;
     public gitUrl: any;
     public dependency_pinning_latency: number;
+    public pull_requests_code_metric_latency: number;
 
     /**
      * Creates metric_manager class
@@ -81,6 +82,7 @@ export class metric_manager {
         this.data = data;
         this.tempDir = tempDir;
         this.dependency_pinning_latency = 0;
+        this.pull_requests_code_metric_latency = 0;
 
 
     }
@@ -224,13 +226,15 @@ export class metric_manager {
      * rounded to three decimal places. If there are no pull requests, returns 0.
      */
     calculatePullRequestCodeMetric(): number {
+        const startTime = performance.now();
         const reviewedPullRequests = this.pullRequests.filter((pr: any) => pr.merged_at !== null);
         const totalPullRequests = this.pullRequests.length;
          if (totalPullRequests === 0) {
             logger.debug('Total pull requests count is zero, returning score as 0.');
             return 0;
         }
-
+        const endTime = performance.now();
+        this.pull_requests_code_metric_latency = roundToNumDecimalPlaces(endTime - startTime, 3);
         return roundToNumDecimalPlaces(reviewedPullRequests.length / totalPullRequests, 3);
 
     }
