@@ -18,53 +18,10 @@ export const packageSchema = new mongoose.Schema({
     url: String,
     score: String,
     version: String,
-    prev_versions: [String],
     packageId: String,
-    netScore: Number
+    netScore: Number,
+    ingestionMethod: String
 });
-
-// const User = mongoose.model('User', userSchema); // This defines the "users" collection
-
-/**
- * Package collection
- */
-// export const Package = mongoose.model('Package', packageSchema)
-
-// /**
-//  * Connect to MongoDB Cloud Database
-//  * @param database name of the database you want to create a connection to
-//  * @returns error on failure to connect
-//  */
-// export async function connectToMongoDB(database: string) {
-//     try {
-//         // Replace with your actual MongoDB URI
-//         const mongoURI = `mongodb+srv://askannan:IxnNnCuO0ICCZXGl@cluster0.9gpef.mongodb.net/${database}?retryWrites=true&w=majority&appName=Cluster0`;
-
-//         // Connect to the MongoDB cluster
-//         await mongoose.connect(mongoURI);
-//         console.log('Connected to MongoDB');
-//         return [true, null];
-//     } catch (error) {
-//         console.error('Error connecting to MongoDB', error);
-//         return [false, error];
-//         // process.exit(1); // Exit process with failure
-//     }
-// }
-
-// /**
-//  * Disconnects from MongoDB Cloud Database
-//  * @returns error on failure to disconnect
-//  */
-// export async function disconnectMongoDB() {
-//     try {
-//         await mongoose.disconnect();
-//         console.log('Disconnected from MongoDB');
-//         return [true, null];
-//     } catch (error) {
-//         console.error('Error disconnecting from MongoDB:', error);
-//         return [false, error];
-//     }
-// }
 
 // might want to make this just go update if it finds that a package with the same name is already present
 /**
@@ -76,15 +33,15 @@ export const packageSchema = new mongoose.Schema({
  * @param previousVersion Optional previous versions for package
  * @returns savedPackage of the package saved or error if the package couldn't be stored
  */
-export async function addNewPackage(name: String, url: String, Package: mongoose.Model<any>, packageId?: String, score?: String, version?: String, previousVersion?: String, netScore?: Number) {
+export async function addNewPackage(name: String, url: String, Package: mongoose.Model<any>, packageId?: String, score?: String, version?: String, netScore?: Number, ingestionMethod?: String) {
     const newPackage = new Package({
         name: name,
         url: url,
         score: score,
         version: version,
-        previousVersions: previousVersion,
         packageId: packageId,
-        netScore: netScore
+        netScore: netScore,
+        ingestionMethod: ingestionMethod
     });
 
     try {
@@ -218,7 +175,7 @@ export async function getPackagesByNameOrHash(identifier: string, Package: mongo
     try {
       // Find all packages where `name` or `hash` matches the identifier and sort by version
       const packages = await Package.find({
-        $or: [{ name: identifier }, { hash: identifier }],
+        $or: [{ name: identifier }, { packageId: identifier }],
       }).sort({ version: -1 });
   
       if (packages.length === 0) {
