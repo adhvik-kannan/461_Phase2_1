@@ -509,14 +509,14 @@ app.get('/package/:id', async (req, res) => {
 });
 
 
-app.post('/package/:id', async (req, res) => {
-    try {
+// app.post('/package/:id', async (req, res) => {
+//     try {
         
-    } catch (error) {
-        logger.error(error);
-        return res.status(400).json({ error: 'Bad Request' });
-    }
-});
+//     } catch (error) {
+//         logger.error(error);
+//         return res.status(400).json({ error: 'Bad Request' });
+//     }
+// });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
