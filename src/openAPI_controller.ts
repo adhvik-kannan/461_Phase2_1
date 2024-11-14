@@ -16,7 +16,7 @@ import { json } from 'stream/consumers';
 // import { GetObjectCommand } from '@aws-sdk/client-s3';
 // import { BUCKET_NAME, s3, streamToBuffer } from './s3_utils.js';
 // import { Readable } from 'stream';
-import * as s3 from './s3_utils'
+import * as s3 from './s3_utils';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -145,8 +145,8 @@ app.post('/package', async (req, res) => {
     console.log(token);
     console.log(monkeyBusiness);
     if (token != monkeyBusiness) {
-        logger.error('You do not have the correct permissions to delete the database.');
-        return res.status(403).send('You do not have the correct permissions to delete the database.');
+        logger.error('You do not have the correct permissions to upload to the database.');
+        return res.status(403).send('You do not have the correct permissions to upload to the database.');
     }
     const { Name, Content, URL, debloat, JSProgram } = req.body
     console.log(URL);
@@ -240,8 +240,8 @@ app.post('/package', async (req, res) => {
                 };
                 const [package_rating, package_net] = await rate(repoUrl);
                 if (package_net >= 0.5) {
-                    // await s3.uploadContentToS3(Content, packageId);
-                    const result = await db.addNewPackage(packageName, URL, Package, packageId, package_rating, version, undefined, package_net);
+                    await s3.uploadContentToS3(Content, packageId);
+                    const result = await db.addNewPackage(packageName, URL, Package, packageId, package_rating, version, package_net, "Content");
                     if (result[0] == true) {
                         logger.info(`Package ${packageName} uploaded with score: ${package_rating}`);
 
@@ -263,11 +263,6 @@ app.post('/package', async (req, res) => {
     // Handle the URL for the package
         console.log("Processing package from URL.");
         try {
-            // const package_name = await util.extractPackageName(URL);
-            // if (package_name == null) {
-            //     logger.debug('Could not get package name');
-            //     res.status(500).send('Could not get package name');    
-            // }
             const tempDir = path.join(__dirname, 'tmp', 'repo-' + Date.now());
             fs.mkdirSync(tempDir, { recursive: true });
 
@@ -344,8 +339,8 @@ app.post('/package', async (req, res) => {
                     },
                 };
                 if (package_net >= 0.5) {
-                    // await s3.uploadContentToS3(base64Zip, packageId);
-                    const result = await db.addNewPackage(package_name, URL, Package, packageId, package_rating, version, undefined, package_net);
+                    await s3.uploadContentToS3(base64Zip, packageId);
+                    const result = await db.addNewPackage(package_name, URL, Package, packageId, package_rating, version, package_net, "URL");
                     if (result[0] == true) {
                         logger.info(`Package ${package_name} uploaded with score: ${package_rating}`);
                         return res.status(201).send(jsonResponse);
