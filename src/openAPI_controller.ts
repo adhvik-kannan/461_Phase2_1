@@ -430,26 +430,6 @@ app.get('/package/:id/rate', async (req, res) => {
         NetScoreLatency: scoreObject["NetScore_Latency"],
     };
     return res.status(200).send(jsonResponse);
-    // try {
-    //     const url = decodeURIComponent(req.params.url);
-    //     const package_name = await util.extractPackageName(url);
-    //     if (package_name == null) {
-    //         logger.error('Could not get package name');
-    //         res.status(500).send('Could not get package name');
-    //     }
-    //     const pkg = await db.getPackageByName(package_name, Package);
-    //     if (pkg[0] == true) { // if the package already exists, just return the score
-    //         logger.info(`Package ${package_name} already exists with score: ${pkg[1]["score"]}`); 
-    //         res.status(200).send(pkg[1]["score"].toString());
-    //     } else {
-    //         const [package_rating, package_net] = await rate(url);
-    //         logger.info(`Package ${package_name} rated with score: ${package_rating}`);
-    //         res.status(200).send(package_rating.toString());
-    //     }
-    // } catch (error) {
-    //     logger.error(`Error rating package:`, error);
-    //     res.status(500).send('Error rating package');
-    // }
 });
 
 app.put('/authenticate', async (req, res) => {
