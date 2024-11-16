@@ -1,5 +1,7 @@
 import { URL } from 'url';
 import path from 'path';
+import fs from 'fs';
+
 export function extractPackageName(url: string): string | null {
     const GITHUB_URL_PATTERN = /^https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
     const NPM_URL_PATTERN = /^https:\/\/www\.npmjs\.com\/package\/([^\/]+)/;
@@ -69,4 +71,15 @@ export function parseRepositoryUrl(repository) {
         console.error('Invalid repository URL:', error);
         return null;
     }
+}
+
+export function findAndReadReadme(possibleReadmeFiles: string[], dirPath: string): String {
+    for (const fileName of possibleReadmeFiles) {
+        const filePath = path.join(dirPath, fileName);
+        if (fs.existsSync(filePath)) {
+            const content = fs.readFileSync(filePath, 'utf8');
+            return content;
+        }
+    }
+    return '';
 }

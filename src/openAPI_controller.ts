@@ -23,6 +23,14 @@ import { fileURLToPath } from 'url';
 // For TypeScript, you might need to cast to string
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const possibleReadmeFiles = [
+    'README.md',
+    'README',
+    'README.txt',
+    'README.rst',
+    'README.markdown',
+    'README.html',
+];
 
 const monkeyBusiness = '\"bearer 66abf860f10edcdd512e9f3f9fdc8af1bdc676503922312f8323f5090ef09a6a\"'
 
@@ -171,9 +179,15 @@ app.post('/package', async (req, res) => {
     
             // Find the package.json file within the zip entries
             let packageJsonEntry = null;
+            let readMeContent = '';
             zip.getEntries().forEach(function(zipEntry) {
                 if (zipEntry.entryName.endsWith('package.json')) {
                     packageJsonEntry = zipEntry;
+                }
+                for (const file of possibleReadmeFiles) {
+                    if (zipEntry.entryName.endsWith(file)) {
+                        readMeContent = zipEntry.getData().toString('utf8');
+                    }
                 }
             });
     
@@ -238,7 +252,7 @@ app.post('/package', async (req, res) => {
                 const [package_rating, package_net] = await rate(repoUrl);
                 if (package_net >= 0.5) {
                     await s3.uploadContentToS3(Content, packageId);
-                    const result = await db.addNewPackage(packageName, URL, Package, packageId, package_rating, version, package_net, "Content");
+                    const result = await db.addNewPackage(packageName, URL, Package, packageId, package_rating, version, package_net, "Content", readMeContent);
                     if (result[0] == true) {
                         logger.info(`Package ${packageName} uploaded with score: ${package_rating}`);
 
@@ -285,6 +299,12 @@ app.post('/package', async (req, res) => {
             const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8');
             const packageJson = JSON.parse(packageJsonContent);
             const package_name = packageJson.name;
+            
+            const readmeContent = util.findAndReadReadme(possibleReadmeFiles, tempDir);
+            if(readmeContent == '') {
+                logger.error('No README file found');
+                return res.status(400).send('No README file found');
+            }
 
             const zip = new AdmZip();
             zip.addLocalFolder(tempDir);
@@ -335,9 +355,10 @@ app.post('/package', async (req, res) => {
                         JSProgram: JSProgram || '',
                     },
                 };
+                console.log(package_net);
                 if (package_net >= 0.5) {
                     await s3.uploadContentToS3(base64Zip, packageId);
-                    const result = await db.addNewPackage(package_name, URL, Package, packageId, package_rating, version, package_net, "URL");
+                    const result = await db.addNewPackage(package_name, URL, Package, packageId, package_rating, version, package_net, "URL", readmeContent);
                     if (result[0] == true) {
                         logger.info(`Package ${package_name} uploaded with score: ${package_rating}`);
                         return res.status(201).send(jsonResponse);
@@ -518,6 +539,27 @@ app.get('/package/:id', async (req, res) => {
 //     }
 // });
 
+app.post('/package/byRegEx', async (req, res) => {
+    // Auth heaader stuff
+    const { RegEx } = req.body;
+    if (!RegEx) {
+        return res.status(400).json({ error: 'Malformed Request' });
+    }
+    const [success, packages] = await db.findPackageByRegEx(RegEx, Package);
+    if (!success) {
+        return res.status(500).send('Error retrieving packages');
+    }
+    if(packages.length == 0) {
+        logger.info('No packages found');
+        return res.status(404).send('No packages found');
+    }
+    const formattedPackages = packages.map((pkg: any) => ({
+        Version: pkg.version,
+        Name: pkg.name,
+        ID: pkg.packageId, // Use packageId if available, fallback to id
+    }));
+    return res.status(200).json(formattedPackages);
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

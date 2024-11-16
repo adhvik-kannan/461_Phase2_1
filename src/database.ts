@@ -22,7 +22,8 @@ export const packageSchema = new mongoose.Schema({
     version: String,
     packageId: String,
     netScore: Number,
-    ingestionMethod: String
+    ingestionMethod: String,
+    README: String
 });
 
 // might want to make this just go update if it finds that a package with the same name is already present
@@ -35,7 +36,7 @@ export const packageSchema = new mongoose.Schema({
  * @param previousVersion Optional previous versions for package
  * @returns savedPackage of the package saved or error if the package couldn't be stored
  */
-export async function addNewPackage(name: String, url: String, Package: mongoose.Model<any>, packageId?: String, score?: String, version?: String, netScore?: Number, ingestionMethod?: String) {
+export async function addNewPackage(name: String, url: String, Package: mongoose.Model<any>, packageId?: String, score?: String, version?: String, netScore?: Number, ingestionMethod?: String, README?: String) {
     const newPackage = new Package({
         name: name,
         url: url,
@@ -43,7 +44,8 @@ export async function addNewPackage(name: String, url: String, Package: mongoose
         version: version,
         packageId: packageId,
         netScore: netScore,
-        ingestionMethod: ingestionMethod
+        ingestionMethod: ingestionMethod,
+        README: README
     });
 
     try {
@@ -216,6 +218,31 @@ export async function findPackagesByPartialName(partialName: string, Package: mo
     }
 }
 
+export async function findPackageByRegEx(regex: string, Package: mongoose.Model<any>) {
+    try {
+        // Apply the regex to both 'name' and 'README' fields
+        const results = await Package.find({
+            $or: [
+                { name: { $regex: regex, $options: 'i' } }, // Case-insensitive regex on 'name'
+                { README: { $regex: regex, $options: 'i' } } // Case-insensitive regex on 'README'
+            ],
+        });
+        return [true, results];
+    } catch (error) {
+        logger.debug('Error fetching packages:', error);
+        return [false, error];
+    }
+}
+
+// export async function findPackageByRegEx(regex: string, Package: mongoose.Model<any>) {
+//     try {
+//         const results = await Package.find({ name: regex }); // Apply the regex
+//         return [true, results];
+//     } catch(error) {
+//         logger.debug('Error fetching packages:', error);
+//         return [false, error];
+//     }
+// }
 
 /**
  * Schema for how entries are stored in the database for packages
