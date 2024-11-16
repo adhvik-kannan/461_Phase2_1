@@ -8,16 +8,11 @@ import cors from 'cors';
 import logger from './logging.js';
 import AdmZip from 'adm-zip';
 import dotenv from 'dotenv';
-// import * as userDB from './userDB.js';
 import SHA256 from 'crypto-js/sha256';
 import git from 'isomorphic-git';
 import http from 'isomorphic-git/http/node';
 import fs from 'fs';
 import path from 'path';
-import { json } from 'stream/consumers';
-// import { GetObjectCommand } from '@aws-sdk/client-s3';
-// import { BUCKET_NAME, s3, streamToBuffer } from './s3_utils.js';
-// import { Readable } from 'stream';
 import * as s3 from './s3_utils';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -168,14 +163,11 @@ app.post('/package', async (req, res) => {
         logger.error('Missing Authentication Header');
         return res.status(403).send('Missing Authentication Header');
     }
-    console.log(token);
-    console.log(monkeyBusiness);
     if (token != monkeyBusiness) {
         logger.error('You do not have the correct permissions to upload to the database.');
         return res.status(403).send('You do not have the correct permissions to upload to the database.');
     }
-    const { Name, Content, URL, debloat, JSProgram } = req.body
-    console.log(URL);
+    let { Name, Content, URL, debloat, JSProgram } = req.body
     if ((Content && URL) || (!Content && !URL)) {
         return res.status(400).json({
             error: "Either 'Content' or 'URL' must be set, but not both.",
@@ -295,6 +287,9 @@ app.post('/package', async (req, res) => {
     // Handle the URL for the package
         console.log("Processing package from URL.");
         try {
+            if (URL.includes('npmjs.com')) {
+                URL = await util.processNPMUrl(URL);
+            }
             const tempDir = path.join(__dirname, 'tmp', 'repo-' + Date.now());
             fs.mkdirSync(tempDir, { recursive: true });
 
@@ -547,7 +542,6 @@ app.get('/package/:id', async (req, res) => {
         logger.error(error);
         return res.status(400).json({ error: 'Bad Request' });
     }
-
 });
 
 // === New /package/:id/cost Endpoint ===

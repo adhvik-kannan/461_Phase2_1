@@ -70,11 +70,6 @@ export async function updatePackageVersion(name: string, newVersion: string, Pac
         const packageDoc = await Package.findOne({ name });
 
         if (packageDoc) {
-            // Push the current version to the previousVersions array
-            if(packageDoc.version != null) {
-                packageDoc.prev_versions.push(packageDoc.version);
-            }
-
             // Set the new version
             packageDoc.version = newVersion;
 
@@ -184,7 +179,7 @@ export async function getPackagesByNameOrHash(identifier: string, Package: mongo
   
       if (packages.length === 0) {
         console.log('No packages found with the name or hash:', identifier);
-        return [false, Error(`No packages found with the name or hash: ${identifier}`)];
+        return [false, [-1]];
       }
   
       console.log('Packages found:', packages);
@@ -243,6 +238,18 @@ export async function findPackageByRegEx(regex: string, Package: mongoose.Model<
 //         return [false, error];
 //     }
 // }
+
+export async function removePackageVersion(id: string, Package: mongoose.Model<any>) {
+    try {
+        const result = await Package.deleteOne({ id });
+        logger.info('Package removed:', result);
+        return [true, result];
+    } catch (error) {
+        logger.debug('Error removing package:', error);
+        return [false, error];
+    }
+}
+
 
 /**
  * Schema for how entries are stored in the database for packages

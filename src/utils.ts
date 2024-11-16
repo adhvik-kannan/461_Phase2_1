@@ -1,7 +1,19 @@
 // utils.ts
 
-import { URL } from 'url';
+import { URL, fileURLToPath } from 'url';
+import { dirname } from 'path';
 import path from 'path';
+import AdmZip from 'adm-zip';
+import git from 'isomorphic-git';
+import http from 'isomorphic-git/http/node';
+import fs from 'fs';
+import logger from './logging.js';
+import axios from 'axios';
+import { useCallback } from 'react';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 import AdmZip from 'adm-zip'; // Ensure adm-zip is installed: npm install adm-zip
 import logger from './logging'; // Adjust the import path as necessary
 import { requestContentFromS3 } from './s3_utils'; // Adjust the import path as necessary
@@ -75,6 +87,67 @@ export function parseRepositoryUrl(repository: string | { url: string }): string
         return null;
     }
 }
+
+
+/**
+ * Clones a GitHub repository from the provided URL, compresses it into a ZIP file,
+ * and returns the ZIP file as a base64-encoded string.
+ *
+ * @param url - The URL of the GitHub repository to clone.
+ * @returns A promise that resolves to a base64-encoded string of the ZIP file, or null if an error occurs.
+ *
+ * @throws Will throw an error if the cloning or compression process fails.
+ */
+export async function processGithubURL(url: string): Promise<string | null> {
+    const tempDir = path.join(__dirname, 'tmp', 'repo-' + Date.now());
+    fs.mkdirSync(tempDir, { recursive: true });
+     try {
+        await git.clone({
+            fs,
+            http,
+            dir: tempDir,
+            url: url,
+            singleBranch: true,
+            depth: 1,
+        })
+
+        const zip = new AdmZip();
+        zip.addLocalFolder(tempDir);
+        return zip.toBuffer().toString('base64');
+    } catch(error) {
+        logger.error('Error processing package content from URL:', error);
+    } finally {
+        fs.rmSync(tempDir, { recursive: true });
+    }
+}
+
+
+/**
+ * Processes the given NPM package URL to extract the GitHub repository URL.
+ *
+ * @param url - The URL of the NPM package to process.
+ * @returns A promise that resolves to the GitHub repository URL as a string, or null if no repository field is found or an error occurs.
+ *
+ * @throws Will log an error message if the request to the URL fails or if the repository field is not found.
+ */
+export async function processNPMUrl(url: string): Promise<string | null> {
+    try {
+        const response = await axios.get(url);
+        const repo = response.data.repository;
+        if (repo && repo.url) {
+            // replace the git+ prefix and .git suffix
+            const githubUrl = repo.url.replace(/^git\+/, '').replace(/\.git$/,'');
+            logger.info('Properly extracted github url from npm: ', githubUrl);
+            return githubUrl;
+        }
+        logger.info('No repository field found in package.json');
+        return null;
+    } catch (error) {
+        logger.error('Error processing package content from URL:', error);
+        return null;
+    }
+}
+
 
 /**
  * Calculates the size of a package in megabytes (MB).
