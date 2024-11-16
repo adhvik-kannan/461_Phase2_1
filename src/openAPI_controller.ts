@@ -595,17 +595,13 @@ app.get('/package/:id/cost', async (req, res) => {
     }
 
     try {
-        // Retrieve the main package from S3
         const buffer = await s3.requestContentFromS3(packageId);
         const base64Content = buffer.toString('utf8');
 
-        // Decode the Base64 content to get binary data
         const binaryContent = Buffer.from(base64Content, 'base64');
 
-        // Initialize AdmZip with the binary content
         const zip = new AdmZip(binaryContent);
 
-        // Read the package.json file from the ZIP archive
         const packageJsonEntry = zip.getEntry('package.json');
         if (!packageJsonEntry) {
             logger.error(`package.json not found in package ${packageId}`);
@@ -615,10 +611,8 @@ app.get('/package/:id/cost', async (req, res) => {
         const packageJsonContent = packageJsonEntry.getData().toString('utf8');
         const packageJson: util.PackageJson = JSON.parse(packageJsonContent);
 
-        // Extract dependencies from package.json
         const dependencies = packageJson.dependencies ? Object.keys(packageJson.dependencies) : [];
 
-        // Calculate standaloneCost for the main package
         const standaloneCost = await util.calculatePackageSize(packageId);
         const packageCost: { [key: string]: { standaloneCost?: number; totalCost: number } } = {
             [packageId]: {
@@ -629,42 +623,31 @@ app.get('/package/:id/cost', async (req, res) => {
         if (dependency && dependencies.length > 0) {
             for (const depId of dependencies) {
                 try {
-                    // Retrieve the dependency package from S3
                     const depBuffer = await s3.requestContentFromS3(depId);
                     const depBase64Content = depBuffer.toString('utf8');
 
-                    // Decode the Base64 content to get binary data
                     const depBinaryContent = Buffer.from(depBase64Content, 'base64');
 
-                    // Initialize AdmZip with the dependency's binary content
                     const depZip = new AdmZip(depBinaryContent);
 
-                    // Read the dependency's package.json file from the ZIP archive
                     const depPackageJsonEntry = depZip.getEntry('package.json');
                     if (!depPackageJsonEntry) {
                         logger.error(`package.json not found in dependency package ${depId}`);
-                        // Skip this dependency
                         continue;
                     }
 
                     const depPackageJsonContent = depPackageJsonEntry.getData().toString('utf8');
                     const depPackageJson: util.PackageJson = JSON.parse(depPackageJsonContent);
-
-                    // Calculate standaloneCost for the dependency
                     const depStandaloneCost = await util.calculatePackageSize(depId);
 
-                    // Add dependency cost to the response
                     packageCost[depId] = {
                         standaloneCost: depStandaloneCost,
-                        totalCost: depStandaloneCost, // Assuming no nested dependencies
+                        totalCost: depStandaloneCost,
                     };
 
-                    // Add dependency's standaloneCost to the main package's totalCost
                     packageCost[packageId].totalCost += depStandaloneCost;
                 } catch (depError) {
                     logger.error(`Error processing dependency ${depId}:`, depError);
-                    // Optionally, handle specific dependency errors here
-                    // For now, we'll skip the problematic dependency
                 }
             }
         }
