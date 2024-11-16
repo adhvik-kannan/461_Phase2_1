@@ -110,29 +110,30 @@ elif [ "$command" = "build" ]; then
 elif [ "$command" = "test" ]; then
     echo "Running tests..."
     npx tsc
-    npm run test
-    find src/frontend/src -type f -name '*.js' -delete
+    find src/frontend/src -type f -name '*.js' -delete 
+    npx vitest run --coverage.enabled=true --silent
     exit $?
 else
-    if [[ "$command" =~ ^[a-zA-Z]: ]]; then
-    command=$(cygpath -u "$command")
-    fi
+    echo "HI"
+    # if [[ "$command" =~ ^[a-zA-Z]: ]]; then
+    # command=$(cygpath -u "$command")
+    # fi
     
-    if [ -f "$command" ]; then
-        # do file things
-        if [[ "$command" == *.txt ]]; then
-            # echo "This is a valid text file filepath."
-            #tsc.cmd
-            npx tsc
-            node src/main_program.js "$command"
-            find src/frontend/src -type f -name '*.js' -delete
-            exit $?;
-        else 
-            echo "This is not a valid text file filepath."
-            exit 1;
-        fi
-    else 
-        echo "Not a valid argument. Command must be either 'install', 'test', or a valid file path to a text file."
-        exit 1;
+    # if [ -f "$command" ]; then
+    #     # do file things
+    #     if [[ "$command" == *.txt ]]; then
+    #         # echo "This is a valid text file filepath."
+    #         #tsc.cmd
+    #         npx tsc
+    #         node src/main_program.js "$command"
+    #         find src/frontend/src -type f -name '*.js' -delete
+    #         exit $?;
+    #     else 
+    #         echo "This is not a valid text file filepath."
+    #         exit 1;
+    #     fi
+    # else 
+    #     echo "Not a valid argument. Command must be either 'install', 'test', or a valid file path to a text file."
+    #     exit 1;
     fi
 fi

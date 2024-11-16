@@ -32,16 +32,6 @@ jobs:
       - name: Run Test Suite
         run: npx vitest run --coverage.enabled=true
         
-      # Step 5: Run ./run URL_FILE to process the environment variable (assumes URL_FILE is passed in as an environment variable)
-      - name: Run URL_FILE Command
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          LOG_LEVEL: 2
-          LOG_FILE: log.txt
-        run: |
-            echo "https://github.com/caolan/async" > URL_FILE.txt
-            FILE_PATH=$(realpath URL_FILE.txt)
-            ./run "$FILE_PATH"
             
       # Step 6: Start the backend server
       - name: Start Backend Server
