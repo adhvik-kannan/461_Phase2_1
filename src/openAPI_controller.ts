@@ -508,6 +508,179 @@ app.get('/package/:id', async (req, res) => {
 
 });
 
+// === New /package/:id/cost Endpoint ===
+
+/**
+ * @swagger
+ * /package/{id}/cost:
+ *   get:
+ *     summary: Get the cost of a package
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The unique identifier of the package (hashKey)
+ *       - name: dependency
+ *         in: query
+ *         schema:
+ *           type: boolean
+ *           default: false
+ *         description: Whether to include dependencies in the cost calculation
+ *       - name: X-Authorization
+ *         in: header
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The authentication token
+ *     responses:
+ *       200:
+ *         description: Returns the cost of the package and its dependencies
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               additionalProperties:
+ *                 type: object
+ *                 properties:
+ *                   standaloneCost:
+ *                     type: number
+ *                     description: The stand-alone cost of this package excluding dependencies. Required if `dependency=true`.
+ *                   totalCost:
+ *                     type: number
+ *                     description: >
+ *                       The total cost of the package. If `dependency=false`, it's equal to `standaloneCost`.
+ *                       If `dependency=true`, it's the sum of `standaloneCost` and all dependencies' costs.
+ *               example:
+ *                 "357898765": {
+ *                   "standaloneCost": 50.0,
+ *                   "totalCost": 95.0
+ *                 },
+ *                 "988645763": {
+ *                   "standaloneCost": 20.0,
+ *                   "totalCost": 45.0
+ *                 }
+ *       400:
+ *         description: Missing or invalid Package ID
+ *       403:
+ *         description: Authentication failed due to invalid or missing AuthenticationToken.
+ *       404:
+ *         description: Package does not exist or package.json not found.
+ *       500:
+ *         description: Server-side errors during cost computation.
+ */
+app.get('/package/:id/cost', async (req, res) => {
+    // Extract Authentication Token
+    const authToken = req.headers['x-authorization'] || req.headers['X-Authorization'];
+    const dependencyParam = req.query.dependency;
+    const dependency = dependencyParam === 'true'; // Defaults to false
+
+    // Authentication Check
+    if (!authToken) {
+        logger.error('Missing Authentication Header');
+        return res.status(403).send('Missing Authentication Header');
+    }
+    if (authToken !== monkeyBusiness) {
+        logger.error('Invalid Authentication Token');
+        return res.status(403).send('Invalid Authentication Token');
+    }
+
+    const packageId = req.params.id;
+
+    // Validate Package ID
+    if (!packageId || typeof packageId !== 'string') {
+        logger.error('Missing or invalid Package ID');
+        return res.status(400).send('Missing or invalid Package ID');
+    }
+
+    try {
+        // Retrieve the main package from S3
+        const buffer = await s3.requestContentFromS3(packageId);
+        const base64Content = buffer.toString('utf8');
+
+        // Decode the Base64 content to get binary data
+        const binaryContent = Buffer.from(base64Content, 'base64');
+
+        // Initialize AdmZip with the binary content
+        const zip = new AdmZip(binaryContent);
+
+        // Read the package.json file from the ZIP archive
+        const packageJsonEntry = zip.getEntry('package.json');
+        if (!packageJsonEntry) {
+            logger.error(`package.json not found in package ${packageId}`);
+            return res.status(404).send('package.json not found in the package.');
+        }
+
+        const packageJsonContent = packageJsonEntry.getData().toString('utf8');
+        const packageJson: util.PackageJson = JSON.parse(packageJsonContent);
+
+        // Extract dependencies from package.json
+        const dependencies = packageJson.dependencies ? Object.keys(packageJson.dependencies) : [];
+
+        // Calculate standaloneCost for the main package
+        const standaloneCost = await util.calculatePackageSize(packageId);
+        const packageCost: { [key: string]: { standaloneCost?: number; totalCost: number } } = {
+            [packageId]: {
+                totalCost: standaloneCost,
+            },
+        };
+
+        if (dependency && dependencies.length > 0) {
+            for (const depId of dependencies) {
+                try {
+                    // Retrieve the dependency package from S3
+                    const depBuffer = await s3.requestContentFromS3(depId);
+                    const depBase64Content = depBuffer.toString('utf8');
+
+                    // Decode the Base64 content to get binary data
+                    const depBinaryContent = Buffer.from(depBase64Content, 'base64');
+
+                    // Initialize AdmZip with the dependency's binary content
+                    const depZip = new AdmZip(depBinaryContent);
+
+                    // Read the dependency's package.json file from the ZIP archive
+                    const depPackageJsonEntry = depZip.getEntry('package.json');
+                    if (!depPackageJsonEntry) {
+                        logger.error(`package.json not found in dependency package ${depId}`);
+                        // Skip this dependency
+                        continue;
+                    }
+
+                    const depPackageJsonContent = depPackageJsonEntry.getData().toString('utf8');
+                    const depPackageJson: util.PackageJson = JSON.parse(depPackageJsonContent);
+
+                    // Calculate standaloneCost for the dependency
+                    const depStandaloneCost = await util.calculatePackageSize(depId);
+
+                    // Add dependency cost to the response
+                    packageCost[depId] = {
+                        standaloneCost: depStandaloneCost,
+                        totalCost: depStandaloneCost, // Assuming no nested dependencies
+                    };
+
+                    // Add dependency's standaloneCost to the main package's totalCost
+                    packageCost[packageId].totalCost += depStandaloneCost;
+                } catch (depError) {
+                    logger.error(`Error processing dependency ${depId}:`, depError);
+                    // Optionally, handle specific dependency errors here
+                    // For now, we'll skip the problematic dependency
+                }
+            }
+        }
+
+        return res.status(200).json(packageCost);
+    } catch (error: any) {
+        if (error.name === 'NoSuchKey' || error.message.includes('NotFound')) { // AWS S3 specific error for missing objects
+            logger.error(`Package not found in S3: ${packageId}`);
+            return res.status(404).send('Package not found in S3.');
+        }
+        logger.error('Error retrieving package cost:', error);
+        return res.status(500).send('Server error while retrieving package cost.');
+    }
+});
+
+
 
 // app.post('/package/:id', async (req, res) => {
 //     try {
@@ -522,5 +695,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
-
