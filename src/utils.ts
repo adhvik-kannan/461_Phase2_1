@@ -17,6 +17,8 @@ export interface PackageJson {
  * @param {string} url - The URL to extract the package name from.
  * @returns {string | null} - The extracted package name or null if not found.
  */
+import fs from 'fs';
+
 export function extractPackageName(url: string): string | null {
     const GITHUB_URL_PATTERN = /^https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
     const NPM_URL_PATTERN = /^https:\/\/www\.npmjs\.com\/package\/([^\/]+)/;
@@ -133,4 +135,14 @@ export async function getPackageDependencies(hashKey: string): Promise<string[]>
         logger.error(`Error retrieving dependencies for package ${hashKey}:`, error);
         throw new Error('Failed to retrieve package dependencies.');
     }
+}
+export function findAndReadReadme(possibleReadmeFiles: string[], dirPath: string): String {
+    for (const fileName of possibleReadmeFiles) {
+        const filePath = path.join(dirPath, fileName);
+        if (fs.existsSync(filePath)) {
+            const content = fs.readFileSync(filePath, 'utf8');
+            return content;
+        }
+    }
+    return '';
 }
