@@ -4,7 +4,7 @@
   "description": "Repository housing all files pertaining to our project for ECE 461.",
   "main": "index.js",
   "scripts": {
-    "test": "vitest run  --silent --coverage.enabled=true  --reporter verbose > test-results.txt   && node test/printResults.js",
+    "test": "vitest run --coverage.enabled=true  --reporter verbose > test-results.txt   && node test/printResults.js",
     "coverage": "vitest run --coverage",
     "prestart": "find src/frontend/src -type f -name '*.js' -delete",
     "start": "react-scripts start",

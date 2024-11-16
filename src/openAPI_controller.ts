@@ -544,6 +544,241 @@ app.get('/package/:id', async (req, res) => {
     }
 });
 
+app.post('/package/:id', async (req, res) => { // change return body? right now not returning the new package info
+    try {
+        const token = req.headers['X-Authorization'] || req.headers['x-authorization']
+        if (token == '' || token == null) { 
+            logger.info('Authentication failed due to invalid or missing AuthenticationToken');
+            return res.status(403).send('Authentication failed due to invalid or missing AuthenticationToken');
+        } else if (token != monkeyBusiness) {
+            logger.info(`Authentication failed due to insufficient permissions`);
+            return res.status(403).send(`Authentication failed due to insufficient permissions`);
+        }
+        
+        const { metadata, data } = req.body
+        if ((!data['Content'] && !data['URL']) || (data['Content'] && data['URL'])) {
+            logger.info('Either content and URL were set, or neither were set.');
+            return res.status(400).json({
+                error: "Either 'Content' or 'URL' must be set, but not both.",
+            });
+        }
+
+        // Validate the metadata fields
+        if (!metadata['Name'] || !metadata['Version'] || !metadata['ID']) {
+            logger.info('Name, Version, or ID was not set.');
+            return res.status(400).send('Name, Version, or ID was not set.');
+        }
+        if (typeof(metadata['Name']) != 'string' || typeof(metadata['Version']) != 'string' || typeof(metadata['ID']) != 'string') {
+            logger.info('Name, Version, or ID is not a string.');
+            return res.status(400).send('Metadata is of incorrect type.');
+        }
+
+        // Validate the data fields assuming url and content are properly sent
+        if (!data['Name'] || !data['debloat'] || !data['JSProgram']) {
+            logger.info('Name, debloat, or JSProgram was not set.');
+            return res.status(400).send('Name, debloat, or JSProgram was not set.');
+        }
+        if (typeof(data['Name']) != 'string' || typeof(data['debloat']) != 'boolean' || typeof(data['JSProgram']) != 'string') {
+            logger.info('Name, debloat, or JSProgram is not a string.');
+            return res.status(400).send('Data is of incorrect type.');
+        }
+        if (metadata['Name'] != data['Name']) {
+            logger.info('Name in metadata does not match name in data.');
+            return res.status(400).send('Name in metadata does not match name in data.');
+        }
+
+        if (metadata['ID'] != req.params.id) {
+            logger.info('ID in metadata does not match ID in URL.');
+            return res.status(400).send('ID in metadata does not match ID in URL.');
+        }
+
+        const packageID = metadata['ID'];
+        const packageName = metadata['Name'];
+        const version = metadata['Version'];
+        const debloat = data['debloat'];
+        let isUrl = false;
+        let content = null;
+        let url = data['URL'];
+
+        if (url) { // if you are given a URL, get the base64 encoded zipped content
+            isUrl = true;
+            try {
+                // if the url is npm, change it to github url
+                if (url.includes('npmjs.com')) {
+                    url = await util.processNPMUrl(url);
+                    if (url == null) { // if the github url could not be extracted
+                        logger.info('Invalid URL');
+                        return res.status(400).send('Invalid URL');
+                    }
+                }
+
+                // Process the URL
+                content = await util.processGithubURL(url);
+                if (content == null) { // if the content could not be extracted, returns null
+                    logger.info('Error processing package content from URL');
+                    return res.status(500).send('Error processing package content from URL');
+                }
+            } catch(error) {
+                logger.error('Error processing package content from URL:', error);
+                return res.status(500).send('Error processing package content');
+            }
+        } 
+        // now that you know you have the zipped file, decoode the content
+        const buffer = Buffer.from(content, 'base64');
+
+        // load the zip file
+        const zip = new AdmZip(buffer);
+        let packageJsonEntry = null;
+
+        // find the package.json file
+        zip.getEntries().forEach(function(zipEntry) {
+            if (zipEntry.entryName.endsWith('package.json')) {
+                packageJsonEntry = zipEntry;
+            }
+        });
+
+        if (!packageJsonEntry) {
+            logger.info('package.json not found in the provided content.');
+            return res.status(500).send('package.json not found in the provided content.');
+        }
+
+        // read and parse package.json
+        const packageJsonContent = packageJsonEntry.getData().toString('utf8');
+        const packageJson = JSON.parse(packageJsonContent);
+
+        if (!url) {
+            const repository = packageJson.repository;
+            if (typeof repository === 'string') {
+                url = repository;
+            } else if (repository && repository.url) {
+                url = repository.url;
+            }
+            url = util.parseRepositoryUrl(url).toString();
+        }
+        logger.info('Package Name:', packageName);
+        logger.info('Repository URL:', url);
+        console.log('Package Name:', packageName);
+        console.log('Repository URL:', url);
+
+        const [package_rating, package_net] = await rate(url);
+
+        if (package_net < 0.5) {
+            logger.info(`Package ${packageName} rating too low: ${package_rating}`);
+            return res.status(424).send('Package rating too low');
+        }
+        // package is now ingestible 
+        let pkgs = await db.getPackagesByNameOrHash(packageName, Package);
+        if (pkgs[0] == false) {
+            if (pkgs[1][0] == -1) {
+                logger.info('Package not found');
+                return res.status(404).send('Package not found'); // possible that there was an error fetching here
+            } else {
+                logger.info('Internal Error: Could not fetch packages');
+                return res.status(500).send('Internal Error: Could not fetch packages');
+            }
+        } else if (Array.isArray(pkgs[1])) { // gets mad if you dont do this
+            // ensure that content only updated by content, url only updated by url
+            if ((isUrl && pkgs[1][0].ingestionMethod == "Content") || (!isUrl && pkgs[1][0].ingestionMethod == "URL")) {
+                logger.info('Ingestion method does not match');
+                return res.status(400).send('Ingestion method does not match');
+            }
+
+            // extract the major, minor, and patch version from input package
+            const [majorKey, minorKey, patchKey] = version.split('.');
+            console.log(majorKey, minorKey, patchKey);
+            logger.info("Extracting major, minor, and patch version from input package");
+            // create list of all packages that have major and minor versions
+            const matches = pkgs[1].filter(pkg=> {
+                const [major, minor] = pkg.version.split('.');
+                return majorKey == major && minorKey == minor;
+            }).map(pkg => pkg.version); // will only store the version string rather than whole package
+            logger.info("Number of matches found: ", matches.length);
+
+            matches.sort((a, b) => {
+                const patchA = parseInt(a.split('.')[2]);
+                const patchB = parseInt(b.split('.')[2]);
+                return patchB - patchA; // sort in descending order
+            });
+
+            //DEBLOATING STUFF GOES HERE
+
+            const newPackageID = SHA256(packageName + version).toString();
+            if (matches.length == 0) {
+                await s3.uploadContentToS3(content, newPackageID);
+                const result = await db.addNewPackage( // talk to adhvik. should be using update package or add new package?
+                    packageName, url, Package, newPackageID, package_rating, version, package_net, 
+                    isUrl ? "URL" : "Content");
+                    
+                if (result[0] == true) {
+                    logger.info(`Package ${packageName} updated with score ${package_rating}, version ${version}, and id ${newPackageID}`);
+                    return res.status(200).send('Package has been updated');
+                }  else {
+                    logger.info('Error updating package');
+                    return res.status(500).send('Error updating package');
+                }
+            } else if (isUrl) {
+                if (matches.includes(version)) { // the version already exists
+                    logger.info('Package with version ${version} already exists');
+                    return res.status(409).send('Package with version ${version} already exists');
+                } else {
+                    await s3.uploadContentToS3(content, newPackageID);
+                    const result = await db.addNewPackage(
+                        packageName, url, Package, newPackageID, package_rating, version, package_net, "URL");
+                    if (result[0] == true) {
+                        logger.info(`Package ${packageName} updated with score ${package_rating}, version ${version}, and id ${newPackageID}`);
+                        return res.status(200).send('Package has been updated');
+                    } else {
+                        logger.info('Error updating package');
+                        return res.status(500).send('Error updating package');
+                    }
+                }
+            } else {
+                // uploaded via content
+                const latestUploadedPatch = parseInt(matches[0].split('.')[2]);
+                if (parseInt(patchKey) > latestUploadedPatch) {
+                    await s3.uploadContentToS3(content, newPackageID);
+                    const result = await db.addNewPackage(
+                        packageName, url, Package, newPackageID, package_rating, version, package_net, "Content");
+                    if (result[0] == true) {
+                        logger.info(`Package ${packageName} updated with score ${package_rating}, version ${version}, and id ${newPackageID}`);
+                        return res.status(200).send('Package has been updated');
+                    } else {
+                        logger.info('Error updating package');
+                        return res.status(500).send('Error updating package');
+                    }
+                } else {
+                    logger.info('Patch version is not the latest');
+                    return res.status(400).send('Patch version is not the latest');
+                }
+            }
+        }
+    }  catch (error) {
+        logger.error(error);
+        return res.status(400).json({ error: 'Bad Request' });
+    }
+});
+
+app.post('/package/byRegEx', async (req, res) => {
+    // Auth heaader stuff
+    const { RegEx } = req.body;
+    if (!RegEx) {
+        return res.status(400).json({ error: 'Malformed Request' });
+    }
+    const [success, packages] = await db.findPackageByRegEx(RegEx, Package);
+    if (!success) {
+        return res.status(500).send('Error retrieving packages');
+    }
+    if(packages.length == 0) {
+        logger.info('No packages found');
+        return res.status(404).send('No packages found');
+    }
+    const formattedPackages = packages.map((pkg: any) => ({
+        Version: pkg.version,
+        Name: pkg.name,
+        ID: pkg.packageId, // Use packageId if available, fallback to id
+    }));
+    return res.status(200).json(formattedPackages);
+});
 // === New /package/:id/cost Endpoint ===
 
 /**
@@ -699,145 +934,6 @@ app.get('/package/:id/cost', async (req, res) => {
     }
 });
 
-
-
-// app.post('/package/:id', async (req, res) => {
-//     try {
-        
-//     } catch (error) {
-//         logger.error(error);
-//         return res.status(400).json({ error: 'Bad Request' });
-//     }
-// });
-
-/**
- * @swagger
- * /packages:
- *   post:
- *     summary: Get the packages from the registry.
- *     description: >
- *       Get any packages fitting the query. Search for packages satisfying the indicated query.
- *       If you want to enumerate all packages, provide an array with a single PackageQuery whose name is "*".
- *       The response is paginated; the response header includes the offset to use in the next query.
- *       In the Request Body below, "Version" has all the possible inputs. The "Version" cannot be a combination of the different possibilities.
- *     parameters:
- *       - in: query
- *         name: offset
- *         schema:
- *           type: string
- *         description: Provide this for pagination. If not provided, returns the first page of results.
- *       - in: header
- *         name: X-Authorization
- *         schema:
- *           type: string
- *         required: true
- *         description: Authentication token.
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: array
- *             items:
- *               type: object
- *               required:
- *                 - Version
- *                 - Name
- *               properties:
- *                 Version:
- *                   type: string
- *                   description: "Exact (1.2.3), Bounded range (1.2.3-2.1.0), Carat (^1.2.3), Tilde (~1.2.0)"
- *                 Name:
- *                   type: string
- *     responses:
- *       200:
- *         description: List of packages
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   Version:
- *                     type: string
- *                   Name:
- *                     type: string
- *                   ID:
- *                     type: string
- *       400:
- *         description: There is missing field(s) in the PackageQuery or it is formed improperly, or is invalid.
- *       403:
- *         description: Authentication failed due to invalid or missing AuthenticationToken.
- *       413:
- *         description: Too many packages returned.
- */
-
-// app.post('/packages', async (req, res) => {
-//     //FIXME: needs to be tweaked to add db functions 
-//     const authToken = req.headers['x-authorization'] as string | undefined;
-//     if (!authToken) {
-//         logger.error('Missing or invalid AuthenticationToken.');
-//         return res.status(403).send('Authentication failed due to invalid or missing AuthenticationToken.');
-//     }
-
-//     try {
-//         const queries: PackageQuery[] = req.body;
-
-//         // Validate that queries is a non-empty array
-//         if (!Array.isArray(queries) || queries.length === 0) {
-//             logger.error('Request body must be a non-empty array of PackageQuery.');
-//             return res.status(400).send('There is missing field(s) in the PackageQuery or it is formed improperly, or is invalid.');
-//         }
-
-//         // Validate each query
-//         for (const query of queries) {
-//             if (!query.Name || !query.Version) {
-//                 logger.error('Each PackageQuery must have Name and Version.');
-//                 return res.status(400).send('There is missing field(s) in the PackageQuery or it is formed improperly, or is invalid.');
-//             }
-//             // Further validation on Version
-//             const versionRegex = /^(?:\^|~)?\d+\.\d+\.\d+(?:-\d+\.\d+\.\d+)?$/;
-//             if (!versionRegex.test(query.Version)) {
-//                 logger.error(`Invalid version format: ${query.Version}`);
-//                 return res.status(400).send('There is missing field(s) in the PackageQuery or it is formed improperly, or is invalid.');
-//             }
-//         }
-
-//         // Handle the case where Name is "*"
-//         if (queries.length === 1 && queries[0].Name === '*') {
-//             // Enumerate all packages
-//             const packages = await db.getAllPackages();
-//             const offset = req.query.offset ? parseInt(req.query.offset as string, 10) : 0;
-//             const limit = 50; // Define a suitable limit
-
-//             const paginatedPackages = packages.slice(offset, offset + limit);
-//             res.setHeader('offset', (offset + limit).toString());
-//             return res.status(200).json(paginatedPackages);
-//         }
-//         //FIXME: spec update maybe gone?
-//         // Perform search based on queries
-//         const result = await db.searchPackages(queries);
-
-//         if (result.length > 1000) { // Define a suitable threshold
-//             logger.warn('Too many packages returned.');
-//             return res.status(413).send('Too many packages returned.');
-//         }
-
-//         // Pagination
-//         const offset = req.query.offset ? parseInt(req.query.offset as string, 10) : 0;
-//         const limit = 50; // Define a suitable limit
-//         const paginatedPackages = result.slice(offset, offset + limit);
-//         res.setHeader('offset', (offset + limit).toString());
-
-//         return res.status(200).json(paginatedPackages);
-
-//     } catch (error) {
-//         logger.error('Error fetching packages:', error);
-//         return res.status(500).send('Error fetching packages');
-//     }
-// });
-
 /*------------------ Extra APIs not in spec ------------------*/
 
 /**
@@ -912,32 +1008,6 @@ app.post('/create-account', async (req, res) => {
         console.error('Error in /create-account:', error);
         return res.status(500).json({ error: 'Server error' });
     }
-});
-
-app.post('/package/byRegEx', async (req, res) => {
-    // Auth heaader stuff
-    const { RegEx } = req.body;
-    if (!RegEx) {
-        return res.status(400).json({ error: 'Malformed Request' });
-    }
-    const [success, packages] = await db.findPackageByRegEx(RegEx, Package);
-    if (!success) {
-        return res.status(500).send('Error retrieving packages');
-    }
-    if(packages.length == 0) {
-        logger.info('No packages found');
-        return res.status(404).send('No packages found');
-    }
-    const formattedPackages = packages.map((pkg: any) => ({
-        Version: pkg.version,
-        Name: pkg.name,
-        ID: pkg.packageId, // Use packageId if available, fallback to id
-    }));
-    return res.status(200).json(formattedPackages);
-});
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
 });
 
 

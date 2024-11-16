@@ -9,49 +9,16 @@ import http from 'isomorphic-git/http/node';
 import fs from 'fs';
 import logger from './logging.js';
 import axios from 'axios';
+import * as s3 from './s3_utils.js';
 import { useCallback } from 'react';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-import AdmZip from 'adm-zip'; // Ensure adm-zip is installed: npm install adm-zip
-import logger from './logging'; // Adjust the import path as necessary
-import { requestContentFromS3 } from './s3_utils'; // Adjust the import path as necessary
-
 // Interface for Package JSON structure
 export interface PackageJson {
     dependencies?: { [key: string]: string };
     [key: string]: any; // To accommodate other possible fields
-}
-
-/**
- * Extracts the package name from a given URL.
- * @param {string} url - The URL to extract the package name from.
- * @returns {string | null} - The extracted package name or null if not found.
- */
-import fs from 'fs';
-
-export function extractPackageName(url: string): string | null {
-    const GITHUB_URL_PATTERN = /^https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
-    const NPM_URL_PATTERN = /^https:\/\/www\.npmjs\.com\/package\/([^\/]+)/;
-
-    try {
-        const parsedUrl = new URL(url);
-
-        if (GITHUB_URL_PATTERN.test(parsedUrl.toString())) {
-            const match = GITHUB_URL_PATTERN.exec(parsedUrl.toString());
-            return match ? match[2] : null; // Return the repository name
-        } else if (NPM_URL_PATTERN.test(parsedUrl.toString())) {
-            const match = NPM_URL_PATTERN.exec(parsedUrl.toString());
-            return match ? match[1] : null; // Return the package name
-        } else {
-            console.error('Unsupported URL type.');
-            return null;
-        }
-    } catch (error) {
-        console.error('Invalid URL:', error);
-        return null;
-    }
 }
 
 /**
@@ -157,7 +124,7 @@ export async function processNPMUrl(url: string): Promise<string | null> {
 export async function calculatePackageSize(hashKey: string): Promise<number> {
     try {
         // Retrieve the Base64-encoded content from S3
-        const buffer = await requestContentFromS3(hashKey);
+        const buffer = await s3.requestContentFromS3(hashKey);
         const base64Content = buffer.toString('utf8');
 
         // Decode the Base64 content to get binary data
@@ -181,7 +148,7 @@ export async function calculatePackageSize(hashKey: string): Promise<number> {
 export async function getPackageDependencies(hashKey: string): Promise<string[]> {
     try {
         // Retrieve the Base64-encoded content from S3
-        const buffer = await requestContentFromS3(hashKey);
+        const buffer = await s3.requestContentFromS3(hashKey);
         const base64Content = buffer.toString('utf8');
 
         // Decode the Base64 content to get binary data

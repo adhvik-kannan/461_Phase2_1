@@ -58,96 +58,7 @@ export async function addNewPackage(name: String, url: String, Package: mongoose
     }
 }
 
-/**
- * Update the version of a given package
- * @param name Package name
- * @param newVersion New version of the package
- * @returns The updated package or an error
- */
-export async function updatePackageVersion(name: string, newVersion: string, Package: mongoose.Model<any>) {
-    try {
-        // Find the package by name
-        const packageDoc = await Package.findOne({ name });
 
-        if (packageDoc) {
-            // Set the new version
-            packageDoc.version = newVersion;
-
-            // Save the updated document
-            const updatedPackage = await packageDoc.save();
-            logger.info('Package updated:', updatedPackage);
-            return [true, updatedPackage];
-        } else {
-            logger.info('Package not found');
-            return [false, Error(`Package ${name} not found`)];
-        }
-    } catch (error) {
-        logger.debug('Error updating package:', error);
-        return [false, error];
-    }
-}
-
-/**
- * Updates the score for a given package
- * @param name Package name
- * @param newScore New score for the package
- * @returns Updated package or error
- */
-export async function updatePackageScore(name: string, newScore: string, Package: mongoose.Model<any>) {
-    try {
-        const result = await Package.updateOne(
-            { name },
-            { $set: { score: newScore } }
-        );
-        if(result.matchedCount == 0 || result.modifiedCount == 0) {
-            logger.info('Package not found');
-            return [false, Error(`Error updating package`)];
-        }
-        logger.info('Update result:', result);
-        return [true, result];
-    } catch (error) {
-        logger.debug('Error updating package:', error);
-        return [false, error];
-    }
-}
-
-/**
- * Deletes the connected database and then disconnects from Mongo
- * @returns error if it cannot delete a database
- */
-// export async function deleteDB() {
-//     try {
-//         const db = mongoose.connection.db;
-//         if (!db) {
-//             logger.debug('No database found');
-//             return [false, Error('No database found')];
-//         }
-//         const success = await db.dropDatabase();
-//         logger.info('Database deleted successfully');
-//         return [true, success];
-//     } catch (error) {
-//         logger.debug('Error deleting database:', error);
-//         return [false, error];
-//     } finally {
-//         await mongoose.disconnect();
-//         logger.info('Disconnected from MongoDB');
-//     }
-// }
-
-/**
- * Removes package collection from the database 
- * @returns error or nothing
- */
-export async function removePackageCollection(Package: mongoose.Model<any>) {
-    try {
-        await Package.collection.drop();
-        logger.info('Package collection removed');
-        return [true, null]
-    } catch (error) {
-        logger.debug('Error removing collection:', error);
-        return [false, error];
-    }
-}
 
 /**
  * Gets all the packages in the collection
@@ -175,7 +86,21 @@ export async function getPackagesByNameOrHash(identifier: string, Package: mongo
       // Find all packages where `name` or `hash` matches the identifier and sort by version
       const packages = await Package.find({
         $or: [{ name: identifier }, { packageId: identifier }],
-      }).sort({ version: -1 });
+      });
+    packages.sort((a, b) => {
+      const versionA = a.version.split('.').map(Number);
+      const versionB = b.version.split('.').map(Number);
+
+      for (let i = 0; i < Math.max(versionA.length, versionB.length); i++) {
+        const numA = versionA[i] || 0;
+        const numB = versionB[i] || 0;
+
+        if (numA > numB) return -1;
+        if (numA < numB) return 1;
+      }
+
+      return 0;
+    });
   
       if (packages.length === 0) {
         console.log('No packages found with the name or hash:', identifier);
@@ -188,30 +113,8 @@ export async function getPackagesByNameOrHash(identifier: string, Package: mongo
       console.error('Error fetching packages:', error);
       return [false, error];
     }
-  }
-  
-
-/**
- * Finds and gets all packages that have the partial name in their name
- * @param partialName Partial name to look for
- * @returns All packages with the partial name or error
- */
-export async function findPackagesByPartialName(partialName: string, Package: mongoose.Model<any>) {
-    try {
-        // Use regex to find packages where the name contains the partial string (case-insensitive)
-        const pkgs = await Package.find({ name: { $regex: partialName, $options: 'i' } });
-        
-        if (pkgs.length > 0) {
-            logger.info('Found packages:', pkgs);
-        } else {
-            logger.info('No packages found with the partial name:', partialName);
-        }
-        return [true, pkgs]
-    } catch (error) {
-        logger.debug('Error fetching packages:', error);
-        return [false, error];
-    }
 }
+  
 
 export async function findPackageByRegEx(regex: string, Package: mongoose.Model<any>) {
     try {
@@ -225,27 +128,6 @@ export async function findPackageByRegEx(regex: string, Package: mongoose.Model<
         return [true, results];
     } catch (error) {
         logger.debug('Error fetching packages:', error);
-        return [false, error];
-    }
-}
-
-// export async function findPackageByRegEx(regex: string, Package: mongoose.Model<any>) {
-//     try {
-//         const results = await Package.find({ name: regex }); // Apply the regex
-//         return [true, results];
-//     } catch(error) {
-//         logger.debug('Error fetching packages:', error);
-//         return [false, error];
-//     }
-// }
-
-export async function removePackageVersion(id: string, Package: mongoose.Model<any>) {
-    try {
-        const result = await Package.deleteOne({ id });
-        logger.info('Package removed:', result);
-        return [true, result];
-    } catch (error) {
-        logger.debug('Error removing package:', error);
         return [false, error];
     }
 }
