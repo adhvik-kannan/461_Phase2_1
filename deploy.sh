@@ -27,9 +27,13 @@ stop_process_on_port 3001
 echo "Installing dependencies using './run install'..." >> $LOG_FILE
 ./run install >> $LOG_FILE 2>&1
 
-# Start the application using npm run bstart
-echo "Starting the application using 'npm run bstart'..." >> $LOG_FILE
-npm run bstart >> $LOG_FILE 2>&1
+# Start the backend server in the background
+echo "Starting backend server in the background..." >> $LOG_FILE
+nohup npm run start:backend > $LOG_FILE 2>&1 &
+
+# Start the frontend server in the background
+echo "Starting frontend server in the background..." >> $LOG_FILE
+nohup npm run start > $LOG_FILE 2>&1 &
 
 # Log deployment completion
 if [ "$LOG_LEVEL" -eq 1 ]; then
