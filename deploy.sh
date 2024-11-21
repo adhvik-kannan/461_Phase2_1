@@ -20,8 +20,8 @@ fi
 
 # Stop processes running on ports 3000 and 3001
 echo "Stopping processes on ports 3000 and 3001..." >> $LOG_FILE
-stop_process_on_port 3000
-stop_process_on_port 3001
+stop_process_on_port 8080
+stop_process_on_port 8081
 
 # Install dependencies using ./run install
 echo "Installing dependencies using './run install'..." >> $LOG_FILE

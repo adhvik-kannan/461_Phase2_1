@@ -14,6 +14,7 @@ jobs:
       LOG_FILE: "./logfile.txt"      # Define log file path
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PORT: 8080
+      REACT_APP_BACKEND_PORT: 8081
       
     steps:
     - name: Checkout repository
@@ -46,6 +47,7 @@ jobs:
         export LOG_FILE=${{ env.LOG_FILE }}        # Set log file path on EC2
         export GITHUB_TOKEN=${{ env.GITHUB_TOKEN }}  # Set GitHub token on EC2
         export PORT=${{ env.PORT }}                # Set port on EC2
+        export REACT_APP_BACKEND_PORT=${{ env.REACT_APP_BACKEND_PORT }}  # Set backend port on EC2
         # Run the deployment script
         echo "Running deployment script..."
         ./deploy.sh
