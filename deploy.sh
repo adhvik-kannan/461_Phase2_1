@@ -29,11 +29,11 @@ echo "Installing dependencies using './run install'..." >> $LOG_FILE
 
 # Start the backend server in the background
 echo "Starting backend server in the background..." >> $LOG_FILE
-nohup npm run start:backend > $LOG_FILE 2>&1 &
+nohup npm run bstart > $LOG_FILE 2>&1 &
 
-# Start the frontend server in the background
-echo "Starting frontend server in the background..." >> $LOG_FILE
-nohup npm run start > $LOG_FILE 2>&1 &
+# # Start the frontend server in the background
+# echo "Starting frontend server in the background..." >> $LOG_FILE
+# nohup npm run start > $LOG_FILE 2>&1 &
 
 # Log deployment completion
 if [ "$LOG_LEVEL" -eq 1 ]; then
