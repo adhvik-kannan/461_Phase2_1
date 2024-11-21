@@ -31,7 +31,7 @@ jobs:
 
         # Clone the repository afresh
         echo "Cloning fresh repository..."
-        git clone https://github.com/AWV2804/461_Phase2_1.git
+        git clone https://github.com/adhvik-kannan/461_Phase2_1.git
 
         # Navigate to the repository and switch to the integration/1.0 branch
         cd 461_Phase2_1
