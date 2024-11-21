@@ -23,13 +23,6 @@ jobs:
         echo "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem  # Write the PEM key from the secret to a file
         chmod 600 new_aws_access.pem  # Secure the key file
         ssh -o StrictHostKeyChecking=no -i new_aws_access.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP_ADDRESS }} << 'EOF'
-        if [ ! -d "461_Phase2_1" ]; then
-          git clone https://github.com/AWV2804/461_Phase2_1.git
-        fi
-        cd 461_Phase2
-        echo "Switching to the integration branch"
-        git checkout integration/1.0
-        git pull origin integration/1.0
         chmod +x deploy.sh
         export LOG_LEVEL=${{ env.LOG_LEVEL }}      # Set log level on EC2
         export LOG_FILE=${{ env.LOG_FILE }}        # Set log file path on EC2
@@ -37,4 +30,3 @@ jobs:
         echo "Starting deployment script"
         ./deploy.sh
         EOF
-        
