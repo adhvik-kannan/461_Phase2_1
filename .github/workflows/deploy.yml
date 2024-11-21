@@ -23,10 +23,29 @@ jobs:
         echo "${{ secrets.AWS_PEM_KEY }}" > new_aws_access.pem  # Write the PEM key from the secret to a file
         chmod 600 new_aws_access.pem  # Secure the key file
         ssh -o StrictHostKeyChecking=no -i new_aws_access.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP_ADDRESS }} << 'EOF'
+        # Remove existing repository if it exists
+        if [ -d "461_Phase2_1" ]; then
+          echo "Removing existing repository..."
+          rm -rf 461_Phase2_1
+        fi
+
+        # Clone the repository afresh
+        echo "Cloning fresh repository..."
+        git clone https://github.com/AWV2804/461_Phase2_1.git
+
+        # Navigate to the repository and switch to the integration/1.0 branch
+        cd 461_Phase2_1
+        git checkout integration/1.0
+
+        # Make the deploy script executable
         chmod +x deploy.sh
+
+        # Set environment variables
         export LOG_LEVEL=${{ env.LOG_LEVEL }}      # Set log level on EC2
         export LOG_FILE=${{ env.LOG_FILE }}        # Set log file path on EC2
         export GITHUB_TOKEN=${{ env.GITHUB_TOKEN }}  # Set GitHub token on EC2
-        echo "Starting deployment script"
+
+        # Run the deployment script
+        echo "Running deployment script..."
         ./deploy.sh
         EOF

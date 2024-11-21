@@ -23,20 +23,6 @@ echo "Stopping processes on ports 3000 and 3001..." >> $LOG_FILE
 stop_process_on_port 3000
 stop_process_on_port 3001
 
-# Delete existing repository and clone fresh
-echo "Checking for existing repository..." >> $LOG_FILE
-if [ -d "461_Phase2_1" ]; then
-  echo "Deleting existing repository..." >> $LOG_FILE
-  rm -rf 461_Phase2_1 >> $LOG_FILE 2>&1
-fi
-
-echo "Cloning fresh repository..." >> $LOG_FILE
-git clone https://github.com/AWV2804/461_Phase2_1.git >> $LOG_FILE 2>&1
-
-cd 461_Phase2_1
-echo "Switching to the integration/1.0 branch..." >> $LOG_FILE
-git checkout integration/1.0 >> $LOG_FILE 2>&1
-
 # Install dependencies using ./run install
 echo "Installing dependencies using './run install'..." >> $LOG_FILE
 ./run install >> $LOG_FILE 2>&1
