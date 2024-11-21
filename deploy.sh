@@ -1,23 +1,41 @@
 #!/bin/bash
 
-# Log deployment details to ./logfile.txt
+# Function to stop any process running on a given port
+stop_process_on_port() {
+  local port=$1
+  local pid
+  pid=$(lsof -t -i:$port)  # Find process ID using the port
+  if [ -n "$pid" ]; then
+    echo "Stopping process $pid running on port $port..." >> $LOG_FILE
+    kill -9 "$pid"
+  else
+    echo "No process running on port $port" >> $LOG_FILE
+  fi
+}
+
+# Log deployment start
 if [ "$LOG_LEVEL" -eq 1 ]; then
   echo "Deployment started at $(date)" >> $LOG_FILE
 fi
 
+# Stop processes running on ports 3000 and 3001
+echo "Stopping processes on ports 3000 and 3001..." >> $LOG_FILE
+stop_process_on_port 3000
+stop_process_on_port 3001
+
 # Pull the latest code and log output
-# echo "Pulling latest code from GitHub..." >> $LOG_FILE
+echo "Pulling the latest code from GitHub..." >> $LOG_FILE
 git pull origin integration/1.0 >> $LOG_FILE 2>&1
 
 # Install dependencies using ./run install
-echo "Running './run install' to install dependencies..." >> $LOG_FILE
+echo "Installing dependencies using './run install'..." >> $LOG_FILE
 ./run install >> $LOG_FILE 2>&1
 
-# Deploy the application using ./run URL_FILE
-# Replace URL_FILE with the actual file or parameter you want to process
-URL_FILE="src/URL_FILE.txt"  # Update this with the actual file you want to process
-echo "Deploying application with './run $URL_FILE'..." >> $LOG_FILE
-./run "$URL_FILE" >> $LOG_FILE 2>&1
+# Start the application using npm run bstart
+echo "Starting the application using 'npm run bstart'..." >> $LOG_FILE
+npm run bstart >> $LOG_FILE 2>&1
 
-# Log the deployment completion
-echo "Deployment completed at $(date)" >> $LOG_FILE
+# Log deployment completion
+if [ "$LOG_LEVEL" -eq 1 ]; then
+  echo "Deployment completed at $(date)" >> $LOG_FILE
+fi
