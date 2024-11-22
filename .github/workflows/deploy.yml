@@ -32,7 +32,7 @@ jobs:
       run: npm run build
     
     - name: Archive build folder
-      run: tar -czvf build.tar.gz dist
+      run: tar -czvf build.tar.gz build
 
     - name: Deploy application to EC2
       run: |
