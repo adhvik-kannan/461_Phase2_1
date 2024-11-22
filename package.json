@@ -11,7 +11,7 @@
     "prebuild": "find src/frontend/src -type f -name '*.js' -delete",
     "build:frontend": "react-scripts build",
     "build:backend": "tsc",
-    "build": "npm run build:frontend && npm run build:backend",
+    "build": "npm run build:backend && npm run build:frontend",
     "test_frontend": "react-scripts test",
     "eject": "react-scripts eject",
     "start:backend": "tsx src/openAPI_controller.ts",
