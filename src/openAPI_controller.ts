@@ -2,7 +2,7 @@ import express from 'express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import * as util from './utils.js';
-import * as db from './database';
+import * as db from './database.js';
 import { rate } from './rate.js';
 import cors from 'cors';
 import logger from './logging.js';
@@ -13,7 +13,7 @@ import git from 'isomorphic-git';
 import http from 'isomorphic-git/http/node';
 import fs from 'fs';
 import path from 'path';
-import * as s3 from './s3_utils';
+import * as s3 from './s3_utils.js';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 

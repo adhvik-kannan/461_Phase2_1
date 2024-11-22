@@ -89,5 +89,6 @@ jobs:
         echo "Starting backend server in the background..." >> $LOG_FILE
         mkdir public
         mv index.html public/index.html
+        mv dist src/
         nohup npm run start:dev > $LOG_FILE 2>&1 &
         EOF

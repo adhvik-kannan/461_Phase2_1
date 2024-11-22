@@ -15,7 +15,7 @@
     "test_frontend": "react-scripts test",
     "eject": "react-scripts eject",
     "start:backend": "tsx src/openAPI_controller.ts",
-    "start:backend:dev": "node dist/openAPI_controller.js",
+    "start:backend:dev": "node src/openAPI_controller.js",
     "start:frontend": "react-scripts start", 
     "start:dev": "concurrently \"npm run start:backend:dev\" \"npm run start:frontend\"",  
     "bstart": "concurrently \"npm run prestart\" \"npm run start:backend\" \"react-scripts start\""
