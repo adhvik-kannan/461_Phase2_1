@@ -36,6 +36,7 @@ jobs:
         cp -r dist build/
         cp -r node_modules build/
         cp package.json package-lock.json build/
+        mv build/index.html build/public/index.html
         tar -czvf build.tar.gz build
 
     - name: Deploy application to EC2
