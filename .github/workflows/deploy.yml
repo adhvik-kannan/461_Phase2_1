@@ -12,7 +12,7 @@ jobs:
     env:
       LOG_LEVEL: 1                  # Set log level to 0
       LOG_FILE: "./logfile.txt"      # Define log file path
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.TOKEN }}
       PORT: 8080
       REACT_APP_BACKEND_PORT: 8081
       KILL_PORTS: 8080,8081
