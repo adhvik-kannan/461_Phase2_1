@@ -33,7 +33,7 @@ jobs:
     
     - name: Archive build folder
       run: |
-        cp -r dist build/
+        find src -name '*.js' -exec cp --parents \{\} build/ \;
         cp -r node_modules build/
         cp package.json package-lock.json build/
         tar -czvf build.tar.gz build
@@ -89,6 +89,5 @@ jobs:
         echo "Starting backend server in the background..." >> $LOG_FILE
         mkdir public
         mv index.html public/index.html
-        mv dist src/
         nohup npm run start:dev > $LOG_FILE 2>&1 &
         EOF

@@ -114,7 +114,7 @@
       "types": ["jest", "node"],
       "module": "ESNext",
       "target": "ES2015",
-      "outDir": "./dist",
+      "outDir": "./src",
       "typeRoots": [
         "./node_modules/@types"
       ],
