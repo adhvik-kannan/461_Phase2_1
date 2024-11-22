@@ -88,5 +88,7 @@ jobs:
           echo "No process found on port 8081."
         fi
         echo "Starting backend server in the background..." >> $LOG_FILE
+        mkdir public
+        mv index.html public/index.html
         nohup npm run start:dev > $LOG_FILE 2>&1 &
         EOF
