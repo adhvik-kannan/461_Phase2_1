@@ -75,7 +75,7 @@ const swaggerOptions = {
                     url: `http://localhost:${BACKEND_PORT}`,
                 },
                 {
-                    url: 'https://ec2-44-203-190-36.compute-1.amazonaws.com',
+                    url: 'https://ec2-54-159-170-205.compute-1.amazonaws.com',
                 }
             ]
         }
