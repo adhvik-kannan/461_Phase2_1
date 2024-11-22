@@ -15,7 +15,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PORT: 8080
       REACT_APP_BACKEND_PORT: 8081
-      
+      KILL_PORTS: 8080,8081
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -41,9 +41,9 @@ jobs:
         scp -o StrictHostKeyChecking=no -i new_aws_access.pem build.tar.gz ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP_ADDRESS }}:/home/${{ secrets.EC2_USER }}/build.tar.gz
         ssh -o StrictHostKeyChecking=no -i new_aws_access.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_IP_ADDRESS }} << 'EOF'
         # Remove existing repository if it exists
-        if [ -d "461_Phase2_1" ]; then
+        if [ -d "build" ]; then
           echo "Removing existing repository..."
-          rm -rf 461_Phase2_1
+          rm -rf build
         fi
         tar -xzf /home/${{ secrets.EC2_USER}}/build.tar.gz -C /home/${{ secrets.EC2_USER }}/  # Extract the build folder
 
@@ -56,5 +56,32 @@ jobs:
         # Run the deployment script
         echo "Running deployment script..."
         cd /home/${{ secrets.EC2_USER }}/build
-        ./deploy.sh
+        PID_8080=$(lsof -t -i:8080)
+        if [ -n "$PID_8080" ]; then
+          echo "Killing process $PID_8080 on port 8080..."
+          kill -9 $PID_8080
+          if [ $? -eq 0 ]; then
+            echo "Successfully killed process $PID_8080 on port 8080."
+          else
+            echo "Failed to kill process $PID_8080 on port 8080."
+          fi
+        else
+          echo "No process found on port 8080."
+        fi
+
+        # Check port 8081
+        PID_8081=$(lsof -t -i:8081)
+        if [ -n "$PID_8081" ]; then
+          echo "Killing process $PID_8081 on port 8081..."
+          kill -9 $PID_8081
+          if [ $? -eq 0 ]; then
+            echo "Successfully killed process $PID_8081 on port 8081."
+          else
+            echo "Failed to kill process $PID_8081 on port 8081."
+          fi
+        else
+          echo "No process found on port 8081."
+        fi
+        echo "Starting backend server in the background..." >> $LOG_FILE
+        nohup npm run bstart > $LOG_FILE 2>&1 &
         EOF
