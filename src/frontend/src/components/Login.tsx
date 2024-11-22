@@ -16,8 +16,9 @@ const Login: React.FC = () => {
   // Dynamically construct the backend URL based on the current host
   const constructBackendUrl = (path: string): string => {
     const { protocol, hostname } = window.location;
-    return `${protocol}//${hostname}:${process.env.REACT_APP_BACKEND_PORT}${path}`;
+    return `${protocol}//128.46.4.98:${process.env.REACT_APP_BACKEND_PORT}${path}`;
   };
+  console.log(constructBackendUrl('/authenticate'));
   // Handle the login action
   const handleLogin = async () => {
     try {

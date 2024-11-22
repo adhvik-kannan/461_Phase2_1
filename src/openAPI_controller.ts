@@ -45,14 +45,14 @@ dotenv.config();
 // Frontend connnection setup
 const FRONTEND_PORT = process.env.PORT || 3001;
 app.use(cors({
-    origin: `http://localhost:${FRONTEND_PORT}`, // Frontend's URL
+    origin: [`http://localhost:${FRONTEND_PORT}`, `https://ec2-54-159-170-205.compute-1.amazonaws.com`], // Frontend's URL
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true, // If you need to send cookies or auth headers
   }));
 console.log(`Frontend is running on port ${FRONTEND_PORT}`);
 
 // Backend config setup
-const BACKEND_PORT = process.env.REACT_APP_BACKEND_PORT || 3000;
+const BACKEND_PORT = (process.env.REACT_APP_BACKEND_PORT || 3000) as number;
 
 app.listen(BACKEND_PORT, () => {
     console.log(`Server is running on port ${BACKEND_PORT}`);
