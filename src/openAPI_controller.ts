@@ -45,7 +45,7 @@ dotenv.config();
 // Frontend connnection setup
 const FRONTEND_PORT = process.env.PORT || 3001;
 app.use(cors({
-    origin: [`http://localhost:${FRONTEND_PORT}`, `https://ec2-54-159-170-205.compute-1.amazonaws.com`], // Frontend's URL
+    origin: [`http://localhost:${FRONTEND_PORT}`, `https://${process.env.EC2_IP_ADDRESS}`], // Frontend's URL
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true, // If you need to send cookies or auth headers
   }));
@@ -75,7 +75,7 @@ const swaggerOptions = {
                     url: `http://localhost:${BACKEND_PORT}`,
                 },
                 {
-                    url: 'https://ec2-54-159-170-205.compute-1.amazonaws.com',
+                    url: `https://${process.env.EC2_IP_ADDRESS}`,
                 }
             ]
         }

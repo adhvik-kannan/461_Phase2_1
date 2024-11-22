@@ -15,7 +15,8 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.TOKEN }}
       PORT: 8080
       REACT_APP_BACKEND_PORT: 8081
-      KILL_PORTS: 8080,8081
+      EC2_IP_ADDRESS: ${{ secrets.EC2_IP_ADDRESS }}
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -58,6 +59,7 @@ jobs:
         export GITHUB_TOKEN=${{ env.GITHUB_TOKEN }}  # Set GitHub token on EC2
         export PORT=${{ env.PORT }}                # Set port on EC2
         export REACT_APP_BACKEND_PORT=${{ env.REACT_APP_BACKEND_PORT }}  # Set backend port on EC2
+        export EC2_IP_ADDRESS=${{ secrets.EC2_IP_ADDRESS }}  # Set EC2 IP address on EC2
         # Run the deployment script
         echo "Running deployment script..."
         cd /home/${{ secrets.EC2_USER }}/build
