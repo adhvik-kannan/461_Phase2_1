@@ -32,7 +32,11 @@ jobs:
       run: npm run build
     
     - name: Archive build folder
-      run: tar -czvf build.tar.gz build
+      run: |
+        cp -r dist build/
+        cp -r node_modules build/
+        cp package.json package-lock.json build/
+        tar -czvf build.tar.gz build
 
     - name: Deploy application to EC2
       run: |
@@ -83,5 +87,5 @@ jobs:
           echo "No process found on port 8081."
         fi
         echo "Starting backend server in the background..." >> $LOG_FILE
-        nohup npm run bstart > $LOG_FILE 2>&1 &
+        nohup npm run start:dev > $LOG_FILE 2>&1 &
         EOF
