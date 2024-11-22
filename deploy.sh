@@ -24,8 +24,8 @@ stop_process_on_port 8080
 stop_process_on_port 8081
 
 # Install dependencies using ./run install
-echo "Installing dependencies using './run install'..." >> $LOG_FILE
-./run install >> $LOG_FILE 2>&1
+# echo "Installing dependencies using './run install'..." >> $LOG_FILE
+# ./run install >> $LOG_FILE 2>&1
 
 # Start the backend server in the background
 echo "Starting backend server in the background..." >> $LOG_FILE
