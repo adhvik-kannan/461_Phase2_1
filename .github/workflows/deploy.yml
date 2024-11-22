@@ -34,6 +34,7 @@ jobs:
     - name: Archive build folder
       run: |
         find src -name '*.js' -exec cp --parents \{\} build/ \;
+        cp -r src/frontend/src/components/Styling build/src/frontend/src/components/
         cp -r node_modules build/
         cp package.json package-lock.json build/
         tar -czvf build.tar.gz build
