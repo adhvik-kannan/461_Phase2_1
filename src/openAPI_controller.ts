@@ -45,7 +45,7 @@ dotenv.config();
 // Frontend connnection setup
 const FRONTEND_PORT = process.env.PORT || 3001;
 app.use(cors({
-    origin: [`http://localhost:${FRONTEND_PORT}`, `https://${process.env.EC2_IP_ADDRESS}`], // Frontend's URL
+    origin: [`http://localhost:${FRONTEND_PORT}`, `http://${process.env.EC2_IP_ADDRESS}:${FRONTEND_PORT}`], // Frontend's URL
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true, // If you need to send cookies or auth headers
   }));

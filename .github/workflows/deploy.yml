@@ -59,7 +59,7 @@ jobs:
         export GITHUB_TOKEN=${{ env.GITHUB_TOKEN }}  # Set GitHub token on EC2
         export PORT=${{ env.PORT }}                # Set port on EC2
         export REACT_APP_BACKEND_PORT=${{ env.REACT_APP_BACKEND_PORT }}  # Set backend port on EC2
-        export EC2_IP_ADDRESS=${{ secrets.EC2_IP_ADDRESS }}  # Set EC2 IP address on EC2
+        export EC2_IP_ADDRESS=${{ env.EC2_IP_ADDRESS }}  # Set EC2 IP address on EC2
         # Run the deployment script
         echo "Running deployment script..."
         cd /home/${{ secrets.EC2_USER }}/build
